@@ -1,0 +1,56 @@
+%The next two commands are defined by the user in order to create a table insid the front page where to place the details of the thesis (name, matriculation number, master program and supervisor)
+
+\newcommand\textline[4][t]{%
+  \par\smallskip\noindent\parbox[#1]{.333\textwidth}{\large\raggedright\texttt{}#2}%
+  \parbox[#1]{.333\textwidth}{\large\centering\textbf{#3}}%
+  \parbox[#1]{.333\textwidth}{\raggedleft\texttt{#4}}\par\smallskip%
+}
+
+\newcommand\specialtxtl[4][t]{%
+  \par\smallskip\noindent\parbox[#1]{.2\textwidth}{\large\raggedright\texttt{}#2}%
+  \parbox[#1]{.6\textwidth}{\LARGE\centering\textbf{#3}}%
+  \parbox[#1]{.2\textwidth}{\raggedleft\texttt{#4}}\par\smallskip%
+}
+
+%%%%!!!! IMPORTANT, if your name is too long and the program splits it up in two different lines, you can play with the 'textwidth' paramenter in the \newgeometry{} command as well as the text width on the command \textline, above this lines. I recommend you to do so only if necessary, otherwise you might screw up the layout of the page.
+
+\begin{titlepage}
+    \newgeometry{voffset=-15.2mm,textwidth=430pt,headheight=0pt,textheight=740pt} % BE VERY CAREFUL with the geometry definitions here. This might screw up the layout of the page. The only ones which is not set to default is `voffset` and `textwidth`
+  
+    \centering
+
+    \makebox[0pt]{\includegraphics{title_header}}   %if the quality is not good enough when converting the PDF, you might want to try a vector image instead.
+    
+      \begin{framed}
+        \LARGE
+        \vspace{1cm}
+        \textbf{Experimental Characterization of some new technology we have to develop, with applications in space walks}
+        \vspace{1cm}
+      \end{framed}
+
+      \LARGE
+      \vspace{.7cm}
+      \textbf{Master Thesis}
+
+      \vspace{1.0cm}
+      \textline[t]{Submitted by:}{\LARGE Author Name}{}
+
+      \textline[t]{Matriculation Number:}{\LARGE 12345678901}{}
+
+      \vspace{1.0cm}
+
+      \specialtxtl[t]{at:}{Master's program}{}
+
+      \textbf{``Aerospace Engineering''}
+
+      \vspace{2.5cm}
+      \specialtxtl[t]{Supervisor:}{Supervisor 1 Name}{}
+      \textbf{\LARGE Supervisor 2 Name}
+
+      \vspace{\fill}
+      \normalsize
+      \raggedright Wiener Neustadt, \today
+      
+      \rule{\textwidth}{.5pt}
+      
+\end{titlepage}
