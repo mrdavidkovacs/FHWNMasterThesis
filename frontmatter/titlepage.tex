@@ -1,5 +1,5 @@
 % !TeX root = ../main.tex
-%The next two commands are defined by the user in order to create a table insid the front page where to place the details of the thesis (name, matriculation number, master program and supervisor)
+%The next two commands are defined by the user in order to create a table inside the front page where to place the details of the thesis (name, matriculation number, master program and supervisor)
 
 \newcommand\textline[4][t]{%
   \par\smallskip\noindent\parbox[#1]{.333\textwidth}{\large\raggedright\texttt{}#2}%
@@ -18,9 +18,9 @@
 \begin{titlepage}
     \newgeometry{voffset=-15.2mm,textwidth=420pt,headheight=0pt,textheight=740pt} % BE VERY CAREFUL with the geometry definitions here. This might screw up the layout of the page. The only ones which is not set to default is `voffset` and `textwidth`
   
-    \centering
+    \makebox[0pt]{\includegraphics[width=6cm]{fhwn-logo}}   %if the quality is not good enough when converting the PDF, you might want to try a vector image instead.
 
-    \makebox[0pt]{\includegraphics{title_header}}   %if the quality is not good enough when converting the PDF, you might want to try a vector image instead.
+    \centering
     
       \begin{framed}
         \LARGE
@@ -34,7 +34,7 @@
       \textbf{Master Thesis}
 
       \vspace{1.0cm}
-      \textline[t]{Submitted by:}{\LARGE David Kovacs}{}
+      \textline[t]{Submitted by:}{\LARGE David Kovacs, MSc}{}
 
       \textline[t]{Matriculation Number:}{\LARGE 00851488}{}
 
@@ -42,10 +42,11 @@
 
       \specialtxtl[t]{at:}{Master's program}{}
 
-      \textbf{``Software Architecture and Design''}
+      %\textbf{``Software Architecture and Design''}
+      \textbf{``Informatics''}
 
       \vspace{2.5cm}
-      \specialtxtl[t]{Supervisor:}{Dr. Dr. Ingo Feinerer}{}
+      \specialtxtl[t]{Supervisor:}{Priv.-Doz. Dr. Dr. Ingo Feinerer}{}
       %\textbf{\LARGE Supervisor 2 Name}
 
       \vspace{\fill}
