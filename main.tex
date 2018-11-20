@@ -15,9 +15,18 @@
 %   Version:        1.0    
 
         %----------------------------------------------------%
-\documentclass[oneside,12pt,bibtotoc,]{report}
+\documentclass[oneside,12pt,bibliography=totoc]{scrbook}
 
-%'oneside' specifies that the pages will be printed on one sides of a every page. If you want to print on both sides of your pages use the pareameter 'twoside'. Remember to order the printing job on one side of every page!!!
+\subject{Master's Thesis}
+\title{An analysis of share movement and sentiment of tweets: detailed analysis of automotive companies.}
+%\subtitle{A fiction story telling the truth}
+\author{David Kovacs, MSc}
+%\publishers{Published by the publisher\\ at a secret location}
+%\extratitle{Stories of ducks}
+%\uppertitleback{\vspace{3cm}I want to thank Scrooge MacDuck for his financial Support}
+\date{\today}
+
+%'oneside' specifies that the pages will be printed on one sides of a every page. If you want to print on both sides of your pages use the parameter 'twoside'. Remember to order the printing job on one side of every page!!!
 
 
     %%%%------------------PREAMBLE----------------%%%%
@@ -26,7 +35,7 @@
     %%%%%-------------------PACKAGES-----------------%%%%% 
     
 %\usepackage[utf8]{inputenc}
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}   %allows to change margins and distances within the page's frame. Be careful with this tool. Remember to delete the frame!!!!
+\usepackage[a4paper,top=25mm,bottom=30mm,left=30mm,right=25mm]{geometry}   %allows to change margins and distances within the page's frame. Be careful with this tool. Remember to delete the frame!!!!
 
 %\usepackage{showframe}
 %\usepackage[english]{babel}    %the package babel is not necessary as long as you write your thesis in English.
@@ -40,7 +49,6 @@
 \usepackage[final]{pdfpages}
 \usepackage{soul}       %provides hyphenatable letterspacing, underlining and some derivatives such as everstriking and highlighting.
 %\usepackage{nomencl}   %helps to format a nomenclature.
-%\usepackage{setspace}  %Allows you to specify the line spacing for all sections and paragraphs
 
 \usepackage[UKenglish]{isodate} %Provides the format for the date on the title page. Read the package documentation for all the possible date formats.
 
@@ -50,19 +58,37 @@
 \usepackage{caption}
 %\usepackage{abstract}   %This package allows to modify the Abstract style, position and font. Defines the abstract automatically.
 \usepackage{supertabular}
+\usepackage{tabto}
 
-\usepackage{fancyhdr}   %Uncomment it if you want to include headers
+\usepackage{fontspec}
+\setmainfont{MyFont.TTF}%
+[Ligatures=TeX,
+    Path=fonts/,
+    BoldFont=MyFont_Bold.TTF,
+    ItalicFont=MyFont_Italic.TTF,
+    BoldItalicFont=MyFont_BoldItalic.TTF]
+
+
+\usepackage{xcolor}
+\definecolor{header-blue}{RGB}{22,48,114}
+
+\usepackage{sectsty}
+\chapterfont{\color{header-blue}}  % sets colour of chapters
+\sectionfont{\color{header-blue}}  % sets colour of sections
+
+%\usepackage{fancyhdr}   %Uncomment it if you want to include headers
 %\pagestyle{fancy}      %Changes page style to fancy
-\fancyhf{}              %Clear header/footer
+%\fancyhf{}              %Clear header/footer
 %\fancyhead[C]{Header}
 %\lhead{\includegraphics[width=6cm]{fhwn-logo}}
-\fancyfoot[C]{\thepage} % \fancyfoot[R]{\thepage}
-\renewcommand{\headrulewidth}{0.0pt}    % Default \headrulewidth is 0.4pt
-\renewcommand{\footrulewidth}{0.4pt}    % Default \footrulewidth is 0pt
+%\fancyfoot[C]{\thepage} % \fancyfoot[R]{\thepage}
+%\renewcommand{\headrulewidth}{0.0pt}    % Default \headrulewidth is 0.4pt
+%\renewcommand{\footrulewidth}{0.4pt}    % Default \footrulewidth is 0pt
 
 %\usepackage{footnote}      %Just in case you want to include footnotes
 \usepackage{indentfirst}    %Indent in every first paragraph after \chapter and \section.
-%\usepackage{setspace}      %Change spacing easily with simple commands
+\usepackage{setspace}      %Change spacing easily with simple commands
+\onehalfspacing
 
 %\usepackage{amsmath}       %This package introduces several new commands that are more powerful and flexible than the ones provided by LaTeX. Uncomment them if you are using complex mathematical notation.
 %\usepackage{mathtools}     %The mathtools package fixes some amsmath quirks and adds some useful settings, symbols, and environments to amsmath.
@@ -86,7 +112,7 @@
 %\linespread{1.0}    %Line spacing, only accepts values 1.0, 1.3 and 1.6. If set here, it will apply to the whole document, including ToC, Lists...
 %\setlength{\baselineskip}{5mm} %%minimum space between the bottom of two successive lines in a paragraph
 %\setlength{\parindent}{1.25cm}  %Determining paragraph indentation
-%\setlength{\parskip}{2mm}   %Determining space between paragraph and preceeding text. This can be set in the preable or later in the document part, but be careful. If set here, it will apply to the whole document, including ToC, Lists...
+%\setlength{\parskip}{2mm}   %Determining space between paragraph and preceeding text. This can be set in the preamble or later in the document part, but be careful. If set here, it will apply to the whole document, including ToC, Lists...
 
     %------------------------- Caption Setup -----------------------%
 %\captionsetup{margin=10pt, font=small, labelfont=bf, labelsep=period}
@@ -102,6 +128,7 @@
 \begin{document}
 
     %----------------------------FRONT MATTER---------------------%
+\frontmatter
 
 \input{frontmatter/titlepage}
 
@@ -139,6 +166,8 @@
 \listoftables   %\thispagestyle{fancy}
 \addcontentsline{toc}{chapter}{List of Tables}
 
+\mainmatter
+
         %--------------------BODY OF THE THESIS--------------------------%
         %%--------------------------------------------------------------%%
 %\cleardoublepage
@@ -158,6 +187,8 @@
     
         %%------------------------END MATTER----------------------------%%
         %%--------------------------------------------------------------%%
+
+\backmatter
         
 \printbibliography[title={References}]
 \addcontentsline{toc}{chapter}{References}
@@ -166,7 +197,7 @@
 \chapter{Title of appendix A}
 \input{endmatter/appendix}
 
-\chapter{List of installed software at FH Wiener Neustadt}
-\includepdf[pages={1,2}]{externaldocs/itsoftware}
+% \chapter{List of installed software at FH Wiener Neustadt}
+% \includepdf[pages={1,2}]{externaldocs/itsoftware}
 
 \end{document}
