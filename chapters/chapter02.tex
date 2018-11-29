@@ -1,63 +1,167 @@
-\section{Introduction}
-In an essay, article, or book, an introduction (also known as a prolegomenon) is a beginning section which states the purpose and goals of the following writing. This is generally followed by the body and conclusion (see \ref{fig:uni}).
+This section should provide the theoretical background and the foundation of the conducted study.
+Therefore, this section is structured as follows: 
+first, an introduction into option mining will be given in \autoref{s:background-optionmining};
+second, the market of social networks will be examined in \autoref{s:background-socialnetworks};
+and third, related work of stock market prediction will be presented in \autoref{s:background-stockmarketprediction}.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{universe}
-    \caption{Artistic view of the Milky Way}
-    \label{fig:uni}
-\end{figure}
+\section{Option Mining} 
+\label{s:background-optionmining}
 
-The introduction typically describes the scope of the document and gives the brief explanation or summary of the document. It may also explain certain elements that are important to the essay if explanations are not part of the main text. The readers can have an idea about the following text before they actually start reading it \cite{heiermann2005numerical}.
+Option mining is defined as extracting opinions from unstructured data using natural language processing techniques \cite[page 411]{Liu2007}.
 
-ln technical writing, the introduction typically includes one or more standard subsections: abstract or summary, preface, acknowledgments, and foreword. Alternatively, the section labeled introduction itself may be a brief section found side-by-side with abstract, foreword, etc. (rather than containing them). In this case the set of sections that come before the body of the book are known as the front matter. When the book is divided into numbered chapters, by convention the introduction and any other front-matter sections are unnumbered and precede chapter 1. The table \ref{table:1} is an example of referenced.
+According to Pang and Lee the two terms \emph{option mining} and \emph{sentiment analysis} are mere synonyms within this field of study \cite{Pang2008c}.
+Therefore, this study will use the terms interchangeably.
+
+There are several types of option mining available:
+
+\begin{enumerate}
+	\item 
+	Sentiment classification: 
+	This task is performed on a document level and classifies the text as positive or negative. 
+	No further analysis is made what people may like or dislike 
+	\cite[page 411]{Liu2007}.
+	
+	\item 
+	Feature-based opinion mining and summarization: 
+	This task dives deep into the text and analyzes the sentences on it's own.
+	Furthermore, it discovers the opinions on objects which are liked or disliked.
+	An object may be a product, service, topic or organization. 
+	For example in an product review it detects the product features which have been described 
+	\cite[page 412]{Liu2007}.
+	
+	\item
+	Comparative sentence and relation mining:
+	In this type of task product features are compared to the same or similar feature of another product.
+	For example comparing two cameras: "the battery life of camera A is much shorter than that of camera B" 
+	\cite[page 412]{Liu2007}. 
+\end{enumerate}
+
+This study will focus on short documents with given keywords in it. 
+Therefore, we assume that the documents describing our targeted topic.
+As a result the study will focus on sentiment classification.
+
+Sentiment classification has some similarities with topic-based text classification, which classifies the topic of documents into predefined topic classes, for example sports, science or politics.
+In topic based classification topic words are important, while they are unimportant for sentiment classification \cite[page 412f]{Liu2007}.
+
+\subsection{Algorithms}
+\label{ss:background-optionmining-alogrithms}
+
+\citeauthor{Pang2002} performed a study which analyzed several machine learning algorithms and their suitability with sentiment classification.
+These three algorithms have shown a good performance in text categorization studies and therefore they tried to apply these algorithms to sentiment classification \cite{Pang2002}.
 
 \begin{table}
-    \begin{center}
-    \caption{Random numbers in a table}
-    \begin{tabular}{ c c c }
-     cell1 & cell2 & cell3 \\ 
-     cell4 & cell5 & cell6 \\  
-     cell7 & cell8 & cell9    
-    \end{tabular}
-    \label{table:1}
-    \end{center}
+	\begin{center}
+		\begin{tabular}{l l}
+			\textbf{Element} & \textbf{Description} \\ \hline
+			$c$ & Spefific document class \\
+			$C$ & Document classes \\
+			$d$ & Specific document \\
+			$D$ & Documents \\
+			$f_i$ & Specific feature \\
+			$m$ & Count of features \\
+			$n_i(d)$ & Count of features $i$ in document $d$ \\
+			$P(x)$ & Probability of x \\
+		\end{tabular}
+	
+		\label{tab:background-optionmining-algorithms-variables}
+		\caption{Used variables by the algorithms}		
+	\end{center}
 \end{table}
 
-Keeping the concept of the introduction the same, different documents have different styles to introduce the written text. For example, the introduction of a Functional Specification consists of information that the whole document is yet to explain. If a Userguide is written, the introduction is about the product. In a report, the introduction gives a summary about the report contents.
+\begin{description}
+	\item[Naive Bayes.] 
+	The Naive Bayes (NB) algorithm calculates the probabilities that a document $d$ belong to a class $c$.
+	Furthermore, it implies that all classes are independent to each other, which does not hold true very often in a real world scenario.
+	In sentiment classification tasks there are two classes available: positive and negative.
+	Therefore the text is classified as class $c$ where $c* = arg max_c P(c | d)$.
+	The general Bayes classifier can be seen in \autoref{eq:background-optionmining-algorithms-bayes} \cite{Pang2002}.
+	
+	\begin{equation}
+		P_{NB}(c|d) = \frac{P(c) (\prod_{i=1}^{m} P(f_i|c)^{n_i(d)}) }{P(d)}
+		\label{eq:background-optionmining-algorithms-bayes}
+	\end{equation}
+	
+	Despite the fact that the Naive Bayes algorithm is very simple and the assumption of independent classes does not hold true in a real world scenario it performs surprisingly well \cite{Pang2002}.
+	
+	\item[Maximum Entropy Classification.]
+  The Maximum Entropy Classification (MaxEnt for short) succeeded in a number of language processing applications.
+  The exponential form of the Maximum Entropy Classifier can be seen in \autoref{eq:background-optionmining-algorithms-maximumentropy} \cite{Pang2002}.
+  
+  \begin{equation}
+		P_{ME}(c|d) = \frac{1}{Z(d)} exp \left( \sum_i^m \lambda_{i,c}F_{i,c}(d,c) \right)
+		\label{eq:background-optionmining-algorithms-maximumentropy}
+  \end{equation}
+  
+  Whereas $Z(d)$ is a normalization function as depicted in \autoref{eq:background-optionmining-algorithms-maximumentropy_Zd} \cite{Nigam1999} and $F_{i,c}(d,c)$ is a feature/class function for feature $f_i$ and class $c$ which is defined in \autoref{eq:background-optionmining-algorithms-maximumentropy_fic}.
 
-\section{Lipsum}
+  \begin{equation}
+    Z(d) = \sum_c exp(\sum_i \lambda_{i,c} F_{i,c}(d,c))
+      \label{eq:background-optionmining-algorithms-maximumentropy_Zd}
+  \end{equation}
 
-In ancient manuscripts, another means to divide sentences in into paragraphs was a line break (newline) followed by an initial at the beginning of the next paragraph. An initial is an oversize capital letter, sometimes outdented beyond the margin of text. This style can be seen, for example, in the original Old English manuscript of Beowulf. Typography, though not commonly.[4] Modern English typography usually indicates a new paragraph by indenting the first line. This style can be seen in the (handwritten). Table \ref{table:2} is an example of referenced \LaTeX elements. United States Constitution from 1787. For additional ornamentation, a hedera leaf or other symbol can be added to the inter-paragraph whitespace, or put in the indentation space \cite{einstein}.
+  \begin{equation}
+  F_{i,c}(d,c') = 
+    \begin{cases}
+      1, & n_i(d) > 0 \text{ and } c' = c \\
+      0  & \text{otherwise}
+    \end{cases}
+		\label{eq:background-optionmining-algorithms-maximumentropy_fic}
+  \end{equation}
 
-\begin{table}[h!]
+  $\lambda_{i,c}$ are feature weight parameters. A larger value of that parameter means that feature $f_i$ is considered as strong indicator for class $c$.
+  The values for $\lambda_{i,c}$ are set in a way that the entropy of the training data set is maximized \cite{Pang2002}.
+  	
+	\item[Support Vector Machine.]
+   Support Vector Machines are large-margin classifiers in contrast to the probabilistic Naive Bayes and Maximum Entropy.
+   That means that in the two-category case (positive or negative) the training procedure looking for a hyperplane which maximizes the margin between the two groups \cite{Pang2002}.
+   This scenario is depicted in \autoref{fig:background-optionmining-algorithms-svm} \cite[p. 275]{Cortes1995}.
+      
+   \begin{figure}[ht]
     \centering
-    \caption{Table to test captions and labels}
-    \begin{tabular}{||c c c c||} 
-     \hline
-     Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
-    \hline\hline
-     1 & 6 & 87837 & 787 \\ 
-     2 & 7 & 78 & 5415 \\
-     3 & 545 & 778 & 7507 \\
-     4 & 545 & 18744 & 7560 \\
-     5 & 88 & 788 & 6344 \\ [1ex] 
-     \hline
-    \end{tabular}
-    \label{table:2}
-\end{table}
+    \includegraphics[width=.7\textwidth]{images/svm.png}
+    \caption{An example of a two-category case, from \cite[p. 275]{Cortes1995}}
+    \label{fig:background-optionmining-algorithms-svm}
+  \end{figure}
+	
+\end{description}
 
-\subsection{Paragraph description}
-In ancient manuscripts, another means to divide sentences in into paragraphs was a line break (newline) followed by an initial at the beginning of the next paragraph. An initial is an oversize capital letter, sometimes outdented beyond the margin of text. This style can be seen, for example, in the original Old English manuscript of Beowulf. Outdenting is still used in English typography, though not commonly.[4] Modern English typography usually indicates a new paragraph by indenting the first line. This style can be seen in the (handwritten) United States Constitution from 1787. For additional ornamentation, a hedera leaf or other symbol can be added to the inter-paragraph whitespace, or put in the indentation space.
+%algorithms
+%SVM
+%naive bayesian
 
-Cum vitae nulla scelerisque nulla erat ullamcorper id id at placerat volutpat hac vestibulum interdum posuere imperdiet a parturient ullamcorper risus sit montes. Amet ut himenaeos dapibus volutpat feugiat luctus consequat magna netus eu mi congue accumsan a dui a pulvinar. Porta a cubilia nisi arcu a class egestas fermentum consectetur magna venenatis et ullamcorper dolor habitant malesuada porta scelerisque ac sed platea a. Blandit mus mi imperdiet augue condimentum fames blandit feugiat eros nisi blandit scelerisque ut cum imperdiet auctor adipiscing pretium adipiscing vel consequat curae primis malesuada dignissim. Penatibus consequat mi ullamcorper platea senectus leo suspendisse a nulla nibh gravida scelerisque ac convallis platea neque at vestibulum vel. 
+%bag of words 
+%unigrams
+%bigrams
+%trigrams
 
-Elit nisi in nec consequat placerat euismod per mus nullam aliquam a in at ad lobortis netus tellus pharetra sociis ante adipiscing aliquam a. Gravida parturient nullam blandit scelerisque at dapibus eleifend convallis ad dolor natoque eget turpis rutrum non parturient in nibh aenean. Molestie adipiscing platea odio curabitur ullamcorper nisi ad dui vitae parturient ornare turpis odio eu vitae condimentum porta morbi vestibulum pharetra nullam. Tempor a quisque vestibulum at pretium ullamcorper vestibulum habitasse inceptos nascetur lacus sodales bibendum montes imperdiet ullamcorper a lorem eu netus. Leo adipiscing hendrerit leo scelerisque lectus laoreet vivamus a a mi placerat aliquam cursus nisi in a parturient consectetur vestibulum proin sagittis a consectetur elementum. 
+%pre processing
+%stop word
+%stemming
 
-Condimentum parturient nisl nullam ullamcorper vel ullamcorper sagittis parturient a dis a commodo nisl habitasse parturient proin. Mus suspendisse amet aliquet ornare ut elementum parturient eu lorem sodales fames vestibulum eu consectetur duis consectetur. Nunc ad suspendisse sagittis per quam lobortis hac fringilla proin ullamcorper vestibulum ullamcorper in torquent ac suspendisse sagittis sodales parturient torquent arcu inceptos penatibus. Aliquet ante sem ante gravida venenatis a suspendisse metus sem quis porttitor a parturient convallis vestibulum condimentum sed. Suspendisse condimentum nunc conubia duis a venenatis scelerisque ad vehicula mi habitant nec ad senectus bibendum malesuada a natoque a fringilla. Ultricies massa a ac penatibus nec a porttitor parturient consequat leo erat luctus magnis suscipit vestibulum a. 
+\section{Social networks/microblogging services}
+\label{s:background-socialnetworks}
 
-A himenaeos turpis consectetur a platea id velit nisl dui justo fringilla semper tristique parturient. Vehicula ante aliquam quisque at suspendisse habitant a facilisi interdum sociosqu a feugiat aenean habitasse nostra ut. A arcu tristique duis parturient suspendisse donec mi ac mus venenatis in ullamcorper tristique massa lacus eget parturient torquent est rutrum vitae a. 
+In the last years many social networks started and many of them disappeared again.
+There are several types of social networks available today: some of them are built on videos others on pictures and some of them mostly on text.
+Those which are built on text are more easy to analyze and searchable for researchers worldwide.
+But there are some constants in this field: Twitter, to identify one of them.
+Twitter has become a valueable source of opinions, data and information for various researches \cite{Barbosa2010}.
 
-Vestibulum parturient litora pharetra cursus a duis adipiscing pulvinar at a pulvinar sed a condimentum per erat adipiscing ullamcorper condimentum augue ad euismod aenean enim dignissim dictum. A leo lacus tellus elit non vulputate hac a massa condimentum sed dis platea scelerisque. Parturient pharetra morbi quis vestibulum maecenas penatibus hac id nam leo consectetur turpis maecenas adipiscing suspendisse a lacus leo tincidunt parturient eu accumsan phasellus curae. Est habitasse adipiscing est ridiculus porttitor nostra at faucibus vestibulum luctus lacus vestibulum nisl cursus duis. Ullamcorper blandit platea fringilla et ullamcorper suspendisse dignissim in vel adipiscing parturient nisi volutpat a arcu curabitur eget tempor natoque nec rhoncus a. Fames fringilla suspendisse ac leo suscipit condimentum a a sed pulvinar scelerisque nostra adipiscing egestas. 
+Messages on Twitter are called tweets and are limited in length (140 for tweets before November 7th 2017; 280 characters since then, at least for english tweets \cite{Rosen2017TweetingEasier}) users have to concentrate on a specific topic precisely.
+Therefore, Twitter is the perfect source of the public opinion as users discussing anything on Twitter \cite{Pagolu2016a}.
 
-Hac potenti etiam porta vestibulum consectetur mus feugiat a parturient cum mi adipiscing parturient duis. A ipsum inceptos ad mollis nibh mauris parturient convallis augue parturient et malesuada a eros augue interdum sed proin himenaeos egestas ante ipsum id magna adipiscing a a. Ligula tellus consectetur a a ultricies class condimentum justo in rutrum orci nascetur sociosqu augue tempor habitant in. Fusce integer adipiscing integer scelerisque aliquet consectetur nam a magna ullamcorper a primis orci hac aenean lobortis a donec ac aptent nunc dapibus class adipiscing pulvinar nulla duis imperdiet. Arcu bibendum ac vehicula mollis condimentum ullamcorper mauris ac maecenas tempus a porta condimentum maecenas suscipit volutpat est tincidunt libero ut laoreet posuere dis. Mus ultricies pharetra suspendisse sem tempus interdum volutpat a ornare id et placerat venenatis rutrum ullamcorper habitant placerat vestibulum in.
+As a result the fields in which researches have used data from Twitter ranging from public opinions for politicans and polls (see \cite{Oconnor2010a,Patodkar2016a}) to the stock market and the prediction of stock prices and other factors (see \cite{Bollen2011a,Mittal2012a,Nguyen2015a,Pagolu2016a,Zhang2011a}).
+
+% On the other hand keywords like cloud, machine learning and artificial intelligence are everywhere. 
+% Amazon, Facebook, Google, IBM and Microsoft and other big players of the industry are making massive progress in these fields.
+
+\section{Stock Market Prediction} 
+\label{s:background-stockmarketprediction}
+
+\citeauthor{Bollen2011a} noted that many researches assumed that the stock market is based on the random walk theory and the Efficient Market Hypothesis (EMH).
+The EMH assumes that stock market prices are driven by new information such as news and will less depend on the current price or historical prices.
+As news are unpredictable the stock market prices will follow a random walk pattern \cite{Bollen2011a}.
+
+But \citeauthor{Bollen2011a} stated also that stock prices aren't following the random walk pattern completely and can therefore predicted in some way.
+They stated that information available online may act as early indicators for changes.
+This include the Google search queries which provide an early indicator for disease infections (see \url{https://www.google.org/flutrends/}) \cite{Bollen2011a}.

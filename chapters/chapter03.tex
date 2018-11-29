@@ -1,18 +1,121 @@
-\section{Introduction}
-Some meaningless text to show how citation works \cite{latexcompanion}.
+\section{Population and Methods}
 
-Cum vitae nulla scelerisque nulla erat ullamcorper id id at placerat volutpat hac vestibulum interdum posuere imperdiet a parturient ullamcorper risus sit montes. Amet ut himenaeos dapibus volutpat feugiat luctus consequat magna netus eu mi congue accumsan a dui a pulvinar. Porta a cubilia nisi arcu a class egestas fermentum consectetur magna venenatis et ullamcorper dolor habitant malesuada porta scelerisque ac sed platea a. Blandit mus mi imperdiet augue condimentum fames blandit feugiat eros nisi blandit scelerisque ut cum imperdiet auctor adipiscing pretium adipiscing vel consequat curae primis malesuada dignissim. Penatibus consequat mi ullamcorper platea senectus leo suspendisse a nulla nibh gravida scelerisque ac convallis platea neque at vestibulum vel. 
+\subsection{Determine companies, keywords and stock symbols to analyze}
 
-Elit nisi in nec consequat placerat euismod per mus nullam aliquam a in at ad lobortis netus tellus pharetra sociis ante adipiscing aliquam a. Gravida parturient nullam blandit scelerisque at dapibus eleifend convallis ad dolor natoque eget turpis rutrum non parturient in nibh aenean. Molestie adipiscing platea odio curabitur ullamcorper nisi ad dui vitae parturient ornare turpis odio eu vitae condimentum porta morbi vestibulum pharetra nullam. Tempor a quisque vestibulum at pretium ullamcorper vestibulum habitasse inceptos nascetur lacus sodales bibendum montes imperdiet ullamcorper a lorem eu netus. Leo adipiscing hendrerit leo scelerisque lectus laoreet vivamus a a mi placerat aliquam cursus nisi in a parturient consectetur vestibulum proin sagittis a consectetur elementum. 
+First, a list of automotive companies is needed.
+These companies must be traded on a stock exchange to perform the comparison with tweet sentiments.
+As a single company may own several car brands a list of all brands has been set up.
+The result of the analysis is depicted in \autoref{tab:brands}.
+Both brands which aren't customer facing passenger car brands and brands which do not longer exist have been omitted.
+Furthermore, the brands have been grouped by their owning company.
 
-Condimentum parturient nisl nullam ullamcorper vel ullamcorper sagittis parturient a dis a commodo nisl habitasse parturient proin. Mus suspendisse amet aliquet ornare ut elementum parturient eu lorem sodales fames vestibulum eu consectetur duis consectetur. Nunc ad suspendisse sagittis per quam lobortis hac fringilla proin ullamcorper vestibulum ullamcorper in torquent ac suspendisse sagittis sodales parturient torquent arcu inceptos penatibus. Aliquet ante sem ante gravida venenatis a suspendisse metus sem quis porttitor a parturient convallis vestibulum condimentum sed. Suspendisse condimentum nunc conubia duis a venenatis scelerisque ad vehicula mi habitant nec ad senectus bibendum malesuada a natoque a fringilla. Ultricies massa a ac penatibus nec a porttitor parturient consequat leo erat luctus magnis suscipit vestibulum a. 
+  \begin{longtable}[c]{ll}
+   \bfseries{Car brand} & \bfseries{Owning Company}  \\ \hline
+  \endfirsthead
+  %
+  \multicolumn{2}{c}%
+  {{\bfseries Table \thetable\ continued from previous page}} \\
+   &  \\
+  \endhead
+  %
+  BMW  & BMW \cite[p.30]{BMWGroup2017} \\
+  Mini  & BMW  \cite[p.30]{BMWGroup2017} \\
+  Rolls-Royce   & BMW \cite[p.30]{BMWGroup2017} \\
+  Mercedes-AMG & Daimler \cite[p.90]{DaimlerAG2018} \\
+  Mercedes-Benz  & Daimler \cite[p.90]{DaimlerAG2018} \\
+  Mercedes-Maybach & Daimler \cite[p.90]{DaimlerAG2018} \\
+  Smart  & Daimler \cite[p.90]{DaimlerAG2018} \\
+  Alfa Romeo & Fiat Chrysler Automobiles \cite[p.32]{FiatChryslerAutomobiles2018a} \\
+  Chrysler & Fiat Chrysler Automobiles \cite[p.32]{FiatChryslerAutomobiles2018a} \\
+  Dodge & Fiat Chrysler Automobiles \cite[p.32]{FiatChryslerAutomobiles2018a} \\
+  Fiat & Fiat Chrysler Automobiles \cite[p.32]{FiatChryslerAutomobiles2018a} \\
+  Fiat Professional & Fiat Chrysler Automobiles \cite[p.32]{FiatChryslerAutomobiles2018a} \\
+  Jeep & Fiat Chrysler Automobiles \cite[p.32]{FiatChryslerAutomobiles2018a} \\
+  Lancia & Fiat Chrysler Automobiles \cite[p.32]{FiatChryslerAutomobiles2018a} \\
+  RAM & Fiat Chrysler Automobiles \cite[p.32]{FiatChryslerAutomobiles2018a} \\
+  Ford & Ford Motor Company \cite[p.18]{FordMotorCompany2018} \\
+  Lincoln  & Ford Motor Company \cite[p.18]{FordMotorCompany2018} \\
+  Baojun & General Motors Company \cite[p.1]{GeneralMotorsCompany2018} \\
+  Buick & General Motors Company \cite[p.1]{GeneralMotorsCompany2018} \\
+  Cadillac & General Motors Company \cite[p.1]{GeneralMotorsCompany2018} \\
+  Chevrolet & General Motors Company \cite[p.1]{GeneralMotorsCompany2018} \\
+  GMC & General Motors Company \cite[p.1]{GeneralMotorsCompany2018} \\
+  Holden & General Motors Company \cite[p.1]{GeneralMotorsCompany2018} \\
+  Jiefang & General Motors Company \cite[p.1]{GeneralMotorsCompany2018} \\
+  Wuling & General Motors Company \cite[p.1]{GeneralMotorsCompany2018} \\
+  Honda & Honda \cite[p.3]{HondaMotorCo.2017} \\
+  Hyundai & Hyundai Motor Company \cite[p.127]{HyundaiMotorCompany2016} \\
+  KIA & Hyundai Motor Company \cite[p.127]{HyundaiMotorCompany2016} \\
+  Datsun & Nissan Motor Corporation \cite[p.5]{NissanMotorCorporation2017} \\
+  Infinity & Nissan Motor Corporation \cite[p.5]{NissanMotorCorporation2017} \\
+  Nissan & Nissan Motor Corporation \cite[p.5]{NissanMotorCorporation2017} \\
+  Citroën & Groupe PSA \cite[p.3]{GroupePSA2018} \\
+  Opel & Groupe PSA \cite[p.3]{GroupePSA2018} \\
+  Peugeot& Groupe PSA \cite[p.3]{GroupePSA2018} \\
+  Vauxhall & Groupe PSA \cite[p.3]{GroupePSA2018} \\
+  Alpine & Groupe Renault \cite[p.11]{GroupeRenault2018} \\
+  Dacia & Groupe Renault \cite[p.11]{GroupeRenault2018} \\
+  Lada & Groupe Renault \cite[p.11]{GroupeRenault2018} \\
+  Renault & Groupe Renault \cite[p.10]{GroupeRenault2018} \\
+  Renault Samsung Motors & Groupe Renault \cite[p.10]{GroupeRenault2018} \\
+  Daihatsu & Toyota Motor Corporation \cite[p.2]{ToyotaMotorCorporation2018} \\
+  Lexus & Toyota Motor Corporation \cite[p.2]{ToyotaMotorCorporation2018} \\
+  Toyota & Toyota Motor Corporation \cite[p.2]{ToyotaMotorCorporation2018} \\
+  Audi & Volkswagen AG \cite[p.104]{VolkswagenAktiengesellschaft2017} \\
+  Bentley & Volkswagen AG \cite[p.104]{VolkswagenAktiengesellschaft2017} \\
+  Bugatti & Volkswagen AG \cite[p.104]{VolkswagenAktiengesellschaft2017} \\
+  Lamborghini & Volkswagen AG \cite[p.104]{VolkswagenAktiengesellschaft2017} \\
+  Porsche & Volkswagen AG \cite[p.104]{VolkswagenAktiengesellschaft2017} \\
+  Seat & Volkswagen AG \cite[p.104]{VolkswagenAktiengesellschaft2017} \\
+  Škoda & Volkswagen AG \cite[p.104]{VolkswagenAktiengesellschaft2017} \\
+  Volkswagen & Volkswagen AG \cite[p.104]{VolkswagenAktiengesellschaft2017} \\ \hline
+  
+  \caption{Automotive brands and their corresponding owning company}
+  \label{tab:brands}
+  \end{longtable}
 
-\subsection{Random text}
-A himenaeos turpis consectetur a platea id velit nisl dui justo fringilla semper tristique parturient. Vehicula ante aliquam quisque at suspendisse habitant a facilisi interdum sociosqu a feugiat aenean habitasse nostra ut. A arcu tristique duis parturient suspendisse donec mi ac mus venenatis in ullamcorper tristique massa lacus eget parturient torquent est rutrum vitae a. 
+According to the survey of \emph{World Motor Vehicle Production 2016} the biggest five car manufacturing companies are: Toyota, Volkswagen, Hyundai, General Motors and Ford \cite{OICA2016}.
+Therefore the study will focus on these five companies.
+The count of manufactured cars and the companies stock symbol are summarized in \autoref{tab:companies-counts-and-symbols}.
+The containing symbols in the table are derived by using Yahoo Finance portal (\url{https://finance.yahoo.com}).
 
-Vestibulum parturient litora pharetra cursus a duis adipiscing pulvinar at a pulvinar sed a condimentum per erat adipiscing ullamcorper condimentum augue ad euismod aenean enim dignissim dictum. A leo lacus tellus elit non vulputate hac a massa condimentum sed dis platea scelerisque. Parturient pharetra morbi quis vestibulum maecenas penatibus hac id nam leo consectetur turpis maecenas adipiscing suspendisse a lacus leo tincidunt parturient eu accumsan phasellus curae. Est habitasse adipiscing est ridiculus porttitor nostra at faucibus vestibulum luctus lacus vestibulum nisl cursus duis. Ullamcorper blandit platea fringilla et ullamcorper suspendisse dignissim in vel adipiscing parturient nisi volutpat a arcu curabitur eget tempor natoque nec rhoncus a. Fames fringilla suspendisse ac leo suscipit condimentum a a sed pulvinar scelerisque nostra adipiscing egestas. 
+\begin{table}
+	\begin{tabular}[c]{lrll}
+	  \textbf{Company} & \textbf{\#cars \cite{OICA2016}} & \textbf{Stock Exchange} & \textbf{Symbol}  \\ \hline
+	   %s
+	  Ford Motor Company & 6,429,485 & New York \cite{FordMotorCompany2018} & F  \\
+	  General Motors Company & 7,793,066 & New York \cite[p.17]{GeneralMotorsCompany2018} & GM \\
+	  Hyundai Motor Company & 7,889,538 & Korea \cite[p.92]{HyundaiMotorCompany2016} & 005380.KS \\
+	  Toyota Motor Corporation & 10,213,486 & Tokyo \cite{ToyotaMotorCorporation2018} & 7203.T \\
+	  Volkswagen AG & 10,126,281 & Frankfurt \cite[p.110]{VolkswagenAktiengesellschaft2017} & VOW.F \\  \hline
+	\end{tabular}
+	\caption{Automotive companies and their corresponding produced cars and stock symbol}
+	\label{tab:companies-counts-and-symbols}
+\end{table}
 
-\subsubsection{Random squared text}
-Fermentum a habitasse dis accumsan a elit praesent cursus id iaculis ad suspendisse aptent fusce a condimentum nunc commodo metus porta elit congue sceleris a ligula curabitur amet consequat. Ultrices curae est ad elit a venenatis adipiscing sodales vel quam eu mi cubilia a donec at a ultricies inceptos lacus euismod. In parturient parturient scelerisque parturient ac enim in vestibulum proin torquent a blandit augue a nisi suspendisse. Sodales convallis a cras eu iaculis mi commodo conubia adipiscing dictum adipiscing enim nunc quam parturient leo suspendisse adipiscing tristique habitasse ut sociosqu a lacinia. 
+\subsection{Gather tweets and stock prices}
 
-Hac potenti etiam porta vestibulum consectetur mus feugiat a parturient cum mi adipiscing parturient duis. A ipsum inceptos ad mollis nibh mauris parturient convallis augue parturient et malesuada a eros augue interdum sed proin himenaeos egestas ante ipsum id magna adipiscing a a. Ligula tellus consectetur a a ultricies class condimentum justo in rutrum orci nascetur sociosqu augue tempor habitant in. Fusce integer adipiscing integer scelerisque aliquet consectetur nam a magna ullamcorper a primis orci hac aenean lobortis a donec ac aptent nunc dapibus class adipiscing pulvinar nulla duis imperdiet. Arcu bibendum ac vehicula mollis condimentum ullamcorper mauris ac maecenas tempus a porta condimentum maecenas suscipit volutpat est tincidunt libero ut laoreet posuere dis. Mus ultricies pharetra suspendisse sem tempus interdum volutpat a ornare id et placerat venenatis rutrum ullamcorper habitant placerat vestibulum in.
+Tweets have been captured between February 28th 2018 till September 6th 2018.
+The number of collected tweets can be seen in \autoref{tab:companies-numberoftweets}.
+
+\begin{table}
+  \centering
+  \begin{tabular}[h]{l r}
+  \textbf{Company} & \textbf{\# of tweets} \\ \hline
+    Ford & 4518198 \\
+    General Motor & 575547 \\
+    Hyundai & 1895306 \\
+    Toyota & 915868 \\
+    Volkswagen & 8244083 \\ \hline
+    Total & 16149002 \\ \hline
+  \end{tabular}
+
+  \caption{Numbers of collected tweets}
+  \label{tab:companies-numberoftweets}
+\end{table}
+
+The stock data can be downloaded at any point of time for the given research period and a daily frequency using the Yahoo Finance API.
+
+% \subsection{Normalization of tweets}
+% \subsection{Determine sentiment of tweets}
+% \subsection{Comparing sentiment time series with share prices}
