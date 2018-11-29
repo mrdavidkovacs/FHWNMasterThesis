@@ -56,7 +56,10 @@
 \usepackage[toc,page]{appendix}
 \usepackage[final]{pdfpages}
 \usepackage{soul}       %provides hyphenatable letterspacing, underlining and some derivatives such as everstriking and highlighting.
-%\usepackage{nomencl}   %helps to format a nomenclature.
+%\usepackage[intoc]{nomencl}   %helps to format a nomenclature.
+%\makenomenclature
+
+\usepackage[printonlyused, withpage]{acronym}
 
 \usepackage[UKenglish]{isodate} %Provides the format for the date on the title page. Read the package documentation for all the possible date formats.
 
@@ -165,9 +168,11 @@
         
 \tableofcontents    %\thispagestyle{fancy}
 
-\chapter*{Nomenclature}
-\addcontentsline{toc}{chapter}{Nomenclature}
-\input{frontmatter/nomenclature}
+%\printnomenclature
+\chapter*{List of Acronyms}
+\addcontentsline{toc}{chapter}{List of Acronyms}
+%\input{frontmatter/nomenclature}
+\input{frontmatter/acronyms.tex}
 
 \listoffigures  %\thispagestyle{fancy}
 \addcontentsline{toc}{chapter}{List of Figures}
