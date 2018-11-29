@@ -88,8 +88,8 @@ These three algorithms have shown a good performance in text categorization stud
   The exponential form of the Maximum Entropy Classifier can be seen in \autoref{eq:background-optionmining-algorithms-maximumentropy} \cite{Pang2002}.
   
   \begin{equation}
-		P_{ME}(c|d) = \frac{1}{Z(d)} exp \left( \sum_i^m \lambda_{i,c}F_{i,c}(d,c) \right)
-		\label{eq:background-optionmining-algorithms-maximumentropy}
+    P_{ME}(c|d) = \frac{1}{Z(d)} exp \left( \sum_i^m \lambda_{i,c}F_{i,c}(d,c) \right)
+    \label{eq:background-optionmining-algorithms-maximumentropy}
   \end{equation}
   
   Whereas $Z(d)$ is a normalization function as depicted in \autoref{eq:background-optionmining-algorithms-maximumentropy_Zd} \cite{Nigam1999} and $F_{i,c}(d,c)$ is a feature/class function for feature $f_i$ and class $c$ which is defined in \autoref{eq:background-optionmining-algorithms-maximumentropy_fic}.
@@ -105,7 +105,7 @@ These three algorithms have shown a good performance in text categorization stud
       1, & n_i(d) > 0 \text{ and } c' = c \\
       0  & \text{otherwise}
     \end{cases}
-		\label{eq:background-optionmining-algorithms-maximumentropy_fic}
+	\label{eq:background-optionmining-algorithms-maximumentropy_fic}
   \end{equation}
 
   $\lambda_{i,c}$ are feature weight parameters. A larger value of that parameter means that feature $f_i$ is considered as strong indicator for class $c$.
