@@ -1,8 +1,8 @@
 This section should provide the theoretical background and the foundation of the conducted study.
 Therefore, this section is structured as follows: 
-first, an introduction into option mining will be given in \autoref{s:background-optionmining};
-second, the market of social networks will be examined in \autoref{s:background-socialnetworks};
-and third, related work of stock market prediction will be presented in \autoref{s:background-stockmarketprediction}.
+first, an introduction into option mining will be given in \cref{s:background-optionmining};
+second, the market of social networks will be examined in \cref{s:background-socialnetworks};
+and third, related work of stock market prediction will be presented in \cref{s:background-stockmarketprediction}.
 
 \section{Option Mining} 
 \label{s:background-optionmining}
@@ -88,8 +88,8 @@ These three algorithms have shown a good performance in text categorization stud
   The exponential form of the Maximum Entropy Classifier can be seen in \autoref{eq:background-optionmining-algorithms-maximumentropy} \cite{Pang2002}.
   
   \begin{equation}
-		P_{ME}(c|d) = \frac{1}{Z(d)} exp \left( \sum_i^m \lambda_{i,c}F_{i,c}(d,c) \right)
-		\label{eq:background-optionmining-algorithms-maximumentropy}
+    P_{ME}(c|d) = \frac{1}{Z(d)} exp \left( \sum_i^m \lambda_{i,c}F_{i,c}(d,c) \right)
+    \label{eq:background-optionmining-algorithms-maximumentropy}
   \end{equation}
   
   Whereas $Z(d)$ is a normalization function as depicted in \autoref{eq:background-optionmining-algorithms-maximumentropy_Zd} \cite{Nigam1999} and $F_{i,c}(d,c)$ is a feature/class function for feature $f_i$ and class $c$ which is defined in \autoref{eq:background-optionmining-algorithms-maximumentropy_fic}.
@@ -105,7 +105,7 @@ These three algorithms have shown a good performance in text categorization stud
       1, & n_i(d) > 0 \text{ and } c' = c \\
       0  & \text{otherwise}
     \end{cases}
-		\label{eq:background-optionmining-algorithms-maximumentropy_fic}
+	\label{eq:background-optionmining-algorithms-maximumentropy_fic}
   \end{equation}
 
   $\lambda_{i,c}$ are feature weight parameters. A larger value of that parameter means that feature $f_i$ is considered as strong indicator for class $c$.
@@ -145,7 +145,7 @@ In the last years many social networks started and many of them disappeared agai
 There are several types of social networks available today: some of them are built on videos others on pictures and some of them mostly on text.
 Those which are built on text are more easy to analyze and searchable for researchers worldwide.
 But there are some constants in this field: Twitter, to identify one of them.
-Twitter has become a valueable source of opinions, data and information for various researches \cite{Barbosa2010}.
+Twitter has become a valuable source of opinions, data and information for various researches \cite{Barbosa2010}.
 
 Messages on Twitter are called tweets and are limited in length (140 for tweets before November 7th 2017; 280 characters since then, at least for english tweets \cite{Rosen2017TweetingEasier}) users have to concentrate on a specific topic precisely.
 Therefore, Twitter is the perfect source of the public opinion as users discussing anything on Twitter \cite{Pagolu2016a}.
@@ -158,8 +158,8 @@ As a result the fields in which researches have used data from Twitter ranging f
 \section{Stock Market Prediction} 
 \label{s:background-stockmarketprediction}
 
-\citeauthor{Bollen2011a} noted that many researches assumed that the stock market is based on the random walk theory and the Efficient Market Hypothesis (EMH).
-The EMH assumes that stock market prices are driven by new information such as news and will less depend on the current price or historical prices.
+\citeauthor{Bollen2011a} noted that many researches assumed that the stock market is based on the random walk theory and the \ac{EMH}.
+The \ac{EMH} assumes that stock market prices are driven by new information such as news and will less depend on the current price or historical prices.
 As news are unpredictable the stock market prices will follow a random walk pattern \cite{Bollen2011a}.
 
 But \citeauthor{Bollen2011a} stated also that stock prices aren't following the random walk pattern completely and can therefore predicted in some way.
