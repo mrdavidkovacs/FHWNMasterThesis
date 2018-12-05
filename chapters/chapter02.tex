@@ -77,17 +77,21 @@ As a result the study will focus on sentiment classification.
 Sentiment classification has some similarities with topic-based text classification, which classifies the topic of documents into predefined topic classes, for example sports, science or politics.
 In topic based classification topic words are important, while they are unimportant for sentiment classification \cite[page 412f]{Liu2007}.
 
-\subsection{Algorithms}
-\label{ss:background-optionmining-alogrithms}
+In the following an introduction into sentiment detection techniques will be given, including:
 
-\citeauthor{Pang2002} performed a study which analyzed several machine learning algorithms and their suitability with sentiment classification.
-These three algorithms have shown a good performance in text categorization studies and therefore they tried to apply these algorithms to sentiment classification \cite{Pang2002}.
+\begin{itemize}
+    \item Text preprocessing (see \cref{ss:background-optionmining-textpreprocessing})
+    \item Text Vectorization (see \cref{ss:background-optionmining-textvectorization})
+    \item Machine Learning Algorithms (see \cref{ss:background-optionmining-machinelearningalgorithms})
+\end{itemize}
+
+For these sections the variable definitions of \autoref{tab:background-optionmining-variables} apply.
 
 \begin{table}
 	\begin{center}
 		\begin{tabular}{l l}
 			\textbf{Element} & \textbf{Description} \\ \hline
-			$c$ & Spefific document class \\
+			$c$ & Specific document class \\
 			$C$ & Document classes \\
 			$d$ & Specific document \\
 			$D$ & Documents \\
@@ -96,11 +100,35 @@ These three algorithms have shown a good performance in text categorization stud
 			$n_i(d)$ & Count of features $i$ in document $d$ \\
 			$P(x)$ & Probability of x \\
 		\end{tabular}
-	
-		\label{tab:background-optionmining-algorithms-variables}
-		\caption{Used variables by the algorithms}		
+
+        \caption{Variable definitions used in option mining}
+        \label{tab:background-optionmining-variables}
 	\end{center}
 \end{table}
+
+\subsection{Text Preprocessing}
+\label{ss:background-optionmining-textpreprocessing}
+
+%pre processing
+%stop word
+%stemming
+
+\subsection{Text Vectorization}
+\label{ss:background-optionmining-textvectorization}
+
+%bag of words 
+%uni-grams
+%bi-grams
+%tri-grams
+
+%term frequency (tf)
+%inverse document frequency (idf)
+
+\subsection{Machine Learning Algorithms}
+\label{ss:background-optionmining-machinelearningalgorithms}
+
+\citeauthor{Pang2002} performed a study which analyzed several machine learning algorithms and their suitability with sentiment classification.
+These three algorithms have shown a good performance in text categorization studies and therefore they tried to apply these algorithms to sentiment classification \cite{Pang2002}.
 
 \begin{description}
 	\item[Naive Bayes.] 
@@ -108,29 +136,29 @@ These three algorithms have shown a good performance in text categorization stud
 	Furthermore, it implies that all classes are independent to each other, which does not hold true very often in a real world scenario.
 	In sentiment classification tasks there are two classes available: positive and negative.
 	Therefore the text is classified as class $c$ where $c* = arg max_c P(c | d)$.
-	The general Bayes classifier can be seen in \autoref{eq:background-optionmining-algorithms-bayes} \cite{Pang2002}.
+	The general Bayes classifier can be seen in \autoref{eq:background-optionmining-machinelearningalgorithms-bayes} \cite{Pang2002}.
 	
 	\begin{equation}
 		P_{NB}(c|d) = \frac{P(c) (\prod_{i=1}^{m} P(f_i|c)^{n_i(d)}) }{P(d)}
-		\label{eq:background-optionmining-algorithms-bayes}
+		\label{eq:background-optionmining-machinelearningalgorithms-bayes}
 	\end{equation}
 	
 	Despite the fact that the Naive Bayes algorithm is very simple and the assumption of independent classes does not hold true in a real world scenario it performs surprisingly well \cite{Pang2002}.
 	
 	\item[Maximum Entropy Classification.]
   The \ac{ME} Classification succeeded in a number of language processing applications.
-  The exponential form of the Maximum Entropy Classifier can be seen in \autoref{eq:background-optionmining-algorithms-maximumentropy} \cite{Pang2002}.
+  The exponential form of the Maximum Entropy Classifier can be seen in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy} \cite{Pang2002}.
   
   \begin{equation}
     P_{ME}(c|d) = \frac{1}{Z(d)} exp \left( \sum_i^m \lambda_{i,c}F_{i,c}(d,c) \right)
-    \label{eq:background-optionmining-algorithms-maximumentropy}
+    \label{eq:background-optionmining-machinelearningalgorithms-maximumentropy}
   \end{equation}
   
-  Whereas $Z(d)$ is a normalization function as depicted in \autoref{eq:background-optionmining-algorithms-maximumentropy_Zd} \cite{Nigam1999} and $F_{i,c}(d,c)$ is a feature/class function for feature $f_i$ and class $c$ which is defined in \autoref{eq:background-optionmining-algorithms-maximumentropy_fic}.
+  Whereas $Z(d)$ is a normalization function as depicted in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy_Zd} \cite{Nigam1999} and $F_{i,c}(d,c)$ is a feature/class function for feature $f_i$ and class $c$ which is defined in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy_fic}.
 
   \begin{equation}
     Z(d) = \sum_c exp(\sum_i \lambda_{i,c} F_{i,c}(d,c))
-      \label{eq:background-optionmining-algorithms-maximumentropy_Zd}
+      \label{eq:background-optionmining-machinelearningalgorithms-maximumentropy_Zd}
   \end{equation}
 
   \begin{equation}
@@ -139,7 +167,7 @@ These three algorithms have shown a good performance in text categorization stud
       1, & n_i(d) > 0 \text{ and } c' = c \\
       0  & \text{otherwise}
     \end{cases}
-	\label{eq:background-optionmining-algorithms-maximumentropy_fic}
+	\label{eq:background-optionmining-machinelearningalgorithms-maximumentropy_fic}
   \end{equation}
 
   $\lambda_{i,c}$ are feature weight parameters. A larger value of that parameter means that feature $f_i$ is considered as strong indicator for class $c$.
@@ -148,29 +176,16 @@ These three algorithms have shown a good performance in text categorization stud
 	\item[Support Vector Machine.]
    \ac{SVM} are large-margin classifiers in contrast to the probabilistic Naive Bayes and Maximum Entropy.
    That means that in the two-category case (positive or negative) the training procedure looking for a hyperplane which maximizes the margin between the two groups \cite{Pang2002}.
-   This scenario is depicted in \autoref{fig:background-optionmining-algorithms-svm} \cite[p. 275]{Cortes1995}.
+   This scenario is depicted in \autoref{fig:background-optionmining-machinelearningalgorithms-svm} \cite[p. 275]{Cortes1995}.
       
    \begin{figure}[ht]
     \centering
     \includegraphics[width=.7\textwidth]{images/svm.png}
     \caption{An example of a two-category case, from \cite[p. 275]{Cortes1995}}
-    \label{fig:background-optionmining-algorithms-svm}
+    \label{fig:background-optionmining-machinelearningalgorithms-svm}
   \end{figure}
 	
 \end{description}
-
-%algorithms
-%SVM
-%naive bayesian
-
-%bag of words 
-%unigrams
-%bigrams
-%trigrams
-
-%pre processing
-%stop word
-%stemming
 
 \section{Social networks/microblogging services}
 \label{s:background-socialnetworks}
