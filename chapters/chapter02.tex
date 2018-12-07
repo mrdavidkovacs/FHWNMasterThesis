@@ -80,8 +80,7 @@ In topic based classification topic words are important, while they are unimport
 In the following an introduction into sentiment detection techniques will be given, including:
 
 \begin{itemize}
-    \item Text preprocessing (see \cref{ss:background-optionmining-textpreprocessing})
-    \item Text Vectorization (see \cref{ss:background-optionmining-textvectorization})
+    \item Text Feature Extraction (see \cref{ss:background-optionmining-textfeatureextraction})
     \item Machine Learning Algorithms (see \cref{ss:background-optionmining-machinelearningalgorithms})
 \end{itemize}
 
@@ -106,25 +105,37 @@ For these sections the variable definitions of \autoref{tab:background-optionmin
 	\end{center}
 \end{table}
 
-\subsection{Text Preprocessing}
-\label{ss:background-optionmining-textpreprocessing}
+\subsection{Text Feature Extraction}
+\label{ss:background-optionmining-textfeatureextraction}
 
-%pre processing
-%stop word
-%stemming
+To make text available to machine learning algorithms each document must be converted to a vector.
+This section gives an introduction into text preprocessing and feature extraction techniques.
 
-\subsection{Text Vectorization}
-\label{ss:background-optionmining-textvectorization}
+% \subsubsection{Text Preprocessing}
+% \label{sss:background-optionmining-textfeatureextraction-preprocessing}
 
-%bag of words 
+Most algorithms may yield better performance if the text is preprocessed in some way.
+Preprocessing may include removal of stop words, stemming of words.
+
+% Stop words
+
+Stop words are commonly used words of a language which do not transport any sentiment nor opinion, for example 'a', 'the', 'about', \ldots\ for the english language.
+
+% Stemming
+
+Stemming is a process to unify words to a single style.
+For example the words 'go' and 'going' are meaning the same thing but would yield to different features.
+Therefore, stemmers transforming different tenses and gerund forms of a word to the general form.
+
+
+
+%bag of words
+%term frequency (tf)
+%inverse document frequency (idf) %TF-IDF: \cite{Bafna2016}
+
 %uni-grams
 %bi-grams
 %tri-grams
-
-%term frequency (tf)
-%inverse document frequency (idf)
-
-%TF-IDF: \cite{Bafna2016}
 
 \subsection{Machine Learning Algorithms}
 \label{ss:background-optionmining-machinelearningalgorithms}
