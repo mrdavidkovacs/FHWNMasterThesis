@@ -1,3 +1,33 @@
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node (theta) at (0,0) [circle, draw] {$\theta$};
+    \node (z) at (2,0) [circle, draw] {$z$};
+    \node (w) at (4,0) [circle, draw] {$w$};
+    \node (alpha) at (1,2) [circle, draw] {$\alpha$};
+    \node (psis) at (5,2) [circle, draw] {$\Psi$};
+    \node (b) at (3,2) [circle, draw] {$\beta$};
+
+    \draw[->] (alpha) -- (theta);
+    \draw[->] (b.east) -- (psis.west);
+
+    \draw[->] (theta.east) -- (z.west);
+    \draw[->] (z.east) -- (w.west);
+    \draw[->] (psis) -- (w);
+
+    \draw (-.7,-.7) rectangle (6.,1);
+    \draw (1,-.5) rectangle (5,.75);
+    \draw (4.2,1.4) rectangle (5.8,2.6);
+
+    \node at (5.5,-.5) {$N$};
+    \node at (4.8,-.3) {$M$};
+    \node at (5.5,1.7) {$K$};
+  \end{tikzpicture}
+
+  \caption{Model}
+  \label{fig:chapter3-model}
+\end{figure}
+
 \section{Population and Methods}
 
 \subsection{Determine companies, keywords and stock symbols to analyze}
