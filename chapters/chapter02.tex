@@ -180,44 +180,44 @@ These three algorithms have shown a good performance in text categorization stud
 	Despite the fact that the Naive Bayes algorithm is very simple and the assumption of independent classes does not hold true in a real world scenario it performs surprisingly well \cite{Pang2002}.
 	
 	\item[Maximum Entropy Classification.]
-  The \ac{ME} Classification succeeded in a number of language processing applications.
-  The exponential form of the Maximum Entropy Classifier can be seen in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy} \cite{Pang2002}.
-  
-  \begin{equation}
-    P_{ME}(c|d) = \frac{1}{Z(d)} exp \left( \sum_i^m \lambda_{i,c}F_{i,c}(d,c) \right)
-    \label{eq:background-optionmining-machinelearningalgorithms-maximumentropy}
-  \end{equation}
-  
-  Whereas $Z(d)$ is a normalization function as depicted in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy_Zd} \cite{Nigam1999} and $F_{i,c}(d,c)$ is a feature/class function for feature $f_i$ and class $c$ which is defined in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy_fic}.
+	The \ac{ME} Classification succeeded in a number of language processing applications.
+	The exponential form of the Maximum Entropy Classifier can be seen in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy} \cite{Pang2002}.
+	
+	\begin{equation}
+		P_{ME}(c|d) = \frac{1}{Z(d)} exp \left( \sum_i^m \lambda_{i,c}F_{i,c}(d,c) \right)
+		\label{eq:background-optionmining-machinelearningalgorithms-maximumentropy}
+	\end{equation}
+	
+	Whereas $Z(d)$ is a normalization function as depicted in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy_Zd} \cite{Nigam1999} and $F_{i,c}(d,c)$ is a feature/class function for feature $f_i$ and class $c$ which is defined in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy_fic}.
 
-  \begin{equation}
-    Z(d) = \sum_c exp(\sum_i \lambda_{i,c} F_{i,c}(d,c))
-      \label{eq:background-optionmining-machinelearningalgorithms-maximumentropy_Zd}
-  \end{equation}
+	\begin{equation}
+		Z(d) = \sum_c exp(\sum_i \lambda_{i,c} F_{i,c}(d,c))
+		\label{eq:background-optionmining-machinelearningalgorithms-maximumentropy_Zd}
+	\end{equation}
 
-  \begin{equation}
-  F_{i,c}(d,c') = 
-    \begin{cases}
-      1, & n_i(d) > 0 \text{ and } c' = c \\
-      0  & \text{otherwise}
-    \end{cases}
-	\label{eq:background-optionmining-machinelearningalgorithms-maximumentropy_fic}
-  \end{equation}
+	\begin{equation}
+	F_{i,c}(d,c') = 
+		\begin{cases}
+		1, & n_i(d) > 0 \text{ and } c' = c \\
+		0  & \text{otherwise}
+		\end{cases}
+		\label{eq:background-optionmining-machinelearningalgorithms-maximumentropy_fic}
+	\end{equation}
 
-  $\lambda_{i,c}$ are feature weight parameters. A larger value of that parameter means that feature $f_i$ is considered as strong indicator for class $c$.
-  The values for $\lambda_{i,c}$ are set in a way that the entropy of the training data set is maximized \cite{Pang2002}.
-  	
+	$\lambda_{i,c}$ are feature weight parameters. A larger value of that parameter means that feature $f_i$ is considered as strong indicator for class $c$.
+	The values for $\lambda_{i,c}$ are set in a way that the entropy of the training data set is maximized \cite{Pang2002}.
+		
 	\item[Support Vector Machine.]
-   \ac{SVM} are large-margin classifiers in contrast to the probabilistic Naive Bayes and Maximum Entropy.
-   That means that in the two-category case (positive or negative) the training procedure looking for a hyperplane which maximizes the margin between the two groups \cite{Pang2002}.
-   This scenario is depicted in \autoref{fig:background-optionmining-machinelearningalgorithms-svm} \cite[p. 275]{Cortes1995}.
-      
-   \begin{figure}[ht]
-    \centering
-    \includegraphics[width=.7\textwidth]{images/svm.png}
-    \caption{An example of a two-category case, from \cite[p. 275]{Cortes1995}}
-    \label{fig:background-optionmining-machinelearningalgorithms-svm}
-  \end{figure}
+	\ac{SVM} are large-margin classifiers in contrast to the probabilistic Naive Bayes and Maximum Entropy.
+	That means that in the two-category case (positive or negative) the training procedure looking for a hyperplane which maximizes the margin between the two groups \cite{Pang2002}.
+	This scenario is depicted in \autoref{fig:background-optionmining-machinelearningalgorithms-svm} \cite[p. 275]{Cortes1995}.
+		
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=.7\textwidth]{images/svm.png}
+		\caption{An example of a two-category case, from \cite[p. 275]{Cortes1995}}
+		\label{fig:background-optionmining-machinelearningalgorithms-svm}
+	\end{figure}
 	
 \end{description}
 
