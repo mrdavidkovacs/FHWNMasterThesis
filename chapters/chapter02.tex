@@ -82,6 +82,7 @@ In the following an introduction into sentiment detection techniques will be giv
 \begin{itemize}
     \item Text Feature Extraction (see \cref{ss:background-optionmining-textfeatureextraction})
     \item Machine Learning Algorithms (see \cref{ss:background-optionmining-machinelearningalgorithms})
+    \item Metrics (see \cref{ss:background-optionmining-metrics})
 \end{itemize}
 
 For these sections the variable definitions of \autoref{tab:background-optionmining-variables} apply.
@@ -115,19 +116,39 @@ This section gives an introduction into text preprocessing and feature extractio
 % \label{sss:background-optionmining-textfeatureextraction-preprocessing}
 
 Most algorithms may yield better performance if the text is preprocessed in some way.
-Preprocessing may include removal of stop words, stemming of words.
+Preprocessing is important to reduce the number of features.
 
-% Stop words
+Preprocessing may include:
 
-Stop words are commonly used words of a language which do not transport any sentiment nor opinion, for example 'a', 'the', 'about', \ldots\ for the english language.
+\begin{description}
+	\item [Lower case]
+		Computer programs are working case sensitive by default.
+		The words "good" and "Good" would yield to two different features within the opinion mining algorithms.
+		As this is not expected because they are meaning the same thing and transport the same opinion the text is lower cased beforehand to reduce the size of the lexicon.
 
-% Stemming
+	\item [Removal of stop words]
+		Words which do not transport any opinion or sentiment are called stop words.
+		In most cases these words are quite frequent within the texts.
+		They can be removed as the expressed opinion should stay the same
+		\cite{Nothman2018}.
 
-Stemming is a process to unify words to a single style.
-For example the words 'go' and 'going' are meaning the same thing but would yield to different features.
-Therefore, stemmers transforming different tenses and gerund forms of a word to the general form.
+		Examples for stop words are 'a', 'the' and 'about' for the english language.
 
+	\item [Lemmatization]
+		Lemmatization transforms all verbs to the infinite form and nouns to their singular form 
+		\cite{Shukri2015a}.
+		The lemmatizer analyzes each word using vocabulary and morphological analysis and transform the words to their dictionary form
+		\cite{Balakrishnan2014}.
+ 
+	\item [Stemming]
+		Stemming is used to transform words to their basic form.
+		In order to achieve that the plural 's' from nouns and 'ing' from verbs are removed.
+		Therefore, the words 'go' and 'going' are meaning the same thing but would yield to different features
+		\cite{Shukri2015a}.
 
+		A stemmer is either implemented using rules which are applied to the word till no further rule can be applied or the stemmer contains a list of suffixes and the longest identified suffix will be removed
+		\cite{Balakrishnan2014}.
+\end{description}
 
 %bag of words
 %term frequency (tf)
@@ -199,6 +220,9 @@ These three algorithms have shown a good performance in text categorization stud
   \end{figure}
 	
 \end{description}
+
+\subsection{Metrics}
+\label{ss:background-optionmining-metrics}
 
 \section{Social networks/microblogging services}
 \label{s:background-socialnetworks}
