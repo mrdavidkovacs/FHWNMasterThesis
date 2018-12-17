@@ -43,7 +43,7 @@
 \usepackage{graphicx}   %loads the graphics package, necessary for pictures
 \usepackage{url}
 %\usepackage{wallpaper}
-\usepackage{hyperref}   %Automatically turn all your internal references into hyperlinks.
+\usepackage[colorlinks]{hyperref}   %Automatically turn all your internal references into hyperlinks.
 \makeatletter
 \hypersetup{pdfinfo={
   Title=\@title,
@@ -59,7 +59,7 @@
 %\usepackage[intoc]{nomencl}   %helps to format a nomenclature.
 %\makenomenclature
 
-\usepackage[printonlyused, withpage]{acronym}
+\usepackage[nomain,acronym,toc,shortcuts]{glossaries}
 
 \usepackage[UKenglish]{isodate} %Provides the format for the date on the title page. Read the package documentation for all the possible date formats.
 
@@ -81,7 +81,6 @@
     BoldFont=MyFont_Bold.TTF,
     ItalicFont=MyFont_Italic.TTF,
     BoldItalicFont=MyFont_BoldItalic.TTF]
-
 
 \usepackage{xcolor}
 \definecolor{header-blue}{RGB}{22,48,114}
@@ -189,6 +188,9 @@
 
     %------------------------DOCUMENT-----------------------------%
 
+\makeglossaries
+\input{frontmatter/acronyms}
+
 \begin{document}
 
     %----------------------------FRONT MATTER---------------------%
@@ -215,11 +217,10 @@
         
 \tableofcontents    %\thispagestyle{fancy}
 
-%\printnomenclature
 \chapter*{List of Acronyms}
 \addcontentsline{toc}{chapter}{List of Acronyms}
-%\input{frontmatter/nomenclature}
-\input{frontmatter/acronyms.tex}
+%\printglossary[type=\acronymtype]
+\printglossary[type=\acronymtype,style=long]
 
 \listoffigures  %\thispagestyle{fancy}
 \addcontentsline{toc}{chapter}{List of Figures}
