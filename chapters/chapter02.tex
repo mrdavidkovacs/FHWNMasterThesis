@@ -7,23 +7,23 @@ and third, the market of social networks will be examined in \cref{s:background-
 \section{Stock Market Prediction} 
 \label{s:background-stockmarketprediction}
 
-\citeauthor{Bollen2011a} noted that many researches assumed that the stock market is based on the random walk theory and the \gls{EMH}.
-First, the \gls{EMH} suggests that the price of a security is reflected by all information available \cite{fama1965behavior, schumaker2009textual}.
-Furthermore, the \gls{EMH} can be split into three forms: the Weak, the Semi-Strong and the Strong.
+\citeauthor{Bollen2011a} noted that many researches assumed that the stock market is based on the random walk theory and the \ac{EMH}.
+First, the \ac{EMH} suggests that the price of a security is reflected by all information available \cite{fama1965behavior, schumaker2009textual}.
+Furthermore, the \ac{EMH} can be split into three forms: the Weak, the Semi-Strong and the Strong.
 
 \begin{itemize}
     %\itemsep0em
     \item
-        In Weak \gls{EMH} only historical information is incorporated in the current price \cite{schumaker2009textual}.
+        In Weak \ac{EMH} only historical information is incorporated in the current price \cite{schumaker2009textual}.
 
     \item
-        In Semi-Strong \gls{EMH} uses historical and also currently available public information in the current price \cite{schumaker2009textual}.
+        In Semi-Strong \ac{EMH} uses historical and also currently available public information in the current price \cite{schumaker2009textual}.
 
     \item
-        In Strong \gls{EMH} the Semi-Strong model is enhanced with currently available private information such as insider information in the share price \cite{schumaker2009textual}.
+        In Strong \ac{EMH} the Semi-Strong model is enhanced with currently available private information such as insider information in the share price \cite{schumaker2009textual}.
 \end{itemize}
 
-Therefore, the \gls{EMH} assumes that stock market prices are driven by new information such as news and will less depend on the current price or historical prices.
+Therefore, the \ac{EMH} assumes that stock market prices are driven by new information such as news and will less depend on the current price or historical prices.
 As news are unpredictable the stock market prices will follow a random walk pattern \cite{Bollen2011a}.
 
 But \citeauthor{Bollen2011a} stated also that stock prices aren't following the random walk pattern completely and can therefore predicted in some way.
@@ -164,7 +164,7 @@ These three algorithms have shown a good performance in text categorization stud
 
 \begin{description}
 	\item[Naive Bayes.] 
-    The \gls{NB} algorithm calculates the probabilities that a document $d$ belong to a class $c$.
+    The \ac{NB} algorithm calculates the probabilities that a document $d$ belong to a class $c$.
 	Furthermore, it implies that all classes are independent to each other, which does not hold true very often in a real world scenario.
 	In sentiment classification tasks there are two classes available: positive and negative.
 	Therefore the text is classified as class $c$ where $c* = arg max_c P(c | d)$.
@@ -178,7 +178,7 @@ These three algorithms have shown a good performance in text categorization stud
 	Despite the fact that the Naive Bayes algorithm is very simple and the assumption of independent classes does not hold true in a real world scenario it performs surprisingly well \cite{Pang2002}.
 	
 	\item[Maximum Entropy Classification.]
-	The \gls{ME} Classification succeeded in a number of language processing applications.
+	The \ac{ME} Classification succeeded in a number of language processing applications.
 	The exponential form of the Maximum Entropy Classifier can be seen in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy} \cite{Pang2002}.
 	
 	\begin{equation}
@@ -206,7 +206,7 @@ These three algorithms have shown a good performance in text categorization stud
 	The values for $\lambda_{i,c}$ are set in a way that the entropy of the training data set is maximized \cite{Pang2002}.
 		
 	\item[Support Vector Machine.]
-	\gls{SVM} are large-margin classifiers in contrast to the probabilistic Naive Bayes and Maximum Entropy.
+	\ac{SVM} are large-margin classifiers in contrast to the probabilistic Naive Bayes and Maximum Entropy.
 	That means that in the two-category case (positive or negative) the training procedure looking for a hyperplane which maximizes the margin between the two groups \cite{Pang2002}.
 	This scenario is depicted in \autoref{fig:background-optionmining-machinelearningalgorithms-svm} \cite[p. 275]{Cortes1995}.
 		
@@ -229,9 +229,9 @@ In the following the most important metrics will be presented.
 	\item [Confusion Matrix]
 		The confusion matrix shows the relation between correctly and wrongly predicted items.
 		To build a confusion matrix each label is predicted by the algorithm and counted as follows:
-		If the correct label is \emph{positive} and the algorithm predicted \emph{positive}, than it is a \gls{TP}.
-		On the other hand if the algorithm predicted \emph{negative} it is a \gls{FN}.
-		The same structure applies if the correct label is \emph{negative}: \gls{TN} if the algorithm predicted \emph{negative} and \gls{FP} if the algorithm predicted \emph{positive}
+		If the correct label is \emph{positive} and the algorithm predicted \emph{positive}, than it is a \ac{TP}.
+		On the other hand if the algorithm predicted \emph{negative} it is a \ac{FN}.
+		The same structure applies if the correct label is \emph{negative}: \ac{TN} if the algorithm predicted \emph{negative} and \ac{FP} if the algorithm predicted \emph{positive}
 		\cite{Tripathy2015}.
 
 		A sample confusion matrix is depicted in \cref{tab:background-optionmining-confusionmatrix}.
@@ -243,8 +243,8 @@ In the following the most important metrics will be presented.
 				\begin{tabular}{l | l l}
 					 & \multicolumn{2}{c}{Correct labels} \\
 					Predicted labels & Positive & Negative \\ \hline
-					Positive & \gls{TP} & \gls{FP} \\
-					Negative & \gls{FN} & \gls{TN} \\ \hline					
+					Positive & \ac{TP} & \ac{FP} \\
+					Negative & \ac{FN} & \ac{TN} \\ \hline					
 				\end{tabular}
 		
 				\caption{A sample confusion matrix}
@@ -258,7 +258,7 @@ In the following the most important metrics will be presented.
 		\cite{Tripathy2015}.
 
 		\begin{equation}
-			precision = \frac{\gls{TP}}{\gls{TP}+\gls{FP}}
+			precision = \frac{\ac{TP}}{\ac{TP}+\ac{FP}}
 			\label{eq:background-optionmining-metrics-precision}
 		\end{equation}
 
@@ -268,7 +268,7 @@ In the following the most important metrics will be presented.
 		\cite{Tripathy2015}.
 
 		\begin{equation}
-			recall = \frac{\gls{TP}}{\gls{TP}+\gls{FN}}
+			recall = \frac{\ac{TP}}{\ac{TP}+\ac{FN}}
 			\label{eq:background-optionmining-metrics-recall}
 		\end{equation}
 
@@ -289,7 +289,7 @@ In the following the most important metrics will be presented.
 		\cite{Tripathy2015}.
 
 		\begin{equation}
-			accuracy = \frac{\gls{TP} + \gls{TN}}{\gls{TP}+ \gls{TN} + \gls{FP} + \gls{FN}}
+			accuracy = \frac{\ac{TP} + \ac{TN}}{\ac{TP}+ \ac{TN} + \ac{FP} + \ac{FN}}
 			\label{eq:background-optionmining-metrics-accuracy}
 		\end{equation}
 
