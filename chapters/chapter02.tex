@@ -152,22 +152,9 @@ Preprocessing is important to reduce the number of features. Preprocessing may i
 As most algorithms assume that the input vector is of fixed size.
 The most common way to represent variable-length documents in feature vector format is to use the \ac{bow} representation
 \cite{Murphy2012}.
+A corpus with sample documents are depicted in \cref{tab:background-optionmining-sampledocuments}.
 
-Using that representation the document is seen as a sequence of words.
-Therefore, each document is divided into tokens.
-A token may be a word or something else like a number or a punctuation mark
-\cite{Manning1999}.
-
-Given that tokens a vocabulary is build up.
-That means that the tokens are sequentially numbered and the tokens are replaced within the documents with the corresponding number
-\cite{Murphy2012}.
-
-It is assumed that a bag is not ordered.
-Therefore the order of tokens is irrelevant.
-The next step is to count the number of tokens within the documents and build a histogram of token counts
-\cite{Murphy2012}.
-
-\begin{table}
+\begin{table}[htbp]
 	\begin{center}
 		\begin{tabular}{!l ^l}
 			\hline
@@ -182,8 +169,17 @@ The next step is to count the number of tokens within the documents and build a 
 	\end{center}
 \end{table}
 
+Using that representation the document is seen as a sequence of words.
+Therefore, each document is divided into tokens.
+A token may be a word or something else like a number or a punctuation mark
+\cite{Manning1999}.
 
-\begin{table}
+Given that tokens a vocabulary is build up.
+That means that the tokens are sequentially numbered and the tokens are replaced within the documents with the corresponding number
+\cite{Murphy2012}.
+The vocabulary is depicted in \cref{tab:background-optionmining-vocabulary} and the translated corpus is shown in \cref{tab:background-optionmining-translatedsampledocuments}.
+
+\begin{table}[htbp]
 	\begin{center}
 		\begin{tabular}{!>{\bfseries}l *{6}{^>{\ttfamily}c}}
 			\hline
@@ -200,7 +196,7 @@ The next step is to count the number of tokens within the documents and build a 
 	\end{center}
 \end{table}
 
-\begin{table}
+\begin{table}[htbp]
 	\begin{center}
 		\begin{tabular}{!l ^l}
 			\hline
@@ -215,7 +211,13 @@ The next step is to count the number of tokens within the documents and build a 
 	\end{center}
 \end{table}
 
-\begin{table}
+It is assumed that a bag is not ordered.
+Therefore the order of tokens is irrelevant.
+The next step is to count the number of tokens within the documents and build a histogram of token counts
+\cite{Murphy2012}.
+This is done for our sample corpus in \cref{tab:background-optionmining-tokenhistogram}.
+
+\begin{table}[htbp]
 	\begin{center}
 		\begin{tabular}{!>{\bfseries}l *{6}{^>{\ttfamily}c}}
 			\hline
