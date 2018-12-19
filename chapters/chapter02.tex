@@ -185,13 +185,16 @@ The next step is to count the number of tokens within the documents and build a 
 
 \begin{table}
 	\begin{center}
-		\begin{tabular}{!>{\bfseries}l *{7}{^>{\ttfamily}c}}
+		\begin{tabular}{!>{\bfseries}l *{6}{^>{\ttfamily}c}}
 			\hline
-			Number: & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
-			Token: & mary & lamb & little & fleece & white & snow & unk \\ \hline
+			Number: & 1 & 2 & 3 & 4 & 5 & 6  \\
+			Token: & mary & lamb & little & fleece & white & snow \\ \hline
 		\end{tabular}
 
-        \caption[An example of documents]{An example of the vocabulary. Tokens in lower case and punctuation removed, taken from \cite[p.81]{Murphy2012}}
+		\caption[A sample vocabulary]{
+			A sample vocabulary;
+			tokens in lower case and punctuation and stop words removed;
+			deducted from \cref{tab:background-optionmining-sampledocuments}}
 		\label{tab:background-optionmining-vocabulary}
 		%\label{tab:background-optionmining-tokenization}
 	\end{center}
@@ -203,26 +206,26 @@ The next step is to count the number of tokens within the documents and build a 
 			\hline
 			\rowstyle{\bfseries}
 			Document & Token Numbers \\ \hline
-			$D_1$ & \texttt{1 7 3 2 3 2 3 2} \\
-			$D_2$ & \texttt{1 7 3 2 7 4 7 5 6} \\ \hline
+			$D_1$ & \texttt{1 3 2 3 2 3 2} \\
+			$D_2$ & \texttt{1 3 2 4 5 6} \\ \hline
 		\end{tabular}
 
-        \caption[An example of documents]{An example of documents, taken from \cite[p.81]{Murphy2012}}
+        \caption[An example of translated documents]{An example of translated documents. Deducted from \cref{tab:background-optionmining-sampledocuments} using vocabulary in \cref{tab:background-optionmining-vocabulary}}
 		\label{tab:background-optionmining-translatedsampledocuments}
 	\end{center}
 \end{table}
 
 \begin{table}
 	\begin{center}
-		\begin{tabular}{!>{\bfseries}l *{7}{^>{\ttfamily}c}}
+		\begin{tabular}{!>{\bfseries}l *{6}{^>{\ttfamily}c}}
 			\hline
-			Number: & 1 & 2 & 3 & 4 & 5 & 6 & 7  \\
-			Token: & mary & lamb & little & fleece & white & snow & unk \\ \hline
-			$D_1$ & 1 & 3 & 3 & 0 & 0 & 0 & 1 \\
-			$D_2$ & 1 & 1 & 1 & 1 & 1 & 1 & 3 \\ \hline
+			Number: & 1 & 2 & 3 & 4 & 5 & 6  \\
+			Token: & mary & lamb & little & fleece & white & snow \\ \hline
+			$D_1$ & 1 & 3 & 3 & 0 & 0 & 0 \\
+			$D_2$ & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
 		\end{tabular}
 
-        \caption[An example of documents]{An example of the vocabulary. Tokens in lower case and punctuation removed, taken from \cite[p.81]{Murphy2012}}
+        \caption[Histogram of tokens]{Histogram of tokens used in \cref{tab:background-optionmining-translatedsampledocuments}}
 		\label{tab:background-optionmining-tokenhistogram}
 		%\label{tab:background-optionmining-tokenization}
 	\end{center}
