@@ -164,6 +164,12 @@
 \renewcommand{\labelitemii}{-}
 \renewcommand{\labelitemi}{--}
 
+\newcolumntype{!}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+  #1\ignorespaces
+}
+
     %%%------------- Page Layout Settings ----------------------%
 %%---Just in case you want to customize the page layout-----
 %\setlength{\topmargin}{0mm} 

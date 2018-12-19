@@ -169,11 +169,12 @@ The next step is to count the number of tokens within the documents and build a 
 
 \begin{table}
 	\begin{center}
-		\begin{tabular}{l l}
+		\begin{tabular}{!l ^l}
 			\hline
-			\textbf{Document} & \textbf{Text} \\ \hline
-			$D_1$ & Mary had a little lamb, little lamb, little lamb, \\
-			$D_2$ & Mary had a little lamb, its fleece as white as snow \\ \hline
+			\rowstyle{\bfseries}
+			Document & Text \\ \hline
+			$D_1$ & \texttt{Mary had a little lamb, little lamb, little lamb,} \\
+			$D_2$ & \texttt{Mary had a little lamb, its fleece as white as snow} \\ \hline
 		\end{tabular}
 
         \caption[An example of documents]{An example of documents, taken from \cite[p.81]{Murphy2012}}
@@ -184,10 +185,10 @@ The next step is to count the number of tokens within the documents and build a 
 
 \begin{table}
 	\begin{center}
-		\begin{tabular}{l *{7}{c}}
+		\begin{tabular}{!>{\bfseries}l *{7}{^>{\ttfamily}c}}
 			\hline
-			\textbf{Number:} & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
-			\textbf{Token:} & mary & lamb & little & fleece & white & snow & unk \\ \hline
+			Number: & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+			Token: & mary & lamb & little & fleece & white & snow & unk \\ \hline
 		\end{tabular}
 
         \caption[An example of documents]{An example of the vocabulary. Tokens in lower case and punctuation removed, taken from \cite[p.81]{Murphy2012}}
@@ -198,11 +199,12 @@ The next step is to count the number of tokens within the documents and build a 
 
 \begin{table}
 	\begin{center}
-		\begin{tabular}{l l}
+		\begin{tabular}{!l ^l}
 			\hline
-			\textbf{Document} & \textbf{Token Numbers} \\ \hline
-			$D_1$ & 1 7 3 2 3 2 3 2 \\
-			$D_2$ & 1 7 3 2 7 4 7 5 6 \\ \hline
+			\rowstyle{\bfseries}
+			Document & Token Numbers \\ \hline
+			$D_1$ & \texttt{1 7 3 2 3 2 3 2} \\
+			$D_2$ & \texttt{1 7 3 2 7 4 7 5 6} \\ \hline
 		\end{tabular}
 
         \caption[An example of documents]{An example of documents, taken from \cite[p.81]{Murphy2012}}
@@ -212,12 +214,12 @@ The next step is to count the number of tokens within the documents and build a 
 
 \begin{table}
 	\begin{center}
-		\begin{tabular}{l *{7}{c}}
+		\begin{tabular}{!>{\bfseries}l *{7}{^>{\ttfamily}c}}
 			\hline
-			\textbf{Number:} & 1 & 2 & 3 & 4 & 5 & 6 & 7  \\
-			\textbf{Token:} & mary & lamb & little & fleece & white & snow & unk \\ \hline
-			\textbf{$D_1$} & 1 & 3 & 3 & 0 & 0 & 0 & 1 \\
-			\textbf{$D_2$} & 1 & 1 & 1 & 1 & 1 & 1 & 3 \\ \hline
+			Number: & 1 & 2 & 3 & 4 & 5 & 6 & 7  \\
+			Token: & mary & lamb & little & fleece & white & snow & unk \\ \hline
+			$D_1$ & 1 & 3 & 3 & 0 & 0 & 0 & 1 \\
+			$D_2$ & 1 & 1 & 1 & 1 & 1 & 1 & 3 \\ \hline
 		\end{tabular}
 
         \caption[An example of documents]{An example of the vocabulary. Tokens in lower case and punctuation removed, taken from \cite[p.81]{Murphy2012}}
