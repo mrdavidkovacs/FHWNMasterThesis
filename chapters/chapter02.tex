@@ -1,3 +1,5 @@
+%!TEX root = ../main.tex
+
 This section should provide the theoretical background and the foundation of the conducted study.
 Therefore, this section is structured as follows: 
 first, related work of stock market prediction will be presented in \cref{s:background-stockmarketprediction};
@@ -7,23 +9,23 @@ and third, the market of social networks will be examined in \cref{s:background-
 \section{Stock Market Prediction} 
 \label{s:background-stockmarketprediction}
 
-\citeauthor{Bollen2011a} noted that many researches assumed that the stock market is based on the random walk theory and the \gls{EMH}.
-First, the \gls{EMH} suggests that the price of a security is reflected by all information available \cite{fama1965behavior, schumaker2009textual}.
-Furthermore, the \gls{EMH} can be split into three forms: the Weak, the Semi-Strong and the Strong.
+\citeauthor{Bollen2011a} noted that many researches assumed that the stock market is based on the random walk theory and the \ac{EMH}.
+First, the \ac{EMH} suggests that the price of a security is reflected by all information available \cite{fama1965behavior, schumaker2009textual}.
+Furthermore, the \ac{EMH} can be split into three forms: the Weak, the Semi-Strong and the Strong.
 
 \begin{itemize}
     %\itemsep0em
     \item
-        In Weak \gls{EMH} only historical information is incorporated in the current price \cite{schumaker2009textual}.
+        In Weak \ac{EMH} only historical information is incorporated in the current price \cite{schumaker2009textual}.
 
     \item
-        In Semi-Strong \gls{EMH} uses historical and also currently available public information in the current price \cite{schumaker2009textual}.
+        In Semi-Strong \ac{EMH} uses historical and also currently available public information in the current price \cite{schumaker2009textual}.
 
     \item
-        In Strong \gls{EMH} the Semi-Strong model is enhanced with currently available private information such as insider information in the share price \cite{schumaker2009textual}.
+        In Strong \ac{EMH} the Semi-Strong model is enhanced with currently available private information such as insider information in the share price \cite{schumaker2009textual}.
 \end{itemize}
 
-Therefore, the \gls{EMH} assumes that stock market prices are driven by new information such as news and will less depend on the current price or historical prices.
+Therefore, the \ac{EMH} assumes that stock market prices are driven by new information such as news and will less depend on the current price or historical prices.
 As news are unpredictable the stock market prices will follow a random walk pattern \cite{Bollen2011a}.
 
 But \citeauthor{Bollen2011a} stated also that stock prices aren't following the random walk pattern completely and can therefore predicted in some way.
@@ -40,6 +42,8 @@ Therefore the sentiments can be extracted from news and blogs
 
 \section{Option Mining} 
 \label{s:background-optionmining}
+
+\epigraph{We are drowning in information and starving for knowledge.}{\textit{John Naisbitt}}
 
 Option mining is defined as extracting opinions from unstructured data using natural language processing techniques \cite[page 411]{Liu2007}.
 
@@ -90,6 +94,7 @@ For these sections the variable definitions of \autoref{tab:background-optionmin
 \begin{table}
 	\begin{center}
 		\begin{tabular}{l l}
+			\hline
 			\textbf{Element} & \textbf{Description} \\ \hline
 			$c$ & Specific document class \\
 			$C$ & Document classes \\
@@ -98,7 +103,7 @@ For these sections the variable definitions of \autoref{tab:background-optionmin
 			$f_i$ & Specific feature \\
 			$m$ & Count of features \\
 			$n_i(d)$ & Count of features $i$ in document $d$ \\
-			$P(x)$ & Probability of x \\
+			$P(x)$ & Probability of x \\ \hline
 		\end{tabular}
 
         \caption{Variable definitions used in option mining}
@@ -111,9 +116,6 @@ For these sections the variable definitions of \autoref{tab:background-optionmin
 
 To make text available to machine learning algorithms each document must be converted to a vector.
 This section gives an introduction into text preprocessing and feature extraction techniques.
-
-% \subsubsection{Text Preprocessing}
-% \label{sss:background-optionmining-textfeatureextraction-preprocessing}
 
 Most algorithms may yield better performance if the text is preprocessed in some way.
 Preprocessing is important to reduce the number of features. Preprocessing may include:
@@ -130,7 +132,8 @@ Preprocessing is important to reduce the number of features. Preprocessing may i
 		They can be removed as the expressed opinion should stay the same
 		\cite{Nothman2018}.
 
-		Examples for stop words are 'a', 'the' and 'about' for the english language.
+		Examples for stop words are 'a', 'the' and 'for' for the english language
+		\cite{schumaker2009textual}.
 
 	\item [Lemmatization]
 		Lemmatization transforms all verbs to the infinite form and nouns to their singular form 
@@ -148,6 +151,91 @@ Preprocessing is important to reduce the number of features. Preprocessing may i
 		\cite{Balakrishnan2014}.
 \end{description}
 
+As most algorithms assume that the input vector is of fixed size.
+The most common way to represent variable-length documents in feature vector format is to use the \ac{bow} representation
+\cite{Murphy2012}.
+A corpus with sample documents is depicted in \cref{tab:background-optionmining-sampledocuments}.
+
+\begin{table}[htbp]
+	\begin{center}
+		\begin{tabular}{!l ^l}
+			\hline
+			\rowstyle{\bfseries}
+			Document & Text \\ \hline
+			$D_1$ & \texttt{Mary had a little lamb, little lamb, little lamb,} \\
+			$D_2$ & \texttt{Mary had a little lamb, its fleece as white as snow} \\ \hline
+		\end{tabular}
+
+        \caption[An example of documents]{An example of documents, taken from \cite[p.81]{Murphy2012}}
+		\label{tab:background-optionmining-sampledocuments}
+	\end{center}
+\end{table}
+
+Using that representation the document is seen as a sequence of words.
+Therefore, each document is divided into tokens or terms.
+A token may be a word or something else like a number or a punctuation mark
+\cite{Manning1999}.
+
+Given that tokens a vocabulary is build up.
+That means that the tokens are sequentially numbered and the tokens are replaced within the documents with the corresponding number
+\cite{Murphy2012}.
+The vocabulary is depicted in \cref{tab:background-optionmining-vocabulary} and the translated corpus is shown in \cref{tab:background-optionmining-translatedsampledocuments}.
+
+\begin{table}[htbp]
+	\begin{center}
+		\begin{tabular}{!>{\bfseries}l *{6}{^>{\ttfamily}c}}
+			\hline
+			Number: & 1 & 2 & 3 & 4 & 5 & 6  \\
+			Token: & mary & lamb & little & fleece & white & snow \\ \hline
+		\end{tabular}
+
+		\caption[A sample vocabulary]{
+			A sample vocabulary;
+			tokens in lower case and punctuation and stop words removed;
+			deducted from \cref{tab:background-optionmining-sampledocuments}}
+		\label{tab:background-optionmining-vocabulary}
+		%\label{tab:background-optionmining-tokenization}
+	\end{center}
+\end{table}
+
+\begin{table}[htbp]
+	\begin{center}
+		\begin{tabular}{!l ^l}
+			\hline
+			\rowstyle{\bfseries}
+			Document & Token Numbers \\ \hline
+			$D_1$ & \texttt{1 3 2 3 2 3 2} \\
+			$D_2$ & \texttt{1 3 2 4 5 6} \\ \hline
+		\end{tabular}
+
+        \caption[An example of translated documents]{An example of translated documents. Deducted from \cref{tab:background-optionmining-sampledocuments} using vocabulary in \cref{tab:background-optionmining-vocabulary}}
+		\label{tab:background-optionmining-translatedsampledocuments}
+	\end{center}
+\end{table}
+
+It is assumed that a bag is not ordered.
+Therefore the order of tokens is irrelevant.
+The next step is to count the number of tokens within the documents and build a histogram of token counts
+\cite{Murphy2012}.
+This is done for our sample corpus in \cref{tab:background-optionmining-termfrequencies}.
+
+\begin{table}[htbp]
+	\begin{center}
+		\begin{tabular}{!>{\bfseries}l *{6}{^>{\ttfamily}c}}
+			\hline
+			Number: & 1 & 2 & 3 & 4 & 5 & 6  \\
+			Token: & mary & lamb & little & fleece & white & snow \\ \hline
+			$D_1$ & 1 & 3 & 3 & 0 & 0 & 0 \\
+			$D_2$ & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+		\end{tabular}
+
+        \caption[Sample term frequencies]{Term frequencies deducted from \cref{tab:background-optionmining-translatedsampledocuments}}
+		\label{tab:background-optionmining-termfrequencies}
+		%\label{tab:background-optionmining-tokenization}
+	\end{center}
+\end{table}
+
+
 %bag of words
 %term frequency (tf)
 %inverse document frequency (idf) %TF-IDF: \cite{Bafna2016}
@@ -164,7 +252,7 @@ These three algorithms have shown a good performance in text categorization stud
 
 \begin{description}
 	\item[Naive Bayes.] 
-    The \gls{NB} algorithm calculates the probabilities that a document $d$ belong to a class $c$.
+    The \ac{NB} algorithm calculates the probabilities that a document $d$ belong to a class $c$.
 	Furthermore, it implies that all classes are independent to each other, which does not hold true very often in a real world scenario.
 	In sentiment classification tasks there are two classes available: positive and negative.
 	Therefore the text is classified as class $c$ where $c* = arg max_c P(c | d)$.
@@ -178,7 +266,7 @@ These three algorithms have shown a good performance in text categorization stud
 	Despite the fact that the Naive Bayes algorithm is very simple and the assumption of independent classes does not hold true in a real world scenario it performs surprisingly well \cite{Pang2002}.
 	
 	\item[Maximum Entropy Classification.]
-	The \gls{ME} Classification succeeded in a number of language processing applications.
+	The \ac{ME} Classification succeeded in a number of language processing applications.
 	The exponential form of the Maximum Entropy Classifier can be seen in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy} \cite{Pang2002}.
 	
 	\begin{equation}
@@ -206,7 +294,7 @@ These three algorithms have shown a good performance in text categorization stud
 	The values for $\lambda_{i,c}$ are set in a way that the entropy of the training data set is maximized \cite{Pang2002}.
 		
 	\item[Support Vector Machine.]
-	\gls{SVM} are large-margin classifiers in contrast to the probabilistic Naive Bayes and Maximum Entropy.
+	\ac{SVM} are large-margin classifiers in contrast to the probabilistic Naive Bayes and Maximum Entropy.
 	That means that in the two-category case (positive or negative) the training procedure looking for a hyperplane which maximizes the margin between the two groups \cite{Pang2002}.
 	This scenario is depicted in \autoref{fig:background-optionmining-machinelearningalgorithms-svm} \cite[p. 275]{Cortes1995}.
 		
@@ -229,9 +317,9 @@ In the following the most important metrics will be presented.
 	\item [Confusion Matrix]
 		The confusion matrix shows the relation between correctly and wrongly predicted items.
 		To build a confusion matrix each label is predicted by the algorithm and counted as follows:
-		If the correct label is \emph{positive} and the algorithm predicted \emph{positive}, than it is a \gls{TP}.
-		On the other hand if the algorithm predicted \emph{negative} it is a \gls{FN}.
-		The same structure applies if the correct label is \emph{negative}: \gls{TN} if the algorithm predicted \emph{negative} and \gls{FP} if the algorithm predicted \emph{positive}
+		If the correct label is \emph{positive} and the algorithm predicted \emph{positive}, than it is a \ac{TP}.
+		On the other hand if the algorithm predicted \emph{negative} it is a \ac{FN}.
+		The same structure applies if the correct label is \emph{negative}: \ac{TN} if the algorithm predicted \emph{negative} and \ac{FP} if the algorithm predicted \emph{positive}
 		\cite{Tripathy2015}.
 
 		A sample confusion matrix is depicted in \cref{tab:background-optionmining-confusionmatrix}.
@@ -243,8 +331,8 @@ In the following the most important metrics will be presented.
 				\begin{tabular}{l | l l}
 					 & \multicolumn{2}{c}{Correct labels} \\
 					Predicted labels & Positive & Negative \\ \hline
-					Positive & \gls{TP} & \gls{FP} \\
-					Negative & \gls{FN} & \gls{TN} \\ \hline					
+					Positive & \ac{TP} & \ac{FP} \\
+					Negative & \ac{FN} & \ac{TN} \\ \hline					
 				\end{tabular}
 		
 				\caption{A sample confusion matrix}
@@ -258,7 +346,7 @@ In the following the most important metrics will be presented.
 		\cite{Tripathy2015}.
 
 		\begin{equation}
-			precision = \frac{\gls{TP}}{\gls{TP}+\gls{FP}}
+			precision = \frac{\ac{TP}}{\ac{TP}+\ac{FP}}
 			\label{eq:background-optionmining-metrics-precision}
 		\end{equation}
 
@@ -268,7 +356,7 @@ In the following the most important metrics will be presented.
 		\cite{Tripathy2015}.
 
 		\begin{equation}
-			recall = \frac{\gls{TP}}{\gls{TP}+\gls{FN}}
+			recall = \frac{\ac{TP}}{\ac{TP}+\ac{FN}}
 			\label{eq:background-optionmining-metrics-recall}
 		\end{equation}
 
@@ -289,7 +377,7 @@ In the following the most important metrics will be presented.
 		\cite{Tripathy2015}.
 
 		\begin{equation}
-			accuracy = \frac{\gls{TP} + \gls{TN}}{\gls{TP}+ \gls{TN} + \gls{FP} + \gls{FN}}
+			accuracy = \frac{\ac{TP} + \ac{TN}}{\ac{TP}+ \ac{TN} + \ac{FP} + \ac{FN}}
 			\label{eq:background-optionmining-metrics-accuracy}
 		\end{equation}
 

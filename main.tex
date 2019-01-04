@@ -112,6 +112,13 @@
 \usepackage{mathtools}     %The mathtools package fixes some amsmath quirks and adds some useful settings, symbols, and environments to amsmath.
 
 \usepackage{cleveref}
+\usepackage{epigraph}
+\usepackage{pgffor}
+
+\usepackage{smartdiagram}
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+    decorations.pathreplacing,decorations.pathmorphing,shapes,%
+    matrix,shapes.symbols}
 
 \graphicspath{{images/}}    %Direction where LaTeX will look for the images.
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}
@@ -161,6 +168,12 @@
 
 \renewcommand{\labelitemii}{-}
 \renewcommand{\labelitemi}{--}
+
+\newcolumntype{!}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+  #1\ignorespaces
+}
 
     %%%------------- Page Layout Settings ----------------------%
 %%---Just in case you want to customize the page layout-----
@@ -220,7 +233,7 @@
 %\chapter*{List of Acronyms}
 %\addcontentsline{toc}{chapter}{List of Acronyms}
 %\printglossary[type=\acronymtype]
-\printglossary[type=\acronymtype,style=long]
+\printglossary[type=\acronymtype,title=List of Acronyms,style=long]
 
 \listoffigures  %\thispagestyle{fancy}
 \addcontentsline{toc}{chapter}{List of Figures}
@@ -241,6 +254,9 @@
 
 \chapter{Experimental Setup}
     \input{chapters/chapter03}
+
+\chapter{Analysis}
+    \input{chapters/chapter04}
 
 \chapter{Conclusion}
     \input{chapters/conclusion}
