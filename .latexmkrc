@@ -1,3 +1,6 @@
+# Use xelatex instead of pdflatex
+$pdflatex = 'xelatex -synctex=1 -interaction=nonstopmode --shell-escape %O %S';
+
 add_cus_dep('glo', 'gls', 0, 'run_makeglossaries');
 add_cus_dep('acn', 'acr', 0, 'run_makeglossaries');
 
