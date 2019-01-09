@@ -43,7 +43,7 @@
 \usepackage{graphicx}   %loads the graphics package, necessary for pictures
 \usepackage{url}
 %\usepackage{wallpaper}
-\usepackage[colorlinks]{hyperref}   %Automatically turn all your internal references into hyperlinks.
+\usepackage{hyperref}   %Automatically turn all your internal references into hyperlinks. %colorlinks
 \makeatletter
 \hypersetup{pdfinfo={
   Title=\@title,
@@ -246,20 +246,25 @@
         %--------------------BODY OF THE THESIS--------------------------%
         %%--------------------------------------------------------------%%
 %\cleardoublepage
-\chapter{Introduction}    
-    \input{chapters/chapter01}
+\chapter{Introduction}
+\label{c:introduction}
+\input{chapters/chapter01}
 
 \chapter{Theoretical background}
-    \input{chapters/chapter02}
+\label{c:background}
+\input{chapters/chapter02}
 
-\chapter{Experimental Setup}
-    \input{chapters/chapter03}
+\chapter{Case Study}
+\label{c:casestudy}
+\input{chapters/chapter03}
 
 \chapter{Analysis}
-    \input{chapters/chapter04}
+\label{c:analysis}
+\input{chapters/chapter04}
 
 \chapter{Conclusion}
-    \input{chapters/conclusion}
+\label{c:conclusion}
+\input{chapters/conclusion}
     
         %%------------------------END MATTER----------------------------%%
         %%--------------------------------------------------------------%%
