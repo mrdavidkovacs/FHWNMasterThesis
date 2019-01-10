@@ -1,29 +1,9 @@
 %!TEX root = ../main.tex
 
-This chapter describes the experimental setup.
-
-
-\begin{figure}[ht]
-  \centering
-  \begin{tikzpicture}
-    \node (ts) at (0,0) [circle, draw] {$T_S$};
-    \node (m) at (2,0) [circle, draw] {$M$};
-    \node (tc) at (1,2) [circle, draw] {$T_C$};
-    \node (mt) at (3,2) [circle, draw] {$M_T$};
-    \node (s) at (5,2) [circle, draw] {$S$};
-
-    \draw[->] (ts) -- (m);
-    \draw[->] (tc) -- (mt);
-    \draw[->] (m) -- (mt);
-    \draw[->] (mt) -- (s);
-
-    \draw (-.7,-.7) rectangle (2.7,.7);
-    \draw (0.1,1.1) rectangle (5.9,2.9);
-  \end{tikzpicture}
-
-  \caption{Model}
-  \label{fig:chapter3-model}
-\end{figure}
+This chapter describes the setup of the case study.
+The \cref{fig:casestudy-workflow} depicts the overall workflow of this thesis.
+In the following sections each step is elucidated.
+Strong emphasis is on numbers and decisions.
 
 \begin{figure}[ht]
   \centering
@@ -37,18 +17,17 @@ This chapter describes the experimental setup.
     {Comparing sentiment time series with share prices}
   }
 
-  \caption{Workflow}
-  \label{fig:chapter3-workflow}
+  \caption{Workflow of this thesis}
+  \label{fig:casestudy-workflow}
 \end{figure}
 
-\section{Population and Methods}
-
-\subsection{Determine companies, keywords and stock symbols to analyze}
+\section{Determine companies, keywords and stock symbols to analyze}
+\label{s:casestudy-companieskeywords}
 
 First, a list of automotive companies is needed.
 These companies must be traded on a stock exchange to perform the comparison with tweet sentiments.
 As a single company may own several car brands a list of all brands has been set up.
-The result of the analysis is depicted in \autoref{tab:brands}.
+The result of the analysis is depicted in \cref{tab:casestudy-brands}.
 Both brands which aren't customer facing passenger car brands and brands which do not longer exist have been omitted.
 Furthermore, the brands have been grouped by their owning company.
 
@@ -114,12 +93,12 @@ Furthermore, the brands have been grouped by their owning company.
   Volkswagen & Volkswagen AG \cite[p.104]{VolkswagenAktiengesellschaft2017} \\ \hline
   
   \caption{Automotive brands and their corresponding owning company}
-  \label{tab:brands}
+  \label{tab:casestudy-brands}
   \end{longtable}
 
 According to the survey of \emph{World Motor Vehicle Production 2016} the biggest five car manufacturing companies are: Toyota, Volkswagen, Hyundai, General Motors and Ford \cite{OICA2016}.
 Therefore the study will focus on these five companies.
-The count of manufactured cars and the companies stock symbol are summarized in \autoref{tab:companies-counts-and-symbols}.
+The count of manufactured cars and the companies stock symbol are summarized in \cref{tab:casestudy-companies-counts-and-symbols}.
 The containing symbols in the table are derived by using Yahoo Finance portal (\url{https://finance.yahoo.com}).
 
 \begin{table}
@@ -133,13 +112,14 @@ The containing symbols in the table are derived by using Yahoo Finance portal (\
 	  Volkswagen AG & 10,126,281 & Frankfurt \cite[p.110]{VolkswagenAktiengesellschaft2017} & VOW.F \\  \hline
 	\end{tabular}
 	\caption{Automotive companies and their corresponding produced cars and stock symbol}
-	\label{tab:companies-counts-and-symbols}
+	\label{tab:casestudy-companies-counts-and-symbols}
 \end{table}
 
-\subsection{Gather tweets and stock prices}
+\section{Gather tweets and stock prices}
+\label{s:casestudy-gatherdata}
 
 Tweets have been captured between February 28th 2018 till September 6th 2018.
-The number of collected tweets can be seen in \autoref{tab:companies-numberoftweets}.
+The number of collected tweets can be seen in \cref{tab:casestudy-companies-numberoftweets}.
 
 \begin{table}
   \centering
@@ -154,11 +134,39 @@ The number of collected tweets can be seen in \autoref{tab:companies-numberoftwe
   \end{tabular}
 
   \caption{Numbers of collected tweets}
-  \label{tab:companies-numberoftweets}
+  \label{tab:casestudy-companies-numberoftweets}
 \end{table}
 
 The stock data can be downloaded at any point of time for the given research period and a daily frequency using the Yahoo Finance API.
 
-% \subsection{Normalization of tweets}
-% \subsection{Determine sentiment of tweets}
-% \subsection{Comparing sentiment time series with share prices}
+\section{Normalization of tweets}
+\label{s:casestudy-normalization}
+
+\section{Determine sentiment of tweets}
+\label{s:casestudy-sentiment}
+
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \node (ts) at (0,0) [circle, draw] {$T_S$};
+    \node (m) at (2,0) [circle, draw] {$M$};
+    \node (tc) at (1,2) [circle, draw] {$T_C$};
+    \node (mt) at (3,2) [circle, draw] {$M_T$};
+    \node (s) at (5,2) [circle, draw] {$S$};
+
+    \draw[->] (ts) -- (m);
+    \draw[->] (tc) -- (mt);
+    \draw[->] (m) -- (mt);
+    \draw[->] (mt) -- (s);
+
+    \draw (-.7,-.7) rectangle (2.7,.7);
+    \draw (0.1,1.1) rectangle (5.9,2.9);
+  \end{tikzpicture}
+
+  \caption{Model for sentiment detection}
+  \label{fig:casestudy-sentimentmodel}
+\end{figure}
+
+\section{Comparing sentiment time series with share prices}
+\label{s:casestudy-comparison}
