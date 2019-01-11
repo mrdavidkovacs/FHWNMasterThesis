@@ -22,7 +22,7 @@ Strong emphasis is laid on numbers and decisions.
   \label{fig:casestudy-workflow}
 \end{figure}
 
-\section{Determine companies, keywords and stock symbols to analyze}
+\section{Determine Companies, Keywords and Stock Symbols to Analyze}
 \label{s:casestudy-companieskeywords}
 
 First, a list of automotive companies is needed.
@@ -120,14 +120,14 @@ The containing symbols in the table are derived by literature research and using
 	\label{tab:casestudy-companies-counts-and-symbols}
 \end{table}
 
-\section{Gather data}
+\section{Gather Data}
 \label{s:casestudy-gatherdata}
 
 Gathering data is split into two different tasks:
 gathering tweets which is described in detail in \cref{ss:casestudy-gatherdata-tweets}, 
 and gather stock prices which is described in \cref{ss:casestudy-gatherdata-stockprices}.
 
-\subsection{Gather tweets}
+\subsection{Gather Tweets}
 \label{ss:casestudy-gatherdata-tweets}
 
 A large set of tweets is needed to perform the analysis within a time frame of at least one month.
@@ -214,7 +214,7 @@ The number of collected tweets can be seen in \cref{tab:casestudy-companies-numb
   \label{tab:casestudy-companies-numberoftweets}
 \end{table}
 
-\subsection{Gather stock prices}
+\subsection{Gather Stock Prices}
 \label{ss:casestudy-gatherdata-stockprices}
 
 The stock data can be downloaded at any point of time for the given research period on a daily frequency basis using the Yahoo Finance website.
@@ -228,34 +228,123 @@ Date, Open, High, Low, Close, Adj. Close and Volume.
 %   \item [Open]
 % \end{description}
 
-\section{Normalization of tweets}
+\section{Normalization of Tweets}
 \label{s:casestudy-normalization}
 
-\section{Determine sentiment of tweets}
-\label{s:casestudy-sentiment}
+Prior analysis the tweets have been preprocessed which is also called normalization.
+The importance of normalization has been described in \cref{ss:background-optionmining-textfeatureextraction}.
 
+In the following the steps of normalization are described in detail:
+
+\begin{description}
+
+  \item [Lower case:]
+    The tweet text is converted to lower case as the meaning stays the same but the dictionary size is reduced.
+
+  \item [Tokenization:]
+    For tokenization the TweetTokenizer of the NLTK package is used.
+    This tokenizer has been created for this purpose.
+
+  \item [Stopwords:]
+    The predefined english stopwords of the NLTK package have been removed from all tweets.
+  
+  \item [Lemmatization:]
+    There are several lemmatizer available and the \emph{WordNetLemmatizer} of the NLTK package is used to perform this step.
+
+  \item [Stemming:]
+    The same situation applies to stemmers.
+    The \emph{SnowballStemmer} of the NLTK package is used as many found examples used this specific stemmer.
+
+  \item [Custom \ac{RegEx}:]
+    Last but not least, custom \ac{RegEx} have been used to remove or replace other unwanted elements of tweets, such as \cite{Pagolu2016a}:
+
+    \begin{enumerate}
+      \item User references (``@someuser'') are replaced with the generic word ``user''.
+      \item Specific URI are replaced with the word ``uri''.
+      \item Three or more consecutive characters are replaced by two consecutive characters.
+        For example: the word ``coooooooool'' becomes ``cool''.
+      %\item Questionmarks are replaced by the word ``question'' and exclamationmarks are replace by the word ``exclamation''.
+      \item Hashtags have been removed as the hash symbol does not provide any additional information. 
+        For example: the hashtag ``\#cool'' is replaced by ``cool''.
+    \end{enumerate}
+
+\end{description}
+
+As these described normalization steps are language sensitive only english tweets are used for this and following steps.
+
+\section{Determine Sentiment of Tweets}
+\label{s:casestudy-sentiment}
+% maybe useful?
+% https://github.com/ayushoriginal/Sentiment-Analysis-Twitter
+
+After normalization the tweets were ready for sentiment detection.
+The sentiments were detected using four different models using the same workflow depicted in \cref{fig:casestudy-sentimentworkflow} and the used symbols are described in \cref{tab:casestudy-sentimentvariables}.
+
+\begin{table}
+  \centering
+  \begin{tabular}[hbt]{!l ^l}
+    \hline
+    \rowstyle{\bfseries}
+    Symbol & Description \\ \hline
+    $T_S$ & Sample tweets \\
+    $T_C$ & Collected tweets \\
+    $P$   & Pipeline \\
+    $P_T$ & Trained pipeline \\
+    $S$   & Sentiment \\ \hline
+  \end{tabular}
+
+  \caption{Variable definitions for sentiment detection}
+  \label{tab:casestudy-sentimentvariables}
+\end{table}
 
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}
     \node (ts) at (0,0) [circle, draw] {$T_S$};
-    \node (m) at (2,0) [circle, draw] {$M$};
+    \node (p) at (2,0) [circle, draw] {$P$};
     \node (tc) at (1,2) [circle, draw] {$T_C$};
-    \node (mt) at (3,2) [circle, draw] {$M_T$};
+    \node (pt) at (3,2) [circle, draw] {$P_T$};
     \node (s) at (5,2) [circle, draw] {$S$};
 
-    \draw[->] (ts) -- (m);
-    \draw[->] (tc) -- (mt);
-    \draw[->] (m) -- (mt);
-    \draw[->] (mt) -- (s);
+    \draw[->] (ts) -- (p);
+    \draw[->] (tc) -- (pt);
+    \draw[->] (p) -- (pt);
+    \draw[->] (pt) -- (s);
 
     \draw (-.7,-.7) rectangle (2.7,.7);
     \draw (0.1,1.1) rectangle (5.9,2.9);
   \end{tikzpicture}
 
-  \caption{Model for sentiment detection}
-  \label{fig:casestudy-sentimentmodel}
+  \caption{Workflow for sentiment detection}
+  \label{fig:casestudy-sentimentworkflow}
 \end{figure}
 
-\section{Comparing sentiment time series with share prices}
+
+In the following sections each model will be illustrated.
+
+%\subsection{}
+
+% Pipeline (graphic)
+%  CountVectorizer
+%  TfidfTransformer
+%  Classifier
+
+% Cross validation with GridSearchCV
+
+\subsection{TextBlob Classifier}
+\label{ss:casestudy-sentiment-textblob}
+
+
+
+\subsection{Naive Bayes Classifier}
+\label{ss:casestudy-sentiment-naivebayes}
+
+\subsection{Maximum Entropy Classifier}
+\label{ss:casestudy-sentiment-maximumentropy}
+
+\subsection{Support Vector Machine Classifier}
+\label{ss:casestudy-sentiment-supportvector}
+
+\section{Comparing Sentiment Time Series with Share Prices}
 \label{s:casestudy-comparison}
+
