@@ -109,7 +109,6 @@ The containing symbols in the table are derived by literature research and using
     \hline
     \rowstyle{\bfseries}
 	  Company & \#cars \cite{OICA2016} & Stock Exchange & Symbol  \\ \hline
-	   %s
 	  Ford Motor Company & 6,429,485 & New York \cite{FordMotorCompany2018} & F  \\
 	  General Motors Company & 7,793,066 & New York \cite[p.17]{GeneralMotorsCompany2018} & GM \\
 	  Hyundai Motor Company & 7,889,538 & Korea \cite[p.92]{HyundaiMotorCompany2016} & 005380.KS \\
@@ -278,7 +277,7 @@ As these described normalization steps are language sensitive only english tweet
 % https://github.com/ayushoriginal/Sentiment-Analysis-Twitter
 
 After normalization the tweets were ready for sentiment detection.
-The sentiments were detected using four different models using the same workflow depicted in \cref{fig:casestudy-sentimentworkflow} and the used symbols are described in \cref{tab:casestudy-sentimentvariables}.
+The sentiments were detected using four different classifiers using the same workflow depicted in \cref{fig:casestudy-sentimentworkflow}, the used symbols are described in \cref{tab:casestudy-sentimentvariables} and the same pipeline configuration depicted in \cref{fig:casestudy-sentimentpipeline}.
 
 \begin{table}
   \centering
@@ -297,7 +296,7 @@ The sentiments were detected using four different models using the same workflow
   \label{tab:casestudy-sentimentvariables}
 \end{table}
 
-\begin{figure}[ht]
+\begin{figure}[hbt]
   \centering
   \begin{tikzpicture}
     \node (ts) at (0,0) [circle, draw] {$T_S$};
@@ -319,31 +318,56 @@ The sentiments were detected using four different models using the same workflow
   \label{fig:casestudy-sentimentworkflow}
 \end{figure}
 
+\begin{figure}[hbt]
+  \centering
+  \begin{tikzpicture}
+    \node (cv)     at (0,0) [rectangle, draw] {Count Vectorizer};
+    \node (tfidf)  at (4,0) [rectangle, draw] {TfIdf Transformer};
 
-In the following sections each model will be illustrated.
+    \node (cf_tb)  at (9,1.5) [rectangle, draw] {TextBlob};
+    \node (cf_nb)  at (9,0.5) [rectangle, draw] {Naive Bayes};
+    \node (cf_me)  at (9,-0.5) [rectangle, draw] {Maximum Entropy};
+    \node (cf_svm) at (9,-1.5) [rectangle, draw] {Support Vector Machine};
 
-%\subsection{}
+    \node (cf)     at (9,2.5) {Classifier};
+    
+    \draw (6.5,-2) rectangle (11.5,3);
 
-% Pipeline (graphic)
-%  CountVectorizer
-%  TfidfTransformer
-%  Classifier
+    \draw[->] (cv) -- (tfidf);
+    \draw[->] (tfidf) -- (6.5,0);
+  \end{tikzpicture}
+
+  \caption{Pipeline for sentiment detection}
+  \label{fig:casestudy-sentimentpipeline}
+\end{figure}
+
+%buitinck2013api
+
+The pipeline is a useful construct to keep 
+In the following sections each part of the pipeline is described.
 
 % Cross validation with GridSearchCV
 
-\subsection{TextBlob Classifier}
-\label{ss:casestudy-sentiment-textblob}
+\subsection{Count Vectorizer}
+\label{ss:casestudy-sentiment-countvectorizer}
 
+\subsection{Term Frequency Inverse Document Frequency Transformer}
+\label{ss:casestudy-sentiment-tfidftransformer}
 
+\subsection{Classifier}
+\label{ss:casestudy-sentiment-classifier}
 
-\subsection{Naive Bayes Classifier}
-\label{ss:casestudy-sentiment-naivebayes}
+\subsubsection{TextBlob Classifier}
+\label{sss:casestudy-sentiment-classifier-textblob}
 
-\subsection{Maximum Entropy Classifier}
-\label{ss:casestudy-sentiment-maximumentropy}
+\subsubsection{Naive Bayes Classifier}
+\label{sss:casestudy-sentiment-classifier-naivebayes}
 
-\subsection{Support Vector Machine Classifier}
-\label{ss:casestudy-sentiment-supportvector}
+\subsubsection{Maximum Entropy Classifier}
+\label{sss:casestudy-sentiment-classifier-maximumentropy}
+
+\subsubsection{Support Vector Machine Classifier}
+\label{sss:casestudy-sentiment-classifier-supportvector}
 
 \section{Comparing Sentiment Time Series with Share Prices}
 \label{s:casestudy-comparison}
