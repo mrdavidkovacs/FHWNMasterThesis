@@ -3,15 +3,16 @@
 This chapter describes the setup of the case study.
 The \cref{fig:casestudy-workflow} depicts the overall workflow of this thesis.
 In the following sections each step is elucidated.
-Strong emphasis is on numbers and decisions.
+Strong emphasis is laid on numbers and decisions.
 
 \begin{figure}[ht]
   \centering
   \smartdiagramset{back arrow disabled=true,
-    text width=.6\textwidth,}
+    text width=.6\textwidth,
+    uniform color list=black!40 for 5 items}
   \smartdiagram[flow diagram:vertical]{
     {Determine companies, keywords and stock symbols to analyze},
-    {Gather tweets and stock prices},
+    {Gather data},
     {Normalization of tweets},
     {Determine sentiment of tweets},
     {Comparing sentiment time series with share prices}
@@ -31,8 +32,10 @@ The result of the analysis is depicted in \cref{tab:casestudy-brands}.
 Both brands which aren't customer facing passenger car brands and brands which do not longer exist have been omitted.
 Furthermore, the brands have been grouped by their owning company.
 
-  \begin{longtable}[c]{ll}
-   \bfseries{Car brand} & \bfseries{Owning Company}  \\ \hline
+  \begin{longtable}[c]{!l ^l}
+    \hline
+    \rowstyle{\bfseries}
+    Car brand & Owning Company  \\ \hline
   \endfirsthead
   %
   \multicolumn{2}{c}%
@@ -99,11 +102,13 @@ Furthermore, the brands have been grouped by their owning company.
 According to the survey of \emph{World Motor Vehicle Production 2016} the biggest five car manufacturing companies are: Toyota, Volkswagen, Hyundai, General Motors and Ford \cite{OICA2016}.
 Therefore the study will focus on these five companies.
 The count of manufactured cars and the companies stock symbol are summarized in \cref{tab:casestudy-companies-counts-and-symbols}.
-The containing symbols in the table are derived by using Yahoo Finance portal (\url{https://finance.yahoo.com}).
+The containing symbols in the table are derived by literature research and using the Yahoo Finance portal (\url{https://finance.yahoo.com}).
 
 \begin{table}
-	\begin{tabular}[c]{lrll}
-	  \textbf{Company} & \textbf{\#cars \cite{OICA2016}} & \textbf{Stock Exchange} & \textbf{Symbol}  \\ \hline
+  \begin{tabular}[c]{!l ^r ^l ^l}
+    \hline
+    \rowstyle{\bfseries}
+	  Company & \#cars \cite{OICA2016} & Stock Exchange & Symbol  \\ \hline
 	   %s
 	  Ford Motor Company & 6,429,485 & New York \cite{FordMotorCompany2018} & F  \\
 	  General Motors Company & 7,793,066 & New York \cite[p.17]{GeneralMotorsCompany2018} & GM \\
@@ -115,29 +120,113 @@ The containing symbols in the table are derived by using Yahoo Finance portal (\
 	\label{tab:casestudy-companies-counts-and-symbols}
 \end{table}
 
-\section{Gather tweets and stock prices}
+\section{Gather data}
 \label{s:casestudy-gatherdata}
 
-Tweets have been captured between February 28th 2018 till September 6th 2018.
+Gathering data is split into two different tasks:
+gathering tweets which is described in detail in \cref{ss:casestudy-gatherdata-tweets}, 
+and gather stock prices which is described in \cref{ss:casestudy-gatherdata-stockprices}.
+
+\subsection{Gather tweets}
+\label{ss:casestudy-gatherdata-tweets}
+
+A large set of tweets is needed to perform the analysis within a time frame of at least one month.
+There were several approaches to get these tweets: download tweets directly or capture tweets within the given time frame.
+As we are tracking five companies using 23 keywords (brands) there will be a quite big amount of data.
+
+Several approaches have been tried to get as many tweets as possible to the given keywords, including:
+
+\begin{description}
+  \item [Official Twitter search \ac{API}] 
+    was the first attempt.
+    But there were very serious limitations to the official \ac{API} that made that quite easy way impossible.
+    First, the standard search \ac{API} supports just a maximum count of 100 tweets;
+    second, it supports a history of only seven days;
+    and lastly, there were to tight rate limits defined in order gather all possible tweets of the seven days period \cite{TwitterInc.2018}.
+
+  \item [Twitter search on website]
+    has been tried to overcome the shortcomings of the official Twitter \ac{API} but the tweets cannot be downloaded in a easy way as the results only appear within the web browser.
+    A Java tool (\url{https://github.com/Jefferson-Henrique/GetOldTweets-java}) has been found which tries to exploit the search page and extract tweets from the website.
+    But this tool did not work as expected.
+    Most likely Twitter made some changes to the search result page and the tool has not been adopted since \printdate{2016-04-15} \cite{Jefferson2016}.
+
+  \item [DMI TCAT]
+    is a toolset for capturing and analyzing tweets.
+    It has been developed by \citeauthor{Borra2014} to support researchers around the globe and make tweet collection and analysis easier
+    \cite{Borra2014}.
+    TCAT support various ways of data capturing:
+    \begin{itemize}
+      \item One percent random sample of all tweets passing through Twitter,
+      \item Streaming endpoint of the \ac{API} to track up to 400 keywords,
+      \item Following up to 5000 specified users, such as members of a parliament or other expert lists \cite{Borra2014}.
+    \end{itemize}
+
+\end{description}
+
+After exploring all of these methods DMI TCAT has been selected to capture the necessary Twitter data by using the streaming endpoint of the \ac{API} to track 23 keywords.
+The tool must be installed on a computer in order to perform its work.
+As the tool need some serious amount of capacities and need to collect tweets 24/7 it has been installed on a virtual machine in the Microsoft Azure cloud.
+
+The 23 keywords have been grouped by the owning company into so called query bins.
+A query bin may contain multiple keywords to track and combine all identified tweets into one single data set \cite{Borra2014}.
+
+All tweets have been captured between \printdate{2018-02-28} to \printdate{2018-09-06}.
+But there were several issues using the cloud approach:
+
+\begin{itemize}
+
+  \item By default the virtual machine in the cloud shut down every day on 7 PM.
+    First a problem with the tool was expected but after several days and starting the virtual machine manually the origin of the issue was discovered and solved.
+
+  \item The storage space of the virtual machine initialized with 30 \ac{GB}, which was too small for the collected tweet amount.
+    The storage was full after approximately 14 days of data collection.
+    As the problem was not detected right away it took several days for identifying and fixing the issue.
+
+  \item The rate limits of the \ac{API} have been hit now and then in case too many tweets were published.
+    DMI TCAT continued to collect tweets automatically after the corresponding time window.
+
+  \item New releases DMI TCAT have been published from time to time which also required a database upgrade.
+    As the performance was dropping the upgrade was performed in the hope of fixing the performance issue.
+    Furthermore, the first update was needed to enable DMI TCAT to process tweets longer than 140 characters.
+    The database upgrade needed to suspend the tweet collection by a serious amount of time.
+    To collect as many tweets as possible the upgrade was performed in steps for each query bin separately.
+    The larger the query bin the longer the process took as every single tweet was needed to be altered.
+
+\end{itemize}
+
 The number of collected tweets can be seen in \cref{tab:casestudy-companies-numberoftweets}.
 
 \begin{table}
   \centering
-  \begin{tabular}[h]{l r}
-  \textbf{Company} & \textbf{\# of tweets} \\ \hline
-    Ford & 4518198 \\
-    General Motor & 575547 \\
-    Hyundai & 1895306 \\
-    Toyota & 915868 \\
-    Volkswagen & 8244083 \\ \hline
-    Total & 16149002 \\ \hline
+  \begin{tabular}[hbt]{!l ^r ^r}
+    \hline
+    \rowstyle{\bfseries}
+  Company & \# captured tweets & \# english tweets  \\ \hline
+    Ford & \num{4518198} & \num{3745490} \\
+    General Motors & \num{575547} & \num{413817} \\
+    Hyundai & \num{1895306} & \num{697277} \\
+    Toyota & \num{915868} & \num{488913} \\
+    Volkswagen & \num{8244083} & \num{6219786} \\ \hline
+    Total & \num{16149002} & \num{11565283} \\ \hline
   \end{tabular}
 
   \caption{Numbers of collected tweets}
   \label{tab:casestudy-companies-numberoftweets}
 \end{table}
 
-The stock data can be downloaded at any point of time for the given research period and a daily frequency using the Yahoo Finance API.
+\subsection{Gather stock prices}
+\label{ss:casestudy-gatherdata-stockprices}
+
+The stock data can be downloaded at any point of time for the given research period on a daily frequency basis using the Yahoo Finance website.
+The stock prices in a time frame of a year have been downloaded which contains the period of tweet collection.
+
+The data contains the following information for each day:
+Date, Open, High, Low, Close, Adj. Close and Volume.
+
+% \begin{description}
+%   \item [Date] on which the data applies
+%   \item [Open]
+% \end{description}
 
 \section{Normalization of tweets}
 \label{s:casestudy-normalization}
