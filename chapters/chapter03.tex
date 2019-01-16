@@ -343,7 +343,45 @@ The sentiments were detected using four different classifiers using the same wor
 
 %buitinck2013api
 
-The pipeline is a useful construct to keep 
+Pipelines are a useful construct provided by the \emph{scikit-learn} project.
+The basic philosophy in this project is to divide the public \ac{API} into four parts:
+
+\begin{description}
+  \item [Data representation.]
+    In most machine learning tasks the data is modeled as a set of variables.
+    In supervised learning tasks the goal is to find a mapping from various input variables to some output variables.
+    A common way to represent such a dataset is a pair of matrices: one for the input values and one for the output values.
+    Within one matrix one column corresponds to one variable and one row corresponds to a specific sample of the problem.
+    To construct such matrices from textual data \emph{scikit-learn} provides \emph{vectorizer} objects
+    \cite{buitinck2013api}.
+
+  \item [Estimators.]
+    Machine learning tasks are designed as \emph{estimator} objects which expose a \emph{fit} method.
+    It provides the separation of model creation and learning.
+    A model is initialized with specific parameters regarding the specific task.
+    The actual learning is provided by the \emph{fit} method which takes two matrices as input parameters at least for supervised learning algorithms.
+    After fitting the parameters to the training data the model is trained and can be used to perform predictions or transformations
+    \cite{buitinck2013api}.
+
+  \item [Predictors.]
+    \emph{Predictors} are used to produce target variables by a given set of input variables.
+    The \emph{predict} method is also supplied by the same model object which has been trained before by using the \emph{fit} method.
+    Beside the \emph{predict} method predictors have to provide a \emph{score} method which quantifies the quality of the predictions.
+    For supervised learning models the \emph{score} method takes two matrices as input parameters: input data and expected output data.
+    Using the import data the model then predicts the output values and calculates the difference to the expected output values.
+    The higher the calculated score is the better is the quality of the prediction
+    \cite{buitinck2013api}.
+
+  \item [Transformers.]
+    Usually data is modified or filtered before it is used for model training or prediction.
+    Therefore \emph{scikit-learn} provides objects with the \emph{transformer} interface which exposes a method called \emph{transform}.
+    The method takes an input parameter for input values and generates a transformed matrix of input values.
+    \emph{Transformers} can be used to scale values to the standard normal distribution
+    \cite{buitinck2013api}.
+
+\end{description}
+
+The pipeline is a useful construct to perform the same steps over and over in a standardized way for training and estimation.
 In the following sections each part of the pipeline is described.
 
 % Cross validation with GridSearchCV
