@@ -358,7 +358,7 @@ The basic philosophy in this project is to divide the public \ac{API} into four 
   \item [Estimators.]
     Machine learning tasks are designed as \emph{estimator} objects which expose a \emph{fit} method.
     It provides the separation of model creation and learning.
-    A model is initialized with specific parameters regarding the specific task.
+    A model is initialized with specific parameters regarding the specific task which are also called \emph{hyper-parameters}.
     The actual learning is provided by the \emph{fit} method which takes two matrices as input parameters at least for supervised learning algorithms.
     After fitting the parameters to the training data the model is trained and can be used to perform predictions or transformations
     \cite{buitinck2013api}.
@@ -381,10 +381,26 @@ The basic philosophy in this project is to divide the public \ac{API} into four 
 
 \end{description}
 
-The pipeline is a useful construct to perform the same steps over and over in a standardized way for training and estimation.
-In the following sections each part of the pipeline is described.
+\emph{Scikit-learn} provides furthermore a mechanism to combine several estimators to a new estimator which than can be used such as a basic estimator.
+To provide a simple sequential workflow of feature extraction, transforming, fitting and prediction \emph{scikit-learn} provides pipeline objects.
+The pipeline is a useful construct to perform the same steps over and over in a standardized way for training and estimation
+\cite{buitinck2013api}.
 
 % Cross validation with GridSearchCV
+Furthermore \emph{scikit-learn} provides some helpers to find the best hyper-parameters for the given problem.
+The user can define which values various hyper-parameters can attain and the helper then perform test runs for various combinations, calculate their score and keep acting as the best performing model.
+Therefore, this type of search is called \emph{model selection}.
+\emph{Scikit-learn} provides two different model selection helpers: \emph{GridSearchCV} and \emph{RandomizedSearchCV}.
+Whereas \emph{GridSearchCV} generates a \emph{grid} of the complete combinatorial combinations and perform the scoring with every single combination, \emph{RandomizedSearchCV} takes a fixed number of parameter combinations
+\cite{buitinck2013api}.
+
+The model selection helper of \emph{scikit-learn} can also perform a cross-validation.
+By default \emph{GridSearchCV} uses \emph{k-fold} cross-validation by optimizing the \emph{score} function of the estimator.
+The value which should be optimized can be changed to a variety of predefined key figures including the $F-Measure$
+\cite{buitinck2013api}.
+
+In this thesis the \emph{GridSearchCV} model selection helper is used. 
+In the following sections each part of the pipeline and tried hyper-parameters used are described.
 
 \subsection{Count Vectorizer}
 \label{ss:casestudy-sentiment-countvectorizer}
