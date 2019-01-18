@@ -241,7 +241,7 @@ In the following the steps of normalization are described in detail:
     The tweet text is converted to lower case as the meaning stays the same but the dictionary size is reduced.
 
   \item [Tokenization:]
-    For tokenization the TweetTokenizer of the NLTK package is used.
+    For tokenization the \emph{TweetTokenizer} of the NLTK package is used.
     This tokenizer has been created for this purpose.
 
   \item [Stopwords:]
@@ -405,20 +405,114 @@ In the following sections each part of the pipeline and tried hyper-parameters u
 \begin{description}
   \item[Count Vectorizer] 
     The count vectorizer is used to generate both a vocabulary and a numerical representation of the tweets.
-
+        
+    \begin{table}
+      \centering
+      \begin{tabular}[hbt]{!l ^l}
+        \hline
+        \rowstyle{\bfseries}
+        Variable & Tried values \\ \hline
+        NGrams & 1-gram to 4-grams \\
+        Stopwords & none \\
+        Binary & true, false \\ \hline
+      \end{tabular}
+    
+      \caption{Hyper-parameters of the CountVectorizer}
+      \label{tab:casestudy-hyperparams-countvectorizer}
+    \end{table}
+  
 
   \item[Term Frequency Inverse Document Frequency Transformer]
+  
+    \begin{table}
+      \centering
+      \begin{tabular}[hbt]{!l ^l}
+        \hline
+        \rowstyle{\bfseries}
+        Variable & Tried values \\ \hline
+        NGrams & 1-gram to 4-grams \\
+        Stopwords & none \\
+        Binary & true, false \\ \hline
+      \end{tabular}
+    
+      \caption{Hyper-parameters of the Term Frequency Inverse Document Frequency Transformer}
+      \label{tab:casestudy-hyperparams-tfidftransfomer}
+    \end{table}
+  
     
   \item[Classifier]
-    
+    The pipeline has been tried using four different classifiers.
+    Each of them has different hyper-parameter.
+    Therefore, they will be discussed in the corresponding sections.
+
     \begin{description}
       \item[TextBlob Classifier]
+      
+      \begin{table}
+        \centering
+        \begin{tabular}[hbt]{!l ^l}
+          \hline
+          \rowstyle{\bfseries}
+          Variable & Tried values \\ \hline
+          NGrams & 1-gram to 4-grams \\
+          Stopwords & none \\
+          Binary & true, false \\ \hline
+        \end{tabular}
+      
+        \caption{Hyper-parameters of the TextBlob Classifier}
+        \label{tab:casestudy-hyperparams-tbclassifier}
+      \end{table}
         
       \item[Naive Bayes Classifier]
+      
+      \begin{table}
+        \centering
+        \begin{tabular}[hbt]{!l ^l}
+          \hline
+          \rowstyle{\bfseries}
+          Variable & Tried values \\ \hline
+          NGrams & 1-gram to 4-grams \\
+          Stopwords & none \\
+          Binary & true, false \\ \hline
+        \end{tabular}
+      
+        \caption{Hyper-parameters of the Naive Bayes Classifier}
+        \label{tab:casestudy-hyperparams-nbclassifier}
+      \end{table}
         
       \item[Maximum Entropy Classifier]
+      
+      \begin{table}
+        \centering
+        \begin{tabular}[hbt]{!l ^l}
+          \hline
+          \rowstyle{\bfseries}
+          Variable & Tried values \\ \hline
+          NGrams & 1-gram to 4-grams \\
+          Stopwords & none \\
+          Binary & true, false \\ \hline
+        \end{tabular}
+      
+        \caption{Hyper-parameters of the Maximum Entropy Classifier}
+        \label{tab:casestudy-hyperparams-meclassifier}
+      \end{table}
         
       \item[Support Vector Machine Classifier]
+      
+      \begin{table}
+        \centering
+        \begin{tabular}[hbt]{!l ^l}
+          \hline
+          \rowstyle{\bfseries}
+          Variable & Tried values \\ \hline
+          NGrams & 1-gram to 4-grams \\
+          Stopwords & none \\
+          Binary & true, false \\ \hline
+        \end{tabular}
+      
+        \caption{Hyper-parameters of the Support Vector Machine Classifier}
+        \label{tab:casestudy-hyperparams-svmclassifier}
+      \end{table}
         
     \end{description}
   \item[Comparing Sentiment Time Series with Share Prices]
