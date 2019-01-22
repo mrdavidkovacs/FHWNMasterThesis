@@ -430,9 +430,9 @@ In the following sections each part of the pipeline and tried hyper-parameters u
         \hline
         \rowstyle{\bfseries}
         Variable & Tried values \\ \hline
-        NGrams & 1-gram to 4-grams \\
-        Stopwords & none \\
-        Binary & true, false \\ \hline
+        Use IDF & true, false \\
+        Smooth IDF & true \\
+        Normalization & 'l1', 'l2', none \\ \hline
       \end{tabular}
     
       \caption{Hyper-parameters of the Term Frequency Inverse Document Frequency Transformer}
@@ -448,20 +448,9 @@ In the following sections each part of the pipeline and tried hyper-parameters u
     \begin{description}
       \item[TextBlob Classifier]
       
-      \begin{table}
-        \centering
-        \begin{tabular}[hbt]{!l ^l}
-          \hline
-          \rowstyle{\bfseries}
-          Variable & Tried values \\ \hline
-          NGrams & 1-gram to 4-grams \\
-          Stopwords & none \\
-          Binary & true, false \\ \hline
-        \end{tabular}
-      
-        \caption{Hyper-parameters of the TextBlob Classifier}
-        \label{tab:casestudy-hyperparams-tbclassifier}
-      \end{table}
+        The TextBlob classifier is a pre-trained classifier which has no hyper-parameters at all.
+        It works out of the box.
+        The only effort made was to make the TextBlob classifier available to the scikit-learn package and implement the estimator interface (the method \emph{predict}).
         
       \item[Naive Bayes Classifier]
       
@@ -471,9 +460,7 @@ In the following sections each part of the pipeline and tried hyper-parameters u
           \hline
           \rowstyle{\bfseries}
           Variable & Tried values \\ \hline
-          NGrams & 1-gram to 4-grams \\
-          Stopwords & none \\
-          Binary & true, false \\ \hline
+          Alpha & $10^{-2}$, $10^{-3}$ \\ \hline
         \end{tabular}
       
         \caption{Hyper-parameters of the Naive Bayes Classifier}
@@ -488,9 +475,8 @@ In the following sections each part of the pipeline and tried hyper-parameters u
           \hline
           \rowstyle{\bfseries}
           Variable & Tried values \\ \hline
-          NGrams & 1-gram to 4-grams \\
-          Stopwords & none \\
-          Binary & true, false \\ \hline
+          Solver & 'lbfgs' \\
+          Multiclass & 'multinomial' \\ \hline
         \end{tabular}
       
         \caption{Hyper-parameters of the Maximum Entropy Classifier}
@@ -505,9 +491,8 @@ In the following sections each part of the pipeline and tried hyper-parameters u
           \hline
           \rowstyle{\bfseries}
           Variable & Tried values \\ \hline
-          NGrams & 1-gram to 4-grams \\
-          Stopwords & none \\
-          Binary & true, false \\ \hline
+          Tolerance & $10^{-2}$, $10^{-3}$ \\
+          Loss & 'hinge' \\ \hline
         \end{tabular}
       
         \caption{Hyper-parameters of the Support Vector Machine Classifier}
