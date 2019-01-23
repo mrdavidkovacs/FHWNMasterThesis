@@ -195,9 +195,9 @@ But there were several issues using the cloud approach:
 
 The number of collected tweets can be seen in \cref{tab:casestudy-companies-numberoftweets}.
 
-\begin{table}
+\begin{table}[hbt]
   \centering
-  \begin{tabular}[hbt]{!l ^r ^r}
+  \begin{tabular}{!l ^r ^r}
     \hline
     \rowstyle{\bfseries}
   Company & \# captured tweets & \# english tweets  \\ \hline
@@ -279,9 +279,9 @@ As these described normalization steps are language sensitive only english tweet
 After normalization the tweets were ready for sentiment detection.
 The sentiments were detected using four different classifiers using the same workflow depicted in \cref{fig:casestudy-sentimentworkflow}, the used symbols are described in \cref{tab:casestudy-sentimentvariables} and the same pipeline configuration depicted in \cref{fig:casestudy-sentimentpipeline}.
 
-\begin{table}
+\begin{table}[hbt]
   \centering
-  \begin{tabular}[hbt]{!l ^l}
+  \begin{tabular}{!l ^l}
     \hline
     \rowstyle{\bfseries}
     Symbol & Description \\ \hline
@@ -406,9 +406,9 @@ In the following sections each part of the pipeline and tried hyper-parameters u
   \item[Count Vectorizer] 
     The count vectorizer is used to generate both a vocabulary and a numerical representation of the tweets.
         
-    \begin{table}
+    \begin{table}[!hbt]
       \centering
-      \begin{tabular}[hbt]{!l ^l}
+      \begin{tabular}{!l ^l}
         \hline
         \rowstyle{\bfseries}
         Variable & Tried values \\ \hline
@@ -424,9 +424,9 @@ In the following sections each part of the pipeline and tried hyper-parameters u
 
   \item[Term Frequency Inverse Document Frequency Transformer]
   
-    \begin{table}
+    \begin{table}[!hbt]
       \centering
-      \begin{tabular}[hbt]{!l ^l}
+      \begin{tabular}{!l ^l}
         \hline
         \rowstyle{\bfseries}
         Variable & Tried values \\ \hline
@@ -450,56 +450,61 @@ In the following sections each part of the pipeline and tried hyper-parameters u
       
         The TextBlob classifier is a pre-trained classifier which has no hyper-parameters at all.
         It works out of the box.
-        The only effort made was to make the TextBlob classifier available to the scikit-learn package and implement the estimator interface (the method \emph{predict}).
+        The only effort made was to make the TextBlob classifier available to the scikit-learn package by implementing the estimator interface (the method \emph{predict}).
         
       \item[Naive Bayes Classifier]
+        The Naive Bayes Classifier was the first classifier which supported hyper-parameters.
+        As the philosophy of \emph{scikit-learn} is to provide good default values only some hyper-parameters have been modified
+        \cite{buitinck2013api}.
+        All tried values are depicted in \cref{tab:casestudy-hyperparams-nbclassifier}.
       
-      \begin{table}
-        \centering
-        \begin{tabular}[hbt]{!l ^l}
-          \hline
-          \rowstyle{\bfseries}
-          Variable & Tried values \\ \hline
-          Alpha & $10^{-2}$, $10^{-3}$ \\ \hline
-        \end{tabular}
-      
-        \caption{Hyper-parameters of the Naive Bayes Classifier}
-        \label{tab:casestudy-hyperparams-nbclassifier}
-      \end{table}
+        \begin{table}[!hbt]
+          \centering
+          \begin{tabular}{!l ^l}
+            \hline
+            \rowstyle{\bfseries}
+            Variable & Tried values \\ \hline
+            Alpha & $10^{-2}$, $10^{-3}$ \\ \hline
+          \end{tabular}
+        
+          \caption{Hyper-parameters of the Naive Bayes Classifier}
+          \label{tab:casestudy-hyperparams-nbclassifier}
+        \end{table}
         
       \item[Maximum Entropy Classifier]
       
-      \begin{table}
-        \centering
-        \begin{tabular}[hbt]{!l ^l}
-          \hline
-          \rowstyle{\bfseries}
-          Variable & Tried values \\ \hline
-          Solver & 'lbfgs' \\
-          Multiclass & 'multinomial' \\ \hline
-        \end{tabular}
-      
-        \caption{Hyper-parameters of the Maximum Entropy Classifier}
-        \label{tab:casestudy-hyperparams-meclassifier}
-      \end{table}
+        \begin{table}[!hbt]
+          \centering
+          \begin{tabular}{!l ^l}
+            \hline
+            \rowstyle{\bfseries}
+            Variable & Tried values \\ \hline
+            Solver & 'lbfgs' \\
+            Multiclass & 'multinomial' \\ \hline
+          \end{tabular}
+        
+          \caption{Hyper-parameters of the Maximum Entropy Classifier}
+          \label{tab:casestudy-hyperparams-meclassifier}
+        \end{table}
         
       \item[Support Vector Machine Classifier]
       
-      \begin{table}
-        \centering
-        \begin{tabular}[hbt]{!l ^l}
-          \hline
-          \rowstyle{\bfseries}
-          Variable & Tried values \\ \hline
-          Tolerance & $10^{-2}$, $10^{-3}$ \\
-          Loss & 'hinge' \\ \hline
-        \end{tabular}
-      
-        \caption{Hyper-parameters of the Support Vector Machine Classifier}
-        \label{tab:casestudy-hyperparams-svmclassifier}
-      \end{table}
+        \begin{table}[!hbt]
+          \centering
+          \begin{tabular}{!l ^l}
+            \hline
+            \rowstyle{\bfseries}
+            Variable & Tried values \\ \hline
+            Tolerance & $10^{-2}$, $10^{-3}$ \\
+            Loss & 'hinge' \\ \hline
+          \end{tabular}
+        
+          \caption{Hyper-parameters of the Support Vector Machine Classifier}
+          \label{tab:casestudy-hyperparams-svmclassifier}
+        \end{table}
         
     \end{description}
+
   \item[Comparing Sentiment Time Series with Share Prices]
     
 
