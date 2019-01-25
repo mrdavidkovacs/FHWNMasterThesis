@@ -5,5 +5,32 @@
         "combinatorial",
         "lemmatization",
         "microblogging"
+    ],
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*-blx.bib",
+        "*.lol",
+        "*.run.xml",
+        "*.synctex.gz",
+        "*.xdv",
+        "main.pdf"
     ]
 }
