@@ -453,10 +453,11 @@ In the following sections each part of the pipeline and tried hyper-parameters u
         The only effort made was to make the TextBlob classifier available to the scikit-learn package by implementing the estimator interface (the method \emph{predict}).
         
       \item[Naive Bayes Classifier]
-        The Naive Bayes Classifier was the first classifier which supported hyper-parameters.
+        The Naive Bayes classifier was the first classifier which supported hyper-parameters.
         As the philosophy of \emph{scikit-learn} is to provide good default values only some hyper-parameters have been modified
         \cite{buitinck2013api}.
-        All tried values are depicted in \cref{tab:casestudy-hyperparams-nbclassifier}.
+        The implementation used is class \emph{sklearn.naive\_bayes.MultinomialNB}.
+        All tried hyper-parameter values are depicted in \cref{tab:casestudy-hyperparams-nbclassifier}.
       
         \begin{table}[!hbt]
           \centering
