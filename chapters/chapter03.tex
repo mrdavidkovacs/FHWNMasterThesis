@@ -404,7 +404,7 @@ In the following sections each part of the pipeline and tried hyper-parameters u
 
 \begin{description}
   \item[Count Vectorizer] 
-    The count vectorizer is used to generate both a vocabulary and a numerical representation of the tweets.
+    The count vectorizer is used to generate both a vocabulary and a numerical representation of the normalized tweets.
         
     \begin{table}[!hbt]
       \centering
@@ -422,7 +422,11 @@ In the following sections each part of the pipeline and tried hyper-parameters u
     \end{table}
   
 
-  \item[Term Frequency Inverse Document Frequency Transformer]
+  \item[\ac{TF-IDF} Transformer]
+    The \ac{TF-IDF} is used to transform the vocabulary from the count vectorizer to make common words less important for the analysis.
+    The implementation used also supports to deactivate the transformation at all.
+    If the untransformed vocabulary would lead to better results the GridSearchCV would figure that out and use the best set of parameters.
+    All hyper-parameters for the transformer can be found in \cref{tab:casestudy-hyperparams-tfidftransfomer}.
   
     \begin{table}[!hbt]
       \centering
@@ -435,7 +439,7 @@ In the following sections each part of the pipeline and tried hyper-parameters u
         Normalization & 'l1', 'l2', none \\ \hline
       \end{tabular}
     
-      \caption{Hyper-parameters of the Term Frequency Inverse Document Frequency Transformer}
+      \caption{Hyper-parameters of the \ac{TF-IDF} Transformer}
       \label{tab:casestudy-hyperparams-tfidftransfomer}
     \end{table}
   
@@ -473,6 +477,8 @@ In the following sections each part of the pipeline and tried hyper-parameters u
         \end{table}
         
       \item[Maximum Entropy Classifier]
+        The implementation used for the Maximum Entropy classifier is class \emph{sklearn.linear\_model.LogisticRegression} which have some built in solvers.
+        The tried solvers and other hyper-parameters can be found in \cref{tab:casestudy-hyperparams-meclassifier}.
       
         \begin{table}[!hbt]
           \centering
@@ -480,8 +486,8 @@ In the following sections each part of the pipeline and tried hyper-parameters u
             \hline
             \rowstyle{\bfseries}
             Variable & Tried values \\ \hline
-            Solver & 'lbfgs' \\
-            Multiclass & 'multinomial' \\ \hline
+            Solver & 'liblinear', 'lbfgs', 'sag', 'saga' \\
+            Multiclass & 'auto' \\ \hline
           \end{tabular}
         
           \caption{Hyper-parameters of the Maximum Entropy Classifier}
@@ -489,6 +495,8 @@ In the following sections each part of the pipeline and tried hyper-parameters u
         \end{table}
         
       \item[Support Vector Machine Classifier]
+        The Support Vector Machine classifier used is class \emph{sklearn.linear\_model.SGDClassifier} with loss function 'hinge' as this is the only support loss function which results in a linear \ac{SVM}.
+        Other hyper-parameters can be found in \cref{tab:casestudy-hyperparams-svmclassifier}.
       
         \begin{table}[!hbt]
           \centering
@@ -506,8 +514,14 @@ In the following sections each part of the pipeline and tried hyper-parameters u
         
     \end{description}
 
+    A pipeline is built for each classifier.
+    The GridSearchCV model selector is used to train the specific pipeline using the hyper-parameters defined to find the best possible parameters for each component.
+
+    The sentiment analysis is then performed with the selected model and stored in files for further analysis.
+
   \item[Comparing Sentiment Time Series with Share Prices]
     
+    Both datasets, stock prices and sentiment analysis results respectively, are stored in files prior the comparison.
+    The comparison is performed using the R software package v3.5.2 \cite{R2008}.
 
 \end{description}
-
