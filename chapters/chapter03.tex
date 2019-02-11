@@ -525,20 +525,16 @@ In the following sections each part of the pipeline and tried hyper-parameters u
     The stock prices are already in a time series format on a daily basis except for weekends or holidays but the problem of missing entries are tackled later.
     First, the sentiment analysis result dataset must be condensed to form a time series for comparison.
     Therefore the results per tweet are grouped per day and summed up.
-    As negative sentiments have the value \emph{-1} and positive sentiments have the value \emph{1} we receive a number which is positive in case more positive than negative tweets have been published on that given day and vice versa. 
+    As negative sentiments have the value \texttt{'-1'} and positive sentiments have the value \texttt{'1'} we receive a number which is positive in case more positive than negative tweets have been published on that given day and vice versa. 
 
     Missing stock prices have been calculated iteratively and the gaps have been filled by using the following procedure:
     Given $x$ is a stock price value and $y$ is the next present value with one or more values in between are missing.
     The missing values are calculated using the formula $\frac{x+y}{2}$.
     The formula is applied to the first missing value then the calculated value is treated as new $x$ and so on.
-    These steps are repeated as long values are missing
-    \cite{Pagolu2016a}. 
+    These steps are repeated as long values were missing
+    \cite{Pagolu2016a}.    
+    To fill the gaps of sentiment time series the same iterative approach as for stock prices has been chosen.
 
-    The same procedure has been applied to the sentiment time series.
-
-    %The comparison of both time series is performed using the R software package v3.5.2 \cite{R2008}.
-
-    %granger
-
+    Afterwards, the time series have been analyzed using Granger causality analysis.
 
 \end{description}
