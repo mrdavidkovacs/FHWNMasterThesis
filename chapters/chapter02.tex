@@ -240,14 +240,34 @@ This is done for our sample corpus in \cref{tab:background-optionmining-termfreq
 	\end{center}
 \end{table}
 
+%uni-grams
+%bi-grams
+%tri-grams
+
+In the previous examples each word became one token.
+This approach was following the unigram (1-gram) model and can be generalized to \emph{n-gram} models.
+Following the numbers one can use 2-gram, 3-gram or 4-gram models which are also referred as bigram, trigram or fourgram models.
+Increasing the \texttt{n} in \emph{n-gram} models are increasing both the context and the number of tokens.
+The examples of bigrams and trigrams depicted in \cref{tab:background-optionmining-ngram} are demonstrating the increased context in contrast to unigrams
+\cite[p.193f]{Manning1999}.
+
+\begin{table}[htbp]
+	\begin{center}
+		\begin{tabular}{!l ^p{3cm} ^p{3cm}}
+			\hline
+			\rowstyle{\bfseries}
+			Text & Bigrams & Trigrams \\ \hline
+			Mary had a little lamb & \texttt{Mary had, had a, a little, little lamb} & \texttt{Mary had a, had a little, a little lamb} \\ \hline
+		\end{tabular}
+
+        \caption{An example of bigrams and trigrams}
+		\label{tab:background-optionmining-ngram}
+	\end{center}
+\end{table}
 
 %bag of words
 %term frequency (tf)
 %inverse document frequency (idf) %TF-IDF: \cite{Bafna2016}
-
-%uni-grams
-%bi-grams
-%tri-grams
 
 \subsection{Machine Learning Algorithms}
 \label{ss:background-optionmining-machinelearningalgorithms}
