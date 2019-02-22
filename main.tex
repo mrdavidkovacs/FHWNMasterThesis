@@ -17,14 +17,12 @@
         %----------------------------------------------------%
 \documentclass[oneside,12pt,bibliography=totoc]{scrbook}
 
+\usepackage{gitinfo2}
+
 \subject{Master's Thesis}
 \title{An analysis of share movement and sentiment of tweets: detailed analysis of automotive companies.}
-%\subtitle{A fiction story telling the truth}
 \author{David Kovacs, MSc}
-%\publishers{Published by the publisher\\ at a secret location}
-%\extratitle{Stories of ducks}
-%\uppertitleback{\vspace{3cm}I want to thank Scrooge MacDuck for his financial Support}
-\date{\today}
+\date{\gitCommitterDate}
 
 %'oneside' specifies that the pages will be printed on one sides of a every page. If you want to print on both sides of your pages use the parameter 'twoside'. Remember to order the printing job on one side of every page!!!
 
@@ -34,7 +32,7 @@
 
     %%%%%-------------------PACKAGES-----------------%%%%% 
     
-%\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[a4paper,top=25mm,bottom=30mm,left=30mm,right=25mm]{geometry}   %allows to change margins and distances within the page's frame. Be careful with this tool. Remember to delete the frame!!!!
 
 %\usepackage{showframe}
@@ -46,9 +44,9 @@
 \usepackage{hyperref}   %Automatically turn all your internal references into hyperlinks. %colorlinks
 \makeatletter
 \hypersetup{pdfinfo={
-  Title=\@title,
-  Author=\@author,
-  Subject=Master's Thesis,
+  Title={\@title},
+  Author={\@author},
+  Subject={Master's Thesis},
   Keywords={EMH,Twitter,Sentiment}}
 }
 \makeatother
