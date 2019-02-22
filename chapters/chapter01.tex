@@ -1,0 +1,116 @@
+%!TEX root = ../main.tex
+
+% \section{Section Title}
+% \subsection{Subsection}
+% \subsubsection{Subsubsection}
+% \paragraph{Paragraph}
+% \subparagraph{Subparagraph}
+
+% \ul = underline
+% \st = strikethrough
+% \hl = highlight
+% \textbf = bold face
+% \textit = italic face
+% \textsl = slanted
+% \textsf = sans serif
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This chapter provides an introduction to this thesis.
+In \cref{s:introduction-motivation} the general motivation is discussed.
+The section is followed by outlining the research goals in \cref{s:introduction-researchgoals}.
+\Cref{s:introduction-researchmethodology} gives an insight into research methods used in order to answer the raised research questions.
+Finally, \cref{s:introduction-structureofthisthesis} gives an outlook of the structure of the remaining thesis.
+
+\section{Motivation}
+\label{s:introduction-motivation}
+
+Many studies have been published which are trying to predict the stock market movement.
+As the \ac{EMH} states that financial market movements depend on news, current events and product releases and all these factors will have significant impact on a company's stock value
+\cite{fama1965behavior}.
+Due the fact that news and current events are unpredictable stock market prices are following a random walk pattern and cannot predicted with more than 50\% accuracy
+\cite{Pagolu2016a}.
+
+Many internet users are microblogging nowadays.
+Millions of messages are published daily on popular websites which provides microblogging services, such as Twitter, Tumblr and Facebook.
+These published messages describing the personal life, opinions or current issues.
+The more users are post about products and services they use the more microblogging websites become a valuable source of peoples opinions and sentiments.
+Therefore, this data can be used for marketing, social studies and as a measure of public opinion
+\cite{Patodkar2016a, Pagolu2016a}.
+
+As most Twitter messages have a maximum length of 140 characters and speaks public opinion on a topic precisely
+\cite{Pagolu2016a}.
+
+\section{Research Goals}
+\label{s:introduction-researchgoals}
+
+According to the factors presented in \cref{s:introduction-motivation} the central research question can be formulated:
+\emph{Can the stock market movements be explained by the public opinion extracted from Twitter?}
+
+The goal of this research to analyze the correlation between sentiment of tweets and share movement of automotive companies.
+This goal will be met by achieving the following objectives:
+
+\begin{itemize}
+    \item \textbf{G1} - Determine companies, keywords and stock symbols to analyze
+    \item \textbf{G2} - Gather tweets and their sentiments and stock prices
+    \item \textbf{G3} - Comparing sentiment time series with share prices
+\end{itemize}
+
+From definitions of goals and having the central question in mind the following research questions are set up:
+
+\begin{itemize}
+    \item \textbf{G1-Q1} - Which companies should be analyzed?
+    \item \textbf{G1-Q2} - Which keywords should be used to find corresponding tweets?
+    \item \textbf{G1-Q3} - Which company uses which stock symbol in order to retrieve share prices?
+    \item \textbf{G2-Q4} - Why Twitter and not anything else?
+    \item \textbf{G2-Q5} - In which way tweets can be collected?
+    \item \textbf{G2-Q6} - In which way sentiments can be determined?
+    \item \textbf{G2-Q7} - Which sentiments are present for various companies?
+	\item \textbf{G3-Q8} - Can the time series of sentiments explain the share prices?
+	\item \textbf{G3-Q9} - Can the time series of share prices explain the sentiments?
+\end{itemize}
+
+\section{Research Methodology}
+\label{s:introduction-researchmethodology}
+
+The research follows a structure deducted from ``evaluation techniques for systems analysis and design modelling methods'' by \citet{Siau2011} in which the authors try to show up the benefits and the shortcomings of different methods.
+In the following the three main categories and their mapping to this thesis are shown:
+
+\begin{description}
+	\item[The \emph{theoretical and conceptual inquiry}] {
+		establishes the theoretical background of this thesis.
+		Through literature research definitions and types of stock market prediction, option mining and social networks are found.
+	}
+	
+	\item[The \emph{case study}] {
+		is needed to capture tweets on the internet.
+		This is done by using a DMI TCAT installation
+		\cite{Borra2014}.
+	}
+	
+	\item[The \emph{metrics analysis}] {
+		is used to compare the results of the case study with share prices of the automotive companies.
+	}
+\end{description}
+
+As this thesis covers sentiments of people in a global context which is then compared to share prices in an economic context it can be classified as social science \citep{Recker2013}.
+In the following the research actions, which have been undertaken to answer the research questions and fulfill the goals, are explained.
+
+\begin{itemize}
+	\item To find answers to the questions \textbf{Q1} to \textbf{Q5} literature research has been conducted.
+	A keyword search has been performed on the literature search-engine \emph{Google Scholar} as well as library search.
+	The retrieved literature is reviewed and based on the references new literature is obtained.
+	
+	\item With the theoretical background which has been obtained in answering the questions \textbf{Q1} to \textbf{Q6} a tweet collection system has been set up in order to answer the question \textbf{Q7}.
+	This is done by setting up a open source tweet capturing system DMI TCAT system and evaluating the sentiment of the captured tweets.
+	
+	\item Questions \textbf{Q8} and \textbf{Q9} are answered through both literature research, which has been collected for the questions \textbf{Q1} to \textbf{Q6} and evaluated sentiments of the collected tweets for question \textbf{Q7}.
+\end{itemize}
+
+\section{Structure of this Thesis}
+\label{s:introduction-structureofthisthesis}
+
+This section is followed by the background \cref{c:background}, where the necessary theoretical background will be explained. 
+In \cref{c:casestudy}, the setup of tweet collection is explained and the execution documented.
+Afterwards, in \cref{c:analysis}, sentiments of collected tweets are determined and converted into a time series which is then compared to the time series of share prices.
+Finally, in \cref{c:conclusion} the results of this work are summed up, and limitations and further points of interest are pointed out.
