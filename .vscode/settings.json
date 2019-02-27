@@ -31,6 +31,8 @@
         "*.run.xml",
         "*.synctex.gz",
         "*.xdv",
-        "main.pdf"
+        "main.pdf",
+        "main-figure*",
+        "images/generated/*",
     ]
 }
