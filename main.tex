@@ -57,6 +57,7 @@
 \usepackage{array}
 \usepackage{longtable}
 
+\usepackage{pgfplots}
 \usepackage{tikz}
 
 %\usepackage{lipsum}
@@ -113,6 +114,9 @@
     decorations.pathreplacing,decorations.pathmorphing,shapes,%
     matrix,shapes.symbols}
 
+\usepgfplotslibrary{external}
+\tikzexternalize
+
 \graphicspath{{images/}}    %Direction where LaTeX will look for the images.
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}
 
@@ -168,9 +172,9 @@
   #1\ignorespaces
 }
 
-\makeatletter
-\def\convertto#1#2{\strip@pt\dimexpr #2*65536/\number\dimexpr 1#1}
-\makeatother
+% \makeatletter
+% \def\convertto#1#2{\strip@pt\dimexpr #2*65536/\number\dimexpr 1#1}
+% \makeatother
 
     %%%------------- Page Layout Settings ----------------------%
 %%---Just in case you want to customize the page layout-----
