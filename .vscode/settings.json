@@ -33,5 +33,6 @@
         "*.xdv",
         "main.pdf",
         "main-figure*",
+        "images/graphs/*.pdf",
     ]
 }
