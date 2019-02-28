@@ -8,8 +8,6 @@ Strong emphasis is laid on numbers and decisions.
 \begin{figure}[ht]
   \centering
 
-  \tikzsetnextfilename{./images/generated/casestudy-workflow}
-
   \smartdiagramset{back arrow disabled=true,
     text width=.6\textwidth,
     uniform color list=black!40 for 5 items}
@@ -302,8 +300,6 @@ The sentiments were detected using four different classifiers using the same wor
 \begin{figure}[hbt]
   \centering
   
-  \tikzsetnextfilename{./images/generated/casestudy-sentimentworkflow}
-
   \begin{tikzpicture}
     \node (ts) at (0,0) [circle, draw] {$T_S$};
     \node (p) at (2,0) [circle, draw] {$P$};
@@ -326,7 +322,6 @@ The sentiments were detected using four different classifiers using the same wor
 
 \begin{figure}[hbt]
   \centering
-  \tikzsetnextfilename{./images/generated/casestudy-sentimentpipeline}
   \begin{tikzpicture}
     \node (cv)     at (0,0) [rectangle, draw] {Count Vectorizer};
     \node (tfidf)  at (4,0) [rectangle, draw] {TfIdf Transformer};
