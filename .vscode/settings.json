@@ -25,6 +25,7 @@
         "*.ist",
         "*.fls",
         "*.log",
+        "*.auxlock",
         "*.fdb_latexmk",
         "*-blx.bib",
         "*.lol",
@@ -33,6 +34,6 @@
         "*.xdv",
         "main.pdf",
         "main-figure*",
-        "images/generated/*",
+        "tikz/*.pdf",
     ]
 }
