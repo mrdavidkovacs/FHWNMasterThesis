@@ -33,7 +33,6 @@
         "*.synctex.gz",
         "*.xdv",
         "main.pdf",
-        "main-figure*",
-        "tikz/*.pdf",
+        "images/tikz/*.pdf",
     ]
 }
