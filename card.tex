@@ -1,0 +1,29 @@
+\documentclass[a4paper]{article}
+\usepackage{lipsum}
+\usepackage{xparse}
+
+\newsavebox{\fminipagebox}
+\NewDocumentEnvironment{fminipage}{m O{\fboxsep}}
+ {\par\kern#2\noindent\begin{lrbox}{\fminipagebox}
+  \begin{minipage}[c][54mm][c]{#1}\ignorespaces}
+ {\end{minipage}\end{lrbox}%
+  \makebox[#1]{%
+    \kern\dimexpr-\fboxsep-\fboxrule\relax
+    \fbox{\usebox{\fminipagebox}}%
+    \kern\dimexpr-\fboxsep-\fboxrule\relax
+  }\par\kern#2
+ }
+
+\usepackage{fontspec}
+\defaultfontfeatures{LetterSpace=50}
+\setmainfont{Latin Modern Roman}
+
+\begin{document}
+
+\begin{fminipage}{86mm}
+\centering
+\Huge \textsc{David}
+\end{fminipage}
+
+
+\end{document}
