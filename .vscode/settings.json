@@ -6,6 +6,8 @@
         "lemmatization",
         "microblogging"
     ],
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "same",
     "latex-workshop.latex.clean.fileTypes": [
         "*.aux",
         "*.bbl",
