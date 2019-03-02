@@ -1,18 +1,30 @@
-sudo: required
-dist: trusty
-before_install:
-- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends latexmk
-  texlive-fonts-extra texlive-fonts-recommended texlive-latex-base texlive-latex-extra
-  texlive-latex-recommended
-script:
-- mkdir _build
-- latexmk main.tex
-deploy:
-  provider: releases
-  api_key:
-    secure: [YOUR KEY]
-  file:
-  - _build/main.pdf
-  skip_cleanup: true
-  on:
-tags: true
+stages:
+  - build
+
+compile_pdf:
+  stage: build
+  image: aergus/latex # tianon/latex
+  script:
+    - latexmk -pdf main.tex
+  artifacts:
+    paths:
+      - main.pdf
+
+# sudo: required
+# dist: trusty
+# before_install:
+# - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends latexmk
+#   texlive-fonts-extra texlive-fonts-recommended texlive-latex-base texlive-latex-extra
+#   texlive-latex-recommended
+# script:
+# - mkdir _build
+# - latexmk -pdf -e '$pdflatex=q/xelatex %O %S/' main.tex
+# deploy:
+#   provider: releases
+#   api_key:
+#     secure: [YOUR KEY]
+#   file:
+#   - _build/main.pdf
+#   skip_cleanup: true
+#   on:
+# tags: true
