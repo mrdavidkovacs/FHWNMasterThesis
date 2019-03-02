@@ -2,6 +2,7 @@
 
 \newcommand{\indicesCaption}[1]{Indices of #1 within the evaluation time frame}
 \newcommand{\resultsCaption}[1]{Summarized and normalized sentiment values of #1 within the evaluation time frame}
+\newcommand{\tweetsCaption}[1]{Collection time frames of tweets for #1}
 
 This chapter describes the performed analysis steps and discusses its results.
 First, the final dataset is described in \cref{s:analysis-datasets}.
@@ -16,10 +17,39 @@ Last but not least, the various time series are compared to the corresponding sh
 %  - time series
 
 This section describes the captured data sets in detail.
-It is structured by companies.
+It will include both the captured indices and also captured tweets.
+Furthermore, the description is divided by the owning company.
 
 \subsection{\ford}
 \label{ss:analysis-datasets-ford}
+
+% From         To Days  Tweets
+% DG#0  2018-02-28 2018-04-13   45 1536477
+% DG#3  2018-06-26 2018-08-01   37 1544756
+% DG#4  2018-08-20 2018-09-05   17  664214
+% Total 2018-02-28 2018-09-05   99 3745447
+
+For the \ford\ \num{3745447} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-05}.
+But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
+The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-ford}.
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^l ^l ^r ^r}
+      \hline
+      \rowstyle{\bfseries}
+        From & To & \# Days & \# Tweets \\ \hline
+        Group 1 & \printdate{2018-02-28} & \printdate{2018-04-13} &   \num{45} & \num{1536477} \\
+        Group 2 & \printdate{2018-06-26} & \printdate{2018-08-01} &   \num{37} & \num{1544756} \\
+        Group 3 & \printdate{2018-08-20} & \printdate{2018-09-05} &   \num{17} & \num{664214} \\ \hline
+        Total   & \printdate{2018-02-28} & \printdate{2018-09-05} &   \num{99} & \num{3745447} \\ \hline
+    \end{tabular}
+  
+    \caption{\tweetsCaption{\ford}}
+    \label{tab:anaylsis-datasets-ford}
+\end{table}
+
+Therefore, share prices have been downloaded for the given time frame which is depicted in \cref{fig:analysis-indices-ford}.
 
 \begin{figure}[hbt]
     \centering
@@ -31,6 +61,32 @@ It is structured by companies.
 \subsection{\gm}
 \label{ss:analysis-datasets-gm}
 
+% From         To Days Tweets
+% DG#0  2018-06-26 2018-08-01   37 270276
+% DG#1  2018-08-20 2018-09-06   18 143541
+% Total 2018-06-26 2018-09-06   55 413817
+
+For the \gm\ \num{413817} english tweets have been captured in total between \printdate{2018-06-26} and \printdate{2018-09-06}.
+But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
+The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-gm}.
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^l ^l ^r ^r}
+      \hline
+      \rowstyle{\bfseries}
+        From & To & \# Days & \# Tweets \\ \hline
+        Group 1 & \printdate{2018-06-26} & \printdate{2018-08-01} &   \num{37} & \num{270276} \\
+        Group 2 & \printdate{2018-08-20} & \printdate{2018-09-06} &   \num{18} & \num{143541} \\ \hline
+        Total   & \printdate{2018-06-26} & \printdate{2018-09-06} &   \num{99} & \num{413817} \\ \hline
+    \end{tabular}
+  
+    \caption{\tweetsCaption{\gm}}
+    \label{tab:anaylsis-datasets-gm}
+\end{table}
+
+Therefore, share prices have been downloaded for the given time frame which is depicted in \cref{fig:analysis-indices-gm}.
+
 \begin{figure}[hbt]
     \centering
     \input{./images/graphs/indices-gm.tex}    
@@ -40,6 +96,34 @@ It is structured by companies.
 
 \subsection{\hyundai}
 \label{ss:analysis-datasets-hyundai}
+
+% From         To Days Tweets
+% DG#0  2018-02-28 2018-04-08   40 363840
+% DG#4  2018-06-26 2018-08-01   37 232092
+% DG#5  2018-08-20 2018-09-07   19 101289
+% Total 2018-02-28 2018-09-07   96 697221
+
+For the \hyundai\ \num{697221} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-07}.
+But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
+The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-hyundai}.
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^l ^l ^r ^r}
+      \hline
+      \rowstyle{\bfseries}
+        From & To & \# Days & \# Tweets \\ \hline
+        Group 1 & \printdate{2018-02-28} & \printdate{2018-04-08} &   \num{40} & \num{363840} \\
+        Group 2 & \printdate{2018-06-26} & \printdate{2018-08-01} &   \num{37} & \num{232092} \\
+        Group 3 & \printdate{2018-08-20} & \printdate{2018-09-07} &   \num{19} & \num{101289} \\ \hline
+        Total   & \printdate{2018-02-28} & \printdate{2018-09-07} &   \num{96} & \num{697221} \\ \hline
+    \end{tabular}
+  
+    \caption{\tweetsCaption{\hyundai}}
+    \label{tab:anaylsis-datasets-hyundai}
+\end{table}
+
+Therefore, share prices have been downloaded for the given time frame which is depicted in \cref{fig:analysis-indices-gm}.
 
 \begin{figure}[hbt]
     \centering
