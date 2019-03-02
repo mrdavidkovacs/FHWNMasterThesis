@@ -3,7 +3,7 @@ services:
 - docker
 script:
 - docker pull dxjoke/tectonic-docker
-- docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker tectonic main.tex
+- docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker tectonic --keep-intermediates main.tex
 #dxjoke/tectonic-docker
 #rekka/tectonic
 deploy:
