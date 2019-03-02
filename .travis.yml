@@ -6,7 +6,7 @@ before_install:
   texlive-latex-recommended
 script:
 - mkdir _build
-- latexmk -pdf -e '$pdflatex=q/xelatex %O %S/' main.tex
+- latexmk main.tex
 deploy:
   provider: releases
   api_key:
