@@ -2,9 +2,10 @@ sudo: required
 services:
 - docker
 script:
-- docker pull rekka/tectonic
-- docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind rekka/tectonic tectonic main.tex
+- docker pull dxjoke/tectonic-docker
+- docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker tectonic main.tex
 #dxjoke/tectonic-docker
+#rekka/tectonic
 deploy:
   provider: releases
   api_key:
