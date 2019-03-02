@@ -3,7 +3,7 @@ stages:
 
 compile_pdf:
   stage: build
-  image: aergus/latex # tianon/latex
+  image: tianon/latex
   script:
     - latexmk -pdf main.tex
   artifacts:
