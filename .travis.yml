@@ -6,7 +6,7 @@ before_install:
   texlive-latex-recommended
 script:
 - mkdir _build
-- latexmk -synctex=1 -interaction=nonstopmode -file-line-error -xelatex -shell-escape main.tex
+- latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error -shell-escape main.tex
 deploy:
   provider: releases
   api_key:
