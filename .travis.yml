@@ -1,30 +1,9 @@
-stages:
-  - build
+sudo: required
 
-compile_pdf:
-  stage: build
-  image: tianon/latex
-  script:
-    - latexmk -pdf main.tex
-  artifacts:
-    paths:
-      - main.pdf
+services:
+  - docker
 
-# sudo: required
-# dist: trusty
-# before_install:
-# - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends latexmk
-#   texlive-fonts-extra texlive-fonts-recommended texlive-latex-base texlive-latex-extra
-#   texlive-latex-recommended
-# script:
-# - mkdir _build
-# - latexmk -pdf -e '$pdflatex=q/xelatex %O %S/' main.tex
-# deploy:
-#   provider: releases
-#   api_key:
-#     secure: [YOUR KEY]
-#   file:
-#   - _build/main.pdf
-#   skip_cleanup: true
-#   on:
-# tags: true
+script:
+  # We use the docker image from https://hub.docker.com/r/rekka/tectonic/
+  - docker pull rekka/tectonic
+  - docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind rekka/tectonic tectonic main.tex
