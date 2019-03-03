@@ -402,6 +402,48 @@ These parameters yielded to a accuracy of \SI{76.15}{\percent} and a F-Measure o
 \subsection{Support Vector Machine Classifier}
 \label{ss:analysis-pipeline-supportvectormachine}
 
+Last but not least the same model selection process has been performed for the \ac{SVM} pipeline.
+GridSearchCV discovered \num{480} different parameter possibilities in total, taking the five different folds into account.
+
+The best pipeline resulted in an accuracy of \SI{75.5}{\percent} and a F-Measure of \num{75.81} using the hyper-parameters shown in \cref{tab:analysis-pipeline-supportvectormachine-hyperparameters}.
+Furthermore, the confusion matrix of the \ac{SVM} classifier pipeline is depicted in \cref{tab:anaylsis-pipeline-supportvectormachine-confusion}.
+
+\begin{table}[!hbt]
+    \centering
+    \begin{tabular}{!l ^l ^l}
+        \hline
+        \rowstyle{\bfseries}
+        Pipeline part & Variable & Tried values \\ \hline
+        CountVectorizer & NGrams & 4-grams \\
+        CountVectorizer & Stopwords & none \\
+        CountVectorizer & Binary & true \\ \hline
+        TF-IDF & Use IDF & true \\
+        TF-IDF & Smooth IDF & true \\
+        TF-IDF & Normalization & 'l2' \\ \hline
+        Classifier & Tolerance & $10^{-3}$ \\
+        Classifier & Loss & 'hinge' \\ \hline
+    \end{tabular}
+
+    \caption{\hyperCaption{Support Vector Machine}}
+    \label{tab:analysis-pipeline-supportvectormachine-hyperparameters}
+\end{table}
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r}
+      \hline
+        & \multicolumn{2}{c}{\bfseries Correct labels} \\
+        \rowstyle{\bfseries}
+        Predicted labels & Positive & Negative \\ \hline
+        Positive & \num{768}    & \num{270}  \\
+        Negative & \num{220}    & \num{742} \\ \hline
+    \end{tabular}
+  
+    \caption{\confusionCaption{Support Vector Machine}}
+    \label{tab:anaylsis-pipeline-supportvectormachine-confusion}
+\end{table}
+
+
 % Fitting 5 folds for each of 96 candidates, totalling 480 fits
 % 2019-02-22 13:31:21.274959 > training the classifier finished in 65.60502362251282
 % {'memory': None,
