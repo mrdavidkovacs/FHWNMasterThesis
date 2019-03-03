@@ -3,6 +3,7 @@
 \newcommand{\indicesCaption}[1]{Indices of #1 within the evaluation time frame}
 \newcommand{\resultsCaption}[1]{Summarized and normalized sentiment values of #1 within the evaluation time frame}
 \newcommand{\tweetsCaption}[1]{Collection time frames of tweets for #1}
+\newcommand{\confusionCaption}[1]{Confusion matrix of classifier #1}
 
 This chapter describes the performed analysis steps and discusses its results.
 First, the final dataset is described in \cref{s:analysis-datasets}.
@@ -211,6 +212,53 @@ Therefore, share prices have been downloaded for the given time frame which is d
 \section{Hyper-parameters}
 \label{s:analysis-pipelines}
 % best estimator pipeline
+
+This section presents the results of the model selector GridSearchCV as described in \cref{s:casestudy-sentiment}.
+GridSearchCV has been trained and tested using the Twitter corpus of \ac{NLTK} (\emph{nltk.corpus.twitter\_samples}).
+
+\subsection{TextBlob Classifier}
+\label{ss:analysis-pipeline-textblob}
+
+As previously stated \emph{TextBlob} is a pre-trained classifier which works out-of-the-box.
+It can be seen as kind of a base-line.
+
+As the TextBlob classifies text on a continuous scale between \texttt{-1} and \texttt{1} it also includes the possibility of a neutral sentiment: \texttt{0}.
+In order to compare this classifier with the other tested ones we have to generalize the results of TextBlob using the following cases in \cref{eq:analysis-pipeline-textblob}.
+
+\begin{equation}
+Sentiment_{generalized} = 
+    \begin{cases}
+    1,  & Sentiment_{TextBlob} \geq 0 \\
+    -1  & \text{otherwise}
+    \end{cases}
+    \label{eq:analysis-pipeline-textblob}
+\end{equation}
+
+These adjustments lead finally to an accuracy of \SI{97.34}{\percent} and an F-Measure of \num{97.37}.
+The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-textblob-confusion}.
+
+% Accuracy: 97.34%
+% F1 Score: 97.37
+% Confusion Matrix:
+%  [[4814  186]
+%  [  80 4920]]
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r}
+      \hline
+      \rowstyle{\bfseries}
+        & \multicolumn{2}{c}{Predicted labels} \\
+        \rowstyle{\bfseries}
+        Actual labels & Positive & Negative \\ \hline
+        Positive & \num{4814}    & \num{186}  \\
+        Negative & \num{80}      & \num{4920} \\ \hline
+    \end{tabular}
+  
+    \caption{\confusionCaption{TextBlob}}
+    \label{tab:anaylsis-pipeline-textblob-confusion}
+\end{table}
+
 
 \section{Sentiment Time Series}
 \label{s:analysis-sentiments}
