@@ -214,7 +214,7 @@ Therefore, share prices have been downloaded for the given time frame which is d
 % best estimator pipeline
 
 This section presents the results of the model selector GridSearchCV as described in \cref{s:casestudy-sentiment}.
-GridSearchCV has been trained and tested using the Twitter corpus of \ac{NLTK} (\emph{nltk.corpus.twitter\_samples}).
+GridSearchCV has been trained and tested using the Twitter corpus of \ac{NLTK} (\emph{nltk.corpus.twitter\_samples}) which contains each \num{5000} positive and \num{5000} negative tweets.
 
 \subsection{TextBlob Classifier}
 \label{ss:analysis-pipeline-textblob}
@@ -240,15 +240,14 @@ The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-textblob-confusi
 % Accuracy: 97.34%
 % F1 Score: 97.37
 % Confusion Matrix:
-%  [[4814  186]
-%  [  80 4920]]
+%  [[4814 (TN)  186 (FP)]
+%  [  80 (FN) 4920 (TN)]]
 
 \begin{table}[hbt]
     \centering
     \begin{tabular}{!>{\bfseries}l ^r ^r}
       \hline
-      \rowstyle{\bfseries}
-        & \multicolumn{2}{c}{Correct labels} \\
+        & \multicolumn{2}{c}{\bfseries Correct labels} \\
         \rowstyle{\bfseries}
         Predicted labels & Positive & Negative \\ \hline
         Positive & \num{4920}    & \num{186}  \\
@@ -259,6 +258,89 @@ The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-textblob-confusi
     \label{tab:anaylsis-pipeline-textblob-confusion}
 \end{table}
 
+
+\subsection{Naive Bayes Classifier}
+\label{ss:analysis-pipeline-naivebayes}
+
+% Fitting 5 folds for each of 96 candidates, totalling 480 fits
+% 2019-02-22 13:10:02.230678 > training the classifier finished in 62.958709478378296
+% {'memory': None,
+%  'steps': [('vect',
+%             CountVectorizer(analyzer='word', binary=True, decode_error='strict',
+%         dtype=<class 'numpy.int64'>, encoding='utf-8', input='content',
+%         lowercase=True, max_df=1.0, max_features=None, min_df=1,
+%         ngram_range=(1, 4), preprocessor=None, stop_words=None,
+%         strip_accents=None, token_pattern='(?u)\\b\\w\\w+\\b',
+%         tokenizer=None, vocabulary=None)),
+%            ('tfidf',
+%             TfidfTransformer(norm='l1', smooth_idf=True, sublinear_tf=False,
+%          use_idf=False)),
+%            ('clf',
+%             MultinomialNB(alpha=0.01, class_prior=None, fit_prior=True))]}
+% Best Score: 0.74700
+% Accuracy: 75.50%
+% F1 Score: 75.28
+% Confusion Matrix:
+%  [[764 248]
+%  [242 746]]
+
+\subsection{Maximum Entropy Classifier}
+\label{ss:analysis-pipeline-maximumentropy}
+
+% Fitting 5 folds for each of 192 candidates, totalling 960 fits
+% 2019-02-22 13:23:02.324786 > training the classifier finished in 189.4081039428711
+% {'memory': None,
+%  'steps': [('vect',
+%             CountVectorizer(analyzer='word', binary=False, decode_error='strict',
+%         dtype=<class 'numpy.int64'>, encoding='utf-8', input='content',
+%         lowercase=True, max_df=1.0, max_features=None, min_df=1,
+%         ngram_range=(1, 2), preprocessor=None, stop_words=None,
+%         strip_accents=None, token_pattern='(?u)\\b\\w\\w+\\b',
+%         tokenizer=None, vocabulary=None)),
+%            ('tfidf',
+%             TfidfTransformer(norm=None, smooth_idf=True, sublinear_tf=False,
+%          use_idf=False)),
+%            ('clf',
+%             LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+%           intercept_scaling=1, max_iter=100, multi_class='auto',
+%           n_jobs=None, penalty='l2', random_state=42, solver='sag',
+%           tol=0.0001, verbose=0, warm_start=False))]}
+% Best Score: 0.76150
+% Accuracy: 76.15%
+% F1 Score: 75.45
+% Confusion Matrix:
+%  [[790 222]
+%  [255 733]]
+
+
+\subsection{Support Vector Machine Classifier}
+\label{ss:analysis-pipeline-supportvectormachine}
+
+% Fitting 5 folds for each of 96 candidates, totalling 480 fits
+% 2019-02-22 13:31:21.274959 > training the classifier finished in 65.60502362251282
+% {'memory': None,
+%  'steps': [('vect',
+%             CountVectorizer(analyzer='word', binary=True, decode_error='strict',
+%         dtype=<class 'numpy.int64'>, encoding='utf-8', input='content',
+%         lowercase=True, max_df=1.0, max_features=None, min_df=1,
+%         ngram_range=(1, 4), preprocessor=None, stop_words=None,
+%         strip_accents=None, token_pattern='(?u)\\b\\w\\w+\\b',
+%         tokenizer=None, vocabulary=None)),
+%            ('tfidf',
+%             TfidfTransformer(norm='l2', smooth_idf=True, sublinear_tf=False, use_idf=True)),
+%            ('clf',
+%             SGDClassifier(alpha=0.0001, average=False, class_weight=None,
+%        early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,
+%        l1_ratio=0.15, learning_rate='optimal', loss='hinge', max_iter=2000,
+%        n_iter=None, n_iter_no_change=5, n_jobs=None, penalty='l2',
+%        power_t=0.5, random_state=42, shuffle=True, tol=0.001,
+%        validation_fraction=0.1, verbose=0, warm_start=False))]}
+% Best Score: 0.75875
+% Accuracy: 75.50%
+% F1 Score: 75.81
+% Confusion Matrix:
+%  [[742 270]
+%  [220 768]]
 
 \section{Sentiment Time Series}
 \label{s:analysis-sentiments}
