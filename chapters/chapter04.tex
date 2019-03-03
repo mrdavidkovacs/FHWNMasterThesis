@@ -3,6 +3,8 @@
 \newcommand{\indicesCaption}[1]{Indices of #1 within the evaluation time frame}
 \newcommand{\resultsCaption}[1]{Summarized and normalized sentiment values of #1 within the evaluation time frame}
 \newcommand{\tweetsCaption}[1]{Collection time frames of tweets for #1}
+\newcommand{\confusionCaption}[1]{Confusion matrix of classifier #1}
+\newcommand{\hyperCaption}[1]{Determined hyper-parameters for pipeline of classifier #1}
 
 This chapter describes the performed analysis steps and discusses its results.
 First, the final dataset is described in \cref{s:analysis-datasets}.
@@ -211,6 +213,262 @@ Therefore, share prices have been downloaded for the given time frame which is d
 \section{Hyper-parameters}
 \label{s:analysis-pipelines}
 % best estimator pipeline
+
+This section presents the results of the model selector GridSearchCV as described in \cref{s:casestudy-sentiment}.
+GridSearchCV has been trained and tested using the Twitter corpus of \ac{NLTK} (\emph{nltk.corpus.twitter\_samples}) which contains each \num{5000} positive and \num{5000} negative tweets.
+
+\subsection{TextBlob Classifier}
+\label{ss:analysis-pipeline-textblob}
+
+As previously stated \emph{TextBlob} is a pre-trained classifier which works out-of-the-box.
+It can be seen as kind of a base-line.
+
+As the TextBlob classifies text on a continuous scale between \texttt{-1} and \texttt{1} it also includes the possibility of a neutral sentiment: \texttt{0}.
+In order to compare this classifier with the other tested ones we have to generalize the results of TextBlob using the following cases in \cref{eq:analysis-pipeline-textblob}.
+
+\begin{equation}
+Sentiment_{generalized} = 
+    \begin{cases}
+    1,  & Sentiment_{TextBlob} \geq 0 \\
+    -1  & \text{otherwise}
+    \end{cases}
+    \label{eq:analysis-pipeline-textblob}
+\end{equation}
+
+These adjustments lead finally to an accuracy of \SI{97.34}{\percent} and an F-Measure of \num{97.37}.
+The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-textblob-confusion}.
+
+% Accuracy: 97.34%
+% F1 Score: 97.37
+% Confusion Matrix:
+%  [[4814 (TN)  186 (FP)]
+%  [  80 (FN) 4920 (TN)]]
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r}
+      \hline
+        & \multicolumn{2}{c}{\bfseries Correct labels} \\
+        \rowstyle{\bfseries}
+        Predicted labels & Positive & Negative \\ \hline
+        Positive & \num{4920}    & \num{186}  \\
+        Negative & \num{80}      & \num{4814} \\ \hline
+    \end{tabular}
+  
+    \caption{\confusionCaption{TextBlob}}
+    \label{tab:anaylsis-pipeline-textblob-confusion}
+\end{table}
+
+
+\subsection{Naive Bayes Classifier}
+\label{ss:analysis-pipeline-naivebayes}
+
+The GridSearchCV model selector discovered \num{96} different possibilities for the \ac{NB} classifier using the defined hyper-parameters in \cref{s:casestudy-sentiment}.
+As the classifier had to be trained the sample tweets have been split into training (\SI{80}{\percent}) and test (\SI{20}{\percent}) tweets.
+Furthermore, the model selection process also performed five different folds which yields to five different training and test tweet sets.
+Therefore, the confusion matrix is built upon \num{2000} test tweets.
+
+GridSearchCV determined the best performing hyper-parameters which are depicted in \cref{tab:analysis-pipeline-naivebayes-hyperparameters}.
+This best performing pipeline resulted in an accuracy of \SI{75.5}{\percent} and an F-Measure of \num{75.28}.
+The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-naivebayes-confusion}.
+
+\begin{table}[!hbt]
+    \centering
+    \begin{tabular}{!l ^l ^l}
+        \hline
+        \rowstyle{\bfseries}
+        Pipeline part & Variable & Tried values \\ \hline
+        CountVectorizer & NGrams & 4-grams \\
+        CountVectorizer & Stopwords & none \\
+        CountVectorizer & Binary & true \\ \hline
+        TF-IDF & Use IDF & false \\
+        TF-IDF & Smooth IDF & true \\
+        TF-IDF & Normalization & 'l1' \\ \hline
+        Classifier & Alpha & $10^{-2}$ \\ \hline
+    \end{tabular}
+
+    \caption{\hyperCaption{Naive Bayes}}
+    \label{tab:analysis-pipeline-naivebayes-hyperparameters}
+\end{table}
+
+% Fitting 5 folds for each of 96 candidates, totalling 480 fits
+% 2019-02-22 13:10:02.230678 > training the classifier finished in 62.958709478378296
+% {'memory': None,
+%  'steps': [('vect',
+%             CountVectorizer(analyzer='word', binary=True, decode_error='strict',
+%         dtype=<class 'numpy.int64'>, encoding='utf-8', input='content',
+%         lowercase=True, max_df=1.0, max_features=None, min_df=1,
+%         ngram_range=(1, 4), preprocessor=None, stop_words=None,
+%         strip_accents=None, token_pattern='(?u)\\b\\w\\w+\\b',
+%         tokenizer=None, vocabulary=None)),
+%            ('tfidf',
+%             TfidfTransformer(norm='l1', smooth_idf=True, sublinear_tf=False,
+%          use_idf=False)),
+%            ('clf',
+%             MultinomialNB(alpha=0.01, class_prior=None, fit_prior=True))]}
+% Best Score: 0.74700
+% Accuracy: 75.50%
+% F1 Score: 75.28
+% Confusion Matrix:
+%  [[764 248]
+%  [242 746]]
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r}
+      \hline
+        & \multicolumn{2}{c}{\bfseries Correct labels} \\
+        \rowstyle{\bfseries}
+        Predicted labels & Positive & Negative \\ \hline
+        Positive & \num{746}    & \num{248}  \\
+        Negative & \num{242}    & \num{764} \\ \hline
+    \end{tabular}
+  
+    \caption{\confusionCaption{Naive Bayes}}
+    \label{tab:anaylsis-pipeline-naivebayes-confusion}
+\end{table}
+
+\subsection{Maximum Entropy Classifier}
+\label{ss:analysis-pipeline-maximumentropy}
+
+A similar result has been achieved using the \ac{ME} classifier pipeline:
+GridSearchCV discovered \num{192} different possibilities for the hyper-parameters.
+The sample tweets have also been split into training and test tweets in a ratio of \num{80}:\num{20}.
+
+The hyper-parameters of the best performing pipeline are depicted in \cref{tab:analysis-pipeline-maximumentropy-hyperparameters}.
+These parameters yielded to a accuracy of \SI{76.15}{\percent} and a F-Measure of \num{75.45} and the confusion matrix is shown in \cref{tab:anaylsis-pipeline-maximumentropy-confusion}.
+
+\begin{table}[!hbt]
+    \centering
+    \begin{tabular}{!l ^l ^l}
+        \hline
+        \rowstyle{\bfseries}
+        Pipeline part & Variable & Tried values \\ \hline
+        CountVectorizer & NGrams & 2-grams \\
+        CountVectorizer & Stopwords & none \\
+        CountVectorizer & Binary & false \\ \hline
+        TF-IDF & Use IDF & false \\
+        TF-IDF & Smooth IDF & true \\
+        TF-IDF & Normalization & 'l1' \\ \hline
+        Classifier & Solver & 'sag' \\
+        Classifier & Multiclass & 'auto' \\ \hline
+    \end{tabular}
+
+    \caption{\hyperCaption{Maximum Entropy}}
+    \label{tab:analysis-pipeline-maximumentropy-hyperparameters}
+\end{table}
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r}
+      \hline
+        & \multicolumn{2}{c}{\bfseries Correct labels} \\
+        \rowstyle{\bfseries}
+        Predicted labels & Positive & Negative \\ \hline
+        Positive & \num{733}    & \num{222}  \\
+        Negative & \num{255}    & \num{790} \\ \hline
+    \end{tabular}
+  
+    \caption{\confusionCaption{Maximum Entropy}}
+    \label{tab:anaylsis-pipeline-maximumentropy-confusion}
+\end{table}
+
+% Fitting 5 folds for each of 192 candidates, totalling 960 fits
+% 2019-02-22 13:23:02.324786 > training the classifier finished in 189.4081039428711
+% {'memory': None,
+%  'steps': [('vect',
+%             CountVectorizer(analyzer='word', binary=False, decode_error='strict',
+%         dtype=<class 'numpy.int64'>, encoding='utf-8', input='content',
+%         lowercase=True, max_df=1.0, max_features=None, min_df=1,
+%         ngram_range=(1, 2), preprocessor=None, stop_words=None,
+%         strip_accents=None, token_pattern='(?u)\\b\\w\\w+\\b',
+%         tokenizer=None, vocabulary=None)),
+%            ('tfidf',
+%             TfidfTransformer(norm=None, smooth_idf=True, sublinear_tf=False,
+%          use_idf=False)),
+%            ('clf',
+%             LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+%           intercept_scaling=1, max_iter=100, multi_class='auto',
+%           n_jobs=None, penalty='l2', random_state=42, solver='sag',
+%           tol=0.0001, verbose=0, warm_start=False))]}
+% Best Score: 0.76150
+% Accuracy: 76.15%
+% F1 Score: 75.45
+% Confusion Matrix:
+%  [[790 222]
+%  [255 733]]
+
+
+\subsection{Support Vector Machine Classifier}
+\label{ss:analysis-pipeline-supportvectormachine}
+
+Last but not least the same model selection process has been performed for the \ac{SVM} pipeline.
+GridSearchCV discovered \num{480} different parameter possibilities in total, taking the five different folds into account.
+
+The best pipeline resulted in an accuracy of \SI{75.5}{\percent} and a F-Measure of \num{75.81} using the hyper-parameters shown in \cref{tab:analysis-pipeline-supportvectormachine-hyperparameters}.
+Furthermore, the confusion matrix of the \ac{SVM} classifier pipeline is depicted in \cref{tab:anaylsis-pipeline-supportvectormachine-confusion}.
+
+\begin{table}[!hbt]
+    \centering
+    \begin{tabular}{!l ^l ^l}
+        \hline
+        \rowstyle{\bfseries}
+        Pipeline part & Variable & Tried values \\ \hline
+        CountVectorizer & NGrams & 4-grams \\
+        CountVectorizer & Stopwords & none \\
+        CountVectorizer & Binary & true \\ \hline
+        TF-IDF & Use IDF & true \\
+        TF-IDF & Smooth IDF & true \\
+        TF-IDF & Normalization & 'l2' \\ \hline
+        Classifier & Tolerance & $10^{-3}$ \\
+        Classifier & Loss & 'hinge' \\ \hline
+    \end{tabular}
+
+    \caption{\hyperCaption{Support Vector Machine}}
+    \label{tab:analysis-pipeline-supportvectormachine-hyperparameters}
+\end{table}
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r}
+      \hline
+        & \multicolumn{2}{c}{\bfseries Correct labels} \\
+        \rowstyle{\bfseries}
+        Predicted labels & Positive & Negative \\ \hline
+        Positive & \num{768}    & \num{270}  \\
+        Negative & \num{220}    & \num{742} \\ \hline
+    \end{tabular}
+  
+    \caption{\confusionCaption{Support Vector Machine}}
+    \label{tab:anaylsis-pipeline-supportvectormachine-confusion}
+\end{table}
+
+
+% Fitting 5 folds for each of 96 candidates, totalling 480 fits
+% 2019-02-22 13:31:21.274959 > training the classifier finished in 65.60502362251282
+% {'memory': None,
+%  'steps': [('vect',
+%             CountVectorizer(analyzer='word', binary=True, decode_error='strict',
+%         dtype=<class 'numpy.int64'>, encoding='utf-8', input='content',
+%         lowercase=True, max_df=1.0, max_features=None, min_df=1,
+%         ngram_range=(1, 4), preprocessor=None, stop_words=None,
+%         strip_accents=None, token_pattern='(?u)\\b\\w\\w+\\b',
+%         tokenizer=None, vocabulary=None)),
+%            ('tfidf',
+%             TfidfTransformer(norm='l2', smooth_idf=True, sublinear_tf=False, use_idf=True)),
+%            ('clf',
+%             SGDClassifier(alpha=0.0001, average=False, class_weight=None,
+%        early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,
+%        l1_ratio=0.15, learning_rate='optimal', loss='hinge', max_iter=2000,
+%        n_iter=None, n_iter_no_change=5, n_jobs=None, penalty='l2',
+%        power_t=0.5, random_state=42, shuffle=True, tol=0.001,
+%        validation_fraction=0.1, verbose=0, warm_start=False))]}
+% Best Score: 0.75875
+% Accuracy: 75.50%
+% F1 Score: 75.81
+% Confusion Matrix:
+%  [[742 270]
+%  [220 768]]
 
 \section{Sentiment Time Series}
 \label{s:analysis-sentiments}
