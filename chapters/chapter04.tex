@@ -4,6 +4,7 @@
 \newcommand{\resultsCaption}[1]{Summarized and normalized sentiment values of #1 within the evaluation time frame}
 \newcommand{\tweetsCaption}[1]{Collection time frames of tweets for #1}
 \newcommand{\confusionCaption}[1]{Confusion matrix of classifier #1}
+\newcommand{\hyperCaption}[1]{Determined hyper-parameters for pipeline of classifier #1}
 
 This chapter describes the performed analysis steps and discusses its results.
 First, the final dataset is described in \cref{s:analysis-datasets}.
@@ -262,6 +263,34 @@ The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-textblob-confusi
 \subsection{Naive Bayes Classifier}
 \label{ss:analysis-pipeline-naivebayes}
 
+The GridSearchCV model selector discovered \num{96} different possibilities for the \ac{NB} classifier using the defined hyper-parameters in \cref{s:casestudy-sentiment}.
+As the classifier had to be trained the sample tweets have been split into training (\SI{80}{\percent}) and test (\SI{20}{\percent}) tweets.
+Furthermore, the model selection process also performed five different folds which yields to five different training and test tweet sets.
+Therefore, the confusion matrix is built upon \num{2000} test tweets.
+
+GridSearchCV determined the best performing hyper-parameters which are depicted in \cref{tab:analysis-pipeline-naivebayes-hyperparameters}.
+This best performing pipeline resulted in an accuracy of \SI{75.5}{\percent} and an F-Measure of \num{75.28}.
+The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-naivebayes-confusion}.
+
+\begin{table}[!hbt]
+    \centering
+    \begin{tabular}{!l ^l ^l}
+        \hline
+        \rowstyle{\bfseries}
+        Pipeline part & Variable & Tried values \\ \hline
+        CountVectorizer & NGrams & 4-grams \\
+        CountVectorizer & Stopwords & none \\
+        CountVectorizer & Binary & true \\ \hline
+        TF-IDF & Use IDF & false \\
+        TF-IDF & Smooth IDF & true \\
+        TF-IDF & Normalization & 'l1' \\ \hline
+        Classifier & Alpha & $10^{-2}$ \\ \hline
+    \end{tabular}
+
+    \caption{\hyperCaption{Naive Bayes}}
+    \label{tab:analysis-pipeline-naivebayes-hyperparameters}
+\end{table}
+
 % Fitting 5 folds for each of 96 candidates, totalling 480 fits
 % 2019-02-22 13:10:02.230678 > training the classifier finished in 62.958709478378296
 % {'memory': None,
@@ -283,6 +312,21 @@ The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-textblob-confusi
 % Confusion Matrix:
 %  [[764 248]
 %  [242 746]]
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r}
+      \hline
+        & \multicolumn{2}{c}{\bfseries Correct labels} \\
+        \rowstyle{\bfseries}
+        Predicted labels & Positive & Negative \\ \hline
+        Positive & \num{746}    & \num{248}  \\
+        Negative & \num{242}    & \num{764} \\ \hline
+    \end{tabular}
+  
+    \caption{\confusionCaption{Naive Bayes}}
+    \label{tab:anaylsis-pipeline-naivebayes-confusion}
+\end{table}
 
 \subsection{Maximum Entropy Classifier}
 \label{ss:analysis-pipeline-maximumentropy}
