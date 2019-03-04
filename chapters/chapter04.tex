@@ -1,5 +1,9 @@
 %!TEX root = ../main.tex
 
+% \convertto{cm}{\the\textwidth}
+
+% \convertto{cm}{\the\textheight}
+
 \newcommand{\indicesCaption}[1]{Indices of #1 within the evaluation time frame}
 \newcommand{\resultsCaption}[1]{Summarized and normalized sentiment values of #1 within the evaluation time frame}
 \newcommand{\tweetsCaption}[1]{Collection time frames of tweets for #1}
@@ -55,7 +59,7 @@ Therefore, share prices have been downloaded for the entire given time frame whi
 
 \begin{figure}[hbt]
     \centering
-    \input{./images/graphs/indices-ford.tex}    
+    \input{./images/graphs/indices-ford.tex}
     \caption{\indicesCaption{\ford}}
     \label{fig:analysis-indices-ford}
 \end{figure}    
@@ -91,7 +95,7 @@ Therefore, share prices have been downloaded for the entire given time frame whi
 
 \begin{figure}[hbt]
     \centering
-    \input{./images/graphs/indices-gm.tex}    
+    \input{./images/graphs/indices-gm.tex}
     \caption{\indicesCaption{\gm}}
     \label{fig:analysis-indices-gm}
 \end{figure}   
@@ -129,7 +133,7 @@ Therefore, share prices have been downloaded for the entire given time frame whi
 
 \begin{figure}[hbt]
     \centering
-    \input{./images/graphs/indices-hyundai.tex}    
+    \input{./images/graphs/indices-hyundai.tex}
     \caption{\indicesCaption{\hyundai}}
     \label{fig:analysis-indices-hyundai}
 \end{figure}   
@@ -165,7 +169,7 @@ Therefore, share prices have been downloaded for the given time frame which is d
 
 \begin{figure}[hbt]
     \centering
-    \input{./images/graphs/indices-toyota.tex}    
+    \input{./images/graphs/indices-toyota.tex}
     \caption{\indicesCaption{\toyota}}
     \label{fig:analysis-indices-toyota}
 \end{figure}   
@@ -205,7 +209,7 @@ Therefore, share prices have been downloaded for the given time frame which is d
 
 \begin{figure}[hbt]
     \centering
-    \input{./images/graphs/indices-vw.tex}    
+    \input{./images/graphs/indices-vw.tex}
     \caption{\indicesCaption{\vw}}
     \label{fig:analysis-indices-vw}
 \end{figure}   
@@ -474,42 +478,43 @@ Furthermore, the confusion matrix of the \ac{SVM} classifier pipeline is depicte
 \label{s:analysis-sentiments}
 % depict time series
 
+
+
+\section{Comparison of Time Series}
+\label{s:analysis-granger}
+% granger causality
+
 \begin{figure}[hbt]
     \centering
-    \input{./images/graphs/results-ford.tex}    
+    \input{./images/graphs/results-ford.tex}
     \caption{\resultsCaption{\ford}}
     \label{fig:analysis-results-ford}
 \end{figure} 
 
 \begin{figure}[hbt]
     \centering
-    \input{./images/graphs/results-gm.tex}    
+    \input{./images/graphs/results-gm.tex}
     \caption{\resultsCaption{\gm}}
     \label{fig:analysis-results-gm}
 \end{figure} 
 
 \begin{figure}[hbt]
     \centering
-    \input{./images/graphs/results-hyundai.tex}    
+    \input{./images/graphs/results-hyundai.tex}
     \caption{\resultsCaption{\hyundai}}
     \label{fig:analysis-results-hyundai}
 \end{figure} 
 
 \begin{figure}[hbt]
     \centering
-    \input{./images/graphs/results-toyota.tex}    
+    \input{./images/graphs/results-toyota.tex}
     \caption{\resultsCaption{\toyota}}
     \label{fig:analysis-results-toyota}
 \end{figure} 
 
 \begin{figure}[hbt]
     \centering
-    \input{./images/graphs/results-vw.tex}    
+    \input{./images/graphs/results-vw.tex}
     \caption{\resultsCaption{\vw}}
     \label{fig:analysis-results-vw}
 \end{figure} 
-
-\section{Comparison of Time Series}
-\label{s:analysis-granger}
-% granger causality
-
