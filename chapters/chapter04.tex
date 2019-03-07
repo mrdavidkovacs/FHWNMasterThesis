@@ -479,12 +479,54 @@ Furthermore, the confusion matrix of the \ac{SVM} classifier pipeline is depicte
 \label{s:analysis-sentiments}
 % depict time series
 
+This section describes the sentiment time series which has been extracted from the collected tweets.
+As each tweet data set has been analyzed using various sentiment detection classifiers the results are shown and described in detail in the corresponding subsections.
+
+The sentiments time series has been normalized using \cref{eq:analysis-sentiments-normalization} to make them comparable which means that every specific point has been modified to fit into a normalized graph.
+After this step each time series is scaled into the shared graph where as \texttt{1} relates to the standard deviation of each time series.
+
+\begin{equation}
+    \hat{y} = \frac{y - mean(y)}{sd(y)}
+    \label{eq:analysis-sentiments-normalization}
+\end{equation}
+
+
+\subsection{\ford}
+\label{ss:analysis-sentiments-ford}
+
+
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^l ^r}
+      \hline
+        \rowstyle{\bfseries}
+        Date & \# of tweets & Difference \\ \hline
+        \printdate{2018-07-11}  &  \num{12954}  &  \num{2.215} \\
+        \printdate{2018-07-12}  &  \num{12308}  &  \num{1.785} \\
+        \printdate{2018-07-19}  &  \num{12676}  &  \num{2.011} \\
+        \printdate{2018-07-20}  &  \num{25378}  &  \num{9.598} \\
+        \printdate{2018-07-21}  &  \num{20888}  &  \num{6.277} \\
+        \printdate{2018-07-22}  &  \num{18341}  &  \num{5.595} \\
+        \printdate{2018-07-23}  &  \num{12379}  &  \num{1.928} \\
+        \printdate{2018-08-21}  &  \num{6375}  &  \num{1.006} \\
+        \printdate{2018-09-07}  &  \num{3506}  &  \num{1.218} \\ \hline
+        
+    \end{tabular}
+  
+    \caption{\confusionCaption{Support Vector Machine}}
+    \label{tab:anaylsis-pipeline-supportvectormachine-confusion}
+\end{table}
+
 \begin{figure}[hbt]
     \centering
     \input{./images/graphs/sentiments-ford.tex}
     \caption{\sentimentsCaption{\ford}}
     \label{fig:analysis-sentiments-ford}
 \end{figure} 
+
+\subsection{\gm}
+\label{ss:analysis-sentiments-gm}
 
 \begin{figure}[hbt]
     \centering
@@ -493,6 +535,9 @@ Furthermore, the confusion matrix of the \ac{SVM} classifier pipeline is depicte
     \label{fig:analysis-sentiments-gm}
 \end{figure} 
 
+\subsection{\hyundai}
+\label{ss:analysis-sentiments-hyundai}
+
 \begin{figure}[hbt]
     \centering
     \input{./images/graphs/sentiments-hyundai.tex}
@@ -500,12 +545,18 @@ Furthermore, the confusion matrix of the \ac{SVM} classifier pipeline is depicte
     \label{fig:analysis-sentiments-hyundai}
 \end{figure} 
 
+\subsection{\toyota}
+\label{ss:analysis-sentiments-toyota}
+
 \begin{figure}[hbt]
     \centering
     \input{./images/graphs/sentiments-toyota.tex}
     \caption{\sentimentsCaption{\toyota}}
     \label{fig:analysis-sentiments-toyota}
 \end{figure} 
+
+\subsection{\vw}
+\label{ss:analysis-sentiments-vw}
 
 \begin{figure}[hbt]
     \centering
