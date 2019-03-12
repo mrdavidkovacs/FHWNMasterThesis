@@ -499,10 +499,11 @@ The various sentiment time series for \ford\ are depicted in \cref{fig:analysis-
 But there were several days where the various sentiment classifiers led to opposite sentiments for the specific day.
 These are listed in \cref{tab:anaylsis-senitments-ford-opposite}.
 For each date the number of analyzed tweets and the difference between minimum and maximum sentiment value is stated.
+The difference are by means of standard deviation and only those days were taken into account which deviation between minimum and maximum values are greater than \texttt{1}.
 
 \begin{table}[hbt]
     \centering
-    \begin{tabular}{!>{\bfseries}l ^l ^r}
+    \begin{tabular}{!>{\bfseries}l ^r ^r}
       \hline
         \rowstyle{\bfseries}
         Date & \# of tweets & Difference \\ \hline
