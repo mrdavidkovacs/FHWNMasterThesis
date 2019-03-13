@@ -497,9 +497,22 @@ After this step each time series is scaled into the shared graph where as \textt
 
 The various sentiment time series for \ford\ are depicted in \cref{fig:analysis-sentiments-ford}.
 But there were several days where the various sentiment classifiers led to opposite sentiments for the specific day.
-These are listed in \cref{tab:anaylsis-senitments-ford-opposite}.
+These are listed in \cref{tab:analysis-sentiments-ford-opposite}.
 For each date the number of analyzed tweets and the difference between minimum and maximum sentiment value is stated.
 The difference are by means of standard deviation and only those days were taken into account which deviation between minimum and maximum values are greater than \texttt{1}.
+
+\begin{figure}[hbt]
+    \centering
+    \input{./images/graphs/sentiments-ford.tex}
+    \caption{\sentimentsCaption{\ford}}
+    \label{fig:analysis-sentiments-ford}
+\end{figure} 
+
+% 13.07.2018	3,514015828	-0,766561511	3,848853484	-0,435083389	82337	0,575594719	4,615414995	-0,766561511	3,848853484
+
+The most remarkable entry in \cref{tab:analysis-sentiments-ford-opposite} is of date \printdate{2018-07-13}.
+As we can see in \cref{fig:analysis-sentiments-ford} on that specific day two of four sentiment classifiers rated the tweets as extremely positive (\num{3.51} for $S_{TB}$ and \num{3.85} for $S_{ME}$) whereas the other two classifiers rated the tweets of the day slightly negative (\num{-0.77} for $S_{NB}$ and \num{-0.44} for $S_{SVM}$ respectively).
+There were \num{82337} tweets on that day which resulted in \num{26925} unique tweets as \SI{72.75}{\percent} were retweets.
 
 \begin{table}[hbt]
     \centering
@@ -523,15 +536,8 @@ The difference are by means of standard deviation and only those days were taken
     \end{tabular}
   
     \caption{\oppositeCaption{\ford}}
-    \label{tab:anaylsis-senitments-ford-opposite}
+    \label{tab:analysis-sentiments-ford-opposite}
 \end{table}
-
-\begin{figure}[hbt]
-    \centering
-    \input{./images/graphs/sentiments-ford.tex}
-    \caption{\sentimentsCaption{\ford}}
-    \label{fig:analysis-sentiments-ford}
-\end{figure} 
 
 \subsection{\gm}
 \label{ss:analysis-sentiments-gm}
