@@ -516,23 +516,24 @@ There were \num{82337} tweets on that day which resulted in \num{26925} unique t
 
 \begin{table}[hbt]
     \centering
-    \begin{tabular}{!>{\bfseries}l ^r ^r}
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
       \hline
         \rowstyle{\bfseries}
-        Date & \# of tweets & Difference \\ \hline
-        \printdate{2018-04-01}  &  \num{34629}  &  \num{1.750} \\
-        \printdate{2018-06-29}  &  \num{44416}  &  \num{1.300} \\
-        \printdate{2018-06-30}  &  \num{42860}  &  \num{1.264} \\
-        \printdate{2018-07-01}  &  \num{34419}  &  \num{1.359} \\
-        \printdate{2018-07-13}  &  \num{82337}  &  \num{4.615} \\
-        \printdate{2018-07-19}  &  \num{42224}  &  \num{1.064} \\
-        \printdate{2018-07-25}  &  \num{41487}  &  \num{1.718} \\
-        \printdate{2018-07-31}  &  \num{61599}  &  \num{2.420} \\
-        \printdate{2018-08-01}  &  \num{36016}  &  \num{1.287} \\
-        \printdate{2018-08-25}  &  \num{41092}  &  \num{1.901} \\
-        \printdate{2018-08-28}  &  \num{45198}  &  \num{1.219} \\
-        \printdate{2018-09-03}  &  \num{38024}  &  \num{1.447} \\
-        \printdate{2018-09-04}  &  \num{38075}  &  \num{1.532} \\  \hline        
+        Date & \# of tweets & RT ratio & Difference \\ \hline
+        \printdate{2018-04-01}   &  \num{34629}   &  \SI{61.79}{\percent}   & \num{1.750} \\
+        \printdate{2018-06-29}   &  \num{44416}   &  \SI{56.50}{\percent}   & \num{1.300} \\
+        \printdate{2018-06-30}   &  \num{42860}   &  \SI{63.25}{\percent}   & \num{1.264} \\
+        \printdate{2018-07-01}   &  \num{34419}   &  \SI{58.79}{\percent}   & \num{1.359} \\
+        \printdate{2018-07-13}   &  \num{82337}   &  \SI{72.75}{\percent}   & \num{4.615} \\
+        \printdate{2018-07-19}   &  \num{42224}   &  \SI{57.44}{\percent}   & \num{1.064} \\
+        \printdate{2018-07-25}   &  \num{41487}   &  \SI{58.78}{\percent}   & \num{1.718} \\
+        \printdate{2018-07-31}   &  \num{61599}   &  \SI{66.06}{\percent}   & \num{2.420} \\
+        \printdate{2018-08-01}   &  \num{36016}   &  \SI{67.25}{\percent}   & \num{1.287} \\
+        \printdate{2018-08-25}   &  \num{41092}   &  \SI{61.24}{\percent}   & \num{1.901} \\
+        \printdate{2018-08-28}   &  \num{45198}   &  \SI{63.38}{\percent}   & \num{1.219} \\
+        \printdate{2018-09-03}   &  \num{38024}   &  \SI{64.06}{\percent}   & \num{1.447} \\
+        \printdate{2018-09-04}   &  \num{38075}   &  \SI{58.86}{\percent}   & \num{1.532} \\
+        \hline        
     \end{tabular}
   
     \caption{\oppositeCaption{\ford}}
@@ -551,12 +552,13 @@ There were \num{82337} tweets on that day which resulted in \num{26925} unique t
 
 \begin{table}[hbt]
     \centering
-    \begin{tabular}{!>{\bfseries}l ^r ^r}
-      \hline
-        \rowstyle{\bfseries}
-        Date & \# of tweets & Difference \\ \hline
-        \printdate{2018-08-20}   &  \num{17853}   & \num{2.991} \\  \hline        
-    \end{tabular}
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
+        \hline
+          \rowstyle{\bfseries}
+          Date & \# of tweets & RT ratio & Difference \\ \hline
+        \printdate{2018-08-20}   &  \num{17853}   &  \SI{79.67}{\percent}   & \num{2.991} \\
+          \hline        
+      \end{tabular}
   
     \caption{\oppositeCaption{\gm}}
     \label{tab:analysis-sentiments-gm-opposite}
@@ -574,21 +576,22 @@ There were \num{82337} tweets on that day which resulted in \num{26925} unique t
 
 \begin{table}[hbt]
     \centering
-    \begin{tabular}{!>{\bfseries}l ^r ^r}
-      \hline
-        \rowstyle{\bfseries}
-        Date & \# of tweets & Difference \\ \hline
-        \printdate{2018-03-08}   &  \num{12531}   & \num{ 1.344} \\
-        \printdate{2018-03-19}   &  \num{10462}   & \num{ 1.442} \\
-        \printdate{2018-03-21}   &  \num{30064}   & \num{10.357} \\
-        \printdate{2018-03-22}   &  \num{11023}   & \num{ 1.174} \\
-        \printdate{2018-03-23}   &  \num{16702}   & \num{ 2.135} \\
-        \printdate{2018-04-04}   &  \num{35173}   & \num{ 6.109} \\
-        \printdate{2018-07-03}   &  \num{ 6112}   & \num{ 1.207} \\
-        \printdate{2018-07-13}   &  \num{ 8447}   & \num{ 1.405} \\
-        \printdate{2018-07-25}   &  \num{11072}   & \num{ 2.799} \\
-        \printdate{2018-07-26}   &  \num{ 8898}   & \num{ 1.108} \\  \hline        
-    \end{tabular}
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
+        \hline
+          \rowstyle{\bfseries}
+          Date & \# of tweets & RT ratio & Difference \\ \hline
+        \printdate{2018-03-08}   &  \num{12531}   &  \SI{51.03}{\percent}   & \num{ 1.344} \\
+        \printdate{2018-03-19}   &  \num{10462}   &  \SI{56.00}{\percent}   & \num{ 1.442} \\
+        \printdate{2018-03-21}   &  \num{30064}   &  \SI{85.79}{\percent}   & \num{10.357} \\
+        \printdate{2018-03-22}   &  \num{11023}   &  \SI{65.24}{\percent}   & \num{ 1.174} \\
+        \printdate{2018-03-23}   &  \num{16702}   &  \SI{77.42}{\percent}   & \num{ 2.135} \\
+        \printdate{2018-04-04}   &  \num{35173}   &  \SI{85.90}{\percent}   & \num{ 6.109} \\
+        \printdate{2018-07-03}   &  \num{ 6112}   &  \SI{52.42}{\percent}   & \num{ 1.207} \\
+        \printdate{2018-07-13}   &  \num{ 8447}   &  \SI{53.84}{\percent}   & \num{ 1.405} \\
+        \printdate{2018-07-25}   &  \num{11072}   &  \SI{60.62}{\percent}   & \num{ 2.799} \\
+        \printdate{2018-07-26}   &  \num{ 8898}   &  \SI{60.94}{\percent}   & \num{ 1.108} \\
+          \hline        
+      \end{tabular}
   
     \caption{\oppositeCaption{\hyundai}}
     \label{tab:analysis-sentiments-hyundai-opposite}
@@ -606,20 +609,21 @@ There were \num{82337} tweets on that day which resulted in \num{26925} unique t
 
 \begin{table}[hbt]
     \centering
-    \begin{tabular}{!>{\bfseries}l ^r ^r}
-      \hline
-        \rowstyle{\bfseries}
-        Date & \# of tweets & Difference \\ \hline
-        \printdate{2018-07-11}   &  \num{12954}   & \num{2.215} \\
-        \printdate{2018-07-12}   &  \num{12308}   & \num{1.785} \\
-        \printdate{2018-07-19}   &  \num{12676}   & \num{2.011} \\
-        \printdate{2018-07-20}   &  \num{25378}   & \num{9.598} \\
-        \printdate{2018-07-21}   &  \num{20888}   & \num{6.277} \\
-        \printdate{2018-07-22}   &  \num{18341}   & \num{5.595} \\
-        \printdate{2018-07-23}   &  \num{12379}   & \num{1.928} \\
-        \printdate{2018-08-21}   &  \num{ 6375}   & \num{1.006} \\
-        \printdate{2018-09-07}   &  \num{ 3506}   & \num{1.218} \\  \hline        
-    \end{tabular}
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
+        \hline
+          \rowstyle{\bfseries}
+          Date & \# of tweets & RT ratio & Difference \\ \hline
+          \printdate{2018-07-11}   &  \num{12954}   &  \SI{59.43}{\percent}   & \num{2.215} \\
+          \printdate{2018-07-12}   &  \num{12308}   &  \SI{59.46}{\percent}   & \num{1.785} \\
+          \printdate{2018-07-19}   &  \num{12676}   &  \SI{59.92}{\percent}   & \num{2.011} \\
+          \printdate{2018-07-20}   &  \num{25378}   &  \SI{79.71}{\percent}   & \num{9.598} \\
+          \printdate{2018-07-21}   &  \num{20888}   &  \SI{74.17}{\percent}   & \num{6.277} \\
+          \printdate{2018-07-22}   &  \num{18341}   &  \SI{79.73}{\percent}   & \num{5.595} \\
+          \printdate{2018-07-23}   &  \num{12379}   &  \SI{58.83}{\percent}   & \num{1.928} \\
+          \printdate{2018-08-21}   &  \num{ 6375}   &  \SI{36.24}{\percent}   & \num{1.006} \\
+          \printdate{2018-09-07}   &  \num{ 3506}   &  \SI{39.79}{\percent}   & \num{1.218} \\  
+          \hline        
+      \end{tabular}
   
     \caption{\oppositeCaption{\toyota}}
     \label{tab:analysis-sentiments-toyota-opposite}
@@ -637,40 +641,41 @@ There were \num{82337} tweets on that day which resulted in \num{26925} unique t
 
 \begin{table}[hbt]
     \centering
-    \begin{tabular}{!>{\bfseries}l ^r ^r}
-      \hline
-        \rowstyle{\bfseries}
-        Date & \# of tweets & Difference \\ \hline
-        \printdate{2018-03-07}   &  \num{ 76296}   & \num{1.131} \\
-        \printdate{2018-03-11}   &  \num{115519}   & \num{2.134} \\
-        \printdate{2018-03-12}   &  \num{111406}   & \num{4.335} \\
-        \printdate{2018-03-18}   &  \num{ 54541}   & \num{1.049} \\
-        \printdate{2018-03-26}   &  \num{ 62269}   & \num{1.120} \\
-        \printdate{2018-03-27}   &  \num{ 63639}   & \num{1.224} \\
-        \printdate{2018-03-29}   &  \num{ 79754}   & \num{1.175} \\
-        \printdate{2018-03-30}   &  \num{112736}   & \num{3.264} \\
-        \printdate{2018-04-02}   &  \num{ 94728}   & \num{1.381} \\
-        \printdate{2018-04-03}   &  \num{113563}   & \num{1.701} \\
-        \printdate{2018-04-05}   &  \num{ 79707}   & \num{1.149} \\
-        \printdate{2018-04-06}   &  \num{ 90645}   & \num{4.686} \\
-        \printdate{2018-04-07}   &  \num{ 19291}   & \num{3.284} \\
-        \printdate{2018-04-08}   &  \num{   459}   & \num{2.601} \\
-        \printdate{2018-06-27}   &  \num{155361}   & \num{2.750} \\
-        \printdate{2018-06-28}   &  \num{172329}   & \num{6.202} \\
-        \printdate{2018-07-19}   &  \num{ 19640}   & \num{2.124} \\
-        \printdate{2018-07-21}   &  \num{105529}   & \num{3.078} \\
-        \printdate{2018-07-23}   &  \num{ 83453}   & \num{2.281} \\
-        \printdate{2018-07-27}   &  \num{ 61721}   & \num{1.117} \\
-        \printdate{2018-08-01}   &  \num{ 43257}   & \num{1.158} \\
-        \printdate{2018-08-21}   &  \num{ 90264}   & \num{3.194} \\
-        \printdate{2018-08-22}   &  \num{ 85905}   & \num{2.065} \\
-        \printdate{2018-08-23}   &  \num{103995}   & \num{3.455} \\
-        \printdate{2018-08-24}   &  \num{119314}   & \num{4.680} \\
-        \printdate{2018-08-26}   &  \num{107342}   & \num{1.927} \\
-        \printdate{2018-08-30}   &  \num{108253}   & \num{3.807} \\
-        \printdate{2018-09-03}   &  \num{ 72513}   & \num{1.078} \\
-        \printdate{2018-09-05}   &  \num{ 32133}   & \num{1.397} \\  \hline        
-    \end{tabular}
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
+        \hline
+          \rowstyle{\bfseries}
+          Date & \# of tweets & RT ratio & Difference \\ \hline
+          \printdate{2018-03-07}   &  \num{ 76296}   &  \SI{54.06}{\percent}   & \num{1.131} \\
+          \printdate{2018-03-11}   &  \num{115519}   &  \SI{77.27}{\percent}   & \num{2.134} \\
+          \printdate{2018-03-12}   &  \num{111406}   &  \SI{73.04}{\percent}   & \num{4.335} \\
+          \printdate{2018-03-18}   &  \num{ 54541}   &  \SI{54.40}{\percent}   & \num{1.049} \\
+          \printdate{2018-03-26}   &  \num{ 62269}   &  \SI{54.56}{\percent}   & \num{1.120} \\
+          \printdate{2018-03-27}   &  \num{ 63639}   &  \SI{53.20}{\percent}   & \num{1.224} \\
+          \printdate{2018-03-29}   &  \num{ 79754}   &  \SI{60.36}{\percent}   & \num{1.175} \\
+          \printdate{2018-03-30}   &  \num{112736}   &  \SI{47.87}{\percent}   & \num{3.264} \\
+          \printdate{2018-04-02}   &  \num{ 94728}   &  \SI{71.79}{\percent}   & \num{1.381} \\
+          \printdate{2018-04-03}   &  \num{113563}   &  \SI{74.31}{\percent}   & \num{1.701} \\
+          \printdate{2018-04-05}   &  \num{ 79707}   &  \SI{60.36}{\percent}   & \num{1.149} \\
+          \printdate{2018-04-06}   &  \num{ 90645}   &  \SI{68.59}{\percent}   & \num{4.686} \\
+          \printdate{2018-04-07}   &  \num{ 19291}   &  \SI{71.32}{\percent}   & \num{3.284} \\
+          \printdate{2018-04-08}   &  \num{   459}   &  \SI{60.35}{\percent}   & \num{2.601} \\
+          \printdate{2018-06-27}   &  \num{155361}   &  \SI{78.94}{\percent}   & \num{2.750} \\
+          \printdate{2018-06-28}   &  \num{172329}   &  \SI{80.39}{\percent}   & \num{6.202} \\
+          \printdate{2018-07-19}   &  \num{ 19640}   &  \SI{58.33}{\percent}   & \num{2.124} \\
+          \printdate{2018-07-21}   &  \num{105529}   &  \SI{73.38}{\percent}   & \num{3.078} \\
+          \printdate{2018-07-23}   &  \num{ 83453}   &  \SI{68.90}{\percent}   & \num{2.281} \\
+          \printdate{2018-07-27}   &  \num{ 61721}   &  \SI{56.98}{\percent}   & \num{1.117} \\
+          \printdate{2018-08-01}   &  \num{ 43257}   &  \SI{61.98}{\percent}   & \num{1.158} \\
+          \printdate{2018-08-21}   &  \num{ 90264}   &  \SI{69.31}{\percent}   & \num{3.194} \\
+          \printdate{2018-08-22}   &  \num{ 85905}   &  \SI{68.05}{\percent}   & \num{2.065} \\
+          \printdate{2018-08-23}   &  \num{103995}   &  \SI{71.50}{\percent}   & \num{3.455} \\
+          \printdate{2018-08-24}   &  \num{119314}   &  \SI{71.95}{\percent}   & \num{4.680} \\
+          \printdate{2018-08-26}   &  \num{107342}   &  \SI{73.23}{\percent}   & \num{1.927} \\
+          \printdate{2018-08-30}   &  \num{108253}   &  \SI{68.97}{\percent}   & \num{3.807} \\
+          \printdate{2018-09-03}   &  \num{ 72513}   &  \SI{63.37}{\percent}   & \num{1.078} \\
+          \printdate{2018-09-05}   &  \num{ 32133}   &  \SI{75.60}{\percent}   & \num{1.397} \\
+          \hline        
+      \end{tabular}
   
     \caption{\oppositeCaption{\vw}}
     \label{tab:analysis-sentiments-vw-opposite}
