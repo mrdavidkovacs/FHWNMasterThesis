@@ -491,11 +491,10 @@ After this step each time series is scaled into the shared graph where as \textt
     \label{eq:analysis-sentiments-normalization}
 \end{equation}
 
-
 \subsection{\ford}
 \label{ss:analysis-sentiments-ford}
 
-The various sentiment time series for \ford\ are depicted in \cref{fig:analysis-sentiments-ford}.
+The various sentiment time series for \ford\ are depicted in \cref{fig:analysis-sentiments-ford} which are split upon three different groups as there were several days in between where no tweets have been captured.
 But there were several days where the various sentiment classifiers led to opposite sentiments for the specific day.
 These are listed in \cref{tab:analysis-sentiments-ford-opposite}.
 For each date the number of analyzed tweets, the ration of retweets and the difference between minimum and maximum sentiment value is stated.
@@ -508,6 +507,7 @@ The difference are by means of standard deviation and only those days were taken
     \label{fig:analysis-sentiments-ford}
 \end{figure} 
 
+% 2018-07-13  3.51 -0.767  3.85 -0.435       82337    59897 0.576     0.716         3    37
 % 13.07.2018	3,514015828	-0,766561511	3,848853484	-0,435083389	82337	0,575594719	4,615414995	-0,766561511	3,848853484
 
 The most remarkable entry in \cref{tab:analysis-sentiments-ford-opposite} is of date \printdate{2018-07-13}.
@@ -540,15 +540,28 @@ There were \num{82337} tweets on that day which resulted in \num{26925} unique t
     \label{tab:analysis-sentiments-ford-opposite}
 \end{table}
 
+% Furthermore, we can see that 13 dates have at least one value above \num{2.326348} or below \num{-2.326348} which marks the point of \SI{99}{\percent} certainty.
+
 \subsection{\gm}
 \label{ss:analysis-sentiments-gm}
+
+The various sentiment time series for \gm\ are depicted in \cref{fig:analysis-sentiments-gm} which are split upon two different groups.
+There were two specific days which have a maximum normalized value above \texttt{3}: \printdate{2018-07-20} (\num{6.31}) and \printdate{2018-07-21} (\num{3.02}).
+On both days were several thousand tweets where the keyword \emph{lincoln} matched an actors name: \emph{Andrew Lincoln}.
 
 \begin{figure}[hbt]
     \centering
     \input{./images/graphs/sentiments-gm.tex}
     \caption{\sentimentsCaption{\gm}}
     \label{fig:analysis-sentiments-gm}
-\end{figure} 
+\end{figure}
+
+% date       SA_TB  SA_NB SA_ME SA_SVM tweet.count rt.count  Close Adj.Close dategroup count
+% 2018-08-20  1.17 -0.993  2.00   1.08       17853    14224 -0.860    -0.873         1    18
+
+For \gm\ there were only one day where several sentiment classifiers led to different sentiment classifications which can be seen in \cref{tab:analysis-sentiments-gm-opposite}.
+On \printdate{2018-08-20} there were \num{17853} tweets captured whereas \num{14224} of these tweets were retweets.
+On that day only the \ac{NB} sentiment classifier predicted a negative sentiment classification (\num{-0.99}) and all other classifiers had quite the same prediction (values between \num{1.08} and \num{2.00}).
 
 \begin{table}[hbt]
     \centering
