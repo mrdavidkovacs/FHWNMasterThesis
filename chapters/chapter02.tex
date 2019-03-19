@@ -277,7 +277,7 @@ These three algorithms have shown a good performance in text categorization stud
 
 \begin{description}
 	\item[Naive Bayes.] 
-    The \nb\ algorithm calculates the probabilities that a document $d$ belong to a class $c$.
+    The \nb{} algorithm calculates the probabilities that a document $d$ belong to a class $c$.
 	Furthermore, it implies that all classes are independent to each other, which does not hold true very often in a real world scenario.
 	In sentiment classification tasks there are two classes available: positive and negative.
 	Therefore the text is classified as class $c$ where $c* = arg max_c P(c | d)$.
@@ -291,7 +291,7 @@ These three algorithms have shown a good performance in text categorization stud
 	Despite the fact that the Naive Bayes algorithm is very simple and the assumption of independent classes does not hold true in a real world scenario it performs surprisingly well \cite{Pang2002}.
 	
 	\item[Maximum Entropy Classification.]
-	The \me\ Classification succeeded in a number of language processing applications.
+	The \me{} Classification succeeded in a number of language processing applications.
 	The exponential form of the Maximum Entropy Classifier can be seen in \autoref{eq:background-optionmining-machinelearningalgorithms-maximumentropy} \cite{Pang2002}.
 	
 	\begin{equation}
@@ -319,14 +319,14 @@ These three algorithms have shown a good performance in text categorization stud
 	The values for $\lambda_{i,c}$ are set in a way that the entropy of the training data set is maximized \cite{Pang2002}.
 		
 	\item[Support Vector Machine.]
-	\svm\ are large-margin classifiers in contrast to the probabilistic Naive Bayes and Maximum Entropy.
+	\svm{} are large-margin classifiers in contrast to the probabilistic Naive Bayes and Maximum Entropy.
 	That means that in the two-category case (positive or negative) the training procedure looking for a hyperplane which maximizes the margin between the two groups \cite{Pang2002}.
 	This scenario is depicted in \autoref{fig:background-optionmining-machinelearningalgorithms-svm} \cite[p. 275]{Cortes1995}.
 		
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=.7\textwidth]{images/svm.png}
-		\caption[An example of a \svm\ in a two-category case]{An example of a \svm\ in a two-category case, from \cite[p. 275]{Cortes1995}}
+		\caption[An example of a \svm{} in a two-category case]{An example of a \svm{} in a two-category case, from \cite[p. 275]{Cortes1995}}
 		\label{fig:background-optionmining-machinelearningalgorithms-svm}
 	\end{figure}
 	

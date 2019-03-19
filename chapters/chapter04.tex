@@ -37,7 +37,7 @@ Furthermore, the description is divided by the owning company.
 % DG#4  2018-08-20 2018-09-05   17  664214
 % Total 2018-02-28 2018-09-05   99 3745447
 
-For the \ford\ \num{3745447} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-05}.
+For the \ford{} \num{3745447} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-05}.
 But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
 The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-ford}.
 
@@ -74,7 +74,7 @@ Therefore, share prices have been downloaded for the entire given time frame whi
 % DG#1  2018-08-20 2018-09-06   18 143541
 % Total 2018-06-26 2018-09-06   55 413817
 
-For the \gm\ \num{413817} english tweets have been captured in total between \printdate{2018-06-26} and \printdate{2018-09-06}.
+For the \gm{} \num{413817} english tweets have been captured in total between \printdate{2018-06-26} and \printdate{2018-09-06}.
 But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
 The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-gm}.
 
@@ -111,7 +111,7 @@ Therefore, share prices have been downloaded for the entire given time frame whi
 % DG#5  2018-08-20 2018-09-07   19 101289
 % Total 2018-02-28 2018-09-07   96 697221
 
-For the \hyundai\ \num{697221} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-07}.
+For the \hyundai{} \num{697221} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-07}.
 But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
 The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-hyundai}.
 
@@ -148,7 +148,7 @@ Therefore, share prices have been downloaded for the entire given time frame whi
 % DG#1  2018-08-20 2018-09-07   19 157198
 % Total 2018-06-26 2018-09-07   56 488913
 
-For the \toyota\ \num{488913} english tweets have been captured in total between \printdate{2018-06-26} and \printdate{2018-09-07}.
+For the \toyota{} \num{488913} english tweets have been captured in total between \printdate{2018-06-26} and \printdate{2018-09-07}.
 But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
 The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-toyota}.
 
@@ -186,7 +186,7 @@ Therefore, share prices have been downloaded for the given time frame which is d
 % DG#6  2018-08-20 2018-09-05   17 1496787
 % Total 2018-02-28 2018-09-05   79 6219350
 
-For the \vw\ \num{6219350} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-05}.
+For the \vw{} \num{6219350} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-05}.
 But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
 The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-vw}.
 
@@ -269,7 +269,7 @@ The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-textblob-confusi
 \subsection{Naive Bayes Classifier}
 \label{ss:analysis-pipeline-naivebayes}
 
-The GridSearchCV model selector discovered \num{96} different possibilities for the \nb\ classifier using the defined hyper-parameters in \cref{s:casestudy-sentiment}.
+The GridSearchCV model selector discovered \num{96} different possibilities for the \nb{} classifier using the defined hyper-parameters in \cref{s:casestudy-sentiment}.
 As the classifier had to be trained the sample tweets have been split into training (\SI{80}{\percent}) and test (\SI{20}{\percent}) tweets.
 Furthermore, the model selection process also performed five different folds which yields to five different training and test tweet sets.
 Therefore, the confusion matrix is built upon \num{2000} test tweets.
@@ -337,7 +337,7 @@ The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-naivebayes-confu
 \subsection{Maximum Entropy Classifier}
 \label{ss:analysis-pipeline-maximumentropy}
 
-A similar result has been achieved using the \me\ classifier pipeline:
+A similar result has been achieved using the \me{} classifier pipeline:
 GridSearchCV discovered \num{192} different possibilities for the hyper-parameters.
 The sample tweets have also been split into training and test tweets in a ratio of \num{80}:\num{20}.
 
@@ -408,11 +408,11 @@ These parameters yielded to a accuracy of \SI{76.15}{\percent} and a F-Measure o
 \subsection{Support Vector Machine Classifier}
 \label{ss:analysis-pipeline-supportvectormachine}
 
-Last but not least the same model selection process has been performed for the \svm\ pipeline.
+Last but not least the same model selection process has been performed for the \svm{} pipeline.
 GridSearchCV discovered \num{480} different parameter possibilities in total, taking the five different folds into account.
 
 The best pipeline resulted in an accuracy of \SI{75.5}{\percent} and a F-Measure of \num{75.81} using the hyper-parameters shown in \cref{tab:analysis-pipeline-supportvectormachine-hyperparameters}.
-Furthermore, the confusion matrix of the \svm\ classifier pipeline is depicted in \cref{tab:anaylsis-pipeline-supportvectormachine-confusion}.
+Furthermore, the confusion matrix of the \svm{} classifier pipeline is depicted in \cref{tab:anaylsis-pipeline-supportvectormachine-confusion}.
 
 \begin{table}[!hbt]
     \centering
@@ -495,7 +495,7 @@ Therefore all time series can be shown in a single shared graph.
 \subsection{\ford}
 \label{ss:analysis-sentiments-ford}
 
-The various sentiment time series for \ford\ are depicted in \cref{fig:analysis-sentiments-ford} which are split upon three different groups as there were several days in between where no tweets have been captured.
+The various sentiment time series for \ford{} are depicted in \cref{fig:analysis-sentiments-ford} which are split upon three different groups as there were several days in between where no tweets have been captured.
 But there were several days where the various sentiment classifiers led to opposite sentiments for the specific day.
 These are listed in \cref{tab:analysis-sentiments-ford-opposite}.
 For each date the number of analyzed tweets, the ration of retweets and the difference between minimum and maximum sentiment value is stated.
@@ -546,7 +546,7 @@ There were \num{82337} tweets on that day which resulted in \num{26925} unique t
 \subsection{\gm}
 \label{ss:analysis-sentiments-gm}
 
-The various sentiment time series for \gm\ are depicted in \cref{fig:analysis-sentiments-gm} which are split upon two different groups.
+The various sentiment time series for \gm{} are depicted in \cref{fig:analysis-sentiments-gm} which are split upon two different groups.
 There were two specific days which have a maximum normalized value above \texttt{3}: \printdate{2018-07-20} (\num{6.31}) and \printdate{2018-07-21} (\num{3.02}).
 On both days were several thousand tweets where the keyword \emph{lincoln} matched an actors name: \emph{Andrew Lincoln}.
 
@@ -560,9 +560,9 @@ On both days were several thousand tweets where the keyword \emph{lincoln} match
 % date       SA_TB  SA_NB SA_ME SA_SVM tweet.count rt.count  Close Adj.Close dategroup count
 % 2018-08-20  1.17 -0.993  2.00   1.08       17853    14224 -0.860    -0.873         1    18
 
-For \gm\ there were only one day where several sentiment classifiers led to different sentiment classifications which can be seen in \cref{tab:analysis-sentiments-gm-opposite}.
+For \gm{} there were only one day where several sentiment classifiers led to different sentiment classifications which can be seen in \cref{tab:analysis-sentiments-gm-opposite}.
 On \printdate{2018-08-20} there were \num{17853} tweets captured whereas \num{14224} of these tweets were retweets.
-On that day only the \nb\ sentiment classifier predicted a negative sentiment classification (\num{-0.99}) and all other classifiers had quite the same prediction (values between \num{1.08} and \num{2.00}).
+On that day only the \nb{} sentiment classifier predicted a negative sentiment classification (\num{-0.99}) and all other classifiers had quite the same prediction (values between \num{1.08} and \num{2.00}).
 
 \begin{table}[hbt]
     \centering
@@ -581,7 +581,7 @@ On that day only the \nb\ sentiment classifier predicted a negative sentiment cl
 \subsection{\hyundai}
 \label{ss:analysis-sentiments-hyundai}
 
-The various sentiment time series for \hyundai\ are depicted in \cref{fig:analysis-sentiments-hyundai} which are split upon three different groups.
+The various sentiment time series for \hyundai{} are depicted in \cref{fig:analysis-sentiments-hyundai} which are split upon three different groups.
 There were three days with a normalized sentiment value above \texttt{3}:
 
 % date       SA_TB SA_NB SA_ME SA_SVM tweet.count rt.count Close Adj.Close dategroup count
@@ -593,13 +593,13 @@ There were three days with a normalized sentiment value above \texttt{3}:
 \begin{enumerate}
     \item 
         \printdate{2018-03-21} is a special day as it also includes the biggest difference of sentiments.
-        The minimum sentiment value is \num{-5.36} for \nb classifier whereas the maximum is \num{5.00} for \me\ classifier.
-        The other two values were also extreme: \num{4.92} and \num{-5.00} for TextBlob and \svm\ respectively.
+        The minimum sentiment value is \num{-5.36} for \nb classifier whereas the maximum is \num{5.00} for \me{} classifier.
+        The other two values were also extreme: \num{4.92} and \num{-5.00} for TextBlob and \svm{} respectively.
 
     \item
         On \printdate{2018-04-04} were three sentiment classifiers above the threshold.
-        The values for TextBlob, \nb and \me\ are \num{5.50}, \num{5.37} and \num{5.35} respectively.
-        Only the value for \svm\ is \num{-0.61}.
+        The values for TextBlob, \nb and \me{} are \num{5.50}, \num{5.37} and \num{5.35} respectively.
+        Only the value for \svm{} is \num{-0.61}.
 
     \item
         On \printdate{2018-04-05} all four sentiment classifiers were above the threshold.
