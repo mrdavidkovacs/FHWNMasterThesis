@@ -269,7 +269,7 @@ The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-textblob-confusi
 \subsection{Naive Bayes Classifier}
 \label{ss:analysis-pipeline-naivebayes}
 
-The GridSearchCV model selector discovered \num{96} different possibilities for the \ac{NB} classifier using the defined hyper-parameters in \cref{s:casestudy-sentiment}.
+The GridSearchCV model selector discovered \num{96} different possibilities for the \nb\ classifier using the defined hyper-parameters in \cref{s:casestudy-sentiment}.
 As the classifier had to be trained the sample tweets have been split into training (\SI{80}{\percent}) and test (\SI{20}{\percent}) tweets.
 Furthermore, the model selection process also performed five different folds which yields to five different training and test tweet sets.
 Therefore, the confusion matrix is built upon \num{2000} test tweets.
@@ -337,7 +337,7 @@ The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-naivebayes-confu
 \subsection{Maximum Entropy Classifier}
 \label{ss:analysis-pipeline-maximumentropy}
 
-A similar result has been achieved using the \ac{ME} classifier pipeline:
+A similar result has been achieved using the \me\ classifier pipeline:
 GridSearchCV discovered \num{192} different possibilities for the hyper-parameters.
 The sample tweets have also been split into training and test tweets in a ratio of \num{80}:\num{20}.
 
@@ -408,11 +408,11 @@ These parameters yielded to a accuracy of \SI{76.15}{\percent} and a F-Measure o
 \subsection{Support Vector Machine Classifier}
 \label{ss:analysis-pipeline-supportvectormachine}
 
-Last but not least the same model selection process has been performed for the \ac{SVM} pipeline.
+Last but not least the same model selection process has been performed for the \svm\ pipeline.
 GridSearchCV discovered \num{480} different parameter possibilities in total, taking the five different folds into account.
 
 The best pipeline resulted in an accuracy of \SI{75.5}{\percent} and a F-Measure of \num{75.81} using the hyper-parameters shown in \cref{tab:analysis-pipeline-supportvectormachine-hyperparameters}.
-Furthermore, the confusion matrix of the \ac{SVM} classifier pipeline is depicted in \cref{tab:anaylsis-pipeline-supportvectormachine-confusion}.
+Furthermore, the confusion matrix of the \svm\ classifier pipeline is depicted in \cref{tab:anaylsis-pipeline-supportvectormachine-confusion}.
 
 \begin{table}[!hbt]
     \centering
@@ -484,10 +484,11 @@ This section describes the sentiment time series which has been extracted from t
 As each tweet data set has been analyzed using various sentiment detection classifiers the results are shown and described in detail in the corresponding subsections.
 
 The sentiments time series has been normalized using \cref{eq:analysis-sentiments-normalization} to make them comparable which means that every specific point has been modified to fit into a normalized graph.
-After this step each time series is scaled into the shared graph where as \texttt{1} relates to the standard deviation of each time series.
+After this step each time series is scaled into a standard normal distribution with $\mu_z = 0$ and $\sigma_z = 1$.
+Therefore all time series can be shown in a single shared graph.
 
 \begin{equation}
-    \hat{y} = \frac{y - mean(y)}{sd(y)}
+    z_y = \frac{y - \mu_y}{\sigma_y}
     \label{eq:analysis-sentiments-normalization}
 \end{equation}
 
@@ -561,7 +562,7 @@ On both days were several thousand tweets where the keyword \emph{lincoln} match
 
 For \gm\ there were only one day where several sentiment classifiers led to different sentiment classifications which can be seen in \cref{tab:analysis-sentiments-gm-opposite}.
 On \printdate{2018-08-20} there were \num{17853} tweets captured whereas \num{14224} of these tweets were retweets.
-On that day only the \ac{NB} sentiment classifier predicted a negative sentiment classification (\num{-0.99}) and all other classifiers had quite the same prediction (values between \num{1.08} and \num{2.00}).
+On that day only the \nb\ sentiment classifier predicted a negative sentiment classification (\num{-0.99}) and all other classifiers had quite the same prediction (values between \num{1.08} and \num{2.00}).
 
 \begin{table}[hbt]
     \centering
@@ -579,6 +580,31 @@ On that day only the \ac{NB} sentiment classifier predicted a negative sentiment
 
 \subsection{\hyundai}
 \label{ss:analysis-sentiments-hyundai}
+
+The various sentiment time series for \hyundai\ are depicted in \cref{fig:analysis-sentiments-hyundai} which are split upon three different groups.
+There were three days with a normalized sentiment value above \texttt{3}:
+
+% date       SA_TB SA_NB SA_ME SA_SVM tweet.count rt.count Close Adj.Close dategroup count
+% <date>     <dbl> <dbl> <dbl>  <dbl>       <int>    <int> <dbl>     <dbl>     <dbl> <int>
+% 1 2018-03-21  4.92 -5.36  5.00 -5.00        30064    25793  1.26      1.27         0    40
+% 2 2018-04-04  5.50  5.37  5.35 -0.607       35173    30212  1.41      1.42         0    40
+% 3 2018-04-05  4.35  5.29  4.73  6.50        26285    22152  1.23      1.23         0    40
+
+\begin{enumerate}
+    \item 
+        \printdate{2018-03-21} is a special day as it also includes the biggest difference of sentiments.
+        The minimum sentiment value is \num{-5.36} for \nb classifier whereas the maximum is \num{5.00} for \me\ classifier.
+        The other two values were also extreme: \num{4.92} and \num{-5.00} for TextBlob and \svm\ respectively.
+
+    \item
+        On \printdate{2018-04-04} were three sentiment classifiers above the threshold.
+        The values for TextBlob, \nb and \me\ are \num{5.50}, \num{5.37} and \num{5.35} respectively.
+        Only the value for \svm\ is \num{-0.61}.
+
+    \item
+        On \printdate{2018-04-05} all four sentiment classifiers were above the threshold.
+        The values are \num{4.35}, \num{5.29}, \num{4.73} and \num{6.50} for $S_{TB}$, $S_{NB}$, $S_{ME}$ and $S_{SVM}$.
+\end{enumerate}
 
 \begin{figure}[hbt]
     \centering
