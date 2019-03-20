@@ -613,6 +613,13 @@ There were three days with a normalized sentiment value above \texttt{3}:
     \label{fig:analysis-sentiments-hyundai}
 \end{figure} 
 
+Furthermore in \cref{tab:analysis-sentiments-hyundai-opposite} the ten days with opposite sentiment classifications are shown.
+There are two dates which differences are extremely high.
+First, \printdate{2018-03-21} is also included in this list with a maximum difference of \num{10.357} and \SI{85.79}{\percent} of retweets.
+Second, \printdate{2018-04-04} has also a very high difference of \num{6.109} and \SI{85.90}{\percent} of retweets.
+It is remarkable that every outlier with a high difference has also a high retweet percentage.
+This issue is discussed in \cref{ss:analysis-sentiments-retweets} .
+
 \begin{table}[hbt]
     \centering
     \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
@@ -720,6 +727,16 @@ There were three days with a normalized sentiment value above \texttt{3}:
     \label{tab:analysis-sentiments-vw-opposite}
 \end{table}
 
+\subsection{Retweets Issue}
+\label{ss:analysis-sentiments-retweets}
+
+\begin{figure}[hbt]
+    \centering
+    \input{./images/graphs/retweet_vs_diff.tex}
+    % \includegraphics[width=.8\textwidth]{images/retweet_vs_diff.eps}
+    \caption{Correlation between retweet ratio and sentiment classification differences}
+    \label{fig:analysis-sentiments-retweets}
+\end{figure} 
 
 \section{Comparison of Time Series}
 \label{s:analysis-granger}
