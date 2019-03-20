@@ -181,6 +181,18 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
   #1\ignorespaces
 }
 
+\newcommand{\tweet}[1]{%
+\begin{quote}
+  #1
+\end{quote}%
+}
+
+\newcommand{\toptweet}[3]{
+  The most frequent tweet of that day was
+  \tweet{#1}
+  It was published \num{#2} times which is equivalent to \SI{#3}{\percent} of all tweets of that day.
+}
+
 \newcommand{\hyundai}{Hyundai Motor Company}
 \newcommand{\ford}{Ford Motor Company}
 \newcommand{\gm}{General Motors Company}
