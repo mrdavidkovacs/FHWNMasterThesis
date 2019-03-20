@@ -107,6 +107,15 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
 \usepackage{epigraph}
 \usepackage{pgffor}
 
+\usepackage[section]{placeins}
+\makeatletter
+\AtBeginDocument{%
+  \expandafter\renewcommand\expandafter\subsection\expandafter{%
+    \expandafter\@fb@secFB\subsection
+  }%
+}
+\makeatother
+
 \usepackage[group-separator={,}]{siunitx}
 
 \usepackage{smartdiagram}
