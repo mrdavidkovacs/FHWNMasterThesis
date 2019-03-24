@@ -37,7 +37,7 @@ Furthermore, the description is divided by the owning company.
 % DG#4  2018-08-20 2018-09-05   17  664214
 % Total 2018-02-28 2018-09-05   99 3745447
 
-For the \ford\ \num{3745447} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-05}.
+For the \ford{} \num{3745447} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-05}.
 But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
 The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-ford}.
 
@@ -74,7 +74,7 @@ Therefore, share prices have been downloaded for the entire given time frame whi
 % DG#1  2018-08-20 2018-09-06   18 143541
 % Total 2018-06-26 2018-09-06   55 413817
 
-For the \gm\ \num{413817} english tweets have been captured in total between \printdate{2018-06-26} and \printdate{2018-09-06}.
+For the \gm{} \num{413817} english tweets have been captured in total between \printdate{2018-06-26} and \printdate{2018-09-06}.
 But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
 The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-gm}.
 
@@ -111,7 +111,7 @@ Therefore, share prices have been downloaded for the entire given time frame whi
 % DG#5  2018-08-20 2018-09-07   19 101289
 % Total 2018-02-28 2018-09-07   96 697221
 
-For the \hyundai\ \num{697221} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-07}.
+For the \hyundai{} \num{697221} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-07}.
 But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
 The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-hyundai}.
 
@@ -148,7 +148,7 @@ Therefore, share prices have been downloaded for the entire given time frame whi
 % DG#1  2018-08-20 2018-09-07   19 157198
 % Total 2018-06-26 2018-09-07   56 488913
 
-For the \toyota\ \num{488913} english tweets have been captured in total between \printdate{2018-06-26} and \printdate{2018-09-07}.
+For the \toyota{} \num{488913} english tweets have been captured in total between \printdate{2018-06-26} and \printdate{2018-09-07}.
 But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
 The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-toyota}.
 
@@ -186,7 +186,7 @@ Therefore, share prices have been downloaded for the given time frame which is d
 % DG#6  2018-08-20 2018-09-05   17 1496787
 % Total 2018-02-28 2018-09-05   79 6219350
 
-For the \vw\ \num{6219350} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-05}.
+For the \vw{} \num{6219350} english tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-05}.
 But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
 The various collected time frames, number of consecutive days in each frame and collected tweets in that frame are depicted in \cref{tab:anaylsis-datasets-vw}.
 
@@ -226,11 +226,11 @@ GridSearchCV has been trained and tested using the Twitter corpus of \ac{NLTK} (
 \subsection{TextBlob Classifier}
 \label{ss:analysis-pipeline-textblob}
 
-As previously stated \emph{TextBlob} is a pre-trained classifier which works out-of-the-box.
+As previously stated \emph{\tb{}} is a pre-trained classifier which works out-of-the-box.
 It can be seen as kind of a base-line.
 
-As the TextBlob classifies text on a continuous scale between \texttt{-1} and \texttt{1} it also includes the possibility of a neutral sentiment: \texttt{0}.
-In order to compare this classifier with the other tested ones we have to generalize the results of TextBlob using the following cases in \cref{eq:analysis-pipeline-textblob}.
+As the \tb{} classifies text on a continuous scale between \texttt{-1} and \texttt{1} it also includes the possibility of a neutral sentiment: \texttt{0}.
+In order to compare this classifier with the other tested ones we have to generalize the results of \tb{} using the following cases in \cref{eq:analysis-pipeline-textblob}.
 
 \begin{equation}
 Sentiment_{generalized} = 
@@ -261,7 +261,7 @@ The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-textblob-confusi
         Negative & \num{80}      & \num{4814} \\ \hline
     \end{tabular}
   
-    \caption{\confusionCaption{TextBlob}}
+    \caption{\confusionCaption{\tb{}}}
     \label{tab:anaylsis-pipeline-textblob-confusion}
 \end{table}
 
@@ -269,7 +269,7 @@ The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-textblob-confusi
 \subsection{Naive Bayes Classifier}
 \label{ss:analysis-pipeline-naivebayes}
 
-The GridSearchCV model selector discovered \num{96} different possibilities for the \ac{NB} classifier using the defined hyper-parameters in \cref{s:casestudy-sentiment}.
+The GridSearchCV model selector discovered \num{96} different possibilities for the \nb{} classifier using the defined hyper-parameters in \cref{s:casestudy-sentiment}.
 As the classifier had to be trained the sample tweets have been split into training (\SI{80}{\percent}) and test (\SI{20}{\percent}) tweets.
 Furthermore, the model selection process also performed five different folds which yields to five different training and test tweet sets.
 Therefore, the confusion matrix is built upon \num{2000} test tweets.
@@ -337,7 +337,7 @@ The confusion matrix is depicted in \cref{tab:anaylsis-pipeline-naivebayes-confu
 \subsection{Maximum Entropy Classifier}
 \label{ss:analysis-pipeline-maximumentropy}
 
-A similar result has been achieved using the \ac{ME} classifier pipeline:
+A similar result has been achieved using the \me{} classifier pipeline:
 GridSearchCV discovered \num{192} different possibilities for the hyper-parameters.
 The sample tweets have also been split into training and test tweets in a ratio of \num{80}:\num{20}.
 
@@ -408,11 +408,11 @@ These parameters yielded to a accuracy of \SI{76.15}{\percent} and a F-Measure o
 \subsection{Support Vector Machine Classifier}
 \label{ss:analysis-pipeline-supportvectormachine}
 
-Last but not least the same model selection process has been performed for the \ac{SVM} pipeline.
+Last but not least the same model selection process has been performed for the \svm{} pipeline.
 GridSearchCV discovered \num{480} different parameter possibilities in total, taking the five different folds into account.
 
 The best pipeline resulted in an accuracy of \SI{75.5}{\percent} and a F-Measure of \num{75.81} using the hyper-parameters shown in \cref{tab:analysis-pipeline-supportvectormachine-hyperparameters}.
-Furthermore, the confusion matrix of the \ac{SVM} classifier pipeline is depicted in \cref{tab:anaylsis-pipeline-supportvectormachine-confusion}.
+Furthermore, the confusion matrix of the \svm{} classifier pipeline is depicted in \cref{tab:anaylsis-pipeline-supportvectormachine-confusion}.
 
 \begin{table}[!hbt]
     \centering
@@ -484,47 +484,22 @@ This section describes the sentiment time series which has been extracted from t
 As each tweet data set has been analyzed using various sentiment detection classifiers the results are shown and described in detail in the corresponding subsections.
 
 The sentiments time series has been normalized using \cref{eq:analysis-sentiments-normalization} to make them comparable which means that every specific point has been modified to fit into a normalized graph.
-After this step each time series is scaled into the shared graph where as \texttt{1} relates to the standard deviation of each time series.
+After this step each time series is scaled into a standard normal distribution with $\mu_z = 0$ and $\sigma_z = 1$.
+Therefore all time series can be shown in a single shared graph.
 
 \begin{equation}
-    \hat{y} = \frac{y - mean(y)}{sd(y)}
+    z_y = \frac{y - \mu_y}{\sigma_y}
     \label{eq:analysis-sentiments-normalization}
 \end{equation}
-
 
 \subsection{\ford}
 \label{ss:analysis-sentiments-ford}
 
-The various sentiment time series for \ford\ are depicted in \cref{fig:analysis-sentiments-ford}.
+The various sentiment time series for \ford{} are depicted in \cref{fig:analysis-sentiments-ford} which are split upon three different groups as there were several days in between where no tweets have been captured.
 But there were several days where the various sentiment classifiers led to opposite sentiments for the specific day.
-These are listed in \cref{tab:anaylsis-senitments-ford-opposite}.
-For each date the number of analyzed tweets and the difference between minimum and maximum sentiment value is stated.
+These are listed in \cref{tab:analysis-sentiments-ford-opposite}.
+For each date the number of analyzed tweets, the ration of retweets and the difference between minimum and maximum sentiment value is stated.
 The difference are by means of standard deviation and only those days were taken into account which deviation between minimum and maximum values are greater than \texttt{1}.
-
-\begin{table}[hbt]
-    \centering
-    \begin{tabular}{!>{\bfseries}l ^r ^r}
-      \hline
-        \rowstyle{\bfseries}
-        Date & \# of tweets & Difference \\ \hline
-        \printdate{2018-04-01}  &  \num{34629}  &  \num{1.750} \\
-        \printdate{2018-06-29}  &  \num{44416}  &  \num{1.300} \\
-        \printdate{2018-06-30}  &  \num{42860}  &  \num{1.264} \\
-        \printdate{2018-07-01}  &  \num{34419}  &  \num{1.359} \\
-        \printdate{2018-07-13}  &  \num{82337}  &  \num{4.615} \\
-        \printdate{2018-07-19}  &  \num{42224}  &  \num{1.064} \\
-        \printdate{2018-07-25}  &  \num{41487}  &  \num{1.718} \\
-        \printdate{2018-07-31}  &  \num{61599}  &  \num{2.420} \\
-        \printdate{2018-08-01}  &  \num{36016}  &  \num{1.287} \\
-        \printdate{2018-08-25}  &  \num{41092}  &  \num{1.901} \\
-        \printdate{2018-08-28}  &  \num{45198}  &  \num{1.219} \\
-        \printdate{2018-09-03}  &  \num{38024}  &  \num{1.447} \\
-        \printdate{2018-09-04}  &  \num{38075}  &  \num{1.532} \\  \hline        
-    \end{tabular}
-  
-    \caption{\oppositeCaption{\ford}}
-    \label{tab:anaylsis-senitments-ford-opposite}
-\end{table}
 
 \begin{figure}[hbt]
     \centering
@@ -533,18 +508,107 @@ The difference are by means of standard deviation and only those days were taken
     \label{fig:analysis-sentiments-ford}
 \end{figure} 
 
+% 2018-07-13  3.51 -0.767  3.85 -0.435       82337    59897 0.576     0.716         3    37
+% 13.07.2018	3,514015828	-0,766561511	3,848853484	-0,435083389	82337	0,575594719	4,615414995	-0,766561511	3,848853484
+
+The most remarkable entry in \cref{tab:analysis-sentiments-ford-opposite} is of date \printdate{2018-07-13}.
+As we can see in \cref{fig:analysis-sentiments-ford} on that specific day two of four sentiment classifiers rated the tweets as extremely positive (\num{3.51} for \ftb{} and \num{3.85} for \fme{}) whereas the other two classifiers rated the tweets of the day slightly negative (\num{-0.77} for \fnb{} and \num{-0.44} for \fsvm{} respectively).
+There were \num{82337} tweets on that day which resulted in \num{26925} unique tweets as \SI{72.75}{\percent} were retweets.
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
+      \hline
+        \rowstyle{\bfseries}
+        Date & \# of tweets & RT ratio & Difference \\ \hline
+        \printdate{2018-04-01}   &  \num{34629}   &  \SI{61.79}{\percent}   & \num{1.750} \\
+        \printdate{2018-06-29}   &  \num{44416}   &  \SI{56.50}{\percent}   & \num{1.300} \\
+        \printdate{2018-06-30}   &  \num{42860}   &  \SI{63.25}{\percent}   & \num{1.264} \\
+        \printdate{2018-07-01}   &  \num{34419}   &  \SI{58.79}{\percent}   & \num{1.359} \\
+        \printdate{2018-07-13}   &  \num{82337}   &  \SI{72.75}{\percent}   & \num{4.615} \\
+        \printdate{2018-07-19}   &  \num{42224}   &  \SI{57.44}{\percent}   & \num{1.064} \\
+        \printdate{2018-07-25}   &  \num{41487}   &  \SI{58.78}{\percent}   & \num{1.718} \\
+        \printdate{2018-07-31}   &  \num{61599}   &  \SI{66.06}{\percent}   & \num{2.420} \\
+        \printdate{2018-08-01}   &  \num{36016}   &  \SI{67.25}{\percent}   & \num{1.287} \\
+        \printdate{2018-08-25}   &  \num{41092}   &  \SI{61.24}{\percent}   & \num{1.901} \\
+        \printdate{2018-08-28}   &  \num{45198}   &  \SI{63.38}{\percent}   & \num{1.219} \\
+        \printdate{2018-09-03}   &  \num{38024}   &  \SI{64.06}{\percent}   & \num{1.447} \\
+        \printdate{2018-09-04}   &  \num{38075}   &  \SI{58.86}{\percent}   & \num{1.532} \\
+        \hline        
+    \end{tabular}
+  
+    \caption{\oppositeCaption{\ford}}
+    \label{tab:analysis-sentiments-ford-opposite}
+\end{table}
+
+% Furthermore, we can see that 13 dates have at least one value above \num{2.326348} or below \num{-2.326348} which marks the point of \SI{99}{\percent} certainty.
+
 \subsection{\gm}
 \label{ss:analysis-sentiments-gm}
+
+The various sentiment time series for \gm{} are depicted in \cref{fig:analysis-sentiments-gm} which are split upon two different groups.
+There were two specific days which have a maximum normalized value above \texttt{3}: \printdate{2018-07-20} (\num{6.31}) and \printdate{2018-07-21} (\num{3.02}).
+On both days were several thousand tweets where the keyword \emph{lincoln} matched an actors name: \emph{Andrew Lincoln}.
 
 \begin{figure}[hbt]
     \centering
     \input{./images/graphs/sentiments-gm.tex}
     \caption{\sentimentsCaption{\gm}}
     \label{fig:analysis-sentiments-gm}
-\end{figure} 
+\end{figure}
+
+% date       SA_TB  SA_NB SA_ME SA_SVM tweet.count rt.count  Close Adj.Close dategroup count
+% 2018-08-20  1.17 -0.993  2.00   1.08       17853    14224 -0.860    -0.873         1    18
+
+For \gm{} there were only one day where several sentiment classifiers led to different sentiment classifications which can be seen in \cref{tab:analysis-sentiments-gm-opposite}.
+On \printdate{2018-08-20} there were \num{17853} tweets captured whereas \num{14224} of these tweets were retweets.
+On that day only the \nb{} sentiment classifier predicted a negative sentiment classification (\num{-0.99}) and all other classifiers had quite the same prediction (values between \num{1.08} and \num{2.00}).
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
+        \hline
+        \rowstyle{\bfseries}
+        Date & \# of tweets & RT ratio & Difference \\ \hline
+        \printdate{2018-08-20}   &  \num{17853}   &  \SI{79.67}{\percent}   & \num{2.991} \\
+        \hline        
+      \end{tabular}
+  
+    \caption{\oppositeCaption{\gm}}
+    \label{tab:analysis-sentiments-gm-opposite}
+\end{table}
 
 \subsection{\hyundai}
 \label{ss:analysis-sentiments-hyundai}
+
+The various sentiment time series for \hyundai{} are depicted in \cref{fig:analysis-sentiments-hyundai} which are split upon three different groups.
+There were three days with a normalized sentiment value above \texttt{3}:
+
+% date       SA_TB SA_NB SA_ME SA_SVM tweet.count rt.count Close Adj.Close dategroup count
+% <date>     <dbl> <dbl> <dbl>  <dbl>       <int>    <int> <dbl>     <dbl>     <dbl> <int>
+% 1 2018-03-21  4.92 -5.36  5.00 -5.00        30064    25793  1.26      1.27         0    40
+% 2 2018-04-04  5.50  5.37  5.35 -0.607       35173    30212  1.41      1.42         0    40
+% 3 2018-04-05  4.35  5.29  4.73  6.50        26285    22152  1.23      1.23         0    40
+
+\begin{enumerate}
+    \item 
+        \printdate{2018-03-21} is a special day as it also includes the biggest difference of sentiments.
+        The minimum sentiment value is \num{-5.36} for \nb{} classifier whereas the maximum is \num{5.00} for \me{} classifier.
+        The other two values were also extreme: \num{4.92} and \num{-5.00} for \tb{} and \svm{} respectively.
+
+        \toptweet{RT @SMTOWNGLOBAL: \#SMEntertainment and \#HyundaiMotorCompany reveal the newest product of ‘Hyundai X SM Moving Project,’ ‘… https://t.co/Y7WiAiBcL2}{12675}{42.2}
+
+    \item
+        On \printdate{2018-04-04} were three sentiment classifiers above the threshold.
+        The values for \tb{}, \nb{} and \me{} are \num{5.50}, \num{5.37} and \num{5.35} respectively.
+        Only the value for \svm{} is \num{-0.61}.
+
+        \toptweet{RT @SMTOWNGLOBAL: !t Live Grand Opening Special with Hyundai SOLATI Moving Studio 2018. 4. 5 9AM KST  \#SM \#SMmakesit \#SMmakesitLive… https://t.co/Y4qxzcb80M}{12020}{34.2}
+
+    \item
+        On \printdate{2018-04-05} all four sentiment classifiers were above the threshold.
+        The values are \num{4.35}, \num{5.29}, \num{4.73} and \num{6.50} for \ftb{}, \fnb{}, \fme{} and \fsvm{}.
+\end{enumerate}
 
 \begin{figure}[hbt]
     \centering
@@ -553,8 +617,63 @@ The difference are by means of standard deviation and only those days were taken
     \label{fig:analysis-sentiments-hyundai}
 \end{figure} 
 
+Furthermore in \cref{tab:analysis-sentiments-hyundai-opposite} the ten days with opposite sentiment classifications are shown.
+There are two dates which differences are extremely high.
+First, \printdate{2018-03-21} is also included in this list with a maximum difference of \num{10.357} and \SI{85.79}{\percent} of retweets.
+Second, \printdate{2018-04-04} has also a very high difference of \num{6.109} and \SI{85.90}{\percent} of retweets.
+It is remarkable that every outlier with a high difference has also a high retweet percentage.
+This issue is discussed in \cref{ss:analysis-sentiments-retweets}.
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
+        \hline
+        \rowstyle{\bfseries}
+        Date & \# of tweets & RT ratio & Difference \\ \hline
+        \printdate{2018-03-08}   &  \num{12531}   &  \SI{51.03}{\percent}   & \num{ 1.344} \\
+        \printdate{2018-03-19}   &  \num{10462}   &  \SI{56.00}{\percent}   & \num{ 1.442} \\
+        \printdate{2018-03-21}   &  \num{30064}   &  \SI{85.79}{\percent}   & \num{10.357} \\
+        \printdate{2018-03-22}   &  \num{11023}   &  \SI{65.24}{\percent}   & \num{ 1.174} \\
+        \printdate{2018-03-23}   &  \num{16702}   &  \SI{77.42}{\percent}   & \num{ 2.135} \\
+        \printdate{2018-04-04}   &  \num{35173}   &  \SI{85.90}{\percent}   & \num{ 6.109} \\
+        \printdate{2018-07-03}   &  \num{ 6112}   &  \SI{52.42}{\percent}   & \num{ 1.207} \\
+        \printdate{2018-07-13}   &  \num{ 8447}   &  \SI{53.84}{\percent}   & \num{ 1.405} \\
+        \printdate{2018-07-25}   &  \num{11072}   &  \SI{60.62}{\percent}   & \num{ 2.799} \\
+        \printdate{2018-07-26}   &  \num{ 8898}   &  \SI{60.94}{\percent}   & \num{ 1.108} \\
+        \hline        
+      \end{tabular}
+  
+    \caption{\oppositeCaption{\hyundai}}
+    \label{tab:analysis-sentiments-hyundai-opposite}
+\end{table}
+
 \subsection{\toyota}
 \label{ss:analysis-sentiments-toyota}
+
+The various sentiment time series for \toyota{} are depicted in \cref{fig:analysis-sentiments-toyota} which are split upon two different groups.
+There were three days with a normalized sentiment value above \num{2.5} which are noticeable.
+
+All days with opposite sentiment classifications are shown in \cref{tab:analysis-sentiments-toyota-opposite}.
+The three days with normalized value outliers are also included int that table.
+
+In the following we discuss every day of these three in detail:
+
+% date       SA_TB SA_NB SA_ME SA_SVM tweet.count rt.count Close Adj.Close dategroup count
+% <date>     <dbl> <dbl> <dbl>  <dbl>       <int>    <int> <dbl>     <dbl>     <dbl> <int>
+% 1 2018-07-20  4.71 -4.89  4.47   4.32       25378    20229 1.32      1.32          0    37
+% 2 2018-07-21  2.38 -3.09  3.00   3.19       20888    15492 1.05      1.05          0    37
+% 3 2018-07-22  1.91 -2.84  2.76   2.76       18341    14623 0.914     0.914         0    37
+
+\begin{enumerate}
+    \item 
+        On \printdate{2018-07-20} was both the highest normalized value and the biggest difference for opposite sentiment classifications.
+        The sentiment classifiers yielded the following results: \ftb{} and \fme{} classified most tweets as positive (\num{4.71} and \num{4.47} respectively); \fnb{} and \fsvm{} detected most tweets as negative (\num{-4.89} and \num{4.32} respectively).
+        These results yield to a maximum difference of \num{9.598} and the percentage of retweets was \SI{79.71}{\percent}.
+
+        \toptweet{RT @lildzaddy: Me looking for my Uber because I don’t know what a Toyota Corolla looks like  https://t.co/2TryQjmrPK}{17374}{68.5}
+
+    \item \printdate{2018-07-21}
+\end{enumerate}
 
 \begin{figure}[hbt]
     \centering
@@ -562,6 +681,28 @@ The difference are by means of standard deviation and only those days were taken
     \caption{\sentimentsCaption{\toyota}}
     \label{fig:analysis-sentiments-toyota}
 \end{figure} 
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
+        \hline
+          \rowstyle{\bfseries}
+          Date & \# of tweets & RT ratio & Difference \\ \hline
+          \printdate{2018-07-11}   &  \num{12954}   &  \SI{59.43}{\percent}   & \num{2.215} \\
+          \printdate{2018-07-12}   &  \num{12308}   &  \SI{59.46}{\percent}   & \num{1.785} \\
+          \printdate{2018-07-19}   &  \num{12676}   &  \SI{59.92}{\percent}   & \num{2.011} \\
+          \printdate{2018-07-20}   &  \num{25378}   &  \SI{79.71}{\percent}   & \num{9.598} \\
+          \printdate{2018-07-21}   &  \num{20888}   &  \SI{74.17}{\percent}   & \num{6.277} \\
+          \printdate{2018-07-22}   &  \num{18341}   &  \SI{79.73}{\percent}   & \num{5.595} \\
+          \printdate{2018-07-23}   &  \num{12379}   &  \SI{58.83}{\percent}   & \num{1.928} \\
+          \printdate{2018-08-21}   &  \num{ 6375}   &  \SI{36.24}{\percent}   & \num{1.006} \\
+          \printdate{2018-09-07}   &  \num{ 3506}   &  \SI{39.79}{\percent}   & \num{1.218} \\  
+          \hline        
+      \end{tabular}
+  
+    \caption{\oppositeCaption{\toyota}}
+    \label{tab:analysis-sentiments-toyota-opposite}
+\end{table}
 
 \subsection{\vw}
 \label{ss:analysis-sentiments-vw}
@@ -573,10 +714,65 @@ The difference are by means of standard deviation and only those days were taken
     \label{fig:analysis-sentiments-vw}
 \end{figure} 
 
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
+        \hline
+          \rowstyle{\bfseries}
+          Date & \# of tweets & RT ratio & Difference \\ \hline
+          \printdate{2018-03-07}   &  \num{ 76296}   &  \SI{54.06}{\percent}   & \num{1.131} \\
+          \printdate{2018-03-11}   &  \num{115519}   &  \SI{77.27}{\percent}   & \num{2.134} \\
+          \printdate{2018-03-12}   &  \num{111406}   &  \SI{73.04}{\percent}   & \num{4.335} \\
+          \printdate{2018-03-18}   &  \num{ 54541}   &  \SI{54.40}{\percent}   & \num{1.049} \\
+          \printdate{2018-03-26}   &  \num{ 62269}   &  \SI{54.56}{\percent}   & \num{1.120} \\
+          \printdate{2018-03-27}   &  \num{ 63639}   &  \SI{53.20}{\percent}   & \num{1.224} \\
+          \printdate{2018-03-29}   &  \num{ 79754}   &  \SI{60.36}{\percent}   & \num{1.175} \\
+          \printdate{2018-03-30}   &  \num{112736}   &  \SI{47.87}{\percent}   & \num{3.264} \\
+          \printdate{2018-04-02}   &  \num{ 94728}   &  \SI{71.79}{\percent}   & \num{1.381} \\
+          \printdate{2018-04-03}   &  \num{113563}   &  \SI{74.31}{\percent}   & \num{1.701} \\
+          \printdate{2018-04-05}   &  \num{ 79707}   &  \SI{60.36}{\percent}   & \num{1.149} \\
+          \printdate{2018-04-06}   &  \num{ 90645}   &  \SI{68.59}{\percent}   & \num{4.686} \\
+          \printdate{2018-04-07}   &  \num{ 19291}   &  \SI{71.32}{\percent}   & \num{3.284} \\
+          \printdate{2018-04-08}   &  \num{   459}   &  \SI{60.35}{\percent}   & \num{2.601} \\
+          \printdate{2018-06-27}   &  \num{155361}   &  \SI{78.94}{\percent}   & \num{2.750} \\
+          \printdate{2018-06-28}   &  \num{172329}   &  \SI{80.39}{\percent}   & \num{6.202} \\
+          \printdate{2018-07-19}   &  \num{ 19640}   &  \SI{58.33}{\percent}   & \num{2.124} \\
+          \printdate{2018-07-21}   &  \num{105529}   &  \SI{73.38}{\percent}   & \num{3.078} \\
+          \printdate{2018-07-23}   &  \num{ 83453}   &  \SI{68.90}{\percent}   & \num{2.281} \\
+          \printdate{2018-07-27}   &  \num{ 61721}   &  \SI{56.98}{\percent}   & \num{1.117} \\
+          \printdate{2018-08-01}   &  \num{ 43257}   &  \SI{61.98}{\percent}   & \num{1.158} \\
+          \printdate{2018-08-21}   &  \num{ 90264}   &  \SI{69.31}{\percent}   & \num{3.194} \\
+          \printdate{2018-08-22}   &  \num{ 85905}   &  \SI{68.05}{\percent}   & \num{2.065} \\
+          \printdate{2018-08-23}   &  \num{103995}   &  \SI{71.50}{\percent}   & \num{3.455} \\
+          \printdate{2018-08-24}   &  \num{119314}   &  \SI{71.95}{\percent}   & \num{4.680} \\
+          \printdate{2018-08-26}   &  \num{107342}   &  \SI{73.23}{\percent}   & \num{1.927} \\
+          \printdate{2018-08-30}   &  \num{108253}   &  \SI{68.97}{\percent}   & \num{3.807} \\
+          \printdate{2018-09-03}   &  \num{ 72513}   &  \SI{63.37}{\percent}   & \num{1.078} \\
+          \printdate{2018-09-05}   &  \num{ 32133}   &  \SI{75.60}{\percent}   & \num{1.397} \\
+          \hline        
+      \end{tabular}
+  
+    \caption{\oppositeCaption{\vw}}
+    \label{tab:analysis-sentiments-vw-opposite}
+\end{table}
+
+\subsection{Retweets Issue}
+\label{ss:analysis-sentiments-retweets}
+
+\begin{figure}[hbt]
+    \centering
+    \input{./images/graphs/retweet_vs_diff.tex}
+    % \includegraphics[width=.8\textwidth]{images/retweet_vs_diff.eps}
+    \caption{Correlation between retweet ratio and sentiment classification differences}
+    \label{fig:analysis-sentiments-retweets}
+\end{figure} 
 
 \section{Comparison of Time Series}
 \label{s:analysis-granger}
 % granger causality
+
+\subsection{\ford}
+\label{ss:analysis-granger-ford}
 
 \begin{figure}[hbt]
     \centering
@@ -585,12 +781,18 @@ The difference are by means of standard deviation and only those days were taken
     \label{fig:analysis-results-ford}
 \end{figure} 
 
+\subsection{\gm}
+\label{ss:analysis-granger-gm}
+
 \begin{figure}[hbt]
     \centering
     \input{./images/graphs/results-gm.tex}
     \caption{\resultsCaption{\gm}}
     \label{fig:analysis-results-gm}
 \end{figure} 
+
+\subsection{\hyundai}
+\label{ss:analysis-granger-hyundai}
 
 \begin{figure}[hbt]
     \centering
@@ -599,12 +801,18 @@ The difference are by means of standard deviation and only those days were taken
     \label{fig:analysis-results-hyundai}
 \end{figure} 
 
+\subsection{\toyota}
+\label{ss:analysis-granger-toyota}
+
 \begin{figure}[hbt]
     \centering
     \input{./images/graphs/results-toyota.tex}
     \caption{\resultsCaption{\toyota}}
     \label{fig:analysis-results-toyota}
 \end{figure} 
+
+\subsection{\vw}
+\label{ss:analysis-granger-vw}
 
 \begin{figure}[hbt]
     \centering

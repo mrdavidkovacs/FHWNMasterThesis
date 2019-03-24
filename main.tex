@@ -107,6 +107,15 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
 \usepackage{epigraph}
 \usepackage{pgffor}
 
+\usepackage[section]{placeins}
+\makeatletter
+\AtBeginDocument{%
+  \expandafter\renewcommand\expandafter\subsection\expandafter{%
+    \expandafter\@fb@secFB\subsection
+  }%
+}
+\makeatother
+
 \usepackage[group-separator={,}]{siunitx}
 
 \usepackage{smartdiagram}
@@ -172,11 +181,33 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
   #1\ignorespaces
 }
 
+\newcommand{\tweet}[1]{%
+\begin{quote}
+  #1
+\end{quote}%
+}
+
+\newcommand{\toptweet}[3]{
+  The most frequent tweet of that day was
+  \tweet{#1}
+  It was published \num{#2} times which is equivalent to \SI{#3}{\percent} of all tweets of that day.
+}
+
 \newcommand{\hyundai}{Hyundai Motor Company}
 \newcommand{\ford}{Ford Motor Company}
 \newcommand{\gm}{General Motors Company}
 \newcommand{\toyota}{Toyota Motor Corporation}
 \newcommand{\vw}{Volkswagen AG}
+
+\newcommand{\tb}{TextBlob}
+\newcommand{\nb}{\ac{NB}}
+\newcommand{\me}{\ac{ME}}
+\newcommand{\svm}{\ac{SVM}}
+
+\newcommand{\ftb}{$S_{TB}$}
+\newcommand{\fnb}{$S_{NB}$}
+\newcommand{\fme}{$S_{ME}$}
+\newcommand{\fsvm}{$S_{SVM}$}
 
 \makeatletter
 \def\convertto#1#2{\strip@pt\dimexpr #2*65536/\number\dimexpr 1#1}
