@@ -498,8 +498,18 @@ Therefore all time series can be shown in a single shared graph.
 The various sentiment time series for \ford{} are depicted in \cref{fig:analysis-sentiments-ford} which are split upon three different groups as there were several days in between where no tweets have been captured.
 But there were several days where the various sentiment classifiers led to opposite sentiments for the specific day.
 These are listed in \cref{tab:analysis-sentiments-ford-opposite}.
-For each date the number of analyzed tweets, the ration of retweets and the difference between minimum and maximum sentiment value is stated.
+For each date the number of analyzed tweets, the ration of retweets and the difference between minimum and maximum sentiment value are stated.
 The difference are by means of standard deviation and only those days were taken into account which deviation between minimum and maximum values are greater than \texttt{1}.
+This case is also written as formula in \cref{eq:analyis-sentiments-difference}.
+
+\begin{equation}
+    max(S)-min(S)
+    \begin{cases}
+		\leq 1, & \text{remarkable} \\
+		> 1  & \text{not remarkable}
+    \end{cases}
+    \label{eq:analyis-sentiments-difference}
+\end{equation}
 
 \begin{figure}[hbt]
     \centering
@@ -541,7 +551,36 @@ There were \num{82337} tweets on that day which resulted in \num{26925} unique t
     \label{tab:analysis-sentiments-ford-opposite}
 \end{table}
 
-% Furthermore, we can see that 13 dates have at least one value above \num{2.326348} or below \num{-2.326348} which marks the point of \SI{99}{\percent} certainty.
+% date       SA_TB  SA_NB SA_ME SA_SVM tweet.count rt.count  Close Adj.Close dategroup count
+% <date>     <dbl>  <dbl> <dbl>  <dbl>       <int>    <int>  <dbl>     <dbl>     <dbl> <int>
+% 1 2018-07-13  3.51 -0.767  3.85 -0.435       82337    59897  0.576     0.716         3    37
+% 2 2018-07-17  1.89  3.11   2.36  2.93        62109    44333  0.363     0.469         3    37
+% 3 2018-08-22 -1.76 -3.00  -2.09 -2.55        51695    34952 -1.71     -1.66          4    17
+% 4 2018-08-23 -2.23 -4.38  -2.83 -3.45        72275    53120 -1.82     -1.78          4    17
+
+As there depicted values are normalized ones we can also identify outliers very easily.
+We list all days with an absolute normalized sentiment classification value above \texttt{3} in this case.
+There were four days which meet this requirement.
+
+\begin{enumerate}
+    \item 
+        On \printdate{2018-07-13} were the biggest deviations for this dataset:
+        The values of the classifiers \ftb{} and \fme{} are \num{3.51} and \num{3.85} respectively whereas the values for \fnb{} and \fsvm{} are relatively in range but negative as described beforehand (\num{-0.767} and \num{-0.435} respectively).
+
+        \toptweet{RT @JohnBrennan: Watching the spectacle of the House “hearing” with Peter Strzok today, I was reminded of the words of Abraham Linco… https://t.co/Khe98Rn6Xe}{21023}{25.5}
+
+        As we can see the top tweet of that day was a retweet which quotes the former president of the United States Abraham Lincoln and therefore a wide range of tweets on that day does not belong to the selected topic.
+
+    \item 
+        On \printdate{2018-07-17}
+
+    \item 
+        On \printdate{2018-08-22}
+
+    \item 
+        On \printdate{2018-08-23}
+\end{enumerate}
+
 
 \subsection{\gm}
 \label{ss:analysis-sentiments-gm}
