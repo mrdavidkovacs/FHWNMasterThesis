@@ -131,6 +131,7 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
 
 \usepackage[backend=bibtex,style=alphabetic,natbib=true]{biblatex}
 \addbibresource{endmatter/references.bib}     %Imports bibliography file
+\addbibresource{endmatter/tweets.bib}     %Imports bibliography file
 
 \clubpenalty = 10000 
 \widowpenalty = 10000
@@ -191,6 +192,10 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
   The most frequent tweet of that day was
   \tweet{#1}
   It was published \num{#2} times which is equivalent to \SI{#3}{\percent} of all tweets of that day.
+}
+
+\newcommand{\citetweet}[1]{
+  \tweet{\citefield{#1}{title} \cite{#1}}%
 }
 
 \newcommand{\hyundai}{Hyundai Motor Company}
