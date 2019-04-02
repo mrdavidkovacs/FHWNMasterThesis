@@ -719,7 +719,6 @@ There were three days with a normalized sentiment value above \texttt{3}:
         The values are \num{4.35}, \num{5.29}, \num{4.73} and \num{6.50} for \ftb{}, \fnb{}, \fme{} and \fsvm{} respectively.
 
         \toptweet{RT @SMmakesitLive: !t Live Grand Opening Special with Hyundai SOLATI Moving Studio \url{https://t.co/AiEnQi1sDx}}{6844}{26.0}
-
         The retweeted tweet was a live video announcement which is not viewable (as of \printdate{2019-04-02}).
 \end{enumerate}
 
@@ -770,8 +769,15 @@ This issue is discussed in \cref{ss:analysis-sentiments-retweets}.
 The various sentiment time series for \toyota{} are depicted in \cref{fig:analysis-sentiments-toyota} which are split upon two different groups.
 There were three days with a normalized sentiment value above \num{2.5} which are noticeable.
 
+\begin{figure}[hbt]
+    \centering
+    \input{./images/graphs/sentiments-toyota.tex}
+    \caption{\sentimentsCaption{\toyota}}
+    \label{fig:analysis-sentiments-toyota}
+\end{figure} 
+
 All days with opposite sentiment classifications are shown in \cref{tab:analysis-sentiments-toyota-opposite}.
-The three days with normalized value outliers are also included int that table.
+The three days with normalized value outliers are also included in that table.
 
 In the following we discuss every day of these three in detail:
 
@@ -787,17 +793,32 @@ In the following we discuss every day of these three in detail:
         The sentiment classifiers yielded the following results: \ftb{} and \fme{} classified most tweets as positive (\num{4.71} and \num{4.47} respectively); \fnb{} and \fsvm{} detected most tweets as negative (\num{-4.89} and \num{4.32} respectively).
         These results yield to a maximum difference of \num{9.598} and the percentage of retweets was \SI{79.71}{\percent}.
 
-        \toptweet{RT @lildzaddy: Me looking for my Uber because I don’t know what a Toyota Corolla looks like  https://t.co/2TryQjmrPK}{17374}{68.5}
+        \toptweet{RT @lildzaddy: Me looking for my Uber because I don’t know what a Toyota Corolla looks like  \url{https://t.co/2TryQjmrPK}}{17374}{68.5}
 
-    \item \printdate{2018-07-21}
+        The retweeted tweet is a short video which went viral.
+        \nocite{tweet.toyota.1}
+
+    \item 
+        On \printdate{2018-07-21} the classifiers yielded to the following results: 
+        \num{2.38} (\ftb{}), \num{-3.09} (\fnb{}), \num{3.00} (\fme{}) and \num{3.19} (\fsvm{}).
+
+        The most frequently published tweet was the same as the day before:
+        It has been published \num{11853} times which is equivalent to \SI{56.3}{\percent} of all tweets of the day.
+    
+    \item 
+        On \printdate{2018-07-22} the classifiers led to some opposite values. 
+        Whereas \ftb{}, \fme{} and \fsvm{} were positive (\num{1.91}, \num{2.76} and \num{2.76} respectively), \fnb{} classified the day as negative (\num{-2.84}).
+        
+        The most frequently published tweet text has been the same like the previous two days which has been shared \num{5224} times which is equivalent to \SI{28.5}{\percent} of all tweets of the day.
+
+        But on this day another tweet text had a relatively big share of all tweets:
+        \tweet{RT @NFL\_Memes: BREAKING: Cleveland Browns sign 2016 Toyota Tacoma to a 5-year deal worth \$14 million \url{https://t.co/TOUETRRC92}}
+        It was published \num{5106} times which is equivalent to \SI{27.8}{\percent} of all tweets of that day.
+
+        The full text of the retweeted tweet was:
+        \citetweet{tweet.toyota.2}
+
 \end{enumerate}
-
-\begin{figure}[hbt]
-    \centering
-    \input{./images/graphs/sentiments-toyota.tex}
-    \caption{\sentimentsCaption{\toyota}}
-    \label{fig:analysis-sentiments-toyota}
-\end{figure} 
 
 \begin{table}[hbt]
     \centering
