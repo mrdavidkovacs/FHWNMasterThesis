@@ -476,6 +476,10 @@ Furthermore, the confusion matrix of the \svm{} classifier pipeline is depicted 
 %  [[742 270]
 %  [220 768]]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%                    Sentiment Time Series                     %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Sentiment Time Series}
 \label{s:analysis-sentiments}
 % depict time series
@@ -491,6 +495,10 @@ Therefore all time series can be shown in a single shared graph.
     z_y = \frac{y - \mu_y}{\sigma_y}
     \label{eq:analysis-sentiments-normalization}
 \end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    Ford    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{\ford}
 \label{ss:analysis-sentiments-ford}
@@ -603,13 +611,14 @@ There were four days which met this requirement.
         The most frequent tweet was the same tweet again like the day before.
 \end{enumerate}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  GM  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{\gm}
 \label{ss:analysis-sentiments-gm}
 
 The various sentiment time series for \gm{} are depicted in \cref{fig:analysis-sentiments-gm} which are split upon two different groups.
-There were two specific days which have a maximum normalized value above \texttt{3}: \printdate{2018-07-20} (\num{6.31}) and \printdate{2018-07-21} (\num{3.02}).
-On both days were several thousand tweets where the keyword \emph{lincoln} matched an actors name: \emph{Andrew Lincoln}.
 
 \begin{figure}[hbt]
     \centering
@@ -638,6 +647,39 @@ On that day only the \nb{} sentiment classifier predicted a negative sentiment c
     \caption{\oppositeCaption{\gm}}
     \label{tab:analysis-sentiments-gm-opposite}
 \end{table}
+
+% date       SA_TB SA_NB SA_ME SA_SVM tweet.count rt.count Close Adj.Close dategroup count
+% <date>     <dbl> <dbl> <dbl>  <dbl>       <int>    <int> <dbl>     <dbl>     <dbl> <int>
+% 1 2018-07-20  6.13  6.31  5.97   6.09       38198    33281 0.736     0.739         0    37
+% 2 2018-07-21  2.99  3.03  2.94   3.02       22339    18395 0.697     0.699         0    37
+
+Furthermore, there were two specific days which have a maximum normalized value above \texttt{3} which will be examined in the following.
+
+\begin{enumerate}
+    \item
+        On \printdate{2018-07-20} were the biggest outliers for this dataset.
+        All sentiment values for that day were extremely high and ranging from \num{5.97} (\fme{}) to \num{6.31} (\fnb{}).
+        The other two classifiers were between these two values: \num{6.09} for \svm{} and \num{6.13} for \tb{}.
+
+        \toptweet{RT @ATLBlackStar: GA waitress Emelia Holden is seen on camera being sexually violated by 31 yr old Ryan Cherwinksi. Holden slammed hi… \url{https://t.co/TSBSiSPbnF}}{27639}{72.4}
+        
+        As we can see the top tweet of that day was a retweet which references a woman named ``Emelia Holden'' and therefore a wide range of tweets on that day does not belong to the selected topic.
+
+        The full text of the retweeted tweet was:
+        \citetweet{tweet.gm.1}
+
+    \item
+        The same tweet was also the most frequent one on \printdate{2018-07-21}
+        Therefore the same conclusions hold true.
+        The tweet has been tweeted \num{14885} on that day which is equivalent to \SI{66.6}{\percent}.
+        
+        % \toptweet{RT @ATLBlackStar: GA waitress Emelia Holden is seen on camera being sexually violated by 31 yr old Ryan Cherwinksi. Holden slammed hi… \url{https://t.co/TSBSiSPbnF}}{14885}{66.6}
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%       Hyundai      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{\hyundai}
 \label{ss:analysis-sentiments-hyundai}
@@ -708,6 +750,10 @@ This issue is discussed in \cref{ss:analysis-sentiments-retweets}.
     \label{tab:analysis-sentiments-hyundai-opposite}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      Toyota      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{\toyota}
 \label{ss:analysis-sentiments-toyota}
 
@@ -764,6 +810,10 @@ In the following we discuss every day of these three in detail:
     \caption{\oppositeCaption{\toyota}}
     \label{tab:analysis-sentiments-toyota-opposite}
 \end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  VW  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{\vw}
 \label{ss:analysis-sentiments-vw}
