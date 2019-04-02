@@ -849,12 +849,52 @@ In the following we discuss every day of these three in detail:
 \subsection{\vw}
 \label{ss:analysis-sentiments-vw}
 
+The various sentiment time series for \vw{} are depicted in \cref{fig:analysis-sentiments-vw} which are split upon three different groups.
+There were four days with a normalized sentiment value above \num{2.5} which are noticeable.
+
 \begin{figure}[hbt]
     \centering
     \input{./images/graphs/sentiments-vw.tex}
     \caption{\sentimentsCaption{\vw}}
     \label{fig:analysis-sentiments-vw}
 \end{figure} 
+
+% date       SA_TB  SA_NB SA_ME SA_SVM tweet.count rt.count  Close Adj.Close dategroup count
+% <date>     <dbl>  <dbl> <dbl>  <dbl>       <int>    <int>  <dbl>     <dbl>     <dbl> <int>
+% 1 2018-03-12  1.70 -2.22  -2.64  -2.54      111406    81371  0.965     0.945         0    40
+% 2 2018-03-30  1.47 -0.336  2.47   2.93      112736    53968  1.20      1.22          0    40
+% 3 2018-04-06 -1.69  2.99   1.55   1.69       90645    62177  1.32      1.36          0    40
+% 4 2018-06-28  3.41 -2.79   1.39  -2.08      172329   138533 -0.808    -0.753         4     8
+
+\begin{enumerate}
+    \item
+        On \printdate{2018-03-12} the classifiers have not agreed on the sign of the overall label of the day.
+        The three sentiment classifiers \fnb{}, \fme{} and \fsvm{} evaluated a negative result (\num{-2.22}, \num{-2.64} and \num{-2.54} respectively).
+        Only the \ftb{} led to a positive label: \num{1.70}.
+
+        \toptweet{RT @Im\_0n1: My son talking bout “why u got stuff n my car seat when u knew i was getting n the car“ Lmaoo my fault boss}{41695}{37.4}
+
+    \item
+        On \printdate{2018-03-12} the case was vice versa.
+        Only classifier \fnb{} led to a negative label (\num{-0.34}).
+        The other classifiers evaluated the day as positive one with values ranging from \num{1.47} (\ftb{}) to \num{2.93} (\fsvm{}).
+
+        \toptweet{RT @PETTYMAMII: If my bestfriend have a car..THE PASSENGER SEAT IS MY SEAT \& vice versa!! Idgaf if you was riding with her 5 hours… \url{https://t.co/3CQ7FqR4af}}{15612}{13.8}
+        % https://t.co/3CQ7FqR4af -> account suspended
+
+    \item
+        On \printdate{2018-03-12}
+
+    \item
+        On \printdate{2018-03-12}
+\end{enumerate}
+
+Furthermore in \cref{tab:analysis-sentiments-vw-opposite} the 29 days with opposite sentiment classifications are shown.
+% There are two dates which differences are extremely high.
+% First, \printdate{2018-03-21} is also included in this list with a maximum difference of \num{10.357} and \SI{85.79}{\percent} of retweets.
+% Second, \printdate{2018-04-04} has also a very high difference of \num{6.109} and \SI{85.90}{\percent} of retweets.
+% It is remarkable that every outlier with a high difference has also a high retweet percentage.
+% This issue is discussed in \cref{ss:analysis-sentiments-retweets}.
 
 \begin{table}[hbt]
     \centering
