@@ -882,11 +882,28 @@ There were four days with a normalized sentiment value above \num{2.5} which are
         \toptweet{RT @PETTYMAMII: If my bestfriend have a car..THE PASSENGER SEAT IS MY SEAT \& vice versa!! Idgaf if you was riding with her 5 hours… \url{https://t.co/3CQ7FqR4af}}{15612}{13.8}
         % https://t.co/3CQ7FqR4af -> account suspended
 
-    \item
-        On \printdate{2018-03-12}
+        The full text of the tweet cannot be figured out as the account has been suspended by Twitter (as of \printdate{2019-04-03}).
 
     \item
-        On \printdate{2018-03-12}
+        On \printdate{2018-03-12} only the \tb{} classifier resulted in a negative sentiment (\num{-1.69}).
+        All other classifiers were clearly positive with values ranging from \num{1.55} (\fme{}) to \num{2.99} (\fnb{}).
+
+        \toptweet{RT @GirlFromBlupo: Dear Amazon, I bought a toilet seat because I needed one. Necessity, not desire. I do not collect them. I am not a… \url{https://t.co/w1yKIqx6w5}}{30410}{33.5}
+
+        As we can see again the most frequent tweet of the day is a retweet which is about toilet seats which matched the keyword \emph{SEAT}.
+        Therefore, \SI{33.5}{\percent} of this days tweets are not on the correct topic.
+
+        The full text of the retweeted tweet was:
+        \citetweet{tweet.vw.1}
+
+    \item
+        On \printdate{2018-03-12} two classifiers rated the day as positive (\ftb{} $=$ \num{3.41} and \fme{} $=$ \num{1.39}) as the other two rated it as negative (\fnb{} $=$ \num{-2.79} and \fsvm{} $=$ \num{-2.08}).
+    
+
+        % \toptweet{RT @RepAdamSchiff: McConnell held a Supreme Court seat open for a year, insisting no Justice be confirmed in an election year without voters having a say. This was a terrible precedent but one he will need to live with. Dem Senators must insist — absolutely no confirmation until after the midterm.}{27791}{16.1}
+        % \toptweet{RT @charliekirk11: Liberals suddenly stopped caring about kids at the border as soon as that Supreme Court seat opened up}{12389}{7.19}
+ 
+
 \end{enumerate}
 
 Furthermore in \cref{tab:analysis-sentiments-vw-opposite} the 29 days with opposite sentiment classifications are shown.
