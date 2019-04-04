@@ -19,3 +19,7 @@ deploy:
 branches:
   except:
   - /^overleaf-.*$/
+after_success:
+- curl --ftp-create-dirs
+       -T main.pdf
+       sftp://${ftpuser}:${ftppwd}@${ftpaddress}/apps/david-kovacs/thesis-master-2019-fhwn.pdf
