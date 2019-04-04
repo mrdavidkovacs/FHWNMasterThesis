@@ -913,50 +913,78 @@ Furthermore in \cref{tab:analysis-sentiments-vw-opposite} the 29 days with oppos
 It is shown that only one of 29 days had a retweet percentage below \SI{50}{\percent}.
 The maximum retweet percentage is \SI{80.39}{\percent} on \printdate{2018-06-28} which has only the maximum deviation of \num{6.202}.
 
-\begin{table}[hbt]
-    \centering
-    \begin{tabular}{!>{\bfseries}l ^r ^r ^r}
-        \hline
-          \rowstyle{\bfseries}
-          Date & \# of tweets & RT ratio & Difference \\ \hline
-          \printdate{2018-03-07}   &  \num{ 76296}   &  \SI{54.06}{\percent}   & \num{1.131} \\
-          \printdate{2018-03-11}   &  \num{115519}   &  \SI{77.27}{\percent}   & \num{2.134} \\
-          \printdate{2018-03-12}   &  \num{111406}   &  \SI{73.04}{\percent}   & \num{4.335} \\
-          \printdate{2018-03-18}   &  \num{ 54541}   &  \SI{54.40}{\percent}   & \num{1.049} \\
-          \printdate{2018-03-26}   &  \num{ 62269}   &  \SI{54.56}{\percent}   & \num{1.120} \\
-          \printdate{2018-03-27}   &  \num{ 63639}   &  \SI{53.20}{\percent}   & \num{1.224} \\
-          \printdate{2018-03-29}   &  \num{ 79754}   &  \SI{60.36}{\percent}   & \num{1.175} \\
-          \printdate{2018-03-30}   &  \num{112736}   &  \SI{47.87}{\percent}   & \num{3.264} \\
-          \printdate{2018-04-02}   &  \num{ 94728}   &  \SI{71.79}{\percent}   & \num{1.381} \\
-          \printdate{2018-04-03}   &  \num{113563}   &  \SI{74.31}{\percent}   & \num{1.701} \\
-          \printdate{2018-04-05}   &  \num{ 79707}   &  \SI{60.36}{\percent}   & \num{1.149} \\
-          \printdate{2018-04-06}   &  \num{ 90645}   &  \SI{68.59}{\percent}   & \num{4.686} \\
-          \printdate{2018-04-07}   &  \num{ 19291}   &  \SI{71.32}{\percent}   & \num{3.284} \\
-          \printdate{2018-04-08}   &  \num{   459}   &  \SI{60.35}{\percent}   & \num{2.601} \\
-          \printdate{2018-06-27}   &  \num{155361}   &  \SI{78.94}{\percent}   & \num{2.750} \\
-          \printdate{2018-06-28}   &  \num{172329}   &  \SI{80.39}{\percent}   & \num{6.202} \\
-          \printdate{2018-07-19}   &  \num{ 19640}   &  \SI{58.33}{\percent}   & \num{2.124} \\
-          \printdate{2018-07-21}   &  \num{105529}   &  \SI{73.38}{\percent}   & \num{3.078} \\
-          \printdate{2018-07-23}   &  \num{ 83453}   &  \SI{68.90}{\percent}   & \num{2.281} \\
-          \printdate{2018-07-27}   &  \num{ 61721}   &  \SI{56.98}{\percent}   & \num{1.117} \\
-          \printdate{2018-08-01}   &  \num{ 43257}   &  \SI{61.98}{\percent}   & \num{1.158} \\
-          \printdate{2018-08-21}   &  \num{ 90264}   &  \SI{69.31}{\percent}   & \num{3.194} \\
-          \printdate{2018-08-22}   &  \num{ 85905}   &  \SI{68.05}{\percent}   & \num{2.065} \\
-          \printdate{2018-08-23}   &  \num{103995}   &  \SI{71.50}{\percent}   & \num{3.455} \\
-          \printdate{2018-08-24}   &  \num{119314}   &  \SI{71.95}{\percent}   & \num{4.680} \\
-          \printdate{2018-08-26}   &  \num{107342}   &  \SI{73.23}{\percent}   & \num{1.927} \\
-          \printdate{2018-08-30}   &  \num{108253}   &  \SI{68.97}{\percent}   & \num{3.807} \\
-          \printdate{2018-09-03}   &  \num{ 72513}   &  \SI{63.37}{\percent}   & \num{1.078} \\
-          \printdate{2018-09-05}   &  \num{ 32133}   &  \SI{75.60}{\percent}   & \num{1.397} \\
-          \hline        
-      \end{tabular}
+
+\begin{longtable}[c]{!>{\bfseries}l ^r ^r ^r}
+    \hline
+    \rowstyle{\bfseries}
+    Date & \# of tweets & RT ratio & Difference \\ \hline
+    \endfirsthead
+    %
+    \multicolumn{4}{c}%
+    {{\bfseries Table \thetable{} continued from previous page}} \\
+    & & & \\
+    \endhead
+    \printdate{2018-03-07}   &  \num{ 76296}   &  \SI{54.06}{\percent}   & \num{1.131} \\
+    \printdate{2018-03-11}   &  \num{115519}   &  \SI{77.27}{\percent}   & \num{2.134} \\
+    \printdate{2018-03-12}   &  \num{111406}   &  \SI{73.04}{\percent}   & \num{4.335} \\
+    \printdate{2018-03-18}   &  \num{ 54541}   &  \SI{54.40}{\percent}   & \num{1.049} \\
+    \printdate{2018-03-26}   &  \num{ 62269}   &  \SI{54.56}{\percent}   & \num{1.120} \\
+    \printdate{2018-03-27}   &  \num{ 63639}   &  \SI{53.20}{\percent}   & \num{1.224} \\
+    \printdate{2018-03-29}   &  \num{ 79754}   &  \SI{60.36}{\percent}   & \num{1.175} \\
+    \printdate{2018-03-30}   &  \num{112736}   &  \SI{47.87}{\percent}   & \num{3.264} \\
+    \printdate{2018-04-02}   &  \num{ 94728}   &  \SI{71.79}{\percent}   & \num{1.381} \\
+    \printdate{2018-04-03}   &  \num{113563}   &  \SI{74.31}{\percent}   & \num{1.701} \\
+    \printdate{2018-04-05}   &  \num{ 79707}   &  \SI{60.36}{\percent}   & \num{1.149} \\
+    \printdate{2018-04-06}   &  \num{ 90645}   &  \SI{68.59}{\percent}   & \num{4.686} \\
+    \printdate{2018-04-07}   &  \num{ 19291}   &  \SI{71.32}{\percent}   & \num{3.284} \\
+    \printdate{2018-04-08}   &  \num{   459}   &  \SI{60.35}{\percent}   & \num{2.601} \\
+    \printdate{2018-06-27}   &  \num{155361}   &  \SI{78.94}{\percent}   & \num{2.750} \\
+    \printdate{2018-06-28}   &  \num{172329}   &  \SI{80.39}{\percent}   & \num{6.202} \\
+    \printdate{2018-07-19}   &  \num{ 19640}   &  \SI{58.33}{\percent}   & \num{2.124} \\
+    \printdate{2018-07-21}   &  \num{105529}   &  \SI{73.38}{\percent}   & \num{3.078} \\
+    \printdate{2018-07-23}   &  \num{ 83453}   &  \SI{68.90}{\percent}   & \num{2.281} \\
+    \printdate{2018-07-27}   &  \num{ 61721}   &  \SI{56.98}{\percent}   & \num{1.117} \\
+    \printdate{2018-08-01}   &  \num{ 43257}   &  \SI{61.98}{\percent}   & \num{1.158} \\
+    \printdate{2018-08-21}   &  \num{ 90264}   &  \SI{69.31}{\percent}   & \num{3.194} \\
+    \printdate{2018-08-22}   &  \num{ 85905}   &  \SI{68.05}{\percent}   & \num{2.065} \\
+    \printdate{2018-08-23}   &  \num{103995}   &  \SI{71.50}{\percent}   & \num{3.455} \\
+    \printdate{2018-08-24}   &  \num{119314}   &  \SI{71.95}{\percent}   & \num{4.680} \\
+    \printdate{2018-08-26}   &  \num{107342}   &  \SI{73.23}{\percent}   & \num{1.927} \\
+    \printdate{2018-08-30}   &  \num{108253}   &  \SI{68.97}{\percent}   & \num{3.807} \\
+    \printdate{2018-09-03}   &  \num{ 72513}   &  \SI{63.37}{\percent}   & \num{1.078} \\
+    \printdate{2018-09-05}   &  \num{ 32133}   &  \SI{75.60}{\percent}   & \num{1.397} \\
+    \hline
   
     \caption{\oppositeCaption{\vw}}
     \label{tab:analysis-sentiments-vw-opposite}
-\end{table}
+\end{longtable}
 
 \subsection{Retweets Issue}
 \label{ss:analysis-sentiments-retweets}
+
+The analysis so far suggested that days with a high percentage of retweets are more likely to perform badly as other days.
+Therefore, a regression analysis has been performed in order to test if the difference can be explained by the retweet ratio.
+This analysis is shown in \cref{fig:analysis-sentiments-retweets}.
+
+
+% Call:
+% lm(formula = diff ~ rt.ratio, data = os)
+
+% Residuals:
+%     Min      1Q  Median      3Q     Max 
+% -2.4866 -0.9475 -0.1385  0.5713  5.2155 
+
+% Coefficients:
+%             Estimate Std. Error t value Pr(>|t|)    
+% (Intercept)   -5.440      1.220  -4.459 3.67e-05 ***
+% rt.ratio      12.333      1.864   6.618 1.12e-08 ***
+% ---
+% Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+% Residual standard error: 1.498 on 60 degrees of freedom
+% Multiple R-squared:  0.422,     Adjusted R-squared:  0.4123 
+% F-statistic:  43.8 on 1 and 60 DF,  p-value: 1.117e-08
+
 
 \begin{figure}[hbt]
     \centering
