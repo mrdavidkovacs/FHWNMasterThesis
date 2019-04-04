@@ -1,7 +1,4 @@
 sudo: required
-env:
-  global:
-    secure: KUPBPxXxXOj7UBxpno/6Ta+EC/2kDc/PyXjp9IZ3TWOhPM7Cc6yoDx/9BVDeXyMUqmcrsfOjpEt2ordfEkU5lLMwIGLwNb9mppG1Db+oy6hpyQfnHPFr3md9TGag4nib7rGaGrKOABMZVG3E6ECDzUZwAvxhu3Gcik/cg8bmnGvKb/SRHsLAcgMg8MEwPHgiWlHcvE9qYPVRZUk6vZT+MIFtYvb/yw1SoVucnGYFFJ3d1u0xJurp05hpWcQcS+bepGPrvxOS7u86eDeoOdYjm6mIw1nf1sVvgZmFoLg915E9sbmE69LahwEbOZMG28FHM1dKgVhzD6wP/kXslks22QoeD7/MQYcmyQbFqA7h4E0svsfcEvGBhHZ8h9IxLbmb7Htlq1TvBpPvZ6OogP/4VvfKhAWCZe2D8g76oV4i6UDne6dRDNFWpHyTHoLf0YFivq5mxCZwumLee0NZCBLOaLR/3fT8kQE94U9FugytuvzLXI7XLr/JiiVeVOF1lYFWz/uNAVGxMaQ9VG9EjU3f1iis2atJss/VrW0pdhtDmR6zhgBJBaeSqIZTeLMgEe1vRObqaF9E0DZpek22S39+EtIccxRtEwBgxMWUAuNBEeEE6A5J/QXx+PEHygUtcrCpKQ/LM291RoiaygiqmdztQHRnG0KFquRJCKckWYqbAxI=
 services:
 - docker
 script:
@@ -19,4 +16,3 @@ deploy:
 branches:
   only:
   - master
-after_success: curl -T main.pdf -u 4751ftp2:$ftppwd ftp://e42440-ftp.services.easyname.eu/test.pdf
