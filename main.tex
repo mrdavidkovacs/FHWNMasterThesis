@@ -96,6 +96,19 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
 \titleformat{\paragraph}[hang]{\bfseries\normalsize\color{header-blue}}{\makebox[2.5cm][l]{\theparagraph}}{0pt}{}[]
 \titlespacing*{\paragraph}{0pt}{6pt}{12pt}
 
+% \usepackage{fancyhdr}
+
+% \fancypagestyle{mystyle}{
+%     \fancyhf{} %Clear Everything.
+%     \fancyfoot[C]{\thepage} %Page Number
+%     \renewcommand{\headrulewidth}{0pt} %0pt for no rule, 2pt thicker etc...
+%     \renewcommand{\footrulewidth}{0pt}
+%     % \fancyfoot[L]{BOTTOM LEFT}
+%     % \fancyfoot[R]{BOTTOM RIGHT}
+%     \fancyhead[L]{\leftmark}
+%     \fancyhead[R]{\rightmark}
+% }
+
 %\usepackage{footnote}      %Just in case you want to include footnotes
 %\usepackage{indentfirst}    %Indent in every first paragraph after \chapter and \section.
 \usepackage[onehalfspacing]{setspace}      %Change spacing easily with simple commands
@@ -271,7 +284,7 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
         %%------------------------TABLE OF CONTENTS AND LISTS-------------------%%
         %%----------------------------------------------------------------------%%
         
-\tableofcontents    %\thispagestyle{fancy}
+\tableofcontents
 \cleardoublepage
 
 %\chapter*{List of Acronyms}
@@ -294,6 +307,8 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
 
 \glsresetall
 \mainmatter
+
+% \pagestyle{mystyle}
 
         %--------------------BODY OF THE THESIS--------------------------%
         %%--------------------------------------------------------------%%
