@@ -913,7 +913,6 @@ Furthermore in \cref{tab:analysis-sentiments-vw-opposite} the 29 days with oppos
 It is shown that only one of 29 days had a retweet percentage below \SI{50}{\percent}.
 The maximum retweet percentage is \SI{80.39}{\percent} on \printdate{2018-06-28} which has only the maximum deviation of \num{6.202}.
 
-
 \begin{longtable}[c]{!>{\bfseries}l ^r ^r ^r}
     \hline
     \rowstyle{\bfseries}
@@ -963,27 +962,51 @@ The maximum retweet percentage is \SI{80.39}{\percent} on \printdate{2018-06-28}
 \label{ss:analysis-sentiments-retweets}
 
 The analysis so far suggested that days with a high percentage of retweets are more likely to perform badly as other days.
-Therefore, a regression analysis has been performed in order to test if the difference can be explained by the retweet ratio.
-This analysis is shown in \cref{fig:analysis-sentiments-retweets}.
+Performing bad in that case means that the difference between the smallest sentiment classifier value and the largest sentiment classifier value is extremely large.
+Therefore, a regression analysis has been performed in order to test if the difference can be explained by the retweet ratio using the model depicted in \cref{eq:analysis-sentiments-retweets-model}.
 
+\begin{equation}
+    diff = k * retweetratio + d
+    \label{eq:analysis-sentiments-retweets-model}
+\end{equation}
+
+For this analysis all available data has been used and mixed across all companies.
+The results of the evaluation is shown in \cref{tab:analysis-sentiments-retweets-results} and the plot of the regression line is shown in \cref{fig:analysis-sentiments-retweets}.
+We can see that there is a positive correlation between retweet ratio and the difference.
+The influence of the retweet ratio ($d$) is highly significant as the p-value is below $2*10^{-16}$.
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r}
+        \hline
+        \rowstyle{\bfseries}
+        Variable & Value & P-Value \\ \hline
+        $k$   &  $ 4.711$   & $< 2*10^{-16}$* \\
+        $d$   &  $-1.573$   & $1.64*10^{-14}$* \\
+        \hline        
+    \end{tabular}
+  
+    \caption[Values of the regression analysis of retweet ratios and differences]{Values of the regression analysis of retweet ratios and differences (* marks significant value)}
+    \label{tab:analysis-sentiments-retweets-results}
+\end{table}
 
 % Call:
-% lm(formula = diff ~ rt.ratio, data = os)
+% lm(formula = diff ~ rt.ratio, data = osa)
 
 % Residuals:
 %     Min      1Q  Median      3Q     Max 
-% -2.4866 -0.9475 -0.1385  0.5713  5.2155 
+% -2.2076 -0.5062 -0.1024  0.2384  7.8889 
 
 % Coefficients:
 %             Estimate Std. Error t value Pr(>|t|)    
-% (Intercept)   -5.440      1.220  -4.459 3.67e-05 ***
-% rt.ratio      12.333      1.864   6.618 1.12e-08 ***
+% (Intercept)   -1.573      0.197  -7.987 1.64e-14 ***
+% rt.ratio       4.711      0.370  12.730  < 2e-16 ***
 % ---
 % Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-% Residual standard error: 1.498 on 60 degrees of freedom
-% Multiple R-squared:  0.422,     Adjusted R-squared:  0.4123 
-% F-statistic:  43.8 on 1 and 60 DF,  p-value: 1.117e-08
+% Residual standard error: 0.9369 on 383 degrees of freedom
+% Multiple R-squared:  0.2973,    Adjusted R-squared:  0.2955 
+% F-statistic: 162.1 on 1 and 383 DF,  p-value: < 2.2e-16
 
 
 \begin{figure}[hbt]
