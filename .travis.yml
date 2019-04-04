@@ -20,5 +20,4 @@ branches:
   only:
   - master
 after_success:
-  echo "curl -T main.pdf -u $ftpuser:$ftppwd ftp://$ftpaddress/thesis-master-2019-fhwn.pdf"
-  "curl -T main.pdf -u $ftpuser:$ftppwd ftp://$ftpaddress/thesis-master-2019-fhwn.pdf"
+  curl -T main.pdf -u $ftpuser:$ftppwd ftp://$ftpaddress/thesis-master-2019-fhwn.pdf
