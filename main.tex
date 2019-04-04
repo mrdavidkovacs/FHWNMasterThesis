@@ -116,9 +116,11 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
 \usepackage{amsmath}       %This package introduces several new commands that are more powerful and flexible than the ones provided by LaTeX. Uncomment them if you are using complex mathematical notation.
 \usepackage{mathtools}     %The mathtools package fixes some amsmath quirks and adds some useful settings, symbols, and environments to amsmath.
 
-\usepackage{cleveref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
 \usepackage{epigraph}
 \usepackage{pgffor}
+
+\creflabelformat{equation}{#2#1#3}
 
 \usepackage[section]{placeins}
 \makeatletter
