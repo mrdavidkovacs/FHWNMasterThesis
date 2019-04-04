@@ -20,4 +20,5 @@ branches:
   except:
   - /^overleaf-.*$/
 after_success:
-- curl -T main.pdf ftp://${ftpuser}:${ftppwd}@${ftpaddress}/apps/david-kovacs/thesis-master-2019-fhwn.pdf
+- echo "ftp://${ftpuser}@${ftpaddress}/apps/david-kovacs/thesis-master-2019-fhwn.pdf"
+- curl -T main.pdf -u ${ftpuser}:${ftppwd} ftp://${ftpaddress}/apps/david-kovacs/thesis-master-2019-fhwn.pdf
