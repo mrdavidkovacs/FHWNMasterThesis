@@ -507,7 +507,7 @@ Therefore all time series can be shown in a single shared graph.
 The various sentiment time series for \ford{} are depicted in \cref{fig:analysis-sentiments-ford} which are split upon three different groups as there were several days in between where no tweets have been captured.
 But there were several days where the various sentiment classifiers led to opposite sentiments for the specific day.
 These are listed in \cref{tab:analysis-sentiments-ford-opposite}.
-For each date the number of analyzed tweets, the ration of retweets and the difference between minimum and maximum sentiment value are stated.
+For each date the number of analyzed tweets, the ration of \acp{RT} and the difference between minimum and maximum sentiment value are stated.
 The difference are by means of standard deviation and only those days were taken into account which deviation between minimum and maximum values are greater than \texttt{1}.
 This case is also written as formula in \cref{eq:analyis-sentiments-difference}.
 
@@ -532,7 +532,7 @@ This case is also written as formula in \cref{eq:analyis-sentiments-difference}.
 
 The most remarkable entry in \cref{tab:analysis-sentiments-ford-opposite} is of date \printdate{2018-07-13}.
 As we can see in \cref{fig:analysis-sentiments-ford} on that specific day two of four sentiment classifiers rated the tweets as extremely positive (\num{3.51} for \ftb{} and \num{3.85} for \fme{}) whereas the other two classifiers rated the tweets of the day slightly negative (\num{-0.77} for \fnb{} and \num{-0.44} for \fsvm{} respectively).
-There were \num{82337} tweets on that day which resulted in \num{26925} unique tweets as \SI{72.75}{\percent} were retweets.
+There were \num{82337} tweets on that day which resulted in \num{26925} unique tweets as \SI{72.75}{\percent} were \acp{RT}.
 
 \begin{table}[hbt]
     \centering
@@ -578,9 +578,9 @@ There were four days which met this requirement.
 
         \toptweet{RT @JohnBrennan: Watching the spectacle of the House “hearing” with Peter Strzok today, I was reminded of the words of Abraham Linco… \url{https://t.co/Khe98Rn6Xe}}{21023}{25.5}
         
-        As we can see the top tweet of that day was a retweet which quotes the former president of the United States Abraham Lincoln and therefore a wide range of tweets on that day does not belong to the selected topic.
+        As we can see the top tweet of that day was a \ac{RT} which quotes the former president of the United States Abraham Lincoln and therefore a wide range of tweets on that day does not belong to the selected topic.
 
-        The full text of the retweeted tweet was:
+        The full text of the \acp{RT} tweet was:
         \citetweet{tweet.ford.1}
 
     \item 
@@ -632,7 +632,7 @@ The various sentiment time series for \gm{} are depicted in \cref{fig:analysis-s
 % 2018-08-20  1.17 -0.993  2.00   1.08       17853    14224 -0.860    -0.873         1    18
 
 For \gm{} there were only one day where several sentiment classifiers led to different sentiment classifications which can be seen in \cref{tab:analysis-sentiments-gm-opposite}.
-On \printdate{2018-08-20} there were \num{17853} tweets captured whereas \num{14224} of these tweets were retweets.
+On \printdate{2018-08-20} there were \num{17853} tweets captured whereas \num{14224} of these tweets were \acp{RT}.
 On that day only the \nb{} sentiment classifier predicted a negative sentiment classification (\num{-0.99}) and all other classifiers had quite the same prediction (values between \num{1.08} and \num{2.00}).
 
 \begin{table}[hbt]
@@ -664,7 +664,7 @@ Furthermore, there were two specific days which have a maximum normalized value 
 
         \toptweet{RT @ATLBlackStar: GA waitress Emelia Holden is seen on camera being sexually violated by 31 yr old Ryan Cherwinksi. Holden slammed hi… \url{https://t.co/TSBSiSPbnF}}{27639}{72.4}
         
-        As we can see the top tweet of that day was a retweet which references a woman named ``Emelia Holden'' and therefore a wide range of tweets on that day does not belong to the selected topic.
+        As we can see the top tweet of that day was a \ac{RT} which references a woman named ``Emelia Holden'' and therefore a wide range of tweets on that day does not belong to the selected topic.
 
         The full text of the retweeted tweet was:
         \citetweet{tweet.gm.1}
@@ -732,9 +732,9 @@ There were three days with a normalized sentiment value above \texttt{3}:
 
 Furthermore in \cref{tab:analysis-sentiments-hyundai-opposite} the ten days with opposite sentiment classifications are shown.
 There are two dates which differences are extremely high.
-First, \printdate{2018-03-21} is also included in this list with a maximum difference of \num{10.357} and \SI{85.79}{\percent} of retweets.
-Second, \printdate{2018-04-04} has also a very high difference of \num{6.109} and \SI{85.90}{\percent} of retweets.
-It is remarkable that every outlier with a high difference has also a high retweet percentage.
+First, \printdate{2018-03-21} is also included in this list with a maximum difference of \num{10.357} and \SI{85.79}{\percent} of \acp{RT}.
+Second, \printdate{2018-04-04} has also a very high difference of \num{6.109} and \SI{85.90}{\percent} of \acp{RT}.
+It is remarkable that every outlier with a high difference has also a high \ac{RT} percentage.
 This issue is discussed in \cref{ss:analysis-sentiments-retweets}.
 
 \begin{table}[hbt]
@@ -792,7 +792,7 @@ In the following we discuss every day of these three in detail:
     \item 
         On \printdate{2018-07-20} was both the highest normalized value and the biggest difference for opposite sentiment classifications.
         The sentiment classifiers yielded the following results: \ftb{} and \fme{} classified most tweets as positive (\num{4.71} and \num{4.47} respectively); \fnb{} and \fsvm{} detected most tweets as negative (\num{-4.89} and \num{4.32} respectively).
-        These results yield to a maximum difference of \num{9.598} and the percentage of retweets was \SI{79.71}{\percent}.
+        These results yield to a maximum difference of \num{9.598} and the percentage of \acp{RT} was \SI{79.71}{\percent}.
 
         \toptweet{RT @lildzaddy: Me looking for my Uber because I don’t know what a Toyota Corolla looks like  \url{https://t.co/2TryQjmrPK}}{17374}{68.5}
 
@@ -891,7 +891,7 @@ There were four days with a normalized sentiment value above \num{2.5} which are
 
         \toptweet{RT @GirlFromBlupo: Dear Amazon, I bought a toilet seat because I needed one. Necessity, not desire. I do not collect them. I am not a… \url{https://t.co/w1yKIqx6w5}}{30410}{33.5}
 
-        As we can see again the most frequent tweet of the day is a retweet which is about toilet seats which matched the keyword \emph{SEAT}.
+        As we can see again the most frequent tweet of the day is a \ac{RT} which is about toilet seats which matched the keyword \emph{SEAT}.
         Therefore, \SI{33.5}{\percent} of this days tweets are not on the correct topic.
 
         The full text of the retweeted tweet was:
@@ -962,9 +962,9 @@ The maximum retweet percentage is \SI{80.39}{\percent} on \printdate{2018-06-28}
 \subsection{Retweets Issue}
 \label{ss:analysis-sentiments-retweets}
 
-The analysis so far suggested that days with a high percentage of retweets are more likely to perform badly as other days.
+The analysis so far suggested that days with a high percentage of \acp{RT} are more likely to perform badly as other days.
 Performing bad in that case means that the difference between the smallest sentiment classifier value and the largest sentiment classifier value is extremely large.
-Therefore, a regression analysis has been performed in order to test if the difference can be explained by the retweet ratio using the model depicted in \cref{eq:analysis-sentiments-retweets-model}.
+Therefore, a regression analysis has been performed in order to test if the difference can be explained by the \ac{RT} ratio using the model depicted in \cref{eq:analysis-sentiments-retweets-model}.
 
 \begin{equation}
     diff = k * retweetratio + d
@@ -973,8 +973,8 @@ Therefore, a regression analysis has been performed in order to test if the diff
 
 For this analysis all available data has been used and mixed across all companies.
 The results of the evaluation is shown in \cref{tab:analysis-sentiments-retweets-results} and the plot of the regression line is shown in \cref{fig:analysis-sentiments-retweets}.
-We can see that there is a positive correlation between retweet ratio and the difference.
-The influence of the retweet ratio ($d$) is highly significant as the p-value is below $2*10^{-16}$.
+We can see that there is a positive correlation between \ac{RT} ratio and the difference.
+The influence of the \ac{RT} ratio ($d$) is highly significant as the p-value is below $2*10^{-16}$.
 
 \begin{table}[hbt]
     \centering
@@ -987,7 +987,7 @@ The influence of the retweet ratio ($d$) is highly significant as the p-value is
         \hline        
     \end{tabular}
   
-    \caption[Values of the regression analysis of retweet ratios and differences]{Values of the regression analysis of retweet ratios and differences \significantMarks}
+    \caption[Values of the regression analysis of \ac{RT} ratios and differences]{Values of the regression analysis of \ac{RT} ratios and differences \significantMarks}
     \label{tab:analysis-sentiments-retweets-results}
 \end{table}
 
@@ -1013,7 +1013,7 @@ The influence of the retweet ratio ($d$) is highly significant as the p-value is
     \centering
     \input{./images/graphs/retweet_vs_diff.tex}
     % \includegraphics[width=.8\textwidth]{images/retweet_vs_diff.eps}
-    \caption{Correlation between retweet ratio and sentiment classification differences}
+    \caption{Correlation between \ac{RT} ratio and sentiment classification differences}
     \label{fig:analysis-sentiments-retweets}
 \end{figure} 
 
@@ -1028,7 +1028,7 @@ In the following section the results of the analysis for each company are shown.
 \newcommand{\grangerResultsCaptionShort}[1]{Results of granger analysis for company #1}
 \newcommand{\grangerResultsCaptionLong}[1]{\grangerResultsCaptionShort{#1}. Showing results from one day lag to ten days lag. \significantMarks}
 \newcommand{\withRetweets}{All}
-\newcommand{\withoutRetweets}{No RT}
+\newcommand{\withoutRetweets}{No \ac{RT}}
 
 \NewDocumentEnvironment{grangerTable}{m m}{%
 \begin{table}[hbt]
