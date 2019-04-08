@@ -1,0 +1,60 @@
+\ProvidesPackage{masterthesis-definitions}[2019/04/08 Master Thesis Definitions]
+
+\subject{Master's Thesis}
+\date{\gitCommitterDate}
+
+%colorlinks
+\makeatletter
+\hypersetup{pdfinfo={
+  Title={\@title},
+  Author={\@author},
+  Subject={Master's Thesis},
+  Keywords={\thesiskeywords}}
+}
+\makeatother
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}
+
+\usepgfplotslibrary{external}
+\tikzexternalize[prefix=images/tikz/]
+
+\graphicspath{{images/}}    %Direction where LaTeX will look for the images.
+
+\addbibresource{endmatter/references.bib}     %Imports bibliography file
+\addbibresource{endmatter/tweets.bib}     %Imports bibliography file
+
+\newcommand{\tweet}[1]{%
+\begin{quote}
+  #1
+\end{quote}%
+}
+
+\newcommand{\toptweet}[3]{
+  The most frequent tweet of that day was
+  \tweet{#1}
+  It was published \num{#2} times which is equivalent to \SI{#3}{\percent} of all tweets of that day.
+}
+
+\newcommand{\citetweet}[1]{
+  \tweet{\citefield{#1}{title} \cite{#1}}%
+}
+
+\newcommand{\hyundai}{Hyundai Motor Company}
+\newcommand{\ford}{Ford Motor Company}
+\newcommand{\gm}{General Motors Company}
+\newcommand{\toyota}{Toyota Motor Corporation}
+\newcommand{\vw}{Volkswagen AG}
+
+\newcommand{\tb}{TextBlob}
+\newcommand{\nb}{\ac{NB}}
+\newcommand{\me}{\ac{ME}}
+\newcommand{\svm}{\ac{SVM}}
+
+\newcommand{\ftb}{$S_{TB}$}
+\newcommand{\fnb}{$S_{NB}$}
+\newcommand{\fme}{$S_{ME}$}
+\newcommand{\fsvm}{$S_{SVM}$}
+
+\makeatletter
+\def\convertto#1#2{\strip@pt\dimexpr #2*65536/\number\dimexpr 1#1}
+\makeatother
