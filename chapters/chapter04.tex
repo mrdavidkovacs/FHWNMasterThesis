@@ -1010,6 +1010,7 @@ The influence of the \ac{RT} ratio ($d$) is highly significant as the p-value is
 
 This section compares the various sentiment classifier results with share prices time series which is done by performing Granger causality tests.
 These tests are done separately by company and performed for lags between one and ten days.
+They test whether the sentiment time series can explain the share price time series with the defined lag in days.
 In the following section the results of the analysis for each company are shown.
 
 \subsection{\ford}
@@ -1026,11 +1027,10 @@ The share price has been also normalized using \cref{eq:analysis-sentiments-norm
     \label{fig:analysis-results-ford}
 \end{figure} 
 
-As previously discussed Granger analysis has been performed on the dataset.
 The results of the performed analysis is shown in \cref{tab:analysis-granger-ford-results}: 
-the time series for various sentiment classifiers have been compared with the share price time series.
-As we could see in \cref{s:analysis-sentiments} there are some issues with retweets as they can appear in huge amounts and can sophisticate the results.
-Therefore, the Granger analysis has been performed with a retweet cleaned dataset as well.
+the time series for various sentiment classifiers have been tested whether they can explain the share price time series or not.
+As we can see in \cref{s:analysis-sentiments} there are some issues with \acp{RT} as they can appear in huge amounts and can sophisticate the results.
+Due to this finding the analysis has been performed with a \ac{RT} cleaned dataset as well in order to check if it yields better results.
 
 As we can see only one entry using all tweets is significant.
 It uses the \nb{} classifier and a lag of two days.
