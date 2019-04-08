@@ -1049,6 +1049,10 @@ In the following section the results of the analysis for each company are shown.
 \subsection{\ford}
 \label{ss:analysis-granger-ford}
 
+The first company analyzed is \ford{}.
+\Cref{fig:analysis-results-ford} shows the sentiment classifier values and the corresponding share price ($P_{Share}$) for each day.
+The share price has been also normalized using \cref{eq:analysis-sentiments-normalization} in order to view it in one diagram with sentiment values.
+
 \begin{figure}[hbt]
     \centering
     \input{./images/graphs/results-ford.tex}
@@ -1056,6 +1060,17 @@ In the following section the results of the analysis for each company are shown.
     \label{fig:analysis-results-ford}
 \end{figure} 
 
+As previously discussed Granger analysis has been performed on the dataset.
+The results of the performed analysis is shown in \cref{tab:analysis-granger-ford-results}: 
+the time series for various sentiment classifiers have been compared with the share price time series.
+As we could see in \cref{s:analysis-sentiments} there are some issues with retweets as they can appear in huge amounts and can sophisticate the results.
+Therefore, the Granger analysis has been performed with a retweet cleaned dataset as well.
+
+As we can see only one entry using all tweets is significant.
+It uses the \nb{} classifier and a lag of two days.
+Excluding all \acp{RT} did no better job.
+There is also only one significant entry without using \acp{RT}.
+It uses also the \nb{} classifier and a lag of three days.
 
 \begin{grangerTable}{\ford}{ford}
 1   & .6279   & .8947   & .4227   & .8329   & .4511   & .9065   & .9403   & .7860 \\
