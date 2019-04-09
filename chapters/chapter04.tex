@@ -1098,6 +1098,9 @@ Classifier \nb{} without using \acp{RT} has nine of ten significant values and c
 \subsection{\hyundai}
 \label{ss:analysis-granger-hyundai}
 
+The various sentiment and share price values are depicted in \cref{fig:analysis-results-hyundai}.
+The extreme outliers in group 1 have already been described in \cref{ss:analysis-sentiments-hyundai} are caused by several thousand \acp{RT}.
+
 \begin{figure}[hbt]
     \centering
     \input{./images/graphs/results-hyundai.tex}
@@ -1108,6 +1111,11 @@ Classifier \nb{} without using \acp{RT} has nine of ten significant values and c
 % company SA_TB.x SA_TB.y SA_NB.x SA_NB.y SA_ME.x SA_ME.y SA_SVM.x SA_SVM.y SA_TB SA_NB SA_ME SA_SVM    RT  NoRt total count
 % <chr>     <int>   <int>   <int>   <int>   <int>   <int>    <int>    <int> <int> <int> <int>  <int> <int> <int> <int> <int>
 % 3 Hyundai       7       8       7       0       7       1        7        1    15     7     8      8    28    10    38    80
+
+The results of the Granger tests for \hyundai{} are depicted in \cref{tab:analysis-granger-hyundai-results}.
+In total there are 38 significant values whereas 28 come from the data source having \acp{RT} included and only ten values from the dataset with omitted \acp{RT}.
+All classifiers performed pretty well when all tweets have been considered and yielded a significance for lags from four to 10 days.
+The only classifier which delivered almost the same results with omitted \acp{RT} is the pre-trained \tb{} classifier.
 
 \begin{grangerTable}{\hyundai}{hyundai}
     1   & .6153   & .0018*   & .9602   & .2281   & .9808   & .0441*   & .2689   & .0384* \\
