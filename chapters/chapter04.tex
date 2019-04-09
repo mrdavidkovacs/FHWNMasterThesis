@@ -1038,6 +1038,10 @@ Excluding all \acp{RT} did no better job.
 There is also only one significant entry without using \acp{RT}.
 It uses also the \nb{} classifier and a lag of three days.
 
+% company SA_TB.x SA_TB.y SA_NB.x SA_NB.y SA_ME.x SA_ME.y SA_SVM.x SA_SVM.y SA_TB SA_NB SA_ME SA_SVM    RT  NoRt total count
+% <chr>     <int>   <int>   <int>   <int>   <int>   <int>    <int>    <int> <int> <int> <int>  <int> <int> <int> <int> <int>
+% 1 Ford          0       0       1       1       0       0        0        0     0     2     0      0     1     1     2    80
+
 \begin{grangerTable}{\ford}{ford}
     1   & .6279   & .8947   & .4227   & .8329   & .4511   & .9065   & .9403   & .7860 \\
     2   & .2912   & .6915   & .0215*   & .7468   & .0619   & .6332   & .2210   & .6382 \\
@@ -1064,9 +1068,18 @@ Both the various sentiment time series and the share price time series are shown
     \label{fig:analysis-results-gm}
 \end{figure}
 
+% company SA_TB.x SA_TB.y SA_NB.x SA_NB.y SA_ME.x SA_ME.y SA_SVM.x SA_SVM.y SA_TB SA_NB SA_ME SA_SVM    RT  NoRt total count
+% <chr>     <int>   <int>   <int>   <int>   <int>   <int>    <int>    <int> <int> <int> <int>  <int> <int> <int> <int> <int>
+% 2 GM            5       1       6       9       1       3        5        7     6    15     4     12    17    20    37    80
+
 In \cref{tab:analysis-granger-gm-results} the results of the performed granger tests are shown.
 For \gm{} the analysis performed way better than for \ford{}.
-In total are 34 results significant.
+In total are 37 results significant.
+The analysis with omitted \acp{RT} have slightly performed better than with \acp{RT} included.
+There are 17 significant values with \acp{RT} included and 20 significant values with \acp{RT} omitted.
+The best sentiment classifier in this case is \nb{} with 15 significant values in total.
+Two columns should be mentioned as they resulted in many significant values:
+Classifier \nb{} without using \acp{RT} has nine of ten significant values and classifier \svm{} yielded seven of ten significant values also with omitted \acp{RT}.
 
 \begin{grangerTable}{\gm}{gm}
     1   & .7256   & .0918   & .8348   & .0160*   & .7617   & .0223*   & .6773   & .0187* \\
@@ -1092,6 +1105,10 @@ In total are 34 results significant.
     \label{fig:analysis-results-hyundai}
 \end{figure} 
 
+% company SA_TB.x SA_TB.y SA_NB.x SA_NB.y SA_ME.x SA_ME.y SA_SVM.x SA_SVM.y SA_TB SA_NB SA_ME SA_SVM    RT  NoRt total count
+% <chr>     <int>   <int>   <int>   <int>   <int>   <int>    <int>    <int> <int> <int> <int>  <int> <int> <int> <int> <int>
+% 3 Hyundai       7       8       7       0       7       1        7        1    15     7     8      8    28    10    38    80
+
 \begin{grangerTable}{\hyundai}{hyundai}
     1   & .6153   & .0018*   & .9602   & .2281   & .9808   & .0441*   & .2689   & .0384* \\
     2   & .8506   & .0073*   & .9942   & .5380   & .8034   & .1767   & .4546   & .1601 \\
@@ -1116,6 +1133,10 @@ In total are 34 results significant.
     \label{fig:analysis-results-toyota}
 \end{figure} 
 
+% company SA_TB.x SA_TB.y SA_NB.x SA_NB.y SA_ME.x SA_ME.y SA_SVM.x SA_SVM.y SA_TB SA_NB SA_ME SA_SVM    RT  NoRt total count
+% <chr>     <int>   <int>   <int>   <int>   <int>   <int>    <int>    <int> <int> <int> <int>  <int> <int> <int> <int> <int>
+% 4 Toyota        0       0       0       0       0       0        0        0     0     0     0      0     0     0     0    80
+
 \begin{grangerTable}{\toyota}{toyota}
     1   & .9768   & .1637   & .9099   & .1002   & .6782   & .1511   & .6878   & .1901 \\
     2   & .8050   & .0998   & .7666   & .2393   & .9173   & .1999   & .8888   & .2036 \\
@@ -1139,6 +1160,10 @@ In total are 34 results significant.
     \caption{\resultsCaption{\vw}}
     \label{fig:analysis-results-vw}
 \end{figure} 
+
+% company SA_TB.x SA_TB.y SA_NB.x SA_NB.y SA_ME.x SA_ME.y SA_SVM.x SA_SVM.y SA_TB SA_NB SA_ME SA_SVM    RT  NoRt total count
+% <chr>     <int>   <int>   <int>   <int>   <int>   <int>    <int>    <int> <int> <int> <int>  <int> <int> <int> <int> <int>
+% 5 VW            0       6       6       1       0       1        9        3     6     7     1     12    15    11    26    80
 
 \begin{grangerTable}{\vw}{vw}
     1   & .2191   & .0034*   & .1904   & .7104   & .0901   & .1068   & .0473*   & .0330* \\
