@@ -1060,6 +1060,7 @@ It uses also the \nb{} classifier and a lag of three days.
 
 \gm{} is the second company analyzed.
 Both the various sentiment time series and the share price time series are shown in \cref{fig:analysis-results-gm}.
+Please note that the graph has been limited in y-axis to \emph{zoom} to not pay too much attention to outliers which have been discussed earlier in \cref{ss:analysis-sentiments-gm}.
 
 \begin{figure}[hbt]
     \centering
@@ -1072,7 +1073,7 @@ Both the various sentiment time series and the share price time series are shown
 % <chr>     <int>   <int>   <int>   <int>   <int>   <int>    <int>    <int> <int> <int> <int>  <int> <int> <int> <int> <int>
 % 2 GM            5       1       6       9       1       3        5        7     6    15     4     12    17    20    37    80
 
-In \cref{tab:analysis-granger-gm-results} the results of the performed granger tests are shown.
+In \cref{tab:analysis-granger-gm-results} the results of the performed Granger tests are shown.
 For \gm{} the analysis performed way better than for \ford{}.
 In total are 37 results significant.
 The analysis with omitted \acp{RT} have slightly performed better than with \acp{RT} included.
@@ -1100,6 +1101,7 @@ Classifier \nb{} without using \acp{RT} has nine of ten significant values and c
 
 The various sentiment and share price values are depicted in \cref{fig:analysis-results-hyundai}.
 The extreme outliers in group 1 have already been described in \cref{ss:analysis-sentiments-hyundai} are caused by several thousand \acp{RT}.
+Therefore the y-axis has been limited to see more detail between the normalized values of \texttt{-2} and \texttt{2}.
 
 \begin{figure}[hbt]
     \centering
@@ -1133,6 +1135,9 @@ The only classifier which delivered almost the same results with omitted \acp{RT
 \subsection{\toyota}
 \label{ss:analysis-granger-toyota}
 
+Sentiments values and share prices for company \toyota{} are visualized in \cref{fig:analysis-results-toyota}.
+Again the y-axis has been clipped at the values \texttt{-2.5} and \texttt{2}.
+%We can see in group 1 that there is a positive trend present.
 
 \begin{figure}[hbt]
     \centering
@@ -1144,6 +1149,13 @@ The only classifier which delivered almost the same results with omitted \acp{RT
 % company SA_TB.x SA_TB.y SA_NB.x SA_NB.y SA_ME.x SA_ME.y SA_SVM.x SA_SVM.y SA_TB SA_NB SA_ME SA_SVM    RT  NoRt total count
 % <chr>     <int>   <int>   <int>   <int>   <int>   <int>    <int>    <int> <int> <int> <int>  <int> <int> <int> <int> <int>
 % 4 Toyota        0       0       0       0       0       0        0        0     0     0     0      0     0     0     0    80
+
+The results of the Granger analysis for company \toyota{} are depicted in \cref{tab:analysis-granger-toyota-results}.
+The most noticeable result is that not a single test yielded a significant result.
+Group 1 in \cref{fig:analysis-results-toyota} suggested that there is a positive trend for both sentiment values and share prices.
+Therefore the result of not a single significant test is pretty surprising.
+One possible reason could be the relative short tweet collection period from \printdate{2018-06-26} to \printdate{2018-09-07}.
+Also this dataset is relatively small with just \num{488913} tweets.
 
 \begin{grangerTable}{\toyota}{toyota}
     1   & .9768   & .1637   & .9099   & .1002   & .6782   & .1511   & .6878   & .1901 \\
