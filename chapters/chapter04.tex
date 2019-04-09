@@ -1173,6 +1173,8 @@ Also this dataset is relatively small with just \num{488913} tweets.
 \subsection{\vw}
 \label{ss:analysis-granger-vw}
 
+Last but not least, both the sentiment values and the share prices of \vw{} are depicted in \cref{fig:analysis-results-vw}.
+The y-axis has not been clipped in this specific case as there were no extreme outliers.
 
 \begin{figure}[hbt]
     \centering
@@ -1184,6 +1186,14 @@ Also this dataset is relatively small with just \num{488913} tweets.
 % company SA_TB.x SA_TB.y SA_NB.x SA_NB.y SA_ME.x SA_ME.y SA_SVM.x SA_SVM.y SA_TB SA_NB SA_ME SA_SVM    RT  NoRt total count
 % <chr>     <int>   <int>   <int>   <int>   <int>   <int>    <int>    <int> <int> <int> <int>  <int> <int> <int> <int> <int>
 % 5 VW            0       6       6       1       0       1        9        3     6     7     1     12    15    11    26    80
+
+\Cref{tab:analysis-granger-vw-results} visualizes the results of the Granger analysis for \vw{}.
+In total there are 26 significant results whereas the dataset with all tweets performed a little bit better than the dataset with omitted \acp{RT}.
+But if this does not hold true if we analyze the single sentiment classifiers.
+The classifier \tb{} for example yielded not a single significant result with all tweets considered but six out of ten significant results if \acp{RT} have been removed.
+Almost the opposite holds true for the \nb{} classifier.
+It yielded six significant test results with all tweets considered but only one significant result with omitted \acp{RT}.
+The \svm{} classifier had almost ten out of ten significant results but the p-value of lag of two days is with a value of 0.067 slightly greater than 0.05.
 
 \begin{grangerTable}{\vw}{vw}
     1   & .2191   & .0034*   & .1904   & .7104   & .0901   & .1068   & .0473*   & .0330* \\
@@ -1197,3 +1207,21 @@ Also this dataset is relatively small with just \num{488913} tweets.
     9   & .1007   & .0624   & .0724   & .9826   & .1361   & .1960   & .0301*   & .1076 \\
     10   & .0862   & .0022*   & .1354   & .0000*   & .1206   & .0001*   & .0194*   & .0003* \\
 \end{grangerTable}
+
+\subsection{Lag in days}
+\label{ss:analysis-granger-lag}
+
+%      lag SA_TB.x SA_TB.y SA_NB.x SA_NB.y SA_ME.x SA_ME.y SA_SVM.x SA_SVM.y SA_TB SA_NB SA_ME SA_SVM    RT   NoRt  total count
+%      <int>   <int>   <int>   <int>   <int>   <int>   <int>    <int>    <int> <int> <int> <int>  <int> <int> <int> <int> <int>
+% 1      1       0       2       0       1       0       2        1        3     2     1     2      4     1     8     9    40
+% 2      2       0       2       1       1       0       1        0        2     2     2     1      2     1     6     7    40
+% 3      3       0       3       1       2       0       1        1        1     3     3     1      2     2     7     9    40
+% 4      4       1       2       2       1       1       0        2        1     3     3     1      3     6     4    10    40
+% 5      5       2       1       3       1       1       0        3        1     3     4     1      4     9     3    12    40
+% 6      6       2       0       3       1       1       0        3        0     2     4     1      3     9     1    10    40
+% 7      7       2       1       3       1       1       0        3        1     3     4     1      4     9     3    12    40
+% 8      8       2       1       3       1       2       0        3        1     3     4     2      4    10     3    13    40
+% 9      9       2       1       2       1       1       0        3        0     3     3     1      3     8     2    10    40
+% 10    10       1       2       2       1       1       1        2        1     3     3     2      3     6     5    11    40
+
+%Another interesting analysis can 
