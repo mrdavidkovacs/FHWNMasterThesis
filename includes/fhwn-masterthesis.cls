@@ -103,6 +103,9 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
 \RequirePackage{mathtools}     %The mathtools package fixes some amsmath quirks and adds some useful settings, symbols, and environments to amsmath.
 
 \RequirePackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{lstlisting}{Listing}{Listing}
+\Crefname{lstlisting}{Listing}{Listings}
+
 \RequirePackage{epigraph}
 \RequirePackage{pgffor}
 
