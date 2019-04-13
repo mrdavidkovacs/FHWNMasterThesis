@@ -102,9 +102,8 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
 \RequirePackage{amsmath}       %This package introduces several new commands that are more powerful and flexible than the ones provided by LaTeX. Uncomment them if you are using complex mathematical notation.
 \RequirePackage{mathtools}     %The mathtools package fixes some amsmath quirks and adds some useful settings, symbols, and environments to amsmath.
 
+\RequirePackage{listings}
 \RequirePackage[capitalise,nameinlink,noabbrev]{cleveref}
-\crefname{lstlisting}{Listing}{Listing}
-\Crefname{lstlisting}{Listing}{Listings}
 
 \RequirePackage{epigraph}
 \RequirePackage{pgffor}
@@ -145,8 +144,6 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mylightgray}{rgb}{0.9,0.9,0.9}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
-
-\RequirePackage{listings}
 
 \lstset{ %
   %backgroundcolor=\color{mylightgray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
