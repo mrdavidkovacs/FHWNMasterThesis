@@ -16,6 +16,7 @@ In the following each research goal is stated and a short summary of the results
 % \item \textbf{G1-Q1} - Which companies should be analyzed?
 % \item \textbf{G1-Q2} - Which keywords should be used to find corresponding tweets?
 % \item \textbf{G1-Q3} - Which company uses which stock symbol in order to retrieve share prices?
+
 The research goal 1 has been answered in \cref{s:casestudy-companieskeywords} (see page \pageref{s:casestudy-companieskeywords}).
 In the following a short summary is given.
 First the question of which companies should be analyzed must be answered.
@@ -38,6 +39,68 @@ The results of this research are depicted in \cref{tab:casestudy-companies-count
 % \item \textbf{G2-Q5} - In which way tweets can be collected?
 % \item \textbf{G2-Q6} - In which way sentiments can be determined?
 % \item \textbf{G2-Q7} - Which sentiments are present for various companies?
+
+The research goal 2 consists of four research questions.
+First the decision for using Twitter as social media platform of our choice has been made as the characters are limited for each post and therefore the probability of a single topic per tweet is higher than on other platforms.
+Furthermore, several other papers in literature have been using Twitter as reliable source.
+This has been discussed in \cref{s:background-socialnetworks}.
+
+Secondly, there is the questions how tweets can be collected from twitter which has been answered in \cref{ss:casestudy-gatherdata-tweets}.
+Three different possibilities of tweet collection could be identified:
+
+\begin{description}
+    \item[Official Twitter Search \ac{API}]
+        follows the pull principle. 
+        The user requests something and the \ac{API} sends a response.
+        But there were some serious limitations which caused that this way cannot be used.
+
+    \item[Twitter search on website]
+        does not have these limitations as the search \ac{API}.
+        But it is no easy task to download and save search results from the official Twitter page.
+        Therefore, also this possibility has been omitted due the difficulties.    
+    
+    \item[DMI TCAT] 
+        is a toolset for capturing and analyzing tweets.
+        It follows a different approach than the search \ac{API}.
+        It supports the official streaming \ac{API} which follows a push principle and enables its users to capture tweets using up to 400 keywords.
+        Therefore, the decision has been made to use DMI TCAT to capture tweets.
+
+\end{description}
+
+Thirdly, research has been made in which way sentiments can be determined (see \cref{s:casestudy-normalization} and \cref{s:casestudy-sentiment} for more details).
+Most sentiment detection algorithms are performing their work better if the text source has been normalized in some way.
+Normalization includes lower casing of text, applying stopwords, lemmatization, stemming and minor enhancements.
+All of these normalization techniques have been applied to the collection of tweets which was a quite time consuming task as there were over 16 million tweets captured (see \cref{tab:casestudy-companies-numberoftweets}).
+
+Four sentiment detection algorithms have been selected for the case study: \tb{}, \nb{}, \me{} and \svm{}.
+In order to standardize the training and classification of each algorithm the \emph{scikit-learn} framework has been used.
+The framework includes all algorithms and a so called \emph{pipeline} to perform this standardization for training and classification purposes.
+The full script to train and analyze tweet sentiments can be found in the appendix (see \cref{lst:appendix-tweeets_analyzer}).
+
+Fourthly, an analysis has been performed which sentiments are present in which company.
+This is done in \cref{s:analysis-sentiments} beginning on page \pageref{s:analysis-sentiments}.
+An overview of the tweet sentiments are depicted in \cref{tab:conclusion-summary-g2-sentiments}.
+This table shows the percentage of positive tweets per company and sentiment classifier.
+We can see in this table that there are more positive tweets than negative tweets present.
+But the percentage is varying per classifier.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r ^r}
+    \hline
+    & \tb{} & \nb{} & \me{} & \svm{} \\ 
+    \hline
+        \ford{} & \SI{87.09}{\percent} & \SI{61.11}{\percent} & \SI{76.96}{\percent} & \SI{73.03}{\percent} \\ 
+        \gm{} & \SI{90.83}{\percent} & \SI{68.60}{\percent} & \SI{80.26}{\percent} & \SI{80.45}{\percent} \\ 
+        \hyundai{} & \SI{88.12}{\percent} & \SI{55.05}{\percent} & \SI{77.46}{\percent} & \SI{67.78}{\percent} \\ 
+        \toyota{} & \SI{87.86}{\percent} & \SI{55.45}{\percent} & \SI{81.12}{\percent} & \SI{80.11}{\percent} \\ 
+        \vw{} & \SI{85.20}{\percent} & \SI{47.97}{\percent} & \SI{68.26}{\percent} & \SI{64.58}{\percent} \\ 
+    \hline
+    \end{tabular}
+
+    \caption{Percentage of positive tweet sentiments per classifier and company}
+    \label{tab:conclusion-summary-g2-sentiments}
+\end{table}
 
 \subsection{G3 - Comparing Sentiment Time Series with Share Prices}
 \label{ss:conclusion-summary-g3}
