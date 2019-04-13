@@ -21,8 +21,11 @@
 \RequirePackage{csquotes}
 \RequirePackage{graphicx}   %loads the graphics package, necessary for pictures
 \RequirePackage{url}
+\RequirePackage[breaklinks]{hyperref}   %Automatically turn all your internal references into hyperlinks. 
+% \RequirePackage{breakurl}
 %\RequirePackage{wallpaper}
-\RequirePackage{hyperref}   %Automatically turn all your internal references into hyperlinks. 
+
+\def\UrlBreaks{\do\/\do-}
 
 \RequirePackage[toc,page]{appendix}
 \RequirePackage[final]{pdfpages}
@@ -130,7 +133,7 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
   #1\ignorespaces
 }
 
-\RequirePackage[backend=bibtex,style=alphabetic,natbib=true]{biblatex}
+\RequirePackage[backend=bibtex,style=authoryear,sorting=anyvt,natbib=true]{biblatex}
 \clubpenalty = 10000 
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
