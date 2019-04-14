@@ -475,6 +475,38 @@ Furthermore, the confusion matrix of the \svm{} classifier pipeline is depicted 
 This section describes the sentiment time series which has been extracted from the collected tweets.
 As each tweet data set has been analyzed using various sentiment detection classifiers the results are shown and described in detail in the corresponding subsections.
 
+\subsection{General}
+\label{ss:analysis-sentiments-general}
+
+First, an analysis of positive versus negative tweets has been performed.
+The results are depicted in \cref{tab:analysis-sentiments-general}.
+It shows that \tb{} classifier has the highest rate of positive sentiments.
+But we have to keep in mind that this pre-trained classifier is able to rate the sentiment in a range between \texttt{-1} and \texttt{1} and we normalized the rating to positive (\texttt{1}) and negative (\texttt{-1}) to be able to compare the results to the other classifiers.
+The \nb{} classifier is somewhat more pessimistic: it shows the lowest rate of positive sentiments for \vw{} (\SI{47.97}{\percent}).
+The other two classifiers (\me{} and \svm{}) have similar ranges of positive ratings.
+
+The difference is also visible for sentiments by company.
+\gm{} has the highest rate of positive sentiments and \vw{} has the lowest share of positive tweets for every classifier.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^r ^r ^r ^r ^r}
+    \hline
+    & \tb{} & \nb{} & \me{} & \svm{} & Average \\ 
+    \hline
+        \ford{} & \SI{87.09}{\percent} & \SI{61.11}{\percent} & \SI{76.96}{\percent} & \SI{73.03}{\percent} & \SI{74.55}{\percent} \\ 
+        \gm{} & \SI{90.83}{\percent} & \SI{68.60}{\percent} & \SI{80.26}{\percent} & \SI{80.45}{\percent} & \SI{80.03}{\percent} \\ 
+        \hyundai{} & \SI{88.12}{\percent} & \SI{55.05}{\percent} & \SI{77.46}{\percent} & \SI{67.78}{\percent} & \SI{72.10}{\percent} \\ 
+        \toyota{} & \SI{87.86}{\percent} & \SI{55.45}{\percent} & \SI{81.12}{\percent} & \SI{80.11}{\percent} & \SI{76.13}{\percent} \\ 
+        \vw{} & \SI{85.20}{\percent} & \SI{47.97}{\percent} & \SI{68.26}{\percent} & \SI{64.58}{\percent} & \SI{66.50}{\percent} \\ \hline
+        Average & \SI{87.82}{\percent} & \SI{57.63}{\percent} & \SI{76.81}{\percent} & \SI{73.19}{\percent} & \SI{73.86}{\percent} \\
+    \hline
+    \end{tabular}
+
+    \caption{Percentage of positive tweet sentiments per classifier and company}
+    \label{tab:analysis-sentiments-general}
+\end{table}
+
 The sentiments time series has been normalized using \cref{eq:analysis-sentiments-normalization} to make them comparable which means that every specific point has been modified to fit into a normalized graph.
 After this step each time series is scaled into a standard normal distribution with $\mu_z = 0$ and $\sigma_z = 1$.
 Therefore all time series can be shown in a single shared graph.
