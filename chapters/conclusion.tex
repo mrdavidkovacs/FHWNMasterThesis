@@ -79,28 +79,10 @@ The full script to train and analyze tweet sentiments can be found in the append
 
 Fourthly, an analysis has been performed which sentiments are present in which company.
 This is done in \cref{s:analysis-sentiments} beginning on page \pageref{s:analysis-sentiments}.
-An overview of the tweet sentiments are depicted in \cref{tab:conclusion-summary-g2-sentiments}.
-This table shows the percentage of positive tweets per company and sentiment classifier.
-We can see in this table that there are more positive tweets than negative tweets present.
-But the percentage is varying per classifier.
-
-\begin{table}[ht]
-    \centering
-    \begin{tabular}{!>{\bfseries}l ^r ^r ^r ^r}
-    \hline
-    & \tb{} & \nb{} & \me{} & \svm{} \\ 
-    \hline
-        \ford{} & \SI{87.09}{\percent} & \SI{61.11}{\percent} & \SI{76.96}{\percent} & \SI{73.03}{\percent} \\ 
-        \gm{} & \SI{90.83}{\percent} & \SI{68.60}{\percent} & \SI{80.26}{\percent} & \SI{80.45}{\percent} \\ 
-        \hyundai{} & \SI{88.12}{\percent} & \SI{55.05}{\percent} & \SI{77.46}{\percent} & \SI{67.78}{\percent} \\ 
-        \toyota{} & \SI{87.86}{\percent} & \SI{55.45}{\percent} & \SI{81.12}{\percent} & \SI{80.11}{\percent} \\ 
-        \vw{} & \SI{85.20}{\percent} & \SI{47.97}{\percent} & \SI{68.26}{\percent} & \SI{64.58}{\percent} \\ 
-    \hline
-    \end{tabular}
-
-    \caption{Percentage of positive tweet sentiments per classifier and company}
-    \label{tab:conclusion-summary-g2-sentiments}
-\end{table}
+An overview of the tweet sentiments are depicted in \cref{tab:analysis-sentiments-general}.
+It is shown that almost \SI{75}{\percent} of all tweets were rated as positive across all classifiers but there are differences in percentages by classifiers and company.
+The \tb{} classifier for example is very optimistic whereas the \nb{} classifier is relatively pessimistic.
+The same holds true for certain companies: \SI{80}{\percent} of all \gm{} tweets were positive whereas only $\frac{2}{3}$ of \vw{} tweets were positive.
 
 \subsection{G3 - Comparing Sentiment Time Series with Share Prices}
 \label{ss:conclusion-summary-g3}
