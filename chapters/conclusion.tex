@@ -142,6 +142,44 @@ But for the company \toyota{} not a single setup resulted in a significant resul
 \section{Discussion and Limitations}
 \label{s:conclusions-discussion}
 
+This thesis tried to focus on five automotive companies but there were several difficulties during execution which leads to several limitations.
+
+The first limitation is Twitter as datasource.
+As the official search \ac{API} proved to be insufficient as there are some understandably limits in place the DMI TCAT approach was a good decision.
+But using DMI TCAT had also some serious drawbacks:
+
+\begin{itemize}
+    \item 
+        The software must be installed by one self and the machine must be up and running to collect tweets.
+        As we can't keep the personal computer running continuously for more than one month we decided to install DMI TCAT to a virtual machine in the cloud.
+        This decision yielded to several other problems:
+
+        \begin{itemize}
+            \item 
+                The capacity of the provided virtual machine was way to small as 30 \ac{GB} of data has been captured within 14 days.
+            \item 
+                The virtual machine shut down every day on 7 PM. 
+                Therefore several tweets were not captured at all.
+            \item 
+                New DMI TCAT releases have been published which required a database upgrade.
+                This was a quite time consuming task and required that collection for the specific query bin is stopped.
+        \end{itemize}
+
+    \item
+        DMI TCAT uses also the official Twitter \ac{API} and as a result some limits apply.
+        These limits have been hit from time to time and forced the tweet collection to pause.
+        But the software continued to collect tweets automatically after the corresponding time window.
+\end{itemize}
+
+Second, the resulting gaps from data collection in the tweet time series resulted in fragmented data which made it pretty hard to analyze.
+Maybe the results would be more precise if this gaps could be removed.
+
+Third, the training of the sentiment classifiers used the Twitter corpus of \ac{NLTK} which contains each 5000 positive and 5000 negative tweets.
+To improve the accuracy of the classifiers the training data could be extracted from the collected tweets which would require manual rating of the training set.
+
+From these limitations the area for improvement for future research can be deducted.
+Particularly the gaps in the twitter time series could seems to be a serious problem which make some statistical analysis unreliable.
+
 \section{Future Research}
 \label{s:conclusions-future}
 
