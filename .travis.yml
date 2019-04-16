@@ -21,6 +21,7 @@ deploy:
   skip_cleanup: true
   on:
     repo: mrdavidkovacs/MasterThesis
+    tags: true
 branches:
   only:
   - master
