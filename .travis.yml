@@ -3,8 +3,6 @@ language: generic
 matrix:
   include:
   - os: linux
-git:
-  depth: false
 cache:
   directories:
   - "/tmp/texlive"
@@ -13,9 +11,7 @@ before_install:
 - bash ./includes/travis_setup.sh
 - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
 script:
-  - latexmk main
-after_success:
-  # - bash ./utilities/word_count.sh && cd utilities && latexmk -pdf word_count.tex
+- latexmk -interaction=nonstopmode -halt-on-error main.tex
 deploy:
   provider: releases
   api_key:
