@@ -11,7 +11,7 @@ before_install:
 - bash ./includes/travis_setup.sh
 - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
 script:
-- latexmk -interaction=nonstopmode -halt-on-error main.tex
+- latexmk -interaction=nonstopmode -xelatex -halt-on-error main.tex
 deploy:
   provider: releases
   api_key:
