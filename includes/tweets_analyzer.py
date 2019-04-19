@@ -10,6 +10,8 @@ import getopt
 import datetime
 import nltk
 
+from pprint import pprint
+
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
@@ -78,7 +80,8 @@ def GetClassifierPipeline(clf, clf_params):
   end = time.time()
   log(f'training the classifier finished in {end - start}')
    
-  print(gs_clf.best_estimator_)  
+  
+  pprint(vars(gs_clf.best_estimator_))
   print('Best Score: %.5f' % gs_clf.best_score_)
   
   predicted = gs_clf.predict(x_test)
@@ -205,6 +208,25 @@ class TextBlobClassifier:
       return -1
     else:
       return 0
+
+def TestClassifier():
+  negative_tweets = nltk.corpus.twitter_samples.strings("negative_tweets.json")
+  positive_tweets = nltk.corpus.twitter_samples.strings("positive_tweets.json")
+  tweets = preprocess_text(negative_tweets + positive_tweets)
+  
+  labels = np.empty(len(tweets))
+  labels[:len(negative_tweets)] = -1
+  labels[len(negative_tweets):] = 1
+  
+  cls = TextBlobClassifier()
+  predicted = cls.predict(tweets)
+  
+  p = np.array(predicted)
+  p[p == 0] = 1
+  
+  print("Accuracy: {:.2f}%".format(accuracy_score(labels, p) * 100))
+  print("F1 Score: {:.2f}".format(f1_score(labels, p) * 100))
+  print("Confusion Matrix:\n", confusion_matrix(labels, p))
 
 def main(args):
   if os.path.isfile("results/stats.csv"):
