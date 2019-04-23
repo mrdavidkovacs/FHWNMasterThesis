@@ -317,7 +317,7 @@ dk.analyze <- function(df) {
 	dk.show(df)
 }
 
-dk.showindex <- function(df, sa) {
+dk.showindex <- function(df, sa, currency) {
 	legendtitle <- "Legend"
 
 	minDate <- min(sa$date)
@@ -330,7 +330,8 @@ dk.showindex <- function(df, sa) {
 
 	ggplot(data, aes(x = Date, y = Close)) +
 		geom_line() + geom_point() +
-		labs(x = "Date", y = "Value")
+		labs(x = "Date", y = paste0("Price per share [", currency, "]")) +
+		scale_x_date(date_breaks = "1 month", date_labels =  "%b %Y")
 }
 
 dk.stats <- function(tweetData) {

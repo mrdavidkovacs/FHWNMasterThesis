@@ -38,23 +38,23 @@ indexGraphWidth <- 5.5
 indexGraphHeight <- indexGraphWidth * 0.65
 
 tikz('graphs/indices-hyundai.tex', width=indexGraphWidth, height=indexGraphHeight)
-dk.showindex(indices.hyundai, data.hyundai)
+dk.showindex(indices.hyundai, data.hyundai, "KRW")
 dev.off()
 
 tikz('graphs/indices-gm.tex', width=indexGraphWidth, height=indexGraphHeight)
-dk.showindex(indices.gm, data.gm)
+dk.showindex(indices.gm, data.gm, "USD")
 dev.off()
 
 tikz('graphs/indices-toyota.tex', width=indexGraphWidth, height=indexGraphHeight)
-dk.showindex(indices.toyota, data.toyota)
+dk.showindex(indices.toyota, data.toyota, "JPY")
 dev.off()
 
 tikz('graphs/indices-ford.tex', width=indexGraphWidth, height=indexGraphHeight)
-dk.showindex(indices.ford, data.ford)
+dk.showindex(indices.ford, data.ford, "USD")
 dev.off()
 
 tikz('graphs/indices-vw.tex', width=indexGraphWidth, height=indexGraphHeight)
-dk.showindex(indices.vw, data.vw)
+dk.showindex(indices.vw, data.vw, "EUR")
 dev.off()
 
 resultsGraphWidth  <- 6
