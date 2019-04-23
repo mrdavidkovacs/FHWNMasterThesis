@@ -4,7 +4,8 @@ This chapter describes the performed analysis steps and discusses its results.
 First, the final dataset is described in \cref{s:analysis-datasets}.
 Second, the best hyper-parameters for each classifier are depicted in \cref{s:analysis-pipelines}.
 Third, the sentiments time series per company are discussed in \cref{s:analysis-sentiments}.
-Last but not least, the various time series are compared to the corresponding share price time series in \cref{s:analysis-granger}.
+Fourth, the various time series are compared to the corresponding share price time series in \cref{s:analysis-granger}.
+Last but not least, the sentiment classifier performance are compared in \cref{s:analysis-classifercomparison}.
 
 \section{Datasets}
 \label{s:analysis-datasets}
@@ -1298,3 +1299,101 @@ The tested models can be written as in \cref{eq:analysis-results-lag-model}.
     \caption[Coefficients of the linear models by dataset types]{Coefficients of the linear models by dataset types \significantMarks}
     \label{tab:analysis-granger-lags-linearmodel}
 \end{table}
+
+\section{Sentiment Classifier Performance}
+\label{s:analysis-classifercomparison}
+
+In \cref{s:analysis-granger} the time series are compared to each other using the Granger analysis.
+It is evaluated if there is a relation between both time series (share price and overall sentiment) using a lag in days.
+In total 400 tests are performed: five companies for lags from one to ten days and four different sentiment classifiers using two different datasets (one with all tweets and one with omitted retweets).
+The results are depicted in \cref{tab:analysis-classifiercomparision-summary}.
+From this 400 performed test 103 were significant.
+
+It is shown that omitting \acp{RT} had a negative effect on the results.
+Only the \tb{} classifier performed better with omitted \acp{RT}. 
+All other classifiers performed better if all tweets are used.
+Overall there were 61 significant tests using all tweets versus 42 significant tests with omitted \acp{RT}.
+
+The classifier \tb{} is used as baseline for the upcoming evaluations as it is a pre-trained classifier.
+In the following each of the classifiers is compared to \tb{}.
+
+\begin{description}
+    \item[\nb{}]
+        The \nb{} classifier performs better or equal to the \tb{} classifier using all tweets.
+        This does not hold true if \acp{RT} have been omitted: 
+        For companies \hyundai{} and \vw{} the \tb{} classifier has more significant results. 
+
+    \item[\me{}] 
+        This is the only classifier which performs worse than the \tb{} classifier.
+        There is only a single setting in which the \me{} classifier outperforms the \tb{} classifier: \gm{} with \acp{RT} omitted.
+
+    \item[\svm{}]
+        The \svm{} classifier performs better or equal to the \tb{} classifier using all tweets.
+        With omitted \acp{RT} the \tb{} classifier performed better using datasets from \hyundai{} and \vw{}.
+
+\end{description}
+
+For the company \ford{} only one classifier yield to a significant result (\fnb{} with both datasets).
+But for the company \toyota{} not a single setup resulted in a significant result.
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{!>{\bfseries}l ^l ^r ^r ^r ^r ^r}
+        \hline
+        \rowstyle{\bfseries}
+        Company & Dataset & \ftb{} & \fnb{} & \fme{} & \fsvm{} & Total \\ \hline
+        \ford{} & All & 0 & 1 & 0 & 0 & 1  \\
+        \gm{} & All & 5 & 6 & 1 & 5 & 17  \\
+        \hyundai{} & All & 7 & 7 & 7 & 7 & 28  \\
+        \toyota{} & All & 0 & 0 & 0 & 0 & 0  \\
+        \vw{} & All & 0 & 6 & 0 & 9 & 15  \\ \hline
+        All Tweets Total & All & 12 & 20 & 8 & 21 & 61  \\ \hline
+        \ford{} & No \ac{RT} & 0 & 1 & 0 & 0 & 1  \\
+        \gm{} & No \ac{RT} & 1 & 9 & 3 & 7 & 20  \\
+        \hyundai{} & No \ac{RT} & 8 & 0 & 1 & 1 & 10  \\
+        \toyota{} & No \ac{RT} & 0 & 0 & 0 & 0 & 0  \\
+        \vw{} & No \ac{RT} & 6 & 1 & 1 & 3 & 11  \\ \hline
+        No \ac{RT} Total & No \ac{RT} & 15 & 11 & 5 & 11 & 42  \\ \hline
+        \ford{} & Total & 0 & 2 & 0 & 0 & 2  \\
+        \gm{} & Total & 6 & 15 & 4 & 12 & 37  \\
+        \hyundai{} & Total & 15 & 7 & 8 & 8 & 38  \\
+        \toyota{} & Total & 0 & 0 & 0 & 0 & 0  \\
+        \vw{} & Total & 6 & 7 & 1 & 12 & 26  \\ \hline
+        Total & Total & 27 & 31 & 13 & 32 & 103  \\                     
+        \hline        
+      \end{tabular}
+  
+    \caption{Significant Granger analysis results per classifier and company}
+    \label{tab:analysis-classifiercomparision-summary}
+\end{table}
+
+Overall the classifiers \svm{} and \nb{} performed pretty well and way better than the reference classifier \tb{} whereas there are slightly better results with \svm{}.
+Therefore we can provide a ranking of all evaluated classifiers which is depicted in \cref{fig:analysis-classifiercomparision-ranking}.
+
+\begin{figure}[hbt]
+    \centering
+
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar stacked,
+            bar width=15pt,
+            nodes near coords,
+            enlargelimits=0.15,
+            legend style={at={(0.5,-0.20)},
+              anchor=north,legend columns=-1},
+            ylabel={\# significant results},
+            symbolic x coords={TB, NB, ME, SVM},
+            xtick=data,
+            x tick label style={rotate=45,anchor=east},
+            ]
+        \addplot+[ybar] plot coordinates {(TB,12) (NB,20) (ME,8) (SVM,21)};
+        \addplot+[ybar] plot coordinates {(TB,15) (NB,11) (ME,5) (SVM,11)};
+        %\addplot+[ybar] plot coordinates {(TB,27) (NB,31) (ME,13) (SVM,32)};
+    
+        \legend{\strut All, \strut No RT}
+        \end{axis}
+    \end{tikzpicture}
+
+    \caption{Count of significant results per classifier}
+    \label{fig:analysis-classifiercomparision-ranking}
+\end{figure}

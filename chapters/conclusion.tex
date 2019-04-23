@@ -101,43 +101,11 @@ The same holds true for certain companies: \SI{80}{\percent} of all \gm{} tweets
 In \cref{s:analysis-granger} the time series are compared to each other using the Granger analysis.
 It tries to find a relation between the time series using a lag (in days).
 In total 400 tests are performed: five companies for lags from one to ten days and four different sentiment classifiers using two different datasets (one with all tweets and one with omitted retweets).
-The results are depicted in \cref{tab:conclusion-summary-granger}.
+The results are depicted in \cref{tab:analysis-classifiercomparision-summary}.
 From this 400 performed test 103 were significant.
 It is shown that omitting \acp{RT} had a negative effect on the results (61 significant tests using all tweets versus 42 significant tests with omitted \acp{RT}).
 For the company \ford{} only one classifier yield to a significant result (\fnb{} with both datasets).
 But for the company \toyota{} not a single setup resulted in a significant result.
-
-\begin{table}[hbt]
-    \centering
-    \begin{tabular}{!>{\bfseries}l ^l ^r ^r ^r ^r ^r}
-        \hline
-        \rowstyle{\bfseries}
-        Company & Dataset & \ftb{} & \fnb{} & \fme{} & \fsvm{} & Total \\ \hline
-        \ford{} & All & 0 & 1 & 0 & 0 & 1  \\
-        \gm{} & All & 5 & 6 & 1 & 5 & 17  \\
-        \hyundai{} & All & 7 & 7 & 7 & 7 & 28  \\
-        \toyota{} & All & 0 & 0 & 0 & 0 & 0  \\
-        \vw{} & All & 0 & 6 & 0 & 9 & 15  \\ \hline
-        All Tweets Total & All & 12 & 20 & 8 & 21 & 61  \\ \hline
-        \ford{} & No \ac{RT} & 0 & 1 & 0 & 0 & 1  \\
-        \gm{} & No \ac{RT} & 1 & 9 & 3 & 7 & 20  \\
-        \hyundai{} & No \ac{RT} & 8 & 0 & 1 & 1 & 10  \\
-        \toyota{} & No \ac{RT} & 0 & 0 & 0 & 0 & 0  \\
-        \vw{} & No \ac{RT} & 6 & 1 & 1 & 3 & 11  \\ \hline
-        No \ac{RT} Total & No \ac{RT} & 15 & 11 & 5 & 11 & 42  \\ \hline
-        \ford{} & Total & 0 & 2 & 0 & 0 & 2  \\
-        \gm{} & Total & 6 & 15 & 4 & 12 & 37  \\
-        \hyundai{} & Total & 15 & 7 & 8 & 8 & 38  \\
-        \toyota{} & Total & 0 & 0 & 0 & 0 & 0  \\
-        \vw{} & Total & 6 & 7 & 1 & 12 & 26  \\ \hline
-        Total & Total & 27 & 31 & 13 & 32 & 103  \\                     
-        \hline        
-      \end{tabular}
-  
-    \caption{Significant Granger analysis results per classifier and company}
-    \label{tab:conclusion-summary-granger}
-\end{table}
-
 
 \section{Discussion and Limitations}
 \label{s:conclusions-discussion}
