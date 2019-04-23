@@ -181,8 +181,8 @@ Therefore, each document is divided into tokens or terms.
 A token may be a word or something else like a number or a punctuation mark
 \citep{Manning1999}.
 
-Given that tokens a vocabulary is build up.
-That means that the tokens are sequentially numbered and the tokens are replaced within the documents with the corresponding number
+The tokens are sequentially numbered and the tokens are replaced within the documents with their corresponding number.
+That way the vocabulary is built (translation between number and token)
 \citep{Murphy2012}.
 The vocabulary is depicted in \cref{tab:background-optionmining-vocabulary} and the translated corpus is shown in \cref{tab:background-optionmining-translatedsampledocuments}.
 
@@ -219,7 +219,9 @@ The vocabulary is depicted in \cref{tab:background-optionmining-vocabulary} and 
 \end{table}
 
 It is assumed that a bag is not ordered.
-Therefore the order of tokens is irrelevant.
+Therefore the order of tokens is irrelevant to build a suitable representation of the text.
+This is why the \ac{bow} approach is the de facto standard for financial research
+\citep{schumaker2009textual}.
 The next step is to count the number of tokens within the documents and build a histogram of token counts
 \citep{Murphy2012}.
 This is done for our sample corpus in \cref{tab:background-optionmining-termfrequencies}.
