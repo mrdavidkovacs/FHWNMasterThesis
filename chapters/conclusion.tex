@@ -59,11 +59,11 @@ Three different possibilities of tweet collection could be identified:
         But it is no easy task to download and save search results from the official Twitter page.
         Therefore, also this possibility has been omitted due the difficulties.    
     
-    \item[DMI TCAT] 
+    \item[\ac{DMITCAT}] 
         is a toolset for capturing and analyzing tweets.
         It follows a different approach than the search \ac{API}.
         It supports the official streaming \ac{API} which follows a push principle and enables its users to capture tweets using up to 400 keywords.
-        Therefore, the decision has been made to use DMI TCAT to capture tweets.
+        Therefore, the decision has been made to use \ac{DMITCAT} to capture tweets.
 
 \end{description}
 
@@ -145,13 +145,13 @@ But for the company \toyota{} not a single setup resulted in a significant resul
 This thesis tried to focus on five automotive companies but there were several difficulties during execution which leads to several limitations.
 
 The first limitation is Twitter as datasource.
-As the official search \ac{API} proved to be insufficient as there are some understandably limits in place the DMI TCAT approach was a good decision.
-But using DMI TCAT had also some serious drawbacks:
+As the official search \ac{API} proved to be insufficient as there are some understandably limits in place the \ac{DMITCAT} approach was a good decision.
+But using \ac{DMITCAT} had also some serious drawbacks:
 
 \begin{itemize}
     \item 
         The software must be installed by one self and the machine must be up and running to collect tweets.
-        As we can't keep the personal computer running continuously for more than one month we decided to install DMI TCAT to a virtual machine in the cloud.
+        As we can't keep the personal computer running continuously for more than one month we decided to install \ac{DMITCAT} to a virtual machine in the cloud.
         This decision yielded to several other problems:
 
         \begin{itemize}
@@ -161,7 +161,7 @@ But using DMI TCAT had also some serious drawbacks:
                 The virtual machine shut down every day on 7 PM. 
                 Therefore several tweets were not captured at all.
             \item 
-                New DMI TCAT releases have been published which required a database upgrade.
+                New \ac{DMITCAT} releases have been published which required a database upgrade.
                 This was a quite time consuming task and required that collection for the specific query bin is stopped.
 
             \item
@@ -169,7 +169,7 @@ But using DMI TCAT had also some serious drawbacks:
         \end{itemize}
 
     \item
-        DMI TCAT uses also the official Twitter \ac{API} and as a result some limits apply.
+        \ac{DMITCAT} uses also the official Twitter \ac{API} and as a result some limits apply.
         These limits have been hit from time to time and forced the tweet collection to pause.
         But the software continued to collect tweets automatically after the corresponding time window.
 \end{itemize}
@@ -194,7 +194,7 @@ Particularly the gaps in the twitter time series could seems to be a serious pro
 
 This thesis at hand provides a basis to build on for upcoming researches and further points of interest can be deducted from the results of the study and the pointed out limitations.
 
-First, the issues with the installation and maintenance of DMI TCAT need to be solved.
+First, the issues with the installation and maintenance of \ac{DMITCAT} need to be solved.
 As the issues were technical they should be easy to solve by providing a computer with more resources which can run 24/7 for several months.
 Furthermore, the collected data need serious amount of disk space and the sentiment classification algorithms need computation power and a fast hard disk.
 This would also overcome the limitation of download the collected tweets from a virtual machine in order to analyze them.

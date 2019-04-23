@@ -157,9 +157,10 @@ Several approaches have been tried to get as many tweets as possible to the give
     But this tool did not work as expected.
     Most likely Twitter made some changes to the search result page and the tool has not been adopted since \printdate{2016-04-15} \citep{Jefferson2016}.
 
-  \item [DMI TCAT]
+  \item [\ac{DMITCAT}]
     is a toolset for capturing and analyzing tweets.
-    It has been developed by \citeauthor{Borra2014} to support researchers around the globe and make tweet collection and analysis easier
+    It has been developed by \citeauthor{Borra2014} to support researchers around the globe and make tweet collection and analysis easier.
+    It makes use of the official streaming Twitter \ac{API} which follows the push principle once subscribed
     \citep{Borra2014}.
     TCAT support various ways of data capturing:
     \begin{itemize}
@@ -170,7 +171,7 @@ Several approaches have been tried to get as many tweets as possible to the give
 
 \end{description}
 
-After exploring all of these methods DMI TCAT has been selected to capture the necessary Twitter data by using the streaming endpoint of the \ac{API} to track 23 keywords.
+After exploring all of these methods \ac{DMITCAT} has been selected to capture the necessary Twitter data by using the streaming endpoint of the \ac{API} to track 23 keywords.
 The tool must be installed on a computer in order to perform its work.
 As the tool need some serious amount of capacities and need to collect tweets 24/7 it has been installed on a virtual machine in the Microsoft Azure cloud.
 
@@ -190,11 +191,11 @@ But there were several issues using the cloud approach:
     As the problem was not detected right away it took several days for identifying and fixing the issue.
 
   \item The rate limits of the \ac{API} have been hit now and then in case too many tweets were published.
-    DMI TCAT continued to collect tweets automatically after the corresponding time window.
+  \ac{DMITCAT} continued to collect tweets automatically after the corresponding time window.
 
-  \item New releases DMI TCAT have been published from time to time which also required a database upgrade.
+  \item New releases \ac{DMITCAT} have been published from time to time which also required a database upgrade.
     As the performance was dropping the upgrade was performed in the hope of fixing the performance issue.
-    Furthermore, the first update was needed to enable DMI TCAT to process tweets longer than 140 characters.
+    Furthermore, the first update was needed to enable \ac{DMITCAT} to process tweets longer than 140 characters.
     The database upgrade needed to suspend the tweet collection by a serious amount of time.
     To collect as many tweets as possible the upgrade was performed in steps for each query bin separately.
     The larger the query bin the longer the process took as every single tweet was needed to be altered.
