@@ -353,7 +353,9 @@ The sentiments were detected using four different classifiers using the same wor
 
 %buitinck2013api
 
-Pipelines are a useful construct provided by the \emph{scikit-learn} project.
+The classification is done by using the programming language \emph{Python} and the \emph{scikit-learn} which includes implementations of the several classifiers including \nb{}, \me{} and \svm{}.
+Beside the existent implementation of classifiers both the language and the project \emph{scikit-learn} are easy to use and personal experience is given.
+Furthermore, the project contains a useful construct called \emph{pipelines}.
 The basic philosophy in this project is to divide the public \ac{API} into four parts:
 
 \begin{description}
@@ -455,9 +457,11 @@ In the following sections each part of the pipeline and tried hyper-parameters u
   
     
   \item[Classifier]
-    The pipeline has been tried using four different classifiers.
-    Each of them has different hyper-parameter.
-    Therefore, they will be discussed in the corresponding sections.
+    
+    The classifiers under investigation are \tb{}, \nb{}, \me{} and \svm{} whereas the \tb{} classifier provides the baseline for the evaluation.
+    The other three classifiers has been selected using the article from \citet{Pang2002} as they are known within the sentiment classification research.
+    The pipeline performance will be investigated using these four different classifiers and each of them has different hyper-parameters.
+    Therefore, the hyper-parameters will be discussed in the following sections.
 
     \begin{description}
       \item[TextBlob Classifier]
@@ -465,9 +469,12 @@ In the following sections each part of the pipeline and tried hyper-parameters u
         The \tb{} classifier is a pre-trained classifier which has no hyper-parameters at all.
         It works out of the box.
         The only effort made was to make the \tb{} classifier available to the scikit-learn package by implementing the estimator interface (the method \emph{predict}).
+
+        Therefore this classifier corresponds as baseline and the other classifiers will be compared to the performance of the \tb{} classifier.
         
       \item[Naive Bayes Classifier]
-        The Naive Bayes classifier was the first classifier which supported hyper-parameters.
+
+        The \nb{} classifier was the first classifier which supported hyper-parameters.
         As the philosophy of \emph{scikit-learn} is to provide good default values only some hyper-parameters have been modified
         \citep{buitinck2013api}.
         The implementation used is class \emph{sklearn.naive\_bayes.MultinomialNB}.
