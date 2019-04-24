@@ -162,7 +162,7 @@ Several approaches have been tried to get as many tweets as possible to the give
     It has been developed by \citeauthor{Borra2014} to support researchers around the globe and make tweet collection and analysis easier.
     It makes use of the official streaming Twitter \ac{API} which follows the push principle once subscribed
     \citep{Borra2014}.
-    TCAT support various ways of data capturing:
+    \ac{DMITCAT} support various ways of data capturing:
     \begin{itemize}
       \item One percent random sample of all tweets passing through Twitter,
       \item Streaming endpoint of the \ac{API} to track up to 400 keywords,
@@ -250,18 +250,18 @@ In the following the steps of normalization are described in detail:
     The tweet text is converted to lower case as the meaning stays the same but the dictionary size is reduced.
 
   \item [Tokenization:]
-    For tokenization the \emph{TweetTokenizer} of the NLTK package is used.
+    For tokenization the \emph{TweetTokenizer} of the \ac{NLTK} package is used.
     This tokenizer has been created for this purpose.
 
   \item [Stopwords:]
-    The predefined English stopwords of the NLTK package have been removed from all tweets.
+    The predefined English stopwords of the \ac{NLTK} package have been removed from all tweets.
   
   \item [Lemmatization:]
-    There are several lemmatizer available and the \emph{WordNetLemmatizer} of the NLTK package is used to perform this step.
+    There are several lemmatizer available and the \emph{WordNetLemmatizer} of the \ac{NLTK} package is used to perform this step.
 
   \item [Stemming:]
     The same situation applies to stemmers.
-    The \emph{SnowballStemmer} of the NLTK package is used as many found examples used this specific stemmer.
+    The \emph{SnowballStemmer} of the \ac{NLTK} package is used as many found examples used this specific stemmer.
 
   \item [Custom \ac{RegEx}:]
     Last but not least, custom \ac{RegEx} have been used to remove or replace other unwanted elements of tweets, such as \citep{Pagolu2016a}:

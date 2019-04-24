@@ -3,8 +3,12 @@
         "Vectorization",
         "Vectorizer",
         "combinatorial",
+        "dataset",
+        "datasets",
         "lemmatization",
-        "microblogging"
+        "microblogging",
+        "stopwords",
+        "toolset"
     ],
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "same",
