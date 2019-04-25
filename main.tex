@@ -57,14 +57,6 @@
 \printglossary[type=\acronymtype,title=List of Acronyms,style=long]
 \cleardoublepage
 
-\listoffigures  %\thispagestyle{fancy}
-\addcontentsline{toc}{chapter}{List of Figures}
-\cleardoublepage
-
-\listoftables   %\thispagestyle{fancy}
-\addcontentsline{toc}{chapter}{List of Tables}
-\cleardoublepage
-
 % as there is only one listing we need no list of listings
 % \lstlistoflistings
 % \addcontentsline{toc}{chapter}{List of Listings}
@@ -107,6 +99,14 @@
 \printbibliography[nottype=online,title={References}]
 \printbibliography[heading=subbibliography,type=online,title={Tweet References}]
 %\addcontentsline{toc}{chapter}{References}
+
+\listoffigures  %\thispagestyle{fancy}
+\addcontentsline{toc}{chapter}{List of Figures}
+\cleardoublepage
+
+\listoftables   %\thispagestyle{fancy}
+\addcontentsline{toc}{chapter}{List of Tables}
+\cleardoublepage
 
 \appendix
 \input{endmatter/appendix}
