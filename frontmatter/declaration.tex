@@ -1,8 +1,3 @@
-\newcommand*{\SignatureAndDate}[1]{%
-    \par\makebox[4cm]{Wiener Neustadt,} \makebox[3cm]{\hrulefill}  \hfill\makebox[6cm]{\hrulefill}%
-    \par\makebox[4cm]{} \makebox[3cm]{\centering Date}     \hfill\makebox[3.5cm][t]{Signature}%
-}% These command is used to create the Date and Signature fields.
-
 \vspace{150pt}
 
 \begin{center}
@@ -20,6 +15,11 @@ Ich erkläre an Eides statt, dass diese Arbeit ausschließlich von mir selbst ve
 
 \vspace{130pt}
 
-\SignatureAndDate{}
+\begin{center}
+\begin{tabular}{p{4cm} >{\centering}p{3cm} p{1cm} >{\centering}p{6cm}}
+    Wiener Neustadt, & \today & &  \\ \cline{2-2} \cline{4-4}
+       & Date &  & Signature \\
+\end{tabular}
+\end{center}
 
 \clearpage
