@@ -152,15 +152,15 @@ Several approaches have been tried to get as many tweets as possible to the give
     and lastly, there were to tight rate limits defined in order gather all possible tweets of the seven days period \citep{TwitterInc.2018}.
 
   \item [Twitter search on website]
-    has been investigated to overcome the shortcomings of the official Twitter \ac{API} but the tweets cannot be downloaded in a easy way as the results only appear within the web browser.
-    A Java tool (\url{https://github.com/Jefferson-Henrique/GetOldTweets-java}) addresses this issue and exploits the Twitter search page and downloads them immediately.
+    \rework{has been investigated to overcome the shortcomings of the official Twitter \ac{API} but the tweets cannot be downloaded in a easy way as the results only appear within the web browser.
+    A Java tool (\url{https://github.com/Jefferson-Henrique/GetOldTweets-java}) addresses this issue and exploits the Twitter search page and downloads them immediately.}
     But this tool did not work as expected.
     Most likely Twitter made some changes to the search result page and the tool has not been adopted since \printdate{2016-04-15} \citep{Jefferson2016}.
 
   \item [\ac{DMITCAT}]
     is a toolset for capturing and analyzing tweets.
     It has been developed by \citeauthor{Borra2014} to support researchers around the globe and make tweet collection and analysis easier.
-    It makes use of the official streaming Twitter \ac{API} which follows the push principle once subscribed
+    \rework{It makes use of the official streaming Twitter \ac{API} which follows the push principle once subscribed}
     \citep{Borra2014}.
     \ac{DMITCAT} support various ways of data capturing:
     \begin{itemize}
@@ -172,7 +172,7 @@ Several approaches have been tried to get as many tweets as possible to the give
 \end{description}
 
 After exploring all of these methods \ac{DMITCAT} has been selected to capture the necessary Twitter data by using the streaming endpoint of the \ac{API} to track 23 keywords.
-The tool is not available for usage out of the box (cloud application) but must be installed as a server instance on a own machine.
+\rework{The tool is not available for usage out of the box (cloud application) but must be installed as a server instance on a own machine.}
 As the tool need some serious amount of capacities and need to collect tweets 24/7 it has been installed on a virtual machine in the Microsoft Azure cloud.
 
 The 23 keywords have been grouped by the owning company into so called query bins.
@@ -209,7 +209,7 @@ The number of collected tweets can be seen in \cref{tab:casestudy-companies-numb
   \begin{tabular}{!l ^r ^r}
     \hline
     \rowstyle{\bfseries}
-        Company   & \# captured tweets  & \# English tweets  \\ \hline
+        Company   & \# captured tweets  & \# \rework{English} tweets  \\ \hline
         \ford{} & \num{4518198}       & \num{3745447} \\  % has been 3745490
         \gm{} & \num{575547}        & \num{413817} \\
         \hyundai{} & \num{1895306}       & \num{697221} \\  % has been 697277
@@ -353,9 +353,9 @@ The sentiments were detected using four different classifiers using the same wor
 
 %buitinck2013api
 
-The classification is done by using the programming language \emph{Python} and the \emph{scikit-learn} which includes implementations of the several classifiers including \nb{}, \me{} and \svm{}.
+\rework{The classification is done by using the programming language \emph{Python} and the \emph{scikit-learn} which includes implementations of the several classifiers including \nb{}, \me{} and \svm{}.
 Beside the existent implementation of classifiers both the language and the project \emph{scikit-learn} are easy to use and personal experience is given.
-Furthermore, the project contains a useful construct called \emph{pipelines}.
+Furthermore, the project contains a useful construct called \emph{pipelines}.}
 The basic philosophy in this project is to divide the public \ac{API} into four parts:
 
 \begin{description}
@@ -457,11 +457,11 @@ In the following sections each part of the pipeline and tried hyper-parameters u
   
     
   \item[Classifier]
-    
+    \rework{%
     The classifiers under investigation are \tb{}, \nb{}, \me{} and \svm{} whereas the \tb{} classifier provides the baseline for the evaluation.
     The other three classifiers has been selected using the article from \citet{Pang2002} as they are known within the sentiment classification research.
     The pipeline performance will be investigated using these four different classifiers and each of them has different hyper-parameters.
-    Therefore, the hyper-parameters will be discussed in the following sections.
+    Therefore, the hyper-parameters will be discussed in the following sections.}
 
     \begin{description}
       \item[TextBlob Classifier]
@@ -470,11 +470,11 @@ In the following sections each part of the pipeline and tried hyper-parameters u
         It works out of the box.
         The only effort made was to make the \tb{} classifier available to the scikit-learn package by implementing the estimator interface (the method \emph{predict}).
 
-        Therefore this classifier corresponds as baseline and the other classifiers will be compared to the performance of the \tb{} classifier.
+        \rework{Therefore this classifier corresponds as baseline and the other classifiers will be compared to the performance of the \tb{} classifier.}
         
       \item[Naive Bayes Classifier]
 
-        The \nb{} classifier was the first classifier which supported hyper-parameters.
+        \rework{The \nb{} classifier was the first classifier which supported hyper-parameters.}
         As the philosophy of \emph{scikit-learn} is to provide good default values only some hyper-parameters have been modified
         \citep{buitinck2013api}.
         The implementation used is class \emph{sklearn.naive\_bayes.MultinomialNB}.

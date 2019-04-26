@@ -15,7 +15,7 @@ and third, the market of social networks will be examined in \cref{s:background-
 \section{Stock Market Prediction} 
 \label{s:background-stockmarketprediction}
 
-\citet{Bollen2011a} noted that many researches assumed that the stock market is based on the random walk theory and the \ac{EMH}.
+\rework{\citet{Bollen2011a}} noted that many researches assumed that the stock market is based on the random walk theory and the \ac{EMH}.
 First, the \ac{EMH} suggests that the price of a security is reflected by all information available \citep{fama1965behavior, schumaker2009textual}.
 Furthermore, the \ac{EMH} can be split into three forms: the Weak, the Semi-Strong and the Strong.
 
@@ -79,8 +79,9 @@ There are several types of option mining available:
 	\citep[page 412]{Liu2007}. 
 \end{enumerate}
 
+\rework{%
 This study will focus on short documents with given keywords in it.
-Therefore, we assume that the documents describing our targeted topic (see \cref{s:background-socialnetworks} on page \pageref{s:background-socialnetworks} for the background).
+Therefore, we assume that the documents describing our targeted topic (see \cref{s:background-socialnetworks} on page \pageref{s:background-socialnetworks} for the background).}
 As a result the study will focus on sentiment classification.
 
 Sentiment classification has some similarities with topic-based text classification, which classifies the topic of documents into predefined topic classes, for example sports, science or politics.
@@ -137,7 +138,7 @@ Preprocessing is important to reduce the number of features. Preprocessing may i
 		They can be removed as the expressed opinion should stay the same
 		\citep{Nothman2018}.
 
-		Examples for stop words are 'a', 'the' and 'for' for the English language
+		Examples for stop words are 'a', 'the' and 'for' for the \rework{English} language
 		\citep{schumaker2009textual}.
 
 	\item [Lemmatization]
@@ -181,8 +182,9 @@ Therefore, each document is divided into tokens or terms.
 A token may be a word or something else like a number or a punctuation mark
 \citep{Manning1999}.
 
+\rework{
 The tokens are sequentially numbered and the tokens are replaced within the documents with their corresponding number.
-That way the vocabulary is built (translation between number and token)
+That way the vocabulary is built (translation between number and token)}
 \citep{Murphy2012}.
 The vocabulary is depicted in \cref{tab:background-optionmining-vocabulary} and the translated corpus is shown in \cref{tab:background-optionmining-translatedsampledocuments}.
 
@@ -219,9 +221,9 @@ The vocabulary is depicted in \cref{tab:background-optionmining-vocabulary} and 
 \end{table}
 
 It is assumed that a bag is not ordered.
-Therefore the order of tokens is irrelevant to build a suitable representation of the text.
+\rework{Therefore the order of tokens is irrelevant to build a suitable representation of the text.
 This is why the \ac{bow} approach is the de facto standard for financial research
-\citep{schumaker2009textual}.
+\citep{schumaker2009textual}.}
 The next step is to count the number of tokens within the documents and build a histogram of token counts
 \citep{Murphy2012}.
 This is done for our sample corpus in \cref{tab:background-optionmining-termfrequencies}.
@@ -277,7 +279,7 @@ The examples of bigrams and trigrams depicted in \cref{tab:background-optionmini
 \citeauthor{Pang2002} performed a study which analyzed several machine learning algorithms and their suitability with sentiment classification.
 These three algorithms have shown a good performance in text categorization studies and therefore they tried to apply these algorithms to sentiment classification \citep{Pang2002}.
 
-In the following each of them is introduced shortly.
+\rework{In the following each of them is introduced shortly.}
 
 \begin{description}
 	\item[Naive Bayes.] 
@@ -421,7 +423,7 @@ Those which are built on text are more easy to analyze and searchable for resear
 But there are some constants in this field: Twitter, to identify one of them.
 Twitter has become a valuable source of opinions, data and information for various researches \citep{Barbosa2010}.
 
-Messages on Twitter are called tweets and are limited in length (140 for tweets before \printdate{2017-11-07}; 280 characters since then, at least for English tweets \citep{Rosen2017}) and due to this fact users have to concentrate on a specific topic precisely.
-Therefore, Twitter is the perfect source of the public opinion as users discussing anything on Twitter \citep{Pagolu2016a, Patodkar2016a}.
+\rework{Messages on Twitter are called tweets and are limited in length (140 for tweets before \printdate{2017-11-07}; 280 characters since then, at least for English tweets \citep{Rosen2017}) and due to this fact users have to concentrate on a specific topic precisely.
+Therefore, Twitter is the perfect source of the public opinion as users discussing anything on Twitter \citep{Pagolu2016a, Patodkar2016a}.}
 
-As a result the fields in which researches have used data from Twitter ranging from public opinions for politicans and polls (see \citealp{Oconnor2010a,Patodkar2016a}) to the stock market and the prediction of stock prices and other factors (see \citealp{Bollen2011a,Mittal2012a,Nguyen2015a,Pagolu2016a,Zhang2011a}).
+\rework{As a result the fields in which researches have used data from Twitter ranging from public opinions for politicans and polls (see \citealp{Oconnor2010a,Patodkar2016a}) to the stock market and the prediction of stock prices and other factors (see \citealp{Bollen2011a,Mittal2012a,Nguyen2015a,Pagolu2016a,Zhang2011a}).}

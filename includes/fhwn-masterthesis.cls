@@ -140,6 +140,9 @@ BoldItalicFont=MyFont_BoldItalic.TTF]
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
 
+\RequirePackage[bordercolor=white,backgroundcolor=gray!30,linecolor=black,colorinlistoftodos]{todonotes}
+\newcommand{\rework}[1]{\todo[color=yellow,inline]{#1}}
+
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mylightgray}{rgb}{0.9,0.9,0.9}

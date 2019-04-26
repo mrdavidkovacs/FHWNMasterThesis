@@ -16,3 +16,4 @@ deploy:
 branches:
   only:
   - master
+  - diff/*

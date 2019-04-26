@@ -5,11 +5,12 @@ Finally, \cref{s:conclusions-future} provides possible future research topics.
 \section{Summary of Results}
 \label{s:conclusions-summary}
 
+\rework{
 The central research question stated in \cref{s:introduction-researchgoals} was: \emph{To what extent can stock market movements be explained by the public opinion extracted from Twitter?}
 
 We evaluated that the best results are achieved using all tweets (no tweets omitted), \svm{} or \nb{} classifier and a lag between five and nine days.
 
-In the following we recall all defined research goals in \cref{s:introduction-researchgoals} on page \pageref{s:introduction-researchgoals} and give an answer to these.
+In the following we recall all defined research goals in \cref{s:introduction-researchgoals} on page \pageref{s:introduction-researchgoals} and give an answer to these.}
 In the following each research goal is stated and a short summary of the results is given in each subsection.
 
 % research goals
@@ -105,7 +106,7 @@ The same holds true for certain companies: \SI{80}{\percent} of all \gm{} tweets
 In \cref{s:analysis-granger} the time series are compared to each other using the Granger analysis.
 It tries to find a relation between the time series using a lag (in days).
 In total 400 tests are performed: five companies for lags from one to ten days and four different sentiment classifiers using two different datasets (one with all tweets and one with omitted retweets).
-The results are depicted in \cref{tab:analysis-classifiercomparision-summary}.
+The results are depicted in \rework{\cref{tab:analysis-classifiercomparision-summary}}.
 From this 400 performed test 103 were significant.
 It is shown that omitting \acp{RT} had a negative effect on the results (61 significant tests using all tweets versus 42 significant tests with omitted \acp{RT}).
 For the company \ford{} only one classifier yield to a significant result (\fnb{} with both datasets).
