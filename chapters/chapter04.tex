@@ -2,9 +2,9 @@
 
 This chapter describes the performed analysis steps and discusses its results.
 First, the final dataset is described in \cref{s:analysis-datasets}.
-Second, the best hyper-parameters for each classifier are depicted in \cref{s:analysis-pipelines}.
-Third, the sentiments time series per company are discussed in \cref{s:analysis-sentiments}.
-Fourth, the various time series are compared to the corresponding share price time series in \cref{s:analysis-granger}.
+Secondly, the best hyper-parameters for each classifier are depicted in \cref{s:analysis-pipelines}.
+Thirdly, the sentiments time series per company are discussed in \cref{s:analysis-sentiments}.
+Fourthly, the various time series are compared to the corresponding share price time series in \cref{s:analysis-granger}.
 Last but not least, the sentiment classifier performance are compared in \cref{s:analysis-classifercomparison}.
 
 \section{Datasets}
@@ -220,7 +220,7 @@ As previously stated \emph{\tb{}} is a pre-trained classifier which works out-of
 It can be seen as kind of a base-line.
 
 As the \tb{} classifies text on a continuous scale between \texttt{-1} and \texttt{1} it also includes the possibility of a neutral sentiment: \texttt{0}.
-In order to compare this classifier with the other tested ones we have to generalize the results of \tb{} using the following cases in \cref{eq:analysis-pipeline-textblob}.
+In order to compare this classifier with the other tested ones the results of \tb{} using the following cases in \cref{eq:analysis-pipeline-textblob} have to be generalized.
 
 \begin{equation}
 Sentiment_{generalized} = 
@@ -483,7 +483,7 @@ As each tweet dataset has been analyzed using various sentiment detection classi
 First, an analysis of positive versus negative tweets has been performed.
 The results are depicted in \cref{tab:analysis-sentiments-general}.
 It shows that \tb{} classifier has the highest rate of positive sentiments.
-But we have to keep in mind that this pre-trained classifier is able to rate the sentiment in a range between \texttt{-1} and \texttt{1} and we normalized the rating to positive (\texttt{1}) and negative (\texttt{-1}) to be able to compare the results to the other classifiers.
+But the pre-trained classifier is able to rate the sentiment in a range between \texttt{-1} and \texttt{1} and the rating is normalized to positive (\texttt{1}) and negative (\texttt{-1}) to be able to compare the results to the other classifiers.
 The \nb{} classifier is somewhat more pessimistic: it shows the lowest rate of positive sentiments for \vw{} (\SI{47.97}{\percent}).
 The other two classifiers (\me{} and \svm{}) have similar ranges of positive ratings.
 
@@ -552,7 +552,7 @@ This case is also written as formula in \cref{eq:analyis-sentiments-difference}.
 % 13.07.2018	3,514015828	-0,766561511	3,848853484	-0,435083389	82337	0,575594719	4,615414995	-0,766561511	3,848853484
 
 The most remarkable entry in \cref{tab:analysis-sentiments-ford-opposite} is of date \printdate{2018-07-13}.
-As we can see in \cref{fig:analysis-sentiments-ford} on that specific day two of four sentiment classifiers rated the tweets as extremely positive (\num{3.51} for \ftb{} and \num{3.85} for \fme{}) whereas the other two classifiers rated the tweets of the day slightly negative (\num{-0.77} for \fnb{} and \num{-0.44} for \fsvm{} respectively).
+\Cref{fig:analysis-sentiments-ford} shows that two of four sentiment classifiers rated the tweets as extremely positive (\num{3.51} for \ftb{} and \num{3.85} for \fme{}) whereas the other two classifiers rated the tweets of the day slightly negative (\num{-0.77} for \fnb{} and \num{-0.44} for \fsvm{} respectively) for that specific day.
 There were \num{82337} tweets on that day which resulted in \num{26925} unique tweets as \SI{72.75}{\percent} were \acp{RT}.
 
 \begin{table}[hbt]
@@ -588,8 +588,8 @@ There were \num{82337} tweets on that day which resulted in \num{26925} unique t
 % 3 2018-08-22 -1.76 -3.00  -2.09 -2.55        51695    34952 -1.71     -1.66          4    17
 % 4 2018-08-23 -2.23 -4.38  -2.83 -3.45        72275    53120 -1.82     -1.78          4    17
 
-As there depicted values are normalized ones we can also identify outliers very easily.
-We list all days with an absolute normalized sentiment classification value above \texttt{3} in this case.
+As there depicted values are normalized ones outliers can also be identified very easily.
+All days with an absolute normalized sentiment classification value above \texttt{3} in this case are listed.
 There were four days which met this requirement.
 
 \begin{enumerate}
@@ -599,7 +599,7 @@ There were four days which met this requirement.
 
         \toptweet{RT @JohnBrennan: Watching the spectacle of the House “hearing” with Peter Strzok today, I was reminded of the words of Abraham Linco… \url{https://t.co/Khe98Rn6Xe}}{21023}{25.5}
         
-        As we can see the top tweet of that day was a \ac{RT} which quotes the former president of the United States Abraham Lincoln and therefore a wide range of tweets on that day does not belong to the selected topic.
+        The top tweet of that day was a \ac{RT} which quotes the former president of the United States Abraham Lincoln and therefore a wide range of tweets on that day does not belong to the selected topic.
 
         The full text of the \acp{RT} tweet was:
         \citetweet{tweet.ford.1}
@@ -685,7 +685,7 @@ Furthermore, there were two specific days which have a maximum normalized value 
 
         \toptweet{RT @ATLBlackStar: GA waitress Emelia Holden is seen on camera being sexually violated by 31 yr old Ryan Cherwinksi. Holden slammed hi… \url{https://t.co/TSBSiSPbnF}}{27639}{72.4}
         
-        As we can see the top tweet of that day was a \ac{RT} which references a woman named ``Emelia Holden'' and therefore a wide range of tweets on that day does not belong to the selected topic.
+        The top tweet of that day was a \ac{RT} which references a woman named ``Emelia Holden'' and therefore a wide range of tweets on that day does not belong to the selected topic.
 
         The full text of the retweeted tweet was:
         \citetweet{tweet.gm.1}
@@ -751,10 +751,10 @@ There were three days with a normalized sentiment value above \texttt{3}:
     \label{fig:analysis-sentiments-hyundai}
 \end{figure} 
 
-Furthermore in \cref{tab:analysis-sentiments-hyundai-opposite} the ten days with opposite sentiment classifications are shown.
+Furthermore, in \cref{tab:analysis-sentiments-hyundai-opposite} the ten days with opposite sentiment classifications are shown.
 There are two dates which differences are extremely high.
 First, \printdate{2018-03-21} is also included in this list with a maximum difference of \num{10.357} and \SI{85.79}{\percent} of \acp{RT}.
-Second, \printdate{2018-04-04} has also a very high difference of \num{6.109} and \SI{85.90}{\percent} of \acp{RT}.
+Secondly, \printdate{2018-04-04} has also a very high difference of \num{6.109} and \SI{85.90}{\percent} of \acp{RT}.
 It is remarkable that every outlier with a high difference has also a high \ac{RT} percentage.
 This issue is discussed in \cref{ss:analysis-sentiments-retweets}.
 
@@ -801,7 +801,7 @@ There were three days with a normalized sentiment value above \num{2.5} which ar
 All days with opposite sentiment classifications are shown in \cref{tab:analysis-sentiments-toyota-opposite}.
 The three days with normalized value outliers are also included in that table.
 
-In the following we discuss every day of these three in detail:
+In the following the each of these three days is discussed in detail:
 
 % date       SA_TB SA_NB SA_ME SA_SVM tweet.count rt.count Close Adj.Close dategroup count
 % <date>     <dbl> <dbl> <dbl>  <dbl>       <int>    <int> <dbl>     <dbl>     <dbl> <int>
@@ -912,7 +912,7 @@ There were four days with a normalized sentiment value above \num{2.5} which are
 
         \toptweet{RT @GirlFromBlupo: Dear Amazon, I bought a toilet seat because I needed one. Necessity, not desire. I do not collect them. I am not a… \url{https://t.co/w1yKIqx6w5}}{30410}{33.5}
 
-        As we can see again the most frequent tweet of the day is a \ac{RT} which is about toilet seats which matched the keyword \emph{SEAT}.
+        Again, the most frequent tweet of the day is a \ac{RT} which is about toilet seats which matched the keyword \emph{SEAT}.
         Therefore, \SI{33.5}{\percent} of this days tweets are not on the correct topic.
 
         The full text of the retweeted tweet was:
@@ -931,7 +931,7 @@ There were four days with a normalized sentiment value above \num{2.5} which are
 
 \end{enumerate}
 
-Furthermore in \cref{tab:analysis-sentiments-vw-opposite} the 29 days with opposite sentiment classifications are shown.
+Furthermore, in \cref{tab:analysis-sentiments-vw-opposite} the 29 days with opposite sentiment classifications are shown.
 It is shown that only one of 29 days had a retweet percentage below \SI{50}{\percent}.
 The maximum retweet percentage is \SI{80.39}{\percent} on \printdate{2018-06-28} which has only the maximum deviation of \num{6.202}.
 
@@ -994,7 +994,7 @@ Therefore, a regression analysis has been performed in order to test if the diff
 
 For this analysis all available data has been used and mixed across all companies.
 The results of the evaluation is shown in \cref{tab:analysis-sentiments-retweets-results} and the plot of the regression line is shown in \cref{fig:analysis-sentiments-retweets}.
-We can see that there is a positive correlation between \ac{RT} ratio and the difference.
+It is shown that there is a positive correlation between \ac{RT} ratio and the difference.
 The influence of the \ac{RT} ratio ($d$) is highly significant as the p-value is below $2*10^{-16}$.
 
 \begin{table}[hbt]
@@ -1063,10 +1063,10 @@ The share price has been also normalized using \cref{eq:analysis-sentiments-norm
 
 The results of the performed analysis is shown in \cref{tab:analysis-granger-ford-results}: 
 the time series for various sentiment classifiers have been tested whether they can explain the share price time series or not.
-As we can see in \cref{s:analysis-sentiments} there are some issues with \acp{RT} as they can appear in huge amounts and can sophisticate the results.
+There are some issues with \acp{RT} as they can appear in huge amounts and can sophisticate the results which are described in \cref{s:analysis-sentiments}
 Due to this finding the analysis has been performed with a \ac{RT} cleaned dataset as well in order to check if it yields better results.
 
-As we can see only one entry using all tweets is significant.
+Only one entry using all tweets is significant.
 It uses the \nb{} classifier and a lag of two days.
 Excluding all \acp{RT} did no better job.
 There is also only one significant entry without using \acp{RT}.
@@ -1170,7 +1170,6 @@ The only classifier which delivered almost the same results with omitted \acp{RT
 
 Sentiments values and share prices for company \toyota{} are visualized in \cref{fig:analysis-results-toyota}.
 Again the y-axis has been clipped at the values \texttt{-2.5} and \texttt{2}.
-%We can see in group 1 that there is a positive trend present.
 
 \begin{figure}[hbt]
     \centering
@@ -1222,7 +1221,7 @@ The y-axis has not been clipped in this specific case as there were no extreme o
 
 \Cref{tab:analysis-granger-vw-results} visualizes the results of the Granger analysis for \vw{}.
 In total there are 26 significant results whereas the dataset with all tweets performed a little bit better than the dataset with omitted \acp{RT}.
-But if this does not hold true if we analyze the single sentiment classifiers.
+But this does not hold true if the single sentiment classifiers are analyzed one by one.
 The classifier \tb{} for example yielded not a single significant result with all tweets considered but six out of ten significant results if \acp{RT} have been removed.
 Almost the opposite holds true for the \nb{} classifier.
 It yielded six significant test results with all tweets considered but only one significant result with omitted \acp{RT}.
@@ -1259,10 +1258,10 @@ The \svm{} classifier had almost ten out of ten significant results but the p-va
 
 Another interesting analysis is to look which amount of lag yielded the more significant results.
 A graphical illustration is shown in \cref{fig:analysis-results-lag}.
-We can see that in total the count of significant values is always around $10 \pm 3$ which corresponds to \SI{25}{\percent} per lag.
+It is shown that the count of significant values is always around $10 \pm 3$ in total which corresponds to \SI{25}{\percent} per lag.
 
-But when we take a closer look we can observe that considering all tweets has a positive trend which means that considering \acp{RT} also needs at least a couple of days to be significant.
-In case we omit \acp{RT} from the dataset the situation is vice versa: 
+It can be observed that considering all tweets has a positive trend which means that considering \acp{RT} also needs at least a couple of days to be significant.
+Performing the analysis with omitted \acp{RT} from the dataset the situation is vice versa:
 With a lag of one day the datasets with omitted \acp{RT} had the most significant values (8) and as the lag rises the significant values drops.
 
 Linear models for both datasets have been tested and they confirmed a positive trend for the entire dataset and a negative trend for the dataset with omitted \acp{RT} as both correlations are significant.
@@ -1333,7 +1332,7 @@ In the following each of the classifiers is compared to \tb{}.
 
 \end{description}
 
-For the company \ford{} only one classifier yield to a significant result (\fnb{} with both datasets).
+For the company \ford{} only one classifier yielded to a significant result (\fnb{} with both datasets).
 But for the company \toyota{} not a single setup resulted in a significant result.
 
 \begin{table}[hbt]
@@ -1368,7 +1367,7 @@ But for the company \toyota{} not a single setup resulted in a significant resul
 \end{table}
 
 Overall the classifiers \svm{} and \nb{} performed pretty well and way better than the reference classifier \tb{} whereas there are slightly better results with \svm{}.
-Therefore we can provide a ranking of all evaluated classifiers which is depicted in \cref{fig:analysis-classifiercomparision-ranking}.
+Therefore a ranking of all evaluated classifiers is provided which is depicted in \cref{fig:analysis-classifiercomparision-ranking}.
 
 \begin{figure}[hbt]
     \centering

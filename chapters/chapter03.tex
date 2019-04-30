@@ -30,7 +30,7 @@ First, a list of automotive companies is needed.
 These companies must be traded on a stock exchange to perform the comparison with tweet sentiments.
 As a single company may own several car brands a list of all brands has been set up.
 The result of the analysis is depicted in \cref{tab:casestudy-brands}.
-Both brands which aren't customer facing passenger car brands and brands which do not longer exist have been omitted.
+Both brands which aren't customer-facing passenger car brands and brands which do not longer exist have been omitted.
 Furthermore, the brands have been grouped by their owning company.
 
 \begin{longtable}[c]{!l ^l}
@@ -139,7 +139,7 @@ and gather stock prices which is described in \cref{ss:casestudy-gatherdata-stoc
 
 A large set of tweets is needed to perform the analysis within a time frame of at least one month.
 There were several approaches to get these tweets: download tweets directly or capture tweets within the given time frame.
-As we are tracking five companies using 23 keywords (brands) there will be a quite big amount of data.
+As the tracking includes five companies using 23 keywords (brands) there will be a quite big amount of data.
 
 Several approaches have been tried to get as many tweets as possible to the given keywords, including:
 
@@ -148,7 +148,7 @@ Several approaches have been tried to get as many tweets as possible to the give
     was the first attempt.
     But there were very serious limitations to the official \ac{API} that made that quite easy way impossible.
     First, the standard search \ac{API} supports just a maximum count of 100 tweets;
-    second, it supports a history of only seven days;
+    secondly, it supports a history of only seven days;
     and lastly, there were to tight rate limits defined in order gather all possible tweets of the seven days period \citep{TwitterInc.2018}.
 
   \item [Twitter search on website]
@@ -190,7 +190,7 @@ But there were several issues using the cloud approach:
     The storage was full after approximately 14 days of data collection.
     As the problem was not detected right away it took several days for identifying and fixing the issue.
 
-  \item The rate limits of the \ac{API} have been hit now and then in case too many tweets were published.
+  \item The rate limits of the \ac{API} were hit now and then in case too many tweets were published.
   \ac{DMITCAT} continued to collect tweets automatically after the corresponding time window.
 
   \item New releases \ac{DMITCAT} have been published from time to time which also required a database upgrade.
@@ -399,7 +399,7 @@ The pipeline is a useful construct to perform the same steps over and over in a 
 \citep{buitinck2013api}.
 
 % Cross validation with GridSearchCV
-Furthermore \emph{scikit-learn} provides some helpers to find the best hyper-parameters for the given problem.
+Furthermore, \emph{scikit-learn} provides some helpers to find the best hyper-parameters for the given problem.
 The user can define which values various hyper-parameters can attain and the helper then perform test runs for various combinations, calculate their score and keep acting as the best performing model.
 Therefore, this type of search is called \emph{model selection}.
 \emph{Scikit-learn} provides two different model selection helpers: \emph{GridSearchCV} and \emph{RandomizedSearchCV}.
@@ -542,7 +542,7 @@ In the following sections each part of the pipeline and tried hyper-parameters u
     The stock prices are already in a time series format on a daily basis except for weekends or holidays but the problem of missing entries are tackled later.
     First, the sentiment analysis result dataset must be condensed to form a time series for comparison.
     Therefore the results per tweet are grouped per day and summed up.
-    As negative sentiments have the value \texttt{'-1'} and positive sentiments have the value \texttt{'1'} we receive a number which is positive in case more positive than negative tweets have been published on that given day and vice versa. 
+    As negative sentiments have the value \texttt{'-1'} and positive sentiments have the value \texttt{'1'} a number is received which is positive in case more positive than negative tweets have been published on that given day and vice versa. 
 
     Missing stock prices have been calculated iteratively and the gaps have been filled by using the following procedure:
     Given $x$ is a stock price value and $y$ is the next present value with one or more values in between are missing.

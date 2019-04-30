@@ -1,5 +1,5 @@
 This final section provides a short summary of literature research, analysis and comparison in \cref{s:conclusions-summary}.
-\Cref{s:conclusions-discussion} discusses the results critically and shows up limitations and shortcomings. 
+\Cref{s:conclusions-discussion} critically discusses the results and shows limitations and shortcomings. 
 Finally, \cref{s:conclusions-future} provides possible future research topics.
 
 \section{Summary of Results}
@@ -7,10 +7,10 @@ Finally, \cref{s:conclusions-future} provides possible future research topics.
 
 The central research question stated in \cref{s:introduction-researchgoals} was: \emph{To what extent can stock market movements be explained by the public opinion extracted from Twitter?}
 
-We evaluated that the best results are achieved using all tweets (no tweets omitted), \svm{} or \nb{} classifier and a lag between five and nine days.
+The evaluation shows that the best results are achieved by using all tweets (no tweets omitted), \svm{} or \nb{} classifiers and a lag between five and nine days.
 
-In the following we recall all defined research goals in \cref{s:introduction-researchgoals} on page \pageref{s:introduction-researchgoals} and give an answer to these.
-In the following each research goal is stated and a short summary of the results is given in each subsection.
+In the following all defined research goals in \cref{s:introduction-researchgoals} on page \pageref{s:introduction-researchgoals} will be recalled and explained how they were met.
+Each research goal is stated and a short summary of the results is given in each subsection.
 
 % research goals
 
@@ -23,17 +23,17 @@ In the following each research goal is stated and a short summary of the results
 
 The research goal 1 has been answered in \cref{s:casestudy-companieskeywords} (see page \pageref{s:casestudy-companieskeywords}).
 In the following a short summary is given.
-First the question of which companies should be analyzed must be answered.
+First the question which companies should be analyzed must be answered.
 In literature there were many references to automotive companies and therefore the decision has been made to analyze these companies.
-To find the corresponding companies the five biggest car manufacturing companies have been selected.
+To find the companies to be analyzed the five biggest car manufacturing companies have been selected.
 This selection has been made based on the survey \emph{World Motor Vehicle Production 2016} \citep{OICA2016}. 
 The resulting companies are depicted in \cref{tab:casestudy-brands}.
 
 Secondly, a list of keywords must be composed in order to search for tweets for the specific companies.
-As these companies own several customer facing car manufacturing brands these will be used as keywords too.
-Therefore, the \cref{tab:casestudy-brands} also contains all customer facing car manufacturing brands for the top five companies.
+As these companies own several customer-facing car manufacturing brands these will be used as keywords too.
+Therefore, \cref{tab:casestudy-brands} also contains all customer-facing car manufacturing brands for the top five companies.
 
-Thirdly, the companies must be traded on any stock exchange market and we have to research the stock symbols and the market in order to retrieve their stock prices.
+Thirdly, the companies must be traded on any stock exchange market and the stock symbols and the market have to be researched in order to retrieve their stock prices.
 The results of this research are depicted in \cref{tab:casestudy-companies-counts-and-symbols}.
 
 \subsection{G2 - Gather Tweets and their Sentiments and Stock Prices}
@@ -45,23 +45,23 @@ The results of this research are depicted in \cref{tab:casestudy-companies-count
 % \item \textbf{G2-Q7} - Which sentiments are present for various companies?
 
 The research goal 2 consists of four research questions.
-First the decision for using Twitter as social media platform of our choice has been made as the characters are limited for each post and therefore the probability of a single topic per tweet is higher than on other platforms.
+First the decision for using Twitter as social media platform of choice has been made as the characters are limited for each post and therefore the probability of a single topic per tweet is higher than on other platforms.
 Furthermore, several other papers in literature have been using Twitter as reliable source.
 This has been discussed in \cref{s:background-socialnetworks}.
 
-Secondly, there is the questions how tweets can be collected from twitter which has been answered in \cref{ss:casestudy-gatherdata-tweets}.
+Secondly, there is the question how tweets can be collected from Twitter which has been answered in \cref{ss:casestudy-gatherdata-tweets}.
 Three different possibilities of tweet collection could be identified:
 
 \begin{description}
     \item[Official Twitter Search \ac{API}]
         follows the pull principle. 
         The user requests something and the \ac{API} sends a response.
-        But there were some serious limitations which caused that this way cannot be used.
+        But there were some serious limitations therefore this option could not be used.
 
     \item[Twitter search on website]
-        does not have these limitations as the search \ac{API}.
+        does not have the limitations of the search \ac{API}.
         But it is no easy task to download and save search results from the official Twitter page.
-        Therefore, also this possibility has been omitted due the difficulties.    
+        Therefore, this possibility has also been omitted due to difficulties.    
     
     \item[\ac{DMITCAT}] 
         is a toolset for capturing and analyzing tweets.
@@ -72,18 +72,18 @@ Three different possibilities of tweet collection could be identified:
 \end{description}
 
 Thirdly, research has been made in which way sentiments can be determined (see \cref{s:casestudy-normalization} and \cref{s:casestudy-sentiment} for more details).
-Most sentiment detection algorithms are performing their work better if the text source has been normalized in some way.
+Most sentiment detection algorithms perform better if the text source has been normalized in some way.
 Normalization includes lower casing of text, applying stopwords, lemmatization, stemming and minor enhancements.
-All of these normalization techniques have been applied to the collection of tweets which was a quite time consuming task as there were over 16 million tweets captured (see \cref{tab:casestudy-companies-numberoftweets}).
+All of these normalization techniques have been applied to the collection of tweets which was a quite time-consuming task as there were over 16 million tweets captured (see \cref{tab:casestudy-companies-numberoftweets}).
 
 Four sentiment detection algorithms have been selected for the case study: \tb{}, \nb{}, \me{} and \svm{}.
 In order to standardize the training and classification of each algorithm the \emph{scikit-learn} framework has been used.
-The framework includes all algorithms and a so called \emph{pipeline} to perform this standardization for training and classification purposes.
+The framework includes all algorithms and what is called a \emph{pipeline} to perform this standardization for training and classification purposes.
 The full script to train and analyze tweet sentiments can be found in the appendix (see \cref{lst:appendix-tweeets_analyzer}).
 
 Fourthly, an analysis has been performed which sentiments are present in which company.
-This is done in \cref{s:analysis-sentiments} beginning on page \pageref{s:analysis-sentiments}.
-An overview of the tweet sentiments are depicted in \cref{tab:analysis-sentiments-general}.
+This is done in \cref{s:analysis-sentiments} starting on page \pageref{s:analysis-sentiments}.
+An overview of the tweet sentiments is depicted in \cref{tab:analysis-sentiments-general}.
 It is shown that almost \SI{75}{\percent} of all tweets were rated as positive across all classifiers but there are differences in percentages by classifiers and company.
 The \tb{} classifier for example is very optimistic whereas the \nb{} classifier is relatively pessimistic.
 The same holds true for certain companies: \SI{80}{\percent} of all \gm{} tweets were positive whereas only $\frac{2}{3}$ of \vw{} tweets were positive.
@@ -102,58 +102,58 @@ The same holds true for certain companies: \SI{80}{\percent} of all \gm{} tweets
 % 5VW             0       6       6       1       0       1       9       3       6       7       1      12      15      11      26      80
 %                12      15      20      11       8       5      21      11      27      31      13      32      61      42     103     400
 
-In \cref{s:analysis-granger} the time series are compared to each other using the Granger analysis.
+In \cref{s:analysis-granger} the time series have been compared to each other using the Granger analysis.
 It tries to find a relation between the time series using a lag (in days).
-In total 400 tests are performed: five companies for lags from one to ten days and four different sentiment classifiers using two different datasets (one with all tweets and one with omitted retweets).
+In total 400 tests have been performed: five companies for lags from one to ten days and four different sentiment classifiers using two different datasets (one with all tweets and one with omitted retweets).
 The results are depicted in \cref{tab:analysis-classifiercomparision-summary}.
-From this 400 performed test 103 were significant.
-It is shown that omitting \acp{RT} had a negative effect on the results (61 significant tests using all tweets versus 42 significant tests with omitted \acp{RT}).
-For the company \ford{} only one classifier yield to a significant result (\fnb{} with both datasets).
+From these 400 performed tests 103 were significant.
+It has been shown that omitting \acp{RT} had a negative effect on the results (61 significant tests using all tweets versus 42 significant tests with omitted \acp{RT}).
+For the company \ford{} only one classifier yielded to a significant result (\fnb{} with both datasets).
 But for the company \toyota{} not a single setup resulted in a significant result.
 
 \section{Discussion and Limitations}
 \label{s:conclusions-discussion}
 
-This thesis tried to focus on five automotive companies but there were several difficulties during execution which leads to several limitations.
+This thesis tried to focus on five automotive companies but there were several difficulties during execution which led to several limitations.
 
 The first limitation is Twitter as datasource.
-As the official search \ac{API} proved to be insufficient as there are some understandably limits in place the \ac{DMITCAT} approach was a good decision.
+As the official search \ac{API} proved to be insufficient as there are some understandable limits in place the \ac{DMITCAT} approach was a good decision.
 But using \ac{DMITCAT} had also some serious drawbacks:
 
 \begin{itemize}
     \item 
-        The software must be installed by one self and the machine must be up and running to collect tweets.
-        As we can't keep the personal computer running continuously for more than one month we decided to install \ac{DMITCAT} to a virtual machine in the cloud.
-        This decision yielded to several other problems:
+        The software must be installed by oneself and the machine must be up and running to collect tweets.
+        As the personal computer cannot be kept running continuously for more than one month the decision has been made to install \ac{DMITCAT} to a virtual machine in the cloud.
+        This decision resulted in several other problems:
 
         \begin{itemize}
             \item 
-                The capacity of the provided virtual machine was way to small as 30 \ac{GB} of data has been captured within 14 days.
+                The capacity of the provided virtual machine was way too small as 30 \ac{GB} of data have been captured within 14 days.
             \item 
                 The virtual machine shut down every day on 7 PM. 
                 Therefore several tweets were not captured at all.
             \item 
                 New \ac{DMITCAT} releases have been published which required a database upgrade.
-                This was a quite time consuming task and required that collection for the specific query bin is stopped.
+                This was a quite time-consuming task and required collection for the specific query bin to be stopped.
 
             \item
-                The excerpt of the collected data which was needed to perform the analysis need over 4 \ac{GB} in compressed size.
+                The excerpt of the collected data which was needed to perform the analysis needed over 4 \ac{GB} in compressed size.
         \end{itemize}
 
     \item
-        \ac{DMITCAT} uses also the official Twitter \ac{API} and as a result some limits apply.
-        These limits have been hit from time to time and forced the tweet collection to pause.
+        \ac{DMITCAT} also uses the official Twitter \ac{API} and as a result some limits apply.
+        These limits were hit from time to time and forced the tweet collection to pause.
         But the software continued to collect tweets automatically after the corresponding time window.
 \end{itemize}
 
-Second, the resulting gaps from data collection in the tweet time series resulted in fragmented data which made it pretty hard to analyze.
-Maybe the results would be more precise if this gaps could be removed.
+Secondly, the resulting gaps from data collection in the tweet time series resulted in fragmented data which made it pretty hard to analyze.
+Maybe the results would be more precise if these gaps could be removed.
 
-Third, the training of the sentiment classifiers used the Twitter corpus of \ac{NLTK} which contains each 5000 positive and 5000 negative tweets.
+Thirdly, the training of the sentiment classifiers used the Twitter corpus of \ac{NLTK} which contains 5000 positive and 5000 negative tweets.
 To improve the accuracy of the classifiers the training data could be extracted from the collected tweets which would require manual rating of the training set.
 
-From these limitations the area for improvement for future research can be deducted.
-Particularly the gaps in the twitter time series could seems to be a serious problem which make some statistical analysis unreliable.
+From these limitations the area for improvement for future research can be derived.
+Particularly the gaps in the Twitter time series could be a serious problem which make some statistical analysis unreliable.
 
 \section{Future Research}
 \label{s:conclusions-future}
@@ -164,16 +164,16 @@ Particularly the gaps in the twitter time series could seems to be a serious pro
 % retweets?
 % classification in positive, neutral and negative?
 
-This thesis at hand provides a basis to build on for upcoming researches and further points of interest can be deducted from the results of the study and the pointed out limitations.
+This thesis provides a basis for upcoming researches and further points of interest can be deduced from the results of the study and the described limitations.
 
 First, the issues with the installation and maintenance of \ac{DMITCAT} need to be solved.
 As the issues were technical they should be easy to solve by providing a computer with more resources which can run 24/7 for several months.
-Furthermore, the collected data need serious amount of disk space and the sentiment classification algorithms need computation power and a fast hard disk.
-This would also overcome the limitation of download the collected tweets from a virtual machine in order to analyze them.
+Furthermore, the collected data needs a large amount of disk space and the sentiment classification algorithms need computation power and a fast hard disk.
+Providing a computer as described above would also overcome the limitation of downloading the collected tweets from a virtual machine in order to analyze them.
 
-Secondly, the classifiers have been trained to rate tweets binary (positive or negative).
+Secondly, the classifiers have been trained for a binary rating of tweets (positive or negative).
 In literature some also experimented with a trinary rating (positive, neutral or negative) which may lead to new conclusions.
 
 Thirdly, the performed text pre-processing was a mixture of several approaches in literature.
-This can be more fine grained especially for identifying sarcasm, slang and abbreviations within tweets.
+A more fine-grained approach would especially improve the identification of sarcasm, slang and abbreviations within tweets.
 Therefore, more research is needed to fine tune the text pre-processing and classification algorithms.
