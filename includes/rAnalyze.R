@@ -86,15 +86,6 @@ os.hyundai <- dk.oppositesentiments(data.hyundai)
 os.toyota <- dk.oppositesentiments(data.toyota)
 os.vw <- dk.oppositesentiments(data.vw)
 
-os <- os.ford
-os <- rbind(os, os.gm)
-os <- rbind(os, os.hyundai)
-os <- rbind(os, os.toyota)
-os <- rbind(os, os.vw)
-
-fit <- lm(diff ~ rt.ratio, data=os)
-summary(fit)
-
 data.ford$company <- "Ford"
 data.gm$company <- "GM"
 data.hyundai$company <- "Hyundai"
@@ -276,7 +267,6 @@ dev.off()
 summary(lm(NoRt ~ lag, data = granger.lag))
 summary(lm(RT ~ lag, data = granger.lag))
 summary(lm(total ~ lag, data = granger.lag))
-
 
 positive.tweets <- data.frame(matrix(c(
 dk.sentimentstats(data.ford),

@@ -142,18 +142,11 @@ dk.load <- function(tweetFile, indicesFile, omitRt = F) {
 
 dk.show <- function(df) {
 	melted <- melt(df[c(1:5,8)], id.vars='date', variable.name='type')
-	# copy the dategroups
 	melted$dategroup <- df$dategroup 
-	
-	#https://stackoverflow.com/questions/21529332/how-to-not-plot-gaps-in-timeseries-with-r
-
 	legendtitle <- "Legend"
-
 	grouptitles <- paste("Group", 1:length(unique(melted$dategroup)))
 	names(grouptitles) <- unique(melted$dategroup)
-
 	levels(melted$type) <- c("$S_{TB}$", "$S_{NB}$","$S_{ME}$", "$S_{SVM}$", "$P_{Share}$")
-
 	lineValues <- c(1,1,1,1,2,0)
 
 	ggplot(melted, aes(date, value, color=type)) + 
@@ -169,17 +162,12 @@ dk.show <- function(df) {
 dk.showsentiments <- function(df) {
 	melted <- melt(df[1:5], id.vars='date', variable.name='type')
 	# copy the dategroups
-	melted$dategroup <- df$dategroup 
-	
+	melted$dategroup <- df$dategroup 	
 	#https://stackoverflow.com/questions/21529332/how-to-not-plot-gaps-in-timeseries-with-r
-
 	legendtitle <- "Legend"
-
 	grouptitles <- paste("Group", 1:length(unique(melted$dategroup)))
 	names(grouptitles) <- unique(melted$dategroup)
-
 	levels(melted$type) <- c("$S_{TB}$", "$S_{NB}$","$S_{ME}$", "$S_{SVM}$")
-
 	lineValues <- c(1,1,1,1,0,0)
 
 	ggplot(melted, aes(date, value, color=type)) + 
@@ -300,8 +288,6 @@ dk.granger <- function(df) {
 	i <- 1
 	while(i < 11) {
 		# y ~ model
-		# y wird erklärt durch model
-		# Close wird erklärt durch SA_X
 		x$SA_TB[i] <- grangertest(Close ~ SA_TB, order = i, data = df)[2,4]
 		x$SA_NB[i] <- grangertest(Close ~ SA_NB, order = i, data = df)[2,4]
 		x$SA_ME[i] <- grangertest(Close ~ SA_ME, order = i, data = df)[2,4]
