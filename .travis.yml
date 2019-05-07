@@ -3,7 +3,8 @@ services:
 - docker
 script:
 - docker pull dxjoke/tectonic-docker
-- docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates thesis/thesis.tex; tectonic --keep-intermediates presentation/presentation.tex"
+- docker run --mount src=$TRAVIS_BUILD_DIR/thesis,target=/usr/src/tex,type=bind dxjoke/tectonic-docker tectonic --keep-intermediates thesis.tex
+- docker run --mount src=$TRAVIS_BUILD_DIR/presentation,target=/usr/src/tex,type=bind dxjoke/tectonic-docker tectonic --keep-intermediates presentation.tex
 deploy:
   provider: releases
   api_key:
