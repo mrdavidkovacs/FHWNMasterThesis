@@ -1,0 +1,1 @@
+python -u .\tweets_analyzer.py | tee -a results/output.txt

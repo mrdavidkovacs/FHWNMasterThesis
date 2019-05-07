@@ -3,13 +3,14 @@ services:
 - docker
 script:
 - docker pull dxjoke/tectonic-docker
-- docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker tectonic --keep-intermediates main.tex
+- docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker tectonic --keep-intermediates thesis/thesis.tex; tectonic --keep-intermediates presentation/presentation.tex
 deploy:
   provider: releases
   api_key:
     secure: 689LcVKDu5UceNyR2ekTh1uCKdnlYUW8VwvSt/LwlYY1eIYzbR66klajKotRfto6M0xFu4Zo4gl46TA7AQQPHJPeHB8kVfPZ3kbCBqrvV9LiFjupSpGmvNbZkyhiWtgCdP6v728Gb5HryXGhm1uDCznqrIp6A4URw77ih3xS3STg3zO2MMRr8u9zO3GQXHcQ6NYOl77WbV6Uj6Eivpb5JGTM4UjPLZ0T8Vgc3kw4CmBP+ERVXXRqhFbhXfYh7TBDh2KLC9cESlciHSkQIZvjlY4dGdQch0BXIvc+WDwfyEVGTws5qEhV9RUvjJbM6BuFIi4gW7aORurv3e027Wt9O6ED27aZYtl+LUVsnh4FjoeGHjrvpGPZ4tB/lVqqz73rzpzz2q3V8hngv9roFIZGJ/qgECXl1oC14HyhmlyyHAm0yqOHCy5IEOJ2bRuFbIMCFAVEQpASGnU1H7Ss0MZPhXcaD2K8O9v0xum0yL7KK3ld71zpZjr9PJgC5LGiEmSyBZPVnjM1/uXw+E1BNis4uB93E32cfIQMYLfjY3bNux9h0XVelgTFw5cWGM1Lf8g+drzg9ntqv90psl7T/BZ0LvAsHjQYoDKORVOwM+SerrhiyapoJcFgSv8PlOmXaPFcqWAQTQdxZhsdcUxwcoietuj+ZrzhUnwfPH/SzSufFhY=
   file:
-  - main.pdf
+  - thesis/thesis.pdf  
+  - presentation/presentation.pdf
   skip_cleanup: true
   on:
     repo: mrdavidkovacs/MasterThesis
