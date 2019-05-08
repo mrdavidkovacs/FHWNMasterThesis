@@ -7,109 +7,44 @@
 % Latest update: 11/07/2016
 %version: 2.2
 
-        %----------------------------------------------------%
 \documentclass{includes/fhwn-masterthesis}
 
 \usepackage{includes/masterthesis-vars}
-
 \usepackage{includes/masterthesis-definitions}
 
-    %%%------------------END OF THE PREAMBLE-----------------%%%
-    %%--------------------------------------------------------%%
-
-    %------------------------DOCUMENT-----------------------------%
-
 \makeglossaries
-\input{frontmatter/acronyms}
+\include{frontmatter/acronyms}
 
 \begin{document}
 
-    %----------------------------FRONT MATTER---------------------%
 \frontmatter
 
-\input{frontmatter/titlepage}
-
-\input{frontmatter/declaration}
-
-\input{frontmatter/abstract}
+\include{frontmatter/titlepage}
+\include{frontmatter/declaration}
+\include{frontmatter/abstract}
 
 \normalsize
-
-%%--------------It's your choice to include a dedication and/or acknowledgement---------------%%
-
-%\chapter*{Dedication}
-%\input{frontmatter/dedication}
-
-% \chapter*{Acknowledgement}
-% \input{frontmatter/acknowledgment}
-
-        %%------------------------TABLE OF CONTENTS AND LISTS-------------------%%
-        %%----------------------------------------------------------------------%%
         
 \tableofcontents
 \cleardoublepage
 
-%\chapter*{List of Acronyms}
-%\addcontentsline{toc}{chapter}{List of Acronyms}
-%\printglossary[type=\acronymtype]
-\printglossary[type=\acronymtype,title=List of Acronyms,style=long]
-\cleardoublepage
+\include{frontmatter/listofacronyms}
 
-% as there is only one listing we need no list of listings
-% \lstlistoflistings
-% \addcontentsline{toc}{chapter}{List of Listings}
-% \cleardoublepage
-
-\glsresetall
 \mainmatter
+\glsresetall
 
-% \pagestyle{mystyle}
-
-        %--------------------BODY OF THE THESIS--------------------------%
-        %%--------------------------------------------------------------%%
-%\cleardoublepage
-\chapter{Introduction}
-\label{c:introduction}
-\input{chapters/chapter01}
-
-\chapter{Theoretical background}
-\label{c:background}
-\input{chapters/chapter02}
-
-\chapter{Case Study}
-\label{c:casestudy}
-\input{chapters/chapter03}
-
-\chapter{Analysis}
-\label{c:analysis}
-\input{chapters/chapter04}
-
-%\glsresetall
-\chapter{Conclusion}
-\label{c:conclusion}
-\input{chapters/conclusion}
-    
-        %%------------------------END MATTER----------------------------%%
-        %%--------------------------------------------------------------%%
+\include{chapters/chapter01}
+\include{chapters/chapter02}
+\include{chapters/chapter03}
+\include{chapters/chapter04}
+\include{chapters/conclusion}
 
 \backmatter
         
-\printbibliography[nottype=online,title={References}]
-\printbibliography[heading=subbibliography,type=online,title={Tweet References}]
-%\addcontentsline{toc}{chapter}{References}
+\include{endmatter/bibliography}
+\include{endmatter/listoffigures}
+\include{endmatter/listoftables}
 
-\listoffigures  %\thispagestyle{fancy}
-\addcontentsline{toc}{chapter}{List of Figures}
-\cleardoublepage
-
-\listoftables   %\thispagestyle{fancy}
-\addcontentsline{toc}{chapter}{List of Tables}
-\cleardoublepage
-
-\appendix
-\input{endmatter/appendix}
-
-% \chapter{List of installed software at FH Wiener Neustadt}
-% \includepdf[pages={1,2}]{externaldocs/itsoftware}
+\include{endmatter/appendix}
 
 \end{document}
