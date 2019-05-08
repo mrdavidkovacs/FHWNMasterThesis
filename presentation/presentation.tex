@@ -1,9 +1,7 @@
 \documentclass{beamer}
  
-\usepackage[utf8]{inputenc}
-
 \usetheme{FHWN}
-
+\usepackage[utf8]{inputenc}
 \usepackage{../thesis/includes/masterthesis-vars}
 
 \institute{Matriculation No.: \matriculationNumber}
@@ -11,19 +9,12 @@
  
 \begin{document}
  
-\begin{frame}[plain]
-    \titlepage
-\end{frame}
+\include{chapters/00-preamble}
 
-\begin{frame}
-    \frametitle{Table of Contents}
-    \tableofcontents
-\end{frame}
-
-\input{chapters/chapter-01.tex}
-\input{chapters/chapter-02.tex}
-\input{chapters/chapter-03.tex}
-\input{chapters/chapter-04.tex}
-\input{chapters/chapter-05.tex}
+\include{chapters/01-chapter-introduction}
+\include{chapters/02-chapter-background}
+\include{chapters/03-chapter-casestudy}
+\include{chapters/04-chapter-analysis}
+\include{chapters/05-chapter-conclusion}
  
 \end{document}
