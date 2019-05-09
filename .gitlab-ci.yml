@@ -1,0 +1,7 @@
+compile_pdf:
+  image: aergus/latex
+  script:
+    - make all
+  artifacts:
+    paths:
+      - "*.pdf"
