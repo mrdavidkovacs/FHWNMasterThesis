@@ -1,0 +1,19 @@
+pool:
+  vmImage: 'ubuntu-16.04'
+
+container: aergus/latex
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+
+steps:
+- script: make all
+  displayName: 'Build LaTeX documents'
+- task: GitHubRelease@0
+  displayName: 'Publish to GitHub'
+  inputs:
+    gitHubConnection: mrdavidkovacs
+    repositoryName: mrdavidkovacs/MasterThesis
