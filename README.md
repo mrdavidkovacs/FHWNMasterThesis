@@ -9,7 +9,7 @@ Furthermore, the repository performs CI and saves the artifacts as releases.
 It is still work in progress.
 
 ## Build Status
-[![Build Status](https://travis-ci.com/mrdavidkovacs/MasterThesis.svg?token=DztjHfzimT8t5amFoWvk&branch=master)](https://travis-ci.com/mrdavidkovacs/MasterThesis)
+[![Build Status](https://dev.azure.com/kource/FHWN/_apis/build/status/mrdavidkovacs.MasterThesis?branchName=master)](https://dev.azure.com/kource/FHWN/_build/latest?definitionId=13&branchName=master)
 
 ## Issues
 One thing which won't work is the glossary (list of acronyms) for the thesis.pdf.
