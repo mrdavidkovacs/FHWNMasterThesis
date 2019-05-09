@@ -1,10 +1,20 @@
+CC=latexmk
+CFLAGS=-xelatex -synctex=1 -interaction=nonstopmode -shell-escape
+
 all:thesis presentation
+
+presentation: presentation-standalone presentation-handout
+
 thesis:
-	latexmk -xelatex -synctex=1 -interaction=nonstopmode -shell-escape thesis.tex
-presentation:
-	latexmk -xelatex -synctex=1 -interaction=nonstopmode -shell-escape presentation.tex
-	latexmk -xelatex -synctex=1 -interaction=nonstopmode -shell-escape presentation-handout.tex
+	$(CC) $(CFLAGS) thesis.tex
+
+presentation-standalone:
+	$(CC) $(CFLAGS) presentation.tex
+
+presentation-handout: presentation-standalone
+	$(CC) $(CFLAGS) presentation-handout.tex
+
 clean:
-	latexmk -c
+	$(CC) -c
 clean-all:
-	latexmk -C
+	$(CC) -C
