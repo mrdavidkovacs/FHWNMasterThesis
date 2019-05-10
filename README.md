@@ -11,8 +11,11 @@ It is still work in progress.
 ## Build Status
 [![Build Status](https://dev.azure.com/kource/FHWN/_apis/build/status/mrdavidkovacs.MasterThesis?branchName=master)](https://dev.azure.com/kource/FHWN/_build/latest?definitionId=13&branchName=master)
 
-## Issues
-One thing which won't work is the glossary (list of acronyms) for the thesis.pdf.
+## Build Configurations
+There are several build configurations available:
+* [Azure Pipelines](azure-pipelines.yml) (currently in use on GitHub)
+* [GitLab CI](.gitlab-ci.yml) (currently in use on GitLab)
+* [TravisCI](.travis.yml) (old CI configuration which had issues with the list of acronyms)
 
 # Thesis template for FHWN (FH Wiener Neustadt, University of Applied Sciences in Wiener Neustadt)
 The most important styles are extracted to a new LaTeX class (see [fhwn-masterthesis.cls](includes/fhwn-masterthesis.cls))
