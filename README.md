@@ -15,10 +15,10 @@ It is still work in progress.
 One thing which won't work is the glossary (list of acronyms) for the thesis.pdf.
 
 # Thesis template for FHWN (FH Wiener Neustadt, University of Applied Sciences in Wiener Neustadt)
-The most important styles are extracted to a new LaTeX class (see includes/fhwn-masterthesis.cls)
+The most important styles are extracted to a new LaTeX class (see [fhwn-masterthesis.cls](includes/fhwn-masterthesis.cls)
 
 Some thesis specific functions/variables are extracted to 
-* includes/masterthesis-definitions.sty
-* includes/masterthesis-vars.sty
+* [masterthesis-definitions.sty](includes/masterthesis-definitions.sty)
+* [masterthesis-vars.sty](includes/masterthesis-vars.sty)
 
-Furthermore, this repository includes the font "TW Cen MT".
+Furthermore, this repository includes the font "Tw Cen MT".

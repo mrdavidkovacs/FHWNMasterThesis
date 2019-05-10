@@ -53,13 +53,13 @@
 \RequirePackage{tabto}
 
 \RequirePackage{fontspec}
-\setmainfont{Tw Cen MT}
-% \setmainfont{MyFont.TTF}%Tw Cen MT
-% [Ligatures=TeX,
-%     Path=includes/fonts/,
-%     BoldFont=MyFont_Bold.TTF,
-%     ItalicFont=MyFont_Italic.TTF,
-% BoldItalicFont=MyFont_BoldItalic.TTF]
+% \setmainfont{Tw Cen MT}
+\setmainfont{MyFont.TTF}%Tw Cen MT
+[Ligatures=TeX,
+    Path=includes/fonts/,
+    BoldFont=MyFont_Bold.TTF,
+    ItalicFont=MyFont_Italic.TTF,
+BoldItalicFont=MyFont_BoldItalic.TTF]
 
 \RequirePackage{xcolor}
 \definecolor{header-blue}{RGB}{22,48,114}
