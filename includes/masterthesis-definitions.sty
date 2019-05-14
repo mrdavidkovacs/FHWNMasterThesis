@@ -1,14 +1,12 @@
 \ProvidesPackage{masterthesis-definitions}[2019/04/08 Master Thesis Definitions]
 
-\subject{Master's Thesis}
-\date{\gitCommitterDate}
+\subject{\thesissubject}
 
-%colorlinks
 \makeatletter
 \hypersetup{pdfinfo={
   Title={\@title},
   Author={\@author},
-  Subject={Master's Thesis},
+  Subject={\thesissubject},
   Keywords={\thesiskeywords}}
 }
 \makeatother
