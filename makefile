@@ -1,9 +1,12 @@
 CC=latexmk
 CFLAGS=-xelatex -synctex=1 -interaction=nonstopmode -shell-escape
 
-all:thesis presentation
+all:thesis presentation proposal
 
 presentation: presentation-standalone presentation-handout
+
+proposal:
+	$(CC) $(CFLAGS) proposal.tex
 
 thesis:
 	$(CC) $(CFLAGS) thesis.tex

@@ -3,7 +3,7 @@ services:
 - docker
 script:
 - docker pull dxjoke/tectonic-docker
-- docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 10 thesis.tex; tectonic --keep-intermediates presentation.tex; tectonic --keep-intermediates presentation-handout.tex"
+- docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates thesis.tex; tectonic --keep-intermediates presentation.tex; tectonic --keep-intermediates presentation-handout.tex; tectonic --keep-intermediates proposal.tex"
 deploy:
   provider: releases
   api_key:
@@ -12,6 +12,7 @@ deploy:
   - thesis.pdf  
   - presentation.pdf
   - presentation-handout.pdf
+  - proposal.pdf
   skip_cleanup: true
   on:
     repo: mrdavidkovacs/MasterThesis
