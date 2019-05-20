@@ -15,7 +15,9 @@ There are several build configurations available:
 * [TravisCI](.travis.yml) (old CI configuration which had issues with the list of acronyms)
 
 ## Build Status
-[![Build Status](https://dev.azure.com/kource/FHWN/_apis/build/status/mrdavidkovacs.MasterThesis?branchName=master)](https://dev.azure.com/kource/FHWN/_build/latest?definitionId=13&branchName=master)
+* Azure: [![Build Status](https://dev.azure.com/kource/FHWN/_apis/build/status/mrdavidkovacs.MasterThesis?branchName=master)](https://dev.azure.com/kource/FHWN/_build/latest?definitionId=13&branchName=master)
+
+* GitLab: [![pipeline status](https://gitlab.com/mr.david.kovacs/MasterThesis/badges/master/pipeline.svg)](https://gitlab.com/mr.david.kovacs/MasterThesis/commits/master)
 
 # Thesis template for FHWN (FH Wiener Neustadt, University of Applied Sciences in Wiener Neustadt)
 The most important styles are extracted to a new LaTeX class (see [fhwn-masterthesis.cls](includes/fhwn-masterthesis.cls))
