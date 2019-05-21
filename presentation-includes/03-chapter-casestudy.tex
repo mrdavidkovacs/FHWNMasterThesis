@@ -1,1 +1,55 @@
 \section{Case Study}
+
+\begin{frame}
+    \frametitle{Workflow}
+
+    \begin{enumerate}
+        \item Determine companies, keywords and stock symbols to analyze
+        \item Gather data
+        \item Normalization of tweets
+        \item Determine sentiment of tweets
+        \item Comparing sentiment time series with share prices
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Companies}
+
+    Top five automotive companies in the world \citep{OICA2016}
+
+    {\footnotesize
+    \begin{table}
+        \centering
+        \begin{tabular}[c]{!l ^r ^l ^l}
+          \hline
+          \rowstyle{\bfseries}
+            Company & \#cars & Stock Exchange & Symbol  \\ \hline
+            \ford{} & 6,429,485 & New York & F  \\
+            \gm{} & 7,793,066 & New York & GM \\
+            \hyundai{} & 7,889,538 & Korea & 005380.KS \\
+            \toyota{} & 10,213,486 & Tokyo & 7203.T \\
+            \vw{} & 10,126,281 & Frankfurt & VOW.F \\  \hline
+          \end{tabular}
+      \end{table}
+    }
+\end{frame}
+
+\begin{frame}
+    \frametitle{Keywords}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{!l ^r ^r ^r}
+          \hline
+          \rowstyle{\bfseries}
+              Company   & \# keywords & \# captured tweets  & \# English tweets  \\ \hline
+              \ford{} & 2 & \num{4518198}       & \num{3745447} \\
+              \gm{} & 8 & \num{575547}        & \num{413817} \\
+              \hyundai{} & 2 & \num{1895306}       & \num{697221} \\
+              \toyota{} & 3 & \num{915868}        & \num{488913} \\
+              \vw{} & 8 & \num{8244083}       & \num{6219350} \\ \hline
+              Total & 23 & \num{16149002}      & \num{11565283} \\ \hline
+        \end{tabular}
+      \end{table}
+      
+\end{frame}
