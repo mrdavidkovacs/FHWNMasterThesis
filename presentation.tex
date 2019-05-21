@@ -5,6 +5,34 @@
 \usepackage{includes/masterthesis-vars}
 \usepackage[UKenglish]{isodate}
 
+\usepackage[group-separator={,}]{siunitx}
+\usepackage{supertabular}
+
+\usepackage[backend=bibtex,style=numeric,sorting=anyvt,natbib=true]{biblatex}
+\addbibresource{thesis-includes/part00-preamble-mainreferences.bib}  %Imports bibliography file
+\addbibresource{thesis-includes/part00-preamble-tweetreferences.bib} %Imports bibliography file
+
+% the following section is from: https://tex.stackexchange.com/questions/97615/article-style-bibliography-in-beamer-class
+
+% make bibliography entries smaller
+\renewcommand\bibfont{\scriptsize}
+% If you have more than one page of references, you want to tell beamer
+% to put the continuation section label from the second slide onwards
+\setbeamertemplate{frametitle continuation}[from second]
+% and kill the abominable icon
+%\setbeamertemplate{bibliography item}{}
+% Now get rid of all the colours
+\setbeamercolor*{bibliography entry title}{fg=black}
+\setbeamercolor*{bibliography entry author}{fg=black}
+\setbeamercolor*{bibliography entry location}{fg=black}
+\setbeamercolor*{bibliography entry note}{fg=black}
+
+\newcolumntype{!}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+  #1\ignorespaces
+}
+
 \institute{Matriculation No.: \matriculationNumber}
 \date{\printdate{2019-06-19}}
  
