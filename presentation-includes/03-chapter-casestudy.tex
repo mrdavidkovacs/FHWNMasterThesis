@@ -20,35 +20,61 @@
 \end{frame}
 
 \note[itemize]{
-  \item Table 3.1: Keywords/Brands, page 13-15
+  \item Table 3.1: Keywords/Brands, page 13-15 (ranking in paranthesis)
   \begin{itemize}
-    \item Ford
+    \item Ford (5)
       \begin{itemize}
         \item Ford, Lincoln
       \end{itemize}
 
-    \item GM
+    \item GM (4)
       \begin{itemize}
         \item Baojun, Buick, Cadillac, Chevrolet, GMC, Holden, Jiefang, Wuling
       \end{itemize}
 
-    \item Hyundai
+    \item Hyundai (3)
       \begin{itemize}
         \item Hyundai, KIA
       \end{itemize}
 
-    \item Toyota
+    \item Toyota (1)
       \begin{itemize}
         \item Daihatsu, Lexus, Toyota
       \end{itemize}
 
-    \item VW
+    \item VW (2)
       \begin{itemize}
         \item Audi, Bentley, Bugatti, Lamborghini, Porsche, Seat, Škoda, Volkswagen
       \end{itemize}
 
   \end{itemize}
   \item Table 3.2: Five Companies, page 15
+}
+
+\begin{frame}
+  \frametitle{Stock Symbols}
+
+  {\footnotesize
+  \begin{table}
+      \centering
+      \begin{tabular}[c]{!l ^r ^l ^l}
+        \hline
+        \rowstyle{\bfseries}
+          Company & \#cars\citep{OICA2016} & Market & Symbol  \\ \hline
+          \ford{} & 6,429,485 & New York & F  \\
+          \gm{} & 7,793,066 & New York & GM \\
+          \hyundai{} & 7,889,538 & Korea & 005380.KS \\
+          \toyota{} & 10,213,486 & Tokyo & 7203.T \\
+          \vw{} & 10,126,281 & Frankfurt & VOW.F \\  \hline
+        \end{tabular}
+    \end{table}
+  }
+\end{frame}
+
+\note[itemize]{
+  \item Same as Table 3.2: Five Companies, page 15
+  \item OICA = Organisation Internationale des Constructeurs d'Automobiles (engl. International Organization of Motor Vehicle Manufacturers)
+  \item Daten von dem OICA corresponds survey 2016
 }
 
 \begin{frame}
@@ -74,3 +100,25 @@
   \item Why DMI-TCAT?: page 16/17
   \item Description of datasets beginning with page 24
 }
+
+\begin{frame}
+  \frametitle{Tweets}
+
+  {\footnotesize
+  \begin{table}
+      \centering
+      \begin{tabular}{!l ^r ^r}
+        \hline
+        \rowstyle{\bfseries}
+            Company     & \# captured tweets  & \# English tweets \\ \hline
+            \ford{}     & \num{4518198}       & \num{3745447}     \\
+            \gm{}       & \num{575547}        & \num{413817}      \\
+            \hyundai{}  & \num{1895306}       & \num{697221}      \\
+            \toyota{}   & \num{915868}        & \num{488913}      \\
+            \vw{}       & \num{8244083}       & \num{6219350}     \\ \hline
+            Total       & \num{16149002}      & \num{11565283}    \\ \hline
+      \end{tabular}
+    \end{table}
+  }
+    
+\end{frame}
