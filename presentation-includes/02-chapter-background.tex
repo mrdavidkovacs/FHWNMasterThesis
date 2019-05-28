@@ -32,6 +32,46 @@
     \end{itemize}
 \end{frame}
 
-\note[itemize]{
-    \item TODO
+\note[itemize] {
+    \item {
+        Naive Bayes:
+        \begin{equation}
+            P_{NB}(c|d) = \frac{P(c) (\prod_{i=1}^{m} P(f_i|c)^{n_i(d)}) }{P(d)}
+            \label{eq:background-optionmining-machinelearningalgorithms-bayes}
+        \end{equation}
+    }
+}
+
+\note[itemize] {
+    \item {
+     Maximum Entropy:
+        \begin{equation}
+            P_{ME}(c|d) = \frac{1}{Z(d)} exp \left( \sum_i^m \lambda_{i,c}F_{i,c}(d,c) \right)
+            \label{eq:background-optionmining-machinelearningalgorithms-maximumentropy}
+        \end{equation}
+
+        \begin{equation}
+            Z(d) = \sum_c exp(\sum_i \lambda_{i,c} F_{i,c}(d,c))
+            \label{eq:background-optionmining-machinelearningalgorithms-maximumentropy_Zd}
+        \end{equation}
+    
+        \begin{equation}
+        F_{i,c}(d,c') = 
+            \begin{cases}
+            1, & n_i(d) > 0 \text{ and } c' = c \\
+            0  & \text{otherwise}
+            \end{cases}
+            \label{eq:background-optionmining-machinelearningalgorithms-maximumentropy_fic}
+        \end{equation}
+    }
+}
+
+\note[itemize] {
+    \item {
+        Support Vector Machine:
+        \begin{figure}[ht]
+            \includegraphics[width=.7\textwidth]{images/svm.png}
+            \label{fig:background-optionmining-machinelearningalgorithms-svm}
+        \end{figure}        
+    }
 }
