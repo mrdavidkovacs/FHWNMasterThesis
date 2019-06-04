@@ -22,4 +22,4 @@ steps:
   inputs:
     gitHubConnection: mrdavidkovacs
     repositoryName: mrdavidkovacs/MasterThesis
-    assets: "*.pdf"
+    assets: "build/*.pdf"

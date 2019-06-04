@@ -4,4 +4,4 @@ compile_pdf:
     - make all
   artifacts:
     paths:
-      - "*.pdf"
+      - "build/*.pdf"
