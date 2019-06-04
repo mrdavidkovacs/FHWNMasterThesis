@@ -7,6 +7,7 @@
 
 \usepackage[group-separator={,}]{siunitx}
 \usepackage{supertabular}
+\usepackage[nomain,acronym,toc,shortcuts]{glossaries}
 
 \usepackage[backend=bibtex,style=numeric,sorting=anyvt,natbib=true]{biblatex}
 \addbibresource{thesis-includes/part00-preamble-mainreferences.bib}  %Imports bibliography file
@@ -47,6 +48,9 @@
 
 \institute{Matriculation No.: \matriculationNumber}
 \date{\printdate{2019-06-19}}
+
+\input{includes/used-acronyms}
+\makeglossaries
  
 \begin{document}
  
@@ -55,7 +59,7 @@
 \include{presentation-includes/01-chapter-introduction}
 \include{presentation-includes/02-chapter-background}
 \include{presentation-includes/03-chapter-casestudy}
-\include{presentation-includes/04-chapter-analysis}
+%\include{presentation-includes/04-chapter-analysis}
 \include{presentation-includes/05-chapter-conclusion}
 \include{presentation-includes/06-references}
  
