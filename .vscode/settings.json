@@ -46,9 +46,7 @@
         "presentation.pdf",
         "presentation-handout.pdf",
         "proposal.pdf",
-        "thesis-includes/*.aux",
-        "presentation-includes/*.aux",
-        "proposal-includes/*.aux",
+        "includes/**/*.aux",
         //"images/tikz/*.pdf",
     ]
 }

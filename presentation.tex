@@ -10,8 +10,8 @@
 \usepackage[nomain,acronym,toc,shortcuts]{glossaries}
 
 \usepackage[backend=bibtex,style=numeric,sorting=anyvt,natbib=true]{biblatex}
-\addbibresource{thesis-includes/part00-preamble-mainreferences.bib}  %Imports bibliography file
-\addbibresource{thesis-includes/part00-preamble-tweetreferences.bib} %Imports bibliography file
+\addbibresource{includes/shared-preamble-mainreferences.bib}  %Imports bibliography file
+\addbibresource{includes/shared-preamble-tweetreferences.bib} %Imports bibliography file
 
 % the following section is from: https://tex.stackexchange.com/questions/97615/article-style-bibliography-in-beamer-class
 
@@ -49,7 +49,7 @@
 \institute{Matriculation No.: \matriculationNumber}
 \date{\printdate{2019-06-19}}
 
-\input{includes/used-acronyms}
+\input{includes/shared-preamble-acronyms}
 \makeglossaries
  
 \begin{document}
