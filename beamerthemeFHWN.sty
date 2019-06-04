@@ -15,5 +15,24 @@
 
 \logo{\includegraphics[width=2cm]{images/fhwn-logo.png}}
 
+\newcommand{\nologo}{\setbeamertemplate{logo}{}} 
+
+% the ``Thank you'' page
+\def\makethanks{%
+  \begin{frame}
+  \frametitle{\@thankstitle}
+  \@thanksmessage
+  \end{frame}
+}
+% in ``article'' mode there's no ``Thank you'' page
+\mode<article>
+  {\providecommand\makethanks{}}
+
+% commands for the title and message of the "Thank you" page
+\def\thankstitle#1{\def\@thankstitle{#1}}
+\def\thanksmessage#1{\def\@thanksmessage{#1}}
+\thankstitle{Thanks for your attention! Any questions?}
+\thanksmessage{Hope you slept comfortably!}
+
 \mode
 <all>
