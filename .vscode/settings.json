@@ -42,8 +42,13 @@
         "*.run.xml",
         "*.synctex.gz",
         "*.xdv",
-        "build/**", // remove all files and subfolders
-		"build/", // then remove the folder itself
-        "*.synctex(busy)",
+        "thesis.pdf",
+        "presentation.pdf",
+        "presentation-handout.pdf",
+        "proposal.pdf",
+        "thesis-includes/*.aux",
+        "presentation-includes/*.aux",
+        "proposal-includes/*.aux",
+        //"images/tikz/*.pdf",
     ]
 }
