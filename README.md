@@ -1,15 +1,35 @@
-# Master Thesis
-This repository contains my master thesis and the presentation.
+# Contents
+This repository contains my master thesis proposal, thesis and the presentation.
 Please see the corresponding files.
- * poposal.tex
- * thesis.tex
- * presentation.tex
+ * [proposal.tex](proposal.tex)
+ * [thesis.tex](thesis.tex)
+ * [presentation.tex](presentation.tex)
+ * [presentation-handout.tex](presentation-handout.tex) (to be compiled after presentation.tex)
 
 Furthermore, the repository performs CI and saves the artifacts as releases.
 
 It is still work in progress.
 
-## Build Configurations
+## Requirements
+The following software is required to build the artifacts:
+
+ * LaTeX system (for example MiKTeX)
+ * LaTeXMk (is in included in MiKTeX)
+ * make (Linux: included; Windows: [make for windows](http://gnuwin32.sourceforge.net/packages/make.htm))
+
+## Building artifacts
+To build all artifacts: `make all`
+
+The following make options are available:
+ * `make proposal`: artifacts: proposal.pdf
+ * `make thesis`: artifacts: thesis.pdf
+ * `make presentation`: artifacts: presentation.pdf presentation-handout.pdf
+ * `make presentation-standalone`: artifacts: presentation.pdf 
+ * `make presentation-handout`: artifacts: presentation-handout.pdf (and presentation-handout.pdf which is required)
+ * `make clean`: remove all temporary build artifacts
+ * `make clean-all`: remove all build artifacts
+
+## Continuous Integration
 There are several build configurations available:
 * [Azure Pipelines](azure-pipelines.yml) (currently in use on GitHub)
 * [GitLab CI](.gitlab-ci.yml) (currently in use on GitLab)
