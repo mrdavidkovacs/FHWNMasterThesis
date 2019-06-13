@@ -70,3 +70,31 @@
   \item \me{} performs generally worse than \tb{}
   \item \svm{} performs better or equal to \tb{} using all tweets
 }
+
+\begin{frame}
+  \frametitle{Limitations}
+
+  \begin{outline}
+    \1 Virtual machine
+      \2 Harddisk capacity
+      \2 Recurring shut downs
+    
+    \1 DMI-TCAT 
+      \2 Database upgrades
+      \2 Big data source
+      \2 Twitter API rate limits
+    
+    \1 Gaps in dataset
+
+    \1 Sentiment training tweets
+  \end{outline}
+\end{frame}
+
+\note[itemize]{
+  \item Harddisk: 30GB was to small
+  \item Shutdown 7PM every day
+  \item Database upgrade to support 280 char tweets --> took too long
+  \item Final compressed dataset size: >4GB
+  \item Gaps: upgrades, recurring shutdown, harddisk
+  \item Sentiment training: NLTK Twitter corpus (5000 positive/5000 negative)
+}
