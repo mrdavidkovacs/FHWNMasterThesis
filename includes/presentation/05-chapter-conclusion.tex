@@ -93,8 +93,21 @@
 \note[itemize]{
   \item Harddisk: 30GB was to small
   \item Shutdown 7PM every day
-  \item Database upgrade to support 280 char tweets --> took too long
-  \item Final compressed dataset size: >4GB
+  \item Database upgrade to support 280 char tweets $\rightarrow$ took too long
+  \item Final compressed dataset size: $>4GB$
   \item Gaps: upgrades, recurring shutdown, harddisk
   \item Sentiment training: NLTK Twitter corpus (5000 positive/5000 negative)
+}
+
+\note{
+  \begin{outline}
+    \1 EMH: Old ref $\rightarrow$ beginning
+    \1 Motivation: \underline{prediction}/validation
+    \1 Liu, 2007: Words aren't important for sentiment classification. In contrast to topic classification.
+    \1 BOW: Standard in sentiment classification.
+    \1 Size estimation:
+     \2 Optimistic: $200 Bytes/Tweet * 10 Mio Tweets = 1907 MB = 2GB$
+     \2 Pessimistic: $400 Bytes/Tweet * 20 Mio Tweets = 7630 MB = 7.6GB$
+     \2 Metadata (URLs, Geolocation, \ldots); MySQL
+   \end{outline}
 }
