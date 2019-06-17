@@ -23,9 +23,10 @@ To build all artifacts: `make all`
 The following make options are available:
  * `make proposal`: artifacts: proposal.pdf
  * `make thesis`: artifacts: thesis.pdf
- * `make presentation`: artifacts: presentation.pdf presentation-handout.pdf
+ * `make presentation`: artifacts: presentation-handout.pdf, presentation-with-notes-handout.pdf and presentation.pdf
  * `make presentation-standalone`: artifacts: presentation.pdf 
- * `make presentation-handout`: artifacts: presentation-handout.pdf (and presentation-handout.pdf which is required)
+ * `make presentation-handout`: artifacts: presentation-handout.pdf
+ * `make presentation-with-notes-handout`: artifacts: presentation-with-notes-handout.pdf
  * `make clean`: remove all temporary build artifacts
  * `make clean-all`: remove all build artifacts
 

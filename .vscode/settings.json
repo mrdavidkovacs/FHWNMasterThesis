@@ -46,6 +46,7 @@
         "presentation.pdf",
         "presentation-handout.pdf",
         "proposal.pdf",
+        "presentation-with-notes-handout.pdf",
         "includes/**/*.aux",
         //"images/tikz/*.pdf",
     ]
