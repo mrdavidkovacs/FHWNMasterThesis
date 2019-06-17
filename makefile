@@ -1,9 +1,9 @@
 CC=latexmk
 CFLAGS=-xelatex -synctex=1 -interaction=nonstopmode -shell-escape
-PRESENTATION_OPTIONS_FILE:=./includes/presentation/00-options.tex
-PRESENTATION_NORMAL_OPTIONS:=\def\presentationoptions{12pt}
-PRESENTATION_HANDOUT_OPTIONS:=\def\presentationoptions{12pt,handout}
-PRESENTATION_HANDOUT_WITH_NOTES_OPTIONS:=\def\presentationoptions{12pt,handout,notes}
+PRESENTATION_OPTIONS_FILE:=includes/presentation/00-options.tex
+PRESENTATION_NORMAL_OPTIONS:="\def\presentationoptions{12pt}"
+PRESENTATION_HANDOUT_OPTIONS:="\def\presentationoptions{12pt,handout}"
+PRESENTATION_HANDOUT_WITH_NOTES_OPTIONS:="\def\presentationoptions{12pt,handout,notes}"
 
 all:proposal thesis presentation
 
@@ -17,6 +17,7 @@ thesis:
 
 presentation-standalone:
 	echo $(PRESENTATION_NORMAL_OPTIONS) > $(PRESENTATION_OPTIONS_FILE)
+	cat $(PRESENTATION_OPTIONS_FILE)
 	$(CC) $(CFLAGS) presentation.tex
 
 presentation-handout:
