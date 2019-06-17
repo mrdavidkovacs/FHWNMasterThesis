@@ -17,7 +17,6 @@ thesis:
 
 presentation-standalone:
 	echo $(PRESENTATION_NORMAL_OPTIONS) > $(PRESENTATION_OPTIONS_FILE)
-	cat $(PRESENTATION_OPTIONS_FILE)
 	$(CC) $(CFLAGS) presentation.tex
 
 presentation-handout:
