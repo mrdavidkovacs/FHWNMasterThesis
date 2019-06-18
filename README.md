@@ -8,7 +8,13 @@ Please see the corresponding files.
 
 Furthermore, the repository performs CI and saves the artifacts as releases.
 
-It is still work in progress.
+## Roadmap
+
+| Step              | Date       |
+|-------------------|------------|
+| Research Proposal: | 16.11.2018 |
+| Thesis:            | 04.05.2019 |
+| Presentation:      | 19.06.2019 |
 
 ## Requirements
 The following software is required to build the artifacts:
