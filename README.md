@@ -1,3 +1,6 @@
+# General
+This repository is no longer actively maintained.
+
 # Contents
 This repository contains my master thesis proposal, thesis and the presentation.
 Please see the corresponding files.
